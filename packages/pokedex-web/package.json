@@ -1,6 +1,6 @@
 {
   "name": "@zthun/pokedex-web",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A pokedex in the cloud",
   "author": "Anthony Bonta",
   "license": "MIT",
@@ -18,7 +18,7 @@
   },
   "dependencies": {
     "@zthun/cirque": "^4.1.0",
-    "@zthun/pokedex": "^0.0.2",
+    "@zthun/pokedex": "^0.0.3",
     "lodash": "^4.17.21",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
