@@ -2,6 +2,23 @@
   "version": "0.2",
   "$schema": "https://raw.githubusercontent.com/streetsidesoftware/cspell/master/cspell.schema.json",
   "language": "en",
-  "words": ["pokedex", "pokedexii"],
-  "dictionaries": ["typescript", "node", "npm", "en_US"]
+  "words": [
+    "Bonta",
+    "BUILDKIT",
+    "commitlint",
+    "conventionalcommits",
+    "DOCKERHUB",
+    "microbundle",
+    "npmrc",
+    "pokedex",
+    "pokedexii",
+    "zthun",
+    "zthunworks"
+  ],
+  "dictionaries": [
+    "typescript",
+    "node",
+    "npm",
+    "en_US"
+  ]
 }
