@@ -17,7 +17,7 @@
     "e2e": "cucumber-js",
     "lint": "lint-janitor",
     "build": "lerna run build",
-    "make": "yarn clean && yarn lint && yarn test && yarn build && yarn doc",
+    "make": "yarn clean && yarn lint && yarn test && yarn build",
     "postinstall": "husky install"
   },
   "devDependencies": {
@@ -25,7 +25,6 @@
     "@commitlint/cli": "^17.4.4",
     "@commitlint/config-conventional": "^17.4.4",
     "@cucumber/cucumber": "^8.11.1",
-    "@types/jest": "^29.2.5",
     "@types/jsdom": "^21.1.0",
     "@types/lodash": "^4.14.191",
     "@types/node": "^18.14.0",
