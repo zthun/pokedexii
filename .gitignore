@@ -5,6 +5,9 @@ reports
 *.tgz
 .rpt2_cache
 
+# Yarn
+.yarn/cache
+
 # Logs
 logs
 *.log
