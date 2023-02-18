@@ -29,4 +29,4 @@ RUN --mount=type=secret,id=GIT_CREDENTIALS,dst=/root/.git-credentials npx lerna 
 RUN --mount=type=secret,id=NPM_CREDENTIALS,dst=/root/.npmrc npx lerna publish from-package --yes
 
 FROM nginx:1.23.3-alpine as pokedex-web
-COPY --from=build /usr/dev/packages/pokedex-web/dist /usr/share/nginx/html/
+COPY --from=release /usr/dev/packages/pokedex-web/dist /usr/share/nginx/html/
