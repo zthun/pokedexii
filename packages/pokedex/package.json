@@ -1,0 +1,27 @@
+{
+  "name": "@zthun/pokedex",
+  "version": "1.0.0",
+  "description": "A shared pokedex library to retrieve pokemon information.",
+  "author": "Anthony Bonta",
+  "license": "MIT",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zthun/pokedexii",
+    "directory": "packages/pokedex"
+  },
+  "main": "./dist/lib/index.js",
+  "module": "./dist/lib/index.esm.js",
+  "types": "./dist/types/index.d.ts",
+  "scripts": {
+    "build": "microbundle --format esm,cjs --tsconfig tsconfig.prod.json --no-sourcemap"
+  },
+  "devDependencies": {
+    "microbundle": "^0.15.1",
+    "typescript": "^4.9.4"
+  },
+  "files": [
+    "dist"
+  ],
+  "sideEffects": false
+}
