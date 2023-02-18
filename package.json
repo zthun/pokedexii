@@ -30,7 +30,7 @@
     "@types/node": "^18.14.0",
     "@types/selenium-webdriver": "^4.1.11",
     "@types/uuid": "^9.0.0",
-    "@vitest/coverage-c8": "^0.26.3",
+    "@vitest/coverage-c8": "^0.28.5",
     "@zthun/lint-janitor": "^14.1.0",
     "@zthun/lint-janitor-config": "^14.1.0",
     "husky": "^8.0.3",
@@ -42,8 +42,8 @@
     "ts-node": "^10.9.1",
     "tsconfig-paths": "^4.1.2",
     "typescript": "^4.9.5",
-    "vite": "^4.0.4",
-    "vitest": "^0.26.3",
+    "vite": "^4.1.2",
+    "vitest": "^0.28.5",
     "vitest-tsconfig-paths": "^3.4.1"
   },
   "packageManager": "yarn@3.3.1"
