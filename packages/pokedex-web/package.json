@@ -4,7 +4,6 @@
   "description": "A pokedex in the cloud",
   "author": "Anthony Bonta",
   "license": "MIT",
-  "private": true,
   "repository": {
     "type": "git",
     "url": "https://github.com/zthun/pokedexii",
@@ -13,6 +12,9 @@
   "scripts": {
     "build": "vite build",
     "start": "vite"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "dependencies": {
     "@zthun/cirque": "^4.1.0",
