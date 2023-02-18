@@ -1,3 +1,10 @@
+# Outputs
+coverage
+reports
+*.lerna_backup
+*.tgz
+.rpt2_cache
+
 # Logs
 logs
 *.log
