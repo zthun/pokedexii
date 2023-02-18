@@ -4,7 +4,6 @@
   "description": "A shared pokedex library to retrieve pokemon information.",
   "author": "Anthony Bonta",
   "license": "MIT",
-  "private": true,
   "repository": {
     "type": "git",
     "url": "https://github.com/zthun/pokedexii",
@@ -15,6 +14,9 @@
   "types": "./dist/types/index.d.ts",
   "scripts": {
     "build": "microbundle --format esm,cjs --tsconfig tsconfig.prod.json --no-sourcemap"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "devDependencies": {
     "microbundle": "^0.15.1",
