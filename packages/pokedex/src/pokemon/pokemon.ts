@@ -11,11 +11,10 @@ export class ZPokemonBuilder {
   private _pokemon: IZPokemon;
 
   public constructor() {
-    const pikachu = 25;
     this._pokemon = {
-      id: pikachu,
-      name: 'pikachu',
-      sprites: new ZPokemonSpritesBuilder().id(pikachu).build()
+      id: 0,
+      name: 'missingno',
+      sprites: new ZPokemonSpritesBuilder().id(0).build()
     };
   }
 
@@ -39,6 +38,7 @@ export class ZPokemonBuilder {
   public bulbasaur = this.who.bind(this, 1, 'bulbasaur');
   public charmander = this.who.bind(this, 4, 'charmander');
   public squirtle = this.who.bind(this, 7, 'squirtle');
+  public pikachu = this.who.bind(this, 25, 'pikachu');
 
   public build(): IZPokemon {
     return JSON.parse(JSON.stringify(this._pokemon));
