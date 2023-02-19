@@ -10,7 +10,7 @@ const globalStyles = {
   body: {
     backgroundColor: 'whitesmoke',
     padding: '3rem',
-    paddingTop: '5rem'
+    paddingTop: '8rem'
   }
 };
 
@@ -28,6 +28,7 @@ export function ZPokedexApp() {
     alignItems: 'center',
     gap: '1rem',
     paddingLeft: '1rem',
+    height: '4rem',
 
     h1: {
       fontSize: '2rem'
