@@ -2,6 +2,7 @@ import { Error } from '@mui/icons-material';
 import { LinearProgress } from '@mui/material';
 import { IZDataRequest, IZPokemon, ZDataRequestBuilder } from '@zthun/pokedex';
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { usePokemonPage } from '../pokemon/pokemon-service';
 import { isStateErrored, isStateLoading } from '../state/use-async-state';
 import { makeStyles } from '../theme/make-styles';
@@ -21,9 +22,11 @@ export function ZPokedexListPage() {
   const [pokemon] = usePokemonPage(request);
   const styles = usePokedexListStyles();
   const className = cssClass('ZPokedexListPage-root', styles.classes.grid);
+  const navigate = useNavigate();
 
   function renderPokemon(pokemon: IZPokemon) {
-    return <ZPokemonCard key={pokemon.name} pokemon={pokemon} />;
+    const handleClick = () => navigate(`/pokemon/${pokemon.name}`);
+    return <ZPokemonCard key={pokemon.name} pokemon={pokemon} onClick={handleClick} />;
   }
 
   function renderPokemonList() {

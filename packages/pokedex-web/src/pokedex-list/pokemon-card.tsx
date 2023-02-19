@@ -1,12 +1,14 @@
 import { Card, CardHeader, CardMedia } from '@mui/material';
 import { IZPokemon } from '@zthun/pokedex';
 import { startCase } from 'lodash';
-import React from 'react';
+import React, { MouseEventHandler } from 'react';
 import { makeStyles } from '../theme/make-styles';
 import { cssClass } from '../util/css-class';
 
 export interface IZPokemonCard {
   pokemon: IZPokemon;
+
+  onClick?: MouseEventHandler<HTMLDivElement>;
 }
 
 const usePokemonCardStyles = makeStyles()(() => ({
@@ -17,12 +19,12 @@ const usePokemonCardStyles = makeStyles()(() => ({
 }));
 
 export function ZPokemonCard(props: IZPokemonCard) {
-  const { pokemon } = props;
+  const { pokemon, onClick } = props;
   const styles = usePokemonCardStyles();
 
   const className = cssClass('ZPokemonCard-root', styles.classes.card);
   return (
-    <Card className={className} data-name={pokemon.name} data-id={pokemon.id}>
+    <Card className={className} data-name={pokemon.name} data-id={pokemon.id} onClick={onClick}>
       <CardHeader className='ZPokemonCard-header' title={startCase(pokemon.name)}></CardHeader>
       <CardMedia
         className='ZPokemonCard-sprite'
