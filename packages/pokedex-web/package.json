@@ -22,7 +22,7 @@
     "@mui/icons-material": "^5.11.9",
     "@mui/material": "^5.11.9",
     "@mui/system": "^5.11.9",
-    "@zthun/cirque": "^4.1.0",
+    "@zthun/cirque": "^4.2.0",
     "@zthun/pokedex": "^0.0.3",
     "@zthun/works.http": "^4.0.0",
     "@zthun/works.url": "^4.0.0",
@@ -35,14 +35,15 @@
   "devDependencies": {
     "@cucumber/cucumber": "^8.11.1",
     "@types/node": "^18.14.0",
-    "@zthun/cirque-du-react": "^4.1.0",
-    "@zthun/cirque-du-selenium": "^4.1.0",
+    "@zthun/cirque-du-react": "^4.2.0",
+    "@zthun/cirque-du-selenium": "^4.2.0",
     "less": "^4.1.3",
     "ts-node": "^10.9.1",
     "tsconfig-paths": "^4.1.2",
     "typescript": "^4.9.5",
     "vite": "^4.1.2",
     "vite-tsconfig-paths": "^4.0.5",
-    "vitest": "^0.28.5"
+    "vitest": "^0.28.5",
+    "vitest-mock-extended": "^1.0.9"
   }
 }
