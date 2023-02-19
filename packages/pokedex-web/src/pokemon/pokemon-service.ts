@@ -17,8 +17,3 @@ export function usePokemonPage(request: IZDataRequest) {
   const service = usePokemonService();
   return useAsyncState(() => service.list(request), [request]);
 }
-
-export function usePokemon(idOrName: number | string) {
-  const service = usePokemonService();
-  return useAsyncState(() => service.get(idOrName), [idOrName]);
-}
