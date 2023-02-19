@@ -21,6 +21,11 @@ export class ZDataRequestBuilder {
     return this;
   }
 
+  public copy(other: IZDataRequest) {
+    this._request = JSON.parse(JSON.stringify(other));
+    return this;
+  }
+
   public build(): IZDataRequest {
     return JSON.parse(JSON.stringify(this._request));
   }
