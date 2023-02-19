@@ -7,6 +7,7 @@ import { IZDataRequest } from '../source/data-request';
 import { IZPokemon, ZPokemonBuilder } from './pokemon';
 
 export interface IZPokemonService {
+  count(request: IZDataRequest): Promise<number>;
   list(request: IZDataRequest): Promise<IZPokemon[]>;
   get(idOrName: number | string): Promise<IZPokemon>;
 }
@@ -24,6 +25,10 @@ export class ZPokemonServiceHttp implements IZPokemonService {
 
   public constructor(private _http: IZHttpService) {
     this._all = new ZDataSourceAsync(this._prefetch());
+  }
+
+  public async count(request: IZDataRequest): Promise<number> {
+    return this._all.count(request);
   }
 
   public async list(request: IZDataRequest): Promise<IZPokemon[]> {

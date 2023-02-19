@@ -21,7 +21,7 @@ describe('ZPokemonService', () => {
     bulbasaur = new ZPokemonBuilder().bulbasaur().build();
     charmander = new ZPokemonBuilder().charmander().build();
     squirtle = new ZPokemonBuilder().squirtle().build();
-    pikachu = new ZPokemonBuilder().build();
+    pikachu = new ZPokemonBuilder().pikachu().build();
 
     pokemon = [bulbasaur, charmander, squirtle, pikachu];
     const pokemonPage = pokemon.map((p) => ({
@@ -41,6 +41,16 @@ describe('ZPokemonService', () => {
   });
 
   describe('List', () => {
+    it('should retrieve the correct count of pokemon', async () => {
+      // Arrange.
+      const target = createTestTarget();
+      const request = new ZDataRequestBuilder().page(2).size(2).build();
+      // Act.
+      const actual = await target.count(request);
+      // Assert.
+      expect(actual).toEqual(pokemon.length);
+    });
+
     it('should retrieve the correct page of pokemon', async () => {
       // Arrange.
       const target = createTestTarget();
