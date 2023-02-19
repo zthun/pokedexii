@@ -1,5 +1,5 @@
 import { Error } from '@mui/icons-material';
-import { LinearProgress } from '@mui/material';
+import { CircularProgress } from '@mui/material';
 import { IZDataRequest, IZPokemon, ZDataRequestBuilder } from '@zthun/pokedex';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -14,6 +14,9 @@ const usePokedexListStyles = makeStyles()((theme) => ({
     display: 'grid',
     gap: theme.spacing(2),
     gridTemplateColumns: '1fr 1fr 1fr'
+  },
+  loader: {
+    height: '100%'
   }
 }));
 
@@ -21,7 +24,6 @@ export function ZPokedexListPage() {
   const [request] = useState<IZDataRequest>(new ZDataRequestBuilder().page(1).size(150).build());
   const [pokemon] = usePokemonPage(request);
   const styles = usePokedexListStyles();
-  const className = cssClass('ZPokedexListPage-root', styles.classes.grid);
   const navigate = useNavigate();
 
   function renderPokemon(pokemon: IZPokemon) {
@@ -31,7 +33,7 @@ export function ZPokedexListPage() {
 
   function renderPokemonList() {
     if (isStateLoading(pokemon)) {
-      return <LinearProgress className='ZPokedexListPage-loading' />;
+      return <CircularProgress className='ZPokedexListPage-loading' size='3rem' />;
     }
 
     if (isStateErrored(pokemon)) {
@@ -42,5 +44,5 @@ export function ZPokedexListPage() {
     return pokemon.map(renderPokemon);
   }
 
-  return <div className={className}>{renderPokemonList()}</div>;
+  return <div className={cssClass('ZPokedexListPage-root', styles.classes.grid)}>{renderPokemonList()}</div>;
 }
