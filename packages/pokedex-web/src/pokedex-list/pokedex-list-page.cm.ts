@@ -39,6 +39,13 @@ export class ZPokedexListPageComponentModel extends ZCircusComponentModel {
   private async _goToPage(aria: string) {
     const selector = `.MuiPaginationItem-root[aria-label="${aria}"]`;
     const [button] = await this.driver.query(selector);
+
+    const disabled = await button?.disabled();
+
+    if (disabled) {
+      return await this.page();
+    }
+
     const act = new ZCircusActBuilder().click().build();
     await button?.perform(act);
     await this.wait();

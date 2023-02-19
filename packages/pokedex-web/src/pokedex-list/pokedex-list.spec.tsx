@@ -107,6 +107,17 @@ describe('ZPokedexListPage', () => {
       expect(actual).toEqual(2);
     });
 
+    it('should stay on the current page if there is no next page to navigate to', async () => {
+      // Arrange.
+      size = pokemon.length;
+      const target = await createTestTarget();
+      // Act.
+      await target.jump(1);
+      const actual = await target.next();
+      // Assert.
+      expect(actual).toEqual(1);
+    });
+
     it('should navigate to the previous page', async () => {
       // Arrange.
       const target = await createTestTarget();
