@@ -22,10 +22,14 @@ export function ZPokemonCard(props: IZPokemonCard) {
   const { pokemon, onClick } = props;
   const styles = usePokemonCardStyles();
 
-  const className = cssClass('ZPokemonCard-root', styles.classes.card);
   return (
-    <Card className={className} data-name={pokemon.name} data-id={pokemon.id} onClick={onClick}>
-      <CardHeader className='ZPokemonCard-header' title={startCase(pokemon.name)}></CardHeader>
+    <Card
+      className={cssClass('ZPokemonCard-root', styles.classes.card)}
+      data-name={pokemon.name}
+      data-id={pokemon.id}
+      onClick={onClick}
+    >
+      <CardHeader className='ZPokemonCard-header' title={startCase(pokemon.name)} subheader={pokemon.id}></CardHeader>
       <CardMedia
         className='ZPokemonCard-sprite'
         component='img'
