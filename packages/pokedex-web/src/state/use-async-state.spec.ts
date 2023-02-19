@@ -1,8 +1,7 @@
 /* eslint-disable require-jsdoc */
 import { ZCircusSetupHook } from '@zthun/cirque-du-react';
 import { noop } from 'lodash';
-import { beforeEach, describe, expect, it, Mock, vitest } from 'vitest';
-import { sleep } from '../util/sleep';
+import { beforeEach, describe, expect, it, Mock, vi } from 'vitest';
 import {
   asStateData,
   asStateError,
@@ -18,7 +17,7 @@ describe('useAsyncState', () => {
 
   async function createTestTarget() {
     const target = await new ZCircusSetupHook(() => useAsyncState<string>(load)).setup();
-    await sleep(5);
+    await new Promise((resolve) => setTimeout(resolve, 5));
     return target;
   }
 
@@ -35,7 +34,7 @@ describe('useAsyncState', () => {
   }
 
   beforeEach(() => {
-    load = vitest.fn();
+    load = vi.fn();
   });
 
   describe('Success', () => {
