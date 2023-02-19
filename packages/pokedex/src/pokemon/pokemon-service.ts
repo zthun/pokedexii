@@ -44,8 +44,8 @@ export class ZPokemonServiceHttp implements IZPokemonService {
 
     url = new ZUrlBuilder().parse(ZPokemonServiceHttp.Endpoint).param('limit', `${count.data.count}`).build();
     request = new ZHttpRequestBuilder().get().url(url).build();
-    const { data } = await this._http.request<{ results: IZPokemon[] }>(request);
+    const { data } = await this._http.request<{ results: { name: string; url: string }[] }>(request);
     const pokemon = data.results;
-    return pokemon.map((p) => new ZPokemonBuilder().copy(p).generate(p.url).build());
+    return pokemon.map((p) => new ZPokemonBuilder().generate(p.name, p.url).build());
   }
 }

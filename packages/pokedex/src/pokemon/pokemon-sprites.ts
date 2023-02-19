@@ -19,7 +19,7 @@ export interface IZPokemonSprites {
  * pokemon api (as requested), and we can just build out the url endpoints ourselves.
  */
 export class ZPokemonSpritesBuilder {
-  public static Endpoint = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/';
+  public static Endpoint = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon';
 
   private _sprites: IZPokemonSprites;
 

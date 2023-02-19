@@ -24,6 +24,10 @@ describe('ZPokemonService', () => {
     pikachu = new ZPokemonBuilder().build();
 
     pokemon = [bulbasaur, charmander, squirtle, pikachu];
+    const pokemonPage = pokemon.map((p) => ({
+      name: p.name,
+      url: `http://pokeapi/pokemon/${p.id}`
+    }));
 
     http = new ZHttpServiceMock();
 
@@ -31,7 +35,7 @@ describe('ZPokemonService', () => {
     let endpoint = new ZUrlBuilder().parse(ZPokemonServiceHttp.Endpoint).param('limit', '1').build();
     http.set<{ count: number }>(endpoint, ZHttpMethod.Get, result);
 
-    result = new ZHttpResultBuilder().data({ results: pokemon }).build();
+    result = new ZHttpResultBuilder().data({ results: pokemonPage }).build();
     endpoint = new ZUrlBuilder().parse(ZPokemonServiceHttp.Endpoint).param('limit', `${pokemon.length}`).build();
     http.set(endpoint, ZHttpMethod.Get, result);
   });
