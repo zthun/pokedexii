@@ -22,9 +22,14 @@ export function ZPokemonCard(props: IZPokemonCard) {
 
   const className = cssClass('ZPokemonCard-root', styles.classes.card);
   return (
-    <Card className={className}>
-      <CardHeader title={startCase(pokemon.name)}></CardHeader>
-      <CardMedia component='img' src={pokemon.sprites?.front_default} alt={pokemon.name} />
+    <Card className={className} data-name={pokemon.name} data-id={pokemon.id}>
+      <CardHeader className='ZPokemonCard-header' title={startCase(pokemon.name)}></CardHeader>
+      <CardMedia
+        className='ZPokemonCard-sprite'
+        component='img'
+        src={pokemon.sprites?.front_default}
+        alt={pokemon.name}
+      />
     </Card>
   );
 }
