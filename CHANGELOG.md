@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.0](https://github.com/zthun/pokedexii/compare/v0.1.1...v0.2.0) (2023-02-19)
+
+
+### Features
+
+* added count support to the pokemon service ([a8a741b](https://github.com/zthun/pokedexii/commit/a8a741bb90cb4bb4037d1f5c98799d8b6a5f8504))
+* added page navigation ([c6d0145](https://github.com/zthun/pokedexii/commit/c6d0145e0e4173161a4a26412dfda60e1e707e5b))
+* pokemon cards now have ellipse headers ([7452260](https://github.com/zthun/pokedexii/commit/745226046e08cd0c86d45e98fce7bc926aa4e64c))
+
+
+
 ## [0.1.1](https://github.com/zthun/pokedexii/compare/v0.1.0...v0.1.1) (2023-02-19)
 
 **Note:** Version bump only for package @zthun/pokedexii
