@@ -4,7 +4,7 @@ import { IZDataSource } from '../source/data-source';
 
 import { ZDataSourceAsync } from 'src/source/data-source-async';
 import { IZDataRequest } from '../source/data-request';
-import { IZPokemon } from './pokemon';
+import { IZPokemon, ZPokemonBuilder } from './pokemon';
 
 export interface IZPokemonService {
   list(request: IZDataRequest): Promise<IZPokemon[]>;
@@ -45,6 +45,7 @@ export class ZPokemonServiceHttp implements IZPokemonService {
     url = new ZUrlBuilder().parse(ZPokemonServiceHttp.Endpoint).param('limit', `${count.data.count}`).build();
     request = new ZHttpRequestBuilder().get().url(url).build();
     const { data } = await this._http.request<{ results: IZPokemon[] }>(request);
-    return data.results;
+    const pokemon = data.results;
+    return pokemon.map((p) => new ZPokemonBuilder().copy(p).generate(p.url).build());
   }
 }
