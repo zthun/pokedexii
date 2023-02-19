@@ -28,12 +28,12 @@ export function ZPokedexListPage() {
 
   function renderPokemonList() {
     if (isStateLoading(pokemon)) {
-      return <LinearProgress />;
+      return <LinearProgress className='ZPokedexListPage-loading' />;
     }
 
     if (isStateErrored(pokemon)) {
-      // TODO Error handling here.
-      return <Error />;
+      // TODO Better error handling here.
+      return <Error className='ZPokedexListPage-error' />;
     }
 
     return pokemon.map(renderPokemon);
