@@ -1,4 +1,5 @@
 import { ZCircusActBuilder, ZCircusBy, ZCircusComponentModel } from '@zthun/cirque';
+import { ZPokedexSearchComponentModel } from './pokedex-search.cm';
 import { ZPokemonCardComponentModel } from './pokemon-card.cm';
 
 /**
@@ -13,6 +14,10 @@ export class ZPokedexListPageComponentModel extends ZCircusComponentModel {
 
   public async error(): Promise<boolean> {
     return this.driver.peek('.ZPokedexListPage-error');
+  }
+
+  public async search(): Promise<ZPokedexSearchComponentModel> {
+    return ZCircusBy.first(this.driver, ZPokedexSearchComponentModel);
   }
 
   public async page(): Promise<number> {

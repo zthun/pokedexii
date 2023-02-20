@@ -147,4 +147,32 @@ describe('ZPokedexListPage', () => {
       expect(history.location.pathname).toEqual(`/pokemon/${squirtle.name}`);
     });
   });
+
+  describe('Search', () => {
+    it('should filter the pokemon information when using the enter key', async () => {
+      // Arrange.
+      const target = await createTestTarget();
+      const search = await target.search();
+      const expected = 'bulbasaur';
+      pokemonService.list.mockClear();
+      // Act.
+      await search.enter(expected);
+      // Assert.
+      expect(pokemonService.list).toHaveBeenCalledTimes(1);
+      expect(pokemonService.list).toHaveBeenCalledWith(expect.objectContaining({ search: expected }));
+    });
+
+    it('should filter the pokemon information when the user blurs the search input', async () => {
+      // Arrange.
+      const target = await createTestTarget();
+      const search = await target.search();
+      const expected = 'bulbasaur';
+      pokemonService.list.mockClear();
+      // Act.
+      await search.type(expected);
+      // Assert.
+      expect(pokemonService.list).toHaveBeenCalledTimes(1);
+      expect(pokemonService.list).toHaveBeenCalledWith(expect.objectContaining({ search: expected }));
+    });
+  });
 });

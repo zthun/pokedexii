@@ -7,6 +7,7 @@ import { usePokemonCount, usePokemonPage } from '../pokemon/pokemon-service';
 import { isStateErrored, isStateLoaded, isStateLoading } from '../state/use-async-state';
 import { makeStyles } from '../theme/make-styles';
 import { cssClass } from '../util/css-class';
+import { ZPokedexSearch } from './pokedex-search';
 import { ZPokemonCard } from './pokemon-card';
 
 export interface IZPokedexListPage {
@@ -17,18 +18,20 @@ const usePokedexListStyles = makeStyles()((theme) => ({
   grid: {
     display: 'grid',
     gap: theme.spacing(2),
-    gridTemplateColumns: '1fr 1fr 1fr'
+    gridTemplateColumns: '1fr 1fr 1fr',
+    paddingTop: '6rem'
   },
+
   navigation: {
     backgroundColor: theme.palette.grey[300],
     position: 'fixed',
     zIndex: 10,
     left: 0,
     right: 0,
-    top: '4rem',
-    height: '3rem',
     display: 'grid',
-    alignItems: 'center'
+    gridTemplateColumns: '1fr auto',
+    alignItems: 'center',
+    padding: '0.5rem'
   }
 }));
 
@@ -45,6 +48,7 @@ export function ZPokedexListPage(props: IZPokedexListPage) {
       return null;
     }
 
+    const { page } = request;
     const remainder = count % size === 0 ? 0 : 1;
     const pages = Math.floor(count / size) + remainder;
 
@@ -53,9 +57,20 @@ export function ZPokedexListPage(props: IZPokedexListPage) {
       setRequest(next);
     };
 
+    const handleSearch = (value: string) => {
+      const next = new ZDataRequestBuilder().copy(request).page(1).search(value).build();
+      setRequest(next);
+    };
+
     return (
       <div className={cssClass('ZPokedexListPage-navigation', classes.navigation)}>
-        <Pagination count={pages} onChange={handlePageChange} />
+        <Pagination
+          className={cssClass('ZPokedexListPage-pagination')}
+          count={pages}
+          page={page}
+          onChange={handlePageChange}
+        />
+        <ZPokedexSearch value={request.search} onCommit={handleSearch} />
       </div>
     );
   }
