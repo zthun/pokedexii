@@ -5,8 +5,21 @@ import React, { FocusEvent, FormEvent, KeyboardEvent, useState } from 'react';
 import { makeStyles } from '../theme/make-styles';
 import { cssClass } from '../util/css-class';
 
+/**
+ * The properties for the pokedex search component.
+ */
 export interface IZPokedexSearch {
+  /**
+   * The current value.
+   */
   value: string | undefined;
+
+  /**
+   * The handler for when the value is committed.
+   *
+   * @param value -
+   *        The value that was committed.
+   */
   onCommit: (value: string) => void;
 }
 
@@ -16,6 +29,9 @@ const usePokedexSearchStyles = makeStyles()((theme) => ({
   }
 }));
 
+/**
+ * Represents a text search component that commits on blur and the enter key.
+ */
 export function ZPokedexSearch(props: IZPokedexSearch) {
   const { value, onCommit } = props;
   const [current, setCurrent] = useState(value || '');

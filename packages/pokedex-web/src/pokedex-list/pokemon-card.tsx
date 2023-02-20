@@ -5,9 +5,18 @@ import React, { MouseEventHandler } from 'react';
 import { makeStyles } from '../theme/make-styles';
 import { cssClass } from '../util/css-class';
 
+/**
+ * Props for a pokemon card.
+ */
 export interface IZPokemonCard {
-  pokemon: IZPokemon;
+  /**
+   * The pokemon to display.
+   */
+  value: IZPokemon;
 
+  /**
+   * The optional handler for when the card is clicked.
+   */
   onClick?: MouseEventHandler<HTMLDivElement>;
 }
 
@@ -36,8 +45,11 @@ const usePokemonCardStyles = makeStyles()((theme) => ({
   }
 }));
 
+/**
+ * A component that displays the pokemon's name, id, and front sprite.
+ */
 export function ZPokemonCard(props: IZPokemonCard) {
-  const { pokemon, onClick } = props;
+  const { value: pokemon, onClick } = props;
   const title = startCase(pokemon.name);
   const { classes } = usePokemonCardStyles();
 

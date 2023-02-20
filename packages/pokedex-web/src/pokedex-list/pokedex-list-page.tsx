@@ -19,7 +19,8 @@ const usePokedexListStyles = makeStyles()((theme) => ({
     display: 'grid',
     gap: theme.spacing(2),
     gridTemplateColumns: '1fr 1fr 1fr',
-    paddingTop: '6rem'
+    paddingTop: '6rem',
+    paddingBottom: '3rem'
   },
 
   navigation: {
@@ -77,7 +78,7 @@ export function ZPokedexListPage(props: IZPokedexListPage) {
 
   function renderPokemon(pokemon: IZPokemon) {
     const handleClick = () => navigate(`/pokemon/${pokemon.name}`);
-    return <ZPokemonCard key={pokemon.name} pokemon={pokemon} onClick={handleClick} />;
+    return <ZPokemonCard key={pokemon.name} value={pokemon} onClick={handleClick} />;
   }
 
   function renderPokemonList() {
