@@ -4117,7 +4117,7 @@ __metadata:
     "@zthun/cirque": ^4.2.0
     "@zthun/cirque-du-react": ^4.2.0
     "@zthun/cirque-du-selenium": ^4.2.0
-    "@zthun/pokedex": ^0.2.0
+    "@zthun/pokedex": ^0.3.0
     "@zthun/works.http": ^4.0.0
     "@zthun/works.url": ^4.0.0
     history: ^5.3.0
@@ -4137,7 +4137,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@zthun/pokedex@^0.2.0, @zthun/pokedex@workspace:packages/pokedex":
+"@zthun/pokedex@^0.3.0, @zthun/pokedex@workspace:packages/pokedex":
   version: 0.0.0-use.local
   resolution: "@zthun/pokedex@workspace:packages/pokedex"
   dependencies:
