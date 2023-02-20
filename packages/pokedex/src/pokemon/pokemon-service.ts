@@ -7,13 +7,57 @@ import { ZDataSearchFields } from '../source/data-search-fields';
 import { ZDataSourceAsync } from '../source/data-source-async';
 import { IZPokemon, ZPokemonBuilder } from './pokemon';
 
+/**
+ * Represents a service that retrieves data from the pokemon api.
+ */
 export interface IZPokemonService {
+  /**
+   * Gets the total count of pokemon given a filter.
+   *
+   * @param request -
+   *        The request query.
+   *
+   * @returns
+   *        The total number of pokemon across pages that
+   *        would be returned from list if the request was
+   *        made with the first page and an infinite page
+   *        size.
+   */
   count(request: IZDataRequest): Promise<number>;
+
+  /**
+   * Gets a list of pokemon.
+   *
+   * @param request -
+   *        The request query.
+   *
+   * @returns
+   *        A page of pokemon data that conforms to the given
+   *        request query.
+   */
   list(request: IZDataRequest): Promise<IZPokemon[]>;
+
+  /**
+   * Gets information about a single pokemon.
+   *
+   * @param idOrName -
+   *        The id or name of the pokemon.
+   *
+   * @returns
+   *        The pokemon with the given id or name.  Returns
+   *        a rejected promise if no such pokemon exists.
+   */
   get(idOrName: number | string): Promise<IZPokemon>;
 }
 
+/**
+ * Represents an implementation of an pokemon service that
+ * uses the pokeapi.
+ */
 export class ZPokemonServiceHttp implements IZPokemonService {
+  /**
+   * The public endpoint of the pokeapi.
+   */
   public static readonly Endpoint = 'https://pokeapi.co/api/v2/pokemon';
 
   // Due to the request of the pokemon api, this request results in
@@ -24,6 +68,13 @@ export class ZPokemonServiceHttp implements IZPokemonService {
   // this will suffice for now.
   private _all: IZDataSource<IZPokemon>;
 
+  /**
+   * Initializes a new instance of this object.
+   *
+   * @param _http -
+   *        The http service that will be responsible for
+   *        querying out to the pokeapi endpoint.
+   */
   public constructor(private _http: IZHttpService) {
     const search = new ZDataSearchFields<IZPokemon>(['name']);
     this._all = new ZDataSourceAsync(this._prefetch(), search);
@@ -44,6 +95,15 @@ export class ZPokemonServiceHttp implements IZPokemonService {
     return data;
   }
 
+  /**
+   * Prefetches the pokemon list to cache it in memory.
+   *
+   * This reduces the load on the pokeapi as requested in their documentation.
+   * There are currently around 1200 pokemon so this list is very finite.
+   *
+   * @returns
+   *        A list of every pokemon from the pokemon api.
+   */
   private async _prefetch(): Promise<IZPokemon[]> {
     let url = new ZUrlBuilder().parse(ZPokemonServiceHttp.Endpoint).param('limit', '1').build();
     let request = new ZHttpRequestBuilder().get().url(url).build();

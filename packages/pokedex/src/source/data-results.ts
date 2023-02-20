@@ -35,9 +35,10 @@ export function paginate<T>(data: T[], page: number, size: number) {
  * @param data -
  *        The data to search.
  * @param query -
- *        The query search string.
+ *        The query search string.  If this is undefined or null, then all data will
+ *        match.
  * @param match -
- *        The match operation that determines if data should be included.
+ *        The match strategy that determines if data should be included.
  *
  * @returns
  *        The data list that passes the filter match given the query string.

@@ -1,5 +1,5 @@
 /**
- * Represents an object which can match data to a filter or query.
+ * Represents an object which can match data to a filter query.
  */
 export interface IZDataMatch<TData, TFilter> {
   /**
