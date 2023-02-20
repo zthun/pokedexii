@@ -1,7 +1,8 @@
 export interface IZDataRequest {
   page?: number;
   size?: number;
-  // TODO: Sort, Filter, Search - Move from works.core into separate library.
+  search?: string;
+  // TODO: Sort, Filter - Move from works.core into separate library.
 }
 
 export class ZDataRequestBuilder {
@@ -18,6 +19,11 @@ export class ZDataRequestBuilder {
 
   public size(size: number): this {
     this._request.size = size;
+    return this;
+  }
+
+  public search(search: string): this {
+    this._request.search = search;
     return this;
   }
 

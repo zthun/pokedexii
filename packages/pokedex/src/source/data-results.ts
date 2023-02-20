@@ -1,4 +1,6 @@
 import { chunk } from 'lodash';
+import { IZDataMatch } from './data-match';
+import { ZDataMatchOptional } from './data-match-optional';
 
 /**
  * Takes a list of data and paginates it in memory.
@@ -25,4 +27,22 @@ export function paginate<T>(data: T[], page: number, size: number) {
 
   const pages = chunk(data, size);
   return pages[_page] || [];
+}
+
+/**
+ * Invokes a search operation on the data and filters out the data that does not match.
+ *
+ * @param data -
+ *        The data to search.
+ * @param query -
+ *        The query search string.
+ * @param match -
+ *        The match operation that determines if data should be included.
+ *
+ * @returns
+ *        The data list that passes the filter match given the query string.
+ */
+export function search<T>(data: T[], query: string | undefined | null, match: IZDataMatch<T, string>) {
+  const _match = new ZDataMatchOptional<T, string>(match);
+  return data.filter((data) => _match.match(data, query));
 }
