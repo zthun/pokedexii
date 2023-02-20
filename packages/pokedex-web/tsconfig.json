@@ -8,5 +8,5 @@
       "@zthun/pokedex": ["../pokedex/src/index"]
     }
   },
-  "include": ["./src/index.tsx"]
+  "include": ["./src/**/*.ts", "./src/**/*.tsx"]
 }
