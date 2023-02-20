@@ -9,8 +9,20 @@ import { usePokedexTheme } from '../theme/make-styles';
 const globalStyles = {
   body: {
     backgroundColor: 'whitesmoke',
-    padding: '3rem',
-    paddingTop: '8rem'
+    margin: 0
+  }
+};
+
+const appBarStyles: SxProps = {
+  display: 'grid',
+  gridTemplateColumns: 'auto auto 1fr',
+  alignItems: 'center',
+  gap: '1rem',
+  paddingLeft: '1rem',
+  height: '3rem',
+
+  h1: {
+    fontSize: '2rem'
   }
 };
 
@@ -22,18 +34,6 @@ const globalStyles = {
  */
 export function ZPokedexApp() {
   const theme = usePokedexTheme();
-  const appBarStyles: SxProps = {
-    display: 'grid',
-    gridTemplateColumns: 'auto auto 1fr',
-    alignItems: 'center',
-    gap: '1rem',
-    paddingLeft: '1rem',
-    height: '4rem',
-
-    h1: {
-      fontSize: '2rem'
-    }
-  };
 
   return (
     <main className='ZPokedexApp-root' style={{ display: 'flex', justifyContent: 'center' }}>
@@ -43,13 +43,15 @@ export function ZPokedexApp() {
           <Avatar src='/png/pokeball-512x512.png' />
           <Typography variant='h1'>Pokedexii</Typography>
         </AppBar>
-        <HashRouter>
-          <Routes>
-            <Route path='/pokemon/:idOrName' element={<ZPokedexDetailsPage />} />
-            <Route path='/pokemon' element={<ZPokedexListPage />} />
-            <Route path='*' element={<Navigate to={'/pokemon'} />} />
-          </Routes>
-        </HashRouter>
+        <div style={{ marginTop: '3rem' }}>
+          <HashRouter>
+            <Routes>
+              <Route path='/pokemon/:idOrName' element={<ZPokedexDetailsPage />} />
+              <Route path='/pokemon' element={<ZPokedexListPage />} />
+              <Route path='*' element={<Navigate to={'/pokemon'} />} />
+            </Routes>
+          </HashRouter>
+        </div>
       </ThemeProvider>
     </main>
   );
