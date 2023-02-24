@@ -4041,6 +4041,22 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@zthun/helpful-fn@npm:^0.2.0":
+  version: 0.2.0
+  resolution: "@zthun/helpful-fn@npm:0.2.0"
+  checksum: db2bf743c586651c65bd7606aba6a88d335bed8d715a32cc4818fcdb358a66eb87aad4b5c2f882598e8fb7b4824b11652f6867c4fe6bb12bc215e7e4f21774c8
+  languageName: node
+  linkType: hard
+
+"@zthun/helpful-query@npm:^0.2.0":
+  version: 0.2.0
+  resolution: "@zthun/helpful-query@npm:0.2.0"
+  dependencies:
+    lodash: ^4.17.21
+  checksum: b6f2af03e5771f13672caa9f40e0b4f250df5a207ed37c84a00840dd5d4b59404f5f8bf7ca9b8cf8942f917b886451384bc938cad388dfb0fc4a8a8517a29bfa
+  languageName: node
+  linkType: hard
+
 "@zthun/htmlhint-config@npm:^14.1.0":
   version: 14.1.0
   resolution: "@zthun/htmlhint-config@npm:14.1.0"
@@ -4117,6 +4133,8 @@ __metadata:
     "@zthun/cirque": ^4.2.0
     "@zthun/cirque-du-react": ^4.2.0
     "@zthun/cirque-du-selenium": ^4.2.0
+    "@zthun/helpful-fn": ^0.2.0
+    "@zthun/helpful-query": ^0.2.0
     "@zthun/pokedex": ^0.3.0
     "@zthun/works.http": ^4.0.0
     "@zthun/works.url": ^4.0.0
@@ -4141,6 +4159,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@zthun/pokedex@workspace:packages/pokedex"
   dependencies:
+    "@zthun/helpful-query": ^0.2.0
     "@zthun/works.http": ^4.0.0
     "@zthun/works.url": ^4.0.0
     lodash: ^4.17.21
