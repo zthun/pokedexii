@@ -1,6 +1,6 @@
 {
   "name": "@zthun/pokedex-web",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "A pokedex in the cloud",
   "author": "Anthony Bonta",
   "license": "MIT",
@@ -25,7 +25,7 @@
     "@zthun/cirque": "^4.2.0",
     "@zthun/helpful-fn": "^0.2.0",
     "@zthun/helpful-query": "^0.2.0",
-    "@zthun/pokedex": "^0.3.1",
+    "@zthun/pokedex": "^0.3.2",
     "@zthun/works.http": "^4.0.0",
     "@zthun/works.url": "^4.0.0",
     "lodash": "^4.17.21",
