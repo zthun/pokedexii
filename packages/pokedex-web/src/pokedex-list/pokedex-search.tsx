@@ -1,9 +1,9 @@
 import { Search } from '@mui/icons-material';
 import { TextField } from '@mui/material';
 import { ZCircusKeyboardQwerty } from '@zthun/cirque';
+import { cssJoinDefined } from '@zthun/helpful-fn';
 import React, { FocusEvent, FormEvent, KeyboardEvent, useState } from 'react';
 import { makeStyles } from '../theme/make-styles';
-import { cssClass } from '../util/css-class';
 
 /**
  * The properties for the pokedex search component.
@@ -60,7 +60,7 @@ export function ZPokedexSearch(props: IZPokedexSearch) {
 
   return (
     <TextField
-      className={cssClass('ZPokedexSearch-root', classes.search)}
+      className={cssJoinDefined('ZPokedexSearch-root', classes.search)}
       label='Search'
       type='text'
       value={current}

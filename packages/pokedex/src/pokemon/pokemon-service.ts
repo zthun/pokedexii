@@ -1,10 +1,6 @@
+import { IZDataRequest, IZDataSource, ZDataSearchFields, ZDataSourceAsync } from '@zthun/helpful-query';
 import { IZHttpService, ZHttpRequestBuilder } from '@zthun/works.http';
 import { ZUrlBuilder } from '@zthun/works.url';
-import { IZDataSource } from '../source/data-source';
-
-import { IZDataRequest } from '../source/data-request';
-import { ZDataSearchFields } from '../source/data-search-fields';
-import { ZDataSourceAsync } from '../source/data-source-async';
 import { IZPokemon, ZPokemonBuilder } from './pokemon';
 
 /**

@@ -1,9 +1,9 @@
 import { Card, CardHeader, CardMedia } from '@mui/material';
+import { cssJoinDefined } from '@zthun/helpful-fn';
 import { IZPokemon } from '@zthun/pokedex';
 import { startCase } from 'lodash';
 import React, { MouseEventHandler } from 'react';
 import { makeStyles } from '../theme/make-styles';
-import { cssClass } from '../util/css-class';
 
 /**
  * Props for a pokemon card.
@@ -55,15 +55,19 @@ export function ZPokemonCard(props: IZPokemonCard) {
 
   return (
     <Card
-      className={cssClass('ZPokemonCard-root', classes.card)}
+      className={cssJoinDefined('ZPokemonCard-root', classes.card)}
       data-name={pokemon.name}
       data-id={pokemon.id}
       onClick={onClick}
       title={title}
     >
-      <CardHeader className={cssClass('ZPokemonCard-header', classes.header)} title={title} subheader={pokemon.id} />
+      <CardHeader
+        className={cssJoinDefined('ZPokemonCard-header', classes.header)}
+        title={title}
+        subheader={pokemon.id}
+      />
       <CardMedia
-        className={cssClass('ZPokemonCard-sprite', classes.sprite)}
+        className={cssJoinDefined('ZPokemonCard-sprite', classes.sprite)}
         component='img'
         src={pokemon.sprites?.front_default}
         alt={pokemon.name}

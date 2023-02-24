@@ -1,12 +1,13 @@
 import { Error } from '@mui/icons-material';
 import { CircularProgress, Pagination } from '@mui/material';
-import { IZDataRequest, IZPokemon, ZDataRequestBuilder } from '@zthun/pokedex';
+import { cssJoinDefined } from '@zthun/helpful-fn';
+import { IZDataRequest, ZDataRequestBuilder } from '@zthun/helpful-query';
+import { IZPokemon } from '@zthun/pokedex';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { usePokemonCount, usePokemonPage } from '../pokemon/pokemon-service';
 import { isStateErrored, isStateLoaded, isStateLoading } from '../state/use-async-state';
 import { makeStyles } from '../theme/make-styles';
-import { cssClass } from '../util/css-class';
 import { ZPokedexSearch } from './pokedex-search';
 import { ZPokemonCard } from './pokemon-card';
 
@@ -64,9 +65,9 @@ export function ZPokedexListPage(props: IZPokedexListPage) {
     };
 
     return (
-      <div className={cssClass('ZPokedexListPage-navigation', classes.navigation)}>
+      <div className={cssJoinDefined('ZPokedexListPage-navigation', classes.navigation)}>
         <Pagination
-          className={cssClass('ZPokedexListPage-pagination')}
+          className={cssJoinDefined('ZPokedexListPage-pagination')}
           count={pages}
           page={page}
           onChange={handlePageChange}
@@ -95,9 +96,9 @@ export function ZPokedexListPage(props: IZPokedexListPage) {
   }
 
   return (
-    <div className={cssClass('ZPokedexListPage-root')}>
+    <div className={cssJoinDefined('ZPokedexListPage-root')}>
       {renderNavigation()}
-      <div className={cssClass('ZPokedexListPage-grid', classes.grid)} data-page={request.page}>
+      <div className={cssJoinDefined('ZPokedexListPage-grid', classes.grid)} data-page={request.page}>
         {renderPokemonList()}
       </div>
     </div>

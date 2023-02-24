@@ -1,6 +1,6 @@
+import { ZDataRequestBuilder } from '@zthun/helpful-query';
 import { ZHttpMethod, ZHttpResultBuilder, ZHttpServiceMock } from '@zthun/works.http';
 import { ZUrlBuilder } from '@zthun/works.url';
-import { ZDataRequestBuilder } from 'src/source/data-request';
 import { beforeEach, describe, expect, it } from 'vitest';
 import { IZPokemon, ZPokemonBuilder } from './pokemon';
 import { ZPokemonServiceHttp } from './pokemon-service';
