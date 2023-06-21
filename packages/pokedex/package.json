@@ -19,15 +19,15 @@
     "access": "public"
   },
   "dependencies": {
-    "@zthun/helpful-query": "^0.2.0",
-    "@zthun/works.http": "^4.0.0",
-    "@zthun/works.url": "^4.0.0",
+    "@zthun/helpful-query": "^0.17.0",
+    "@zthun/webigail-http": "^0.1.0",
+    "@zthun/webigail-url": "^0.1.0",
     "lodash": "^4.17.21"
   },
   "devDependencies": {
     "microbundle": "^0.15.1",
-    "typescript": "^4.9.5",
-    "vitest": "^0.28.5"
+    "typescript": "^5.1.3",
+    "vitest": "^0.32.2"
   },
   "files": [
     "dist"
