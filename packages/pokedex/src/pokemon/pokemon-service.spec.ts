@@ -57,7 +57,7 @@ describe('ZPokemonService', () => {
       const request = new ZDataRequestBuilder().page(2).size(2).build();
       const expected = [squirtle, pikachu];
       // Act.
-      const actual = await target.list(request);
+      const actual = await target.retrieve(request);
       // Assert.
       expect(actual).toEqual(expected);
     });

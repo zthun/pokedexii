@@ -12,7 +12,7 @@ import { IZPokemon, ZPokemonBuilder } from './pokemon';
 /**
  * Represents a service that retrieves data from the pokemon api.
  */
-export interface IZPokemonService {
+export interface IZPokemonService extends IZDataSource<IZPokemon> {
   /**
    * Gets the total count of pokemon given a filter.
    *
@@ -37,7 +37,7 @@ export interface IZPokemonService {
    *        A page of pokemon data that conforms to the given
    *        request query.
    */
-  list(request: IZDataRequest): Promise<IZPokemon[]>;
+  retrieve(request: IZDataRequest): Promise<IZPokemon[]>;
 
   /**
    * Gets information about a single pokemon.
@@ -87,7 +87,7 @@ export class ZPokemonServiceHttp implements IZPokemonService {
     return this._all.count(request);
   }
 
-  public async list(request: IZDataRequest): Promise<IZPokemon[]> {
+  public async retrieve(request: IZDataRequest): Promise<IZPokemon[]> {
     return this._all.retrieve(request);
   }
 
