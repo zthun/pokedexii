@@ -1,5 +1,4 @@
 {
-  "useWorkspaces": true,
   "stream": true,
   "version": "0.3.2",
   "nx": true,
@@ -10,9 +9,7 @@
   },
   "changelogPreset": {
     "name": "conventionalcommits",
-    "issuePrefixes": [
-      "#"
-    ],
+    "issuePrefixes": ["#"],
     "types": [
       {
         "type": "feat",
