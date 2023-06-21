@@ -1,6 +1,6 @@
 import { ZDataRequestBuilder } from '@zthun/helpful-query';
-import { ZHttpMethod, ZHttpResultBuilder, ZHttpServiceMock } from '@zthun/works.http';
-import { ZUrlBuilder } from '@zthun/works.url';
+import { ZHttpMethod, ZHttpResultBuilder, ZHttpServiceMock } from '@zthun/webigail-http';
+import { ZUrlBuilder } from '@zthun/webigail-url';
 import { beforeEach, describe, expect, it } from 'vitest';
 import { IZPokemon, ZPokemonBuilder } from './pokemon';
 import { ZPokemonServiceHttp } from './pokemon-service';
@@ -31,11 +31,11 @@ describe('ZPokemonService', () => {
 
     http = new ZHttpServiceMock();
 
-    let result = new ZHttpResultBuilder().data({ count: pokemon.length }).build();
+    let result = new ZHttpResultBuilder({ count: pokemon.length }).build();
     let endpoint = new ZUrlBuilder().parse(ZPokemonServiceHttp.Endpoint).param('limit', '1').build();
     http.set<{ count: number }>(endpoint, ZHttpMethod.Get, result);
 
-    result = new ZHttpResultBuilder().data({ results: pokemonPage }).build();
+    result = new ZHttpResultBuilder({ results: pokemonPage }).build();
     endpoint = new ZUrlBuilder().parse(ZPokemonServiceHttp.Endpoint).param('limit', `${pokemon.length}`).build();
     http.set(endpoint, ZHttpMethod.Get, result);
   });
@@ -65,7 +65,7 @@ describe('ZPokemonService', () => {
 
   describe('Get', () => {
     beforeEach(() => {
-      const result = new ZHttpResultBuilder().data(bulbasaur).build();
+      const result = new ZHttpResultBuilder(bulbasaur).build();
       let endpoint = new ZUrlBuilder().parse(ZPokemonServiceHttp.Endpoint).append(`${bulbasaur.id}`).build();
       http.set(endpoint, ZHttpMethod.Get, result);
       endpoint = new ZUrlBuilder().parse(ZPokemonServiceHttp.Endpoint).append(`${bulbasaur.name}`).build();

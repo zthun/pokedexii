@@ -1,6 +1,12 @@
-import { IZDataRequest, IZDataSource, ZDataSearchFields, ZDataSourceAsync } from '@zthun/helpful-query';
-import { IZHttpService, ZHttpRequestBuilder } from '@zthun/works.http';
-import { ZUrlBuilder } from '@zthun/works.url';
+import {
+  IZDataRequest,
+  IZDataSource,
+  ZDataSearchFields,
+  ZDataSourceStatic,
+  ZDataSourceStaticOptionsBuilder
+} from '@zthun/helpful-query';
+import { IZHttpService, ZHttpRequestBuilder } from '@zthun/webigail-http';
+import { ZUrlBuilder } from '@zthun/webigail-url';
 import { IZPokemon, ZPokemonBuilder } from './pokemon';
 
 /**
@@ -73,7 +79,8 @@ export class ZPokemonServiceHttp implements IZPokemonService {
    */
   public constructor(private _http: IZHttpService) {
     const search = new ZDataSearchFields<IZPokemon>(['name']);
-    this._all = new ZDataSourceAsync(this._prefetch(), search);
+    const options = new ZDataSourceStaticOptionsBuilder<IZPokemon>().search(search).build();
+    this._all = new ZDataSourceStatic(this._prefetch(), options);
   }
 
   public async count(request: IZDataRequest): Promise<number> {
