@@ -1,9 +1,9 @@
-import { Card, CardHeader, CardMedia } from '@mui/material';
+import { ZCard, ZImageSource } from '@zthun/fashion-boutique';
+import { ZSizeFixed } from '@zthun/fashion-tailor';
 import { cssJoinDefined } from '@zthun/helpful-fn';
 import { IZPokemon } from '@zthun/pokedex';
 import { startCase } from 'lodash';
 import React, { MouseEventHandler } from 'react';
-import { makeStyles } from '../theme/make-styles';
 
 /**
  * Props for a pokemon card.
@@ -20,58 +20,21 @@ export interface IZPokemonCard {
   onClick?: MouseEventHandler<HTMLDivElement>;
 }
 
-const usePokemonCardStyles = makeStyles()((theme) => ({
-  card: {
-    cursor: 'pointer',
-    width: '15rem',
-    display: 'flex',
-    flexDirection: 'column'
-  },
-  header: {
-    '.MuiCardHeader-content': {
-      width: '100%'
-    },
-
-    '.MuiCardHeader-title': {
-      overflow: 'hidden',
-      whiteSpace: 'nowrap',
-      textOverflow: 'ellipsis'
-    }
-  },
-  sprite: {
-    width: '6rem',
-    alignSelf: 'center',
-    padding: theme.spacing()
-  }
-}));
-
 /**
  * A component that displays the pokemon's name, id, and front sprite.
  */
 export function ZPokemonCard(props: IZPokemonCard) {
-  const { value: pokemon, onClick } = props;
-  const title = startCase(pokemon.name);
-  const { classes } = usePokemonCardStyles();
+  const { value: pokemon } = props;
 
   return (
-    <Card
-      className={cssJoinDefined('ZPokemonCard-root', classes.card)}
+    <ZCard
+      className={cssJoinDefined('ZPokemonCard-root')}
       data-name={pokemon.name}
       data-id={pokemon.id}
-      onClick={onClick}
-      title={title}
+      heading={startCase(pokemon.name)}
+      subHeading={pokemon.id}
     >
-      <CardHeader
-        className={cssJoinDefined('ZPokemonCard-header', classes.header)}
-        title={title}
-        subheader={pokemon.id}
-      />
-      <CardMedia
-        className={cssJoinDefined('ZPokemonCard-sprite', classes.sprite)}
-        component='img'
-        src={pokemon.sprites?.front_default}
-        alt={pokemon.name}
-      />
-    </Card>
+      <ZImageSource src={pokemon.sprites?.front_default} width={ZSizeFixed.Large} name={pokemon.name} />
+    </ZCard>
   );
 }

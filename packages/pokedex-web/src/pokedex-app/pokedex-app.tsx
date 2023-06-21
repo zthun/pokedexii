@@ -1,30 +1,22 @@
-import { AppBar, Avatar, GlobalStyles, ThemeProvider, Typography } from '@mui/material';
-import { SxProps } from '@mui/system';
+import {
+  ZBannerMain,
+  ZCaption,
+  ZFashionThemeContext,
+  ZH1,
+  ZImageSource,
+  ZNavigate,
+  ZNotFound,
+  ZRoute,
+  ZRouteMap,
+  ZRouter
+} from '@zthun/fashion-boutique';
+import { ZSizeFixed } from '@zthun/fashion-tailor';
+import { createDarkTheme } from '@zthun/fashion-theme';
 import React from 'react';
-import { HashRouter, Navigate, Route, Routes } from 'react-router-dom';
 import { ZPokedexDetailsPage } from '../pokedex-details/pokedex-details-page';
 import { ZPokedexListPage } from '../pokedex-list/pokedex-list-page';
-import { usePokedexTheme } from '../theme/make-styles';
 
-const globalStyles = {
-  body: {
-    backgroundColor: 'whitesmoke',
-    margin: 0
-  }
-};
-
-const appBarStyles: SxProps = {
-  display: 'grid',
-  gridTemplateColumns: 'auto auto 1fr',
-  alignItems: 'center',
-  gap: '1rem',
-  paddingLeft: '1rem',
-  height: '3rem',
-
-  h1: {
-    fontSize: '2rem'
-  }
-};
+const PokemonTheme = createDarkTheme();
 
 /**
  * Represents the root entry point into the application.
@@ -33,26 +25,27 @@ const appBarStyles: SxProps = {
  *        The jsx to render the pokedex web application.
  */
 export function ZPokedexApp() {
-  const theme = usePokedexTheme();
+  const avatar = <ZImageSource src='/png/pokeball-512x512.png' width={ZSizeFixed.Medium} />;
+
+  const prefix = (
+    <div className='ZPokedexApp-title'>
+      <ZH1 compact>Pokedexii</ZH1>
+      <ZCaption compact>{`Catch Em' All`}</ZCaption>
+    </div>
+  );
 
   return (
-    <main className='ZPokedexApp-root' style={{ display: 'flex', justifyContent: 'center' }}>
-      <GlobalStyles styles={globalStyles} />
-      <ThemeProvider theme={theme}>
-        <AppBar sx={appBarStyles}>
-          <Avatar src='/png/pokeball-512x512.png' />
-          <Typography variant='h1'>Pokedexii</Typography>
-        </AppBar>
-        <div style={{ marginTop: '3rem' }}>
-          <HashRouter>
-            <Routes>
-              <Route path='/pokemon/:idOrName' element={<ZPokedexDetailsPage />} />
-              <Route path='/pokemon' element={<ZPokedexListPage />} />
-              <Route path='*' element={<Navigate to={'/pokemon'} />} />
-            </Routes>
-          </HashRouter>
-        </div>
-      </ThemeProvider>
-    </main>
+    <ZRouter>
+      <ZFashionThemeContext.Provider value={PokemonTheme}>
+        <ZBannerMain avatar={avatar} prefix={prefix}>
+          <ZRouteMap>
+            <ZRoute path='/pokemon/:idOrName' element={<ZPokedexDetailsPage />} />
+            <ZRoute path='/pokemon' element={<ZPokedexListPage />} />
+            <ZRoute path='' element={<ZNavigate to='/pokemon' />} />
+            <ZRoute path='*' element={<ZNotFound />} />
+          </ZRouteMap>
+        </ZBannerMain>
+      </ZFashionThemeContext.Provider>
+    </ZRouter>
   );
 }
