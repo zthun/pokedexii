@@ -1,9 +1,9 @@
 import { ZCircusBy } from '@zthun/cirque';
 import { ZCircusSetupRenderer } from '@zthun/cirque-du-react';
+import { ZTestRouter } from '@zthun/fashion-boutique';
 import { IZPokemon, IZPokemonService, ZPokemonBuilder } from '@zthun/pokedex';
 import { MemoryHistory, createMemoryHistory } from 'history';
 import React from 'react';
-import { Router } from 'react-router-dom';
 import { Mocked, beforeEach, describe, expect, it } from 'vitest';
 import { mock } from 'vitest-mock-extended';
 import { ZPokemonServiceContext } from '../pokemon/pokemon-service';
@@ -21,11 +21,11 @@ describe('ZPokedexListPage', () => {
 
   async function createTestTarget() {
     const element = (
-      <Router navigator={history} location={history.location}>
+      <ZTestRouter navigator={history} location={history.location}>
         <ZPokemonServiceContext.Provider value={pokemonService}>
           <ZPokedexListPage />
         </ZPokemonServiceContext.Provider>
-      </Router>
+      </ZTestRouter>
     );
     const driver = await new ZCircusSetupRenderer(element).setup();
     const target = await ZCircusBy.first(driver, ZPokedexListPageComponentModel);

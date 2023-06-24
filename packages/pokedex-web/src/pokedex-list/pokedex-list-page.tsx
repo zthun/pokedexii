@@ -1,9 +1,8 @@
-import { ZGridView } from '@zthun/fashion-boutique';
+import { ZGridView, useNavigate } from '@zthun/fashion-boutique';
 import { ZSizeFixed } from '@zthun/fashion-tailor';
 import { cssJoinDefined } from '@zthun/helpful-fn';
 import { IZPokemon } from '@zthun/pokedex';
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
 import { usePokemonService } from 'src/pokemon/pokemon-service';
 import { ZPokemonCard } from './pokemon-card';
 
