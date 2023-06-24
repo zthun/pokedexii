@@ -1,4 +1,4 @@
-import { ZCard, ZImageSource } from '@zthun/fashion-boutique';
+import { ZCard, ZImageSource, ZLink } from '@zthun/fashion-boutique';
 import { ZSizeFixed } from '@zthun/fashion-tailor';
 import { cssJoinDefined } from '@zthun/helpful-fn';
 import { IZPokemon } from '@zthun/pokedex';
@@ -25,13 +25,14 @@ export interface IZPokemonCard {
  */
 export function ZPokemonCard(props: IZPokemonCard) {
   const { value: pokemon } = props;
+  const name = startCase(pokemon.name);
 
   return (
     <ZCard
       className={cssJoinDefined('ZPokemonCard-root')}
       data-name={pokemon.name}
       data-id={pokemon.id}
-      heading={startCase(pokemon.name)}
+      heading={<ZLink href={`#/pokemon/${pokemon.name}`} label={name} />}
       subHeading={pokemon.id}
     >
       <ZImageSource src={pokemon.sprites?.front_default} width={ZSizeFixed.Large} name={pokemon.name} />
