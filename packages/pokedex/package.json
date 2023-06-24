@@ -1,6 +1,6 @@
 {
   "name": "@zthun/pokedex",
-  "version": "0.3.3",
+  "version": "0.3.4",
   "description": "A shared pokedex library to retrieve pokemon information.",
   "author": "Anthony Bonta",
   "license": "MIT",
