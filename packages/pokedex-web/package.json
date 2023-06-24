@@ -17,14 +17,14 @@
     "access": "public"
   },
   "devDependencies": {
-    "@cucumber/cucumber": "^9.1.2",
+    "@cucumber/cucumber": "^9.2.0",
     "@types/node": "^20.3.1",
     "@zthun/cirque": "^4.3.0",
     "@zthun/cirque-du-react": "^4.3.0",
     "@zthun/cirque-du-selenium": "^4.3.0",
-    "@zthun/fashion-boutique": "^0.1.2",
-    "@zthun/fashion-tailor": "^0.1.2",
-    "@zthun/fashion-theme": "^0.1.2",
+    "@zthun/fashion-boutique": "^0.2.0",
+    "@zthun/fashion-tailor": "^0.2.0",
+    "@zthun/fashion-theme": "^0.2.0",
     "@zthun/helpful-fn": "^0.17.0",
     "@zthun/helpful-query": "^0.17.0",
     "@zthun/helpful-react": "^0.17.0",

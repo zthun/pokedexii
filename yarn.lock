@@ -2121,34 +2121,34 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@cucumber/ci-environment@npm:9.1.0":
-  version: 9.1.0
-  resolution: "@cucumber/ci-environment@npm:9.1.0"
-  checksum: a5b8d9a42f924267e5fec4933d20c14ee3e45ac60385fae9ed38dbb3b9a17abb2b72d81fa4b52f10ab40ad7058a8b8a8b1604fe413a4c26658b9a4853124bc18
+"@cucumber/ci-environment@npm:9.2.0":
+  version: 9.2.0
+  resolution: "@cucumber/ci-environment@npm:9.2.0"
+  checksum: 84582e41768e52c2f0241a09f319e124d22a6c7670ad168068b848e177468d37b0b306946eec3db979057ee2201030930c7d6821eaaa16e6bfc37fe34b2530b4
   languageName: node
   linkType: hard
 
-"@cucumber/cucumber-expressions@npm:16.1.1":
-  version: 16.1.1
-  resolution: "@cucumber/cucumber-expressions@npm:16.1.1"
+"@cucumber/cucumber-expressions@npm:16.1.2":
+  version: 16.1.2
+  resolution: "@cucumber/cucumber-expressions@npm:16.1.2"
   dependencies:
     regexp-match-indices: 1.0.2
-  checksum: 2c05439248f2a85df01f6c72bfee8e67cb29c22b2cde796bc8c420da3405ffc029dc07e81cacbb80aa2cb6415db0a0d41bf23434218dcffeb758a027d86e0ff2
+  checksum: 636a903a748da18d256097f898eac848ec352943507a02808cff71de9a713d47f7c214f9df45ea9e673e7b8f29d5708cf17c196bc80651fbab5d97e93c930b08
   languageName: node
   linkType: hard
 
-"@cucumber/cucumber@npm:^9.1.2":
-  version: 9.1.2
-  resolution: "@cucumber/cucumber@npm:9.1.2"
+"@cucumber/cucumber@npm:^9.2.0":
+  version: 9.2.0
+  resolution: "@cucumber/cucumber@npm:9.2.0"
   dependencies:
-    "@cucumber/ci-environment": 9.1.0
-    "@cucumber/cucumber-expressions": 16.1.1
-    "@cucumber/gherkin": 26.0.3
+    "@cucumber/ci-environment": 9.2.0
+    "@cucumber/cucumber-expressions": 16.1.2
+    "@cucumber/gherkin": 26.2.0
     "@cucumber/gherkin-streams": 5.0.1
     "@cucumber/gherkin-utils": 8.0.2
-    "@cucumber/html-formatter": 20.2.1
+    "@cucumber/html-formatter": 20.3.0
     "@cucumber/message-streams": 4.0.1
-    "@cucumber/messages": 21.0.1
+    "@cucumber/messages": 22.0.0
     "@cucumber/tag-expressions": 5.0.1
     assertion-error-formatter: ^3.0.0
     capital-case: ^1.0.4
@@ -2183,7 +2183,7 @@ __metadata:
     yup: ^0.32.11
   bin:
     cucumber-js: bin/cucumber.js
-  checksum: 99c3402e509b728a5cae08824c629b89402dc853231e9e887c3cccbb7542542b7a1fdaf9a3fa2fbacfd16d7f97eb9b82e0d72a9244a0425f05ad66e90c3bd77c
+  checksum: ccfee97813c96db37d65fc286a6442e5d6cf0d7a5736c27c173f3bc6e9b2cabf330a62b74d2406ee2952c943c7bcca4ae9a1fc803ec8724f74f4dd24af89226b
   languageName: node
   linkType: hard
 
@@ -2218,12 +2218,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@cucumber/gherkin@npm:26.0.3":
-  version: 26.0.3
-  resolution: "@cucumber/gherkin@npm:26.0.3"
+"@cucumber/gherkin@npm:26.2.0":
+  version: 26.2.0
+  resolution: "@cucumber/gherkin@npm:26.2.0"
   dependencies:
-    "@cucumber/messages": 19.1.4 - 21
-  checksum: b070739a8b91fa38993f2608c9eb14d145b496c4888d77e70985ac8235b9184664d88734b0cb326c0baba517d6cfe3aa8efa44acf94daa49b73b5d4dd41074c7
+    "@cucumber/messages": ">=19.1.4 <=22"
+  checksum: d7bcc12fe50dd8dba6897f03ec41ae8e4a51d1582f72e55fa57137a449bd03e2ecab360ba9674fb00a17fc8482f784a45482e69e1df06f2786520e5e20e4083e
   languageName: node
   linkType: hard
 
@@ -2236,12 +2236,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@cucumber/html-formatter@npm:20.2.1":
-  version: 20.2.1
-  resolution: "@cucumber/html-formatter@npm:20.2.1"
+"@cucumber/html-formatter@npm:20.3.0":
+  version: 20.3.0
+  resolution: "@cucumber/html-formatter@npm:20.3.0"
   peerDependencies:
     "@cucumber/messages": ">=18"
-  checksum: a98538ccc89e9c0cd8a1d54ec3999ddf449a984c34bc85845c061edde691723b0f749c7e239b0a6bb631cd1085c5810c1e0651b1e46309da1df544f8c94ada89
+  checksum: e3062cceab1448dae4b390791d7e2fe9be243544eecd75df07c17a71d0a4ceecf4e7845c6f5a32c86cf4bdcc620992a5a4c81a1772c531205a2f556d17d4d0b0
   languageName: node
   linkType: hard
 
@@ -2254,15 +2254,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@cucumber/messages@npm:19.1.4 - 21, @cucumber/messages@npm:21.0.1":
-  version: 21.0.1
-  resolution: "@cucumber/messages@npm:21.0.1"
+"@cucumber/messages@npm:22.0.0, @cucumber/messages@npm:>=19.1.4 <=22":
+  version: 22.0.0
+  resolution: "@cucumber/messages@npm:22.0.0"
   dependencies:
-    "@types/uuid": 8.3.4
+    "@types/uuid": 9.0.1
     class-transformer: 0.5.1
     reflect-metadata: 0.1.13
     uuid: 9.0.0
-  checksum: 01849f35bb38593a3833174e141b78b576e70128be015ebd2e61a86cf0c0e4e43a15ff38ce2a3c6404b5e99dc9cd6b269b8bcb4d014f2e023bf968fe70fdc867
+  checksum: e9e8f3bda063ad87c23e2e5daed9e2965fb3e65c08ad5d27213d0f63d0e12574b27b2834d9360f958ad4418f7f5f22f5d78d63e45da52356ee8dfeaa3153e56c
   languageName: node
   linkType: hard
 
@@ -3785,6 +3785,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/uuid@npm:9.0.1":
+  version: 9.0.1
+  resolution: "@types/uuid@npm:9.0.1"
+  checksum: c472b8a77cbeded4bc529220b8611afa39bd64677f507838f8083d8aac8033b1f88cb9ddaa2f8589e0dcd2317291d0f6e1379f82d5ceebd6f74f3b4825288e00
+  languageName: node
+  linkType: hard
+
 "@typescript-eslint/eslint-plugin@npm:^5.59.9":
   version: 5.60.0
   resolution: "@typescript-eslint/eslint-plugin@npm:5.60.0"
@@ -4064,17 +4071,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@zthun/fashion-boutique@npm:^0.1.2":
-  version: 0.1.2
-  resolution: "@zthun/fashion-boutique@npm:0.1.2"
+"@zthun/fashion-boutique@npm:^0.2.0":
+  version: 0.2.0
+  resolution: "@zthun/fashion-boutique@npm:0.2.0"
   dependencies:
     "@emotion/react": ^11.11.1
     "@emotion/styled": ^11.11.0
     "@mui/material": ^5.13.4
     "@mui/system": ^5.13.2
     "@zthun/cirque": ^4.3.0
-    "@zthun/fashion-tailor": ^0.1.2
-    "@zthun/fashion-theme": ^0.1.2
+    "@zthun/fashion-tailor": ^0.2.0
+    "@zthun/fashion-theme": ^0.2.0
     "@zthun/helpful-fn": ^0.17.0
     "@zthun/helpful-obligation": ^0.17.0
     "@zthun/helpful-query": ^0.17.0
@@ -4089,26 +4096,26 @@ __metadata:
   peerDependencies:
     react: ^18.1.0
     react-dom: ^18.1.0
-  checksum: 155c278c70e45bfef6636444ededde53964729bffeb5ed06e5e925b73e171f7a2aa90d8b330295ed05512353563c0081666852a716831b41ae5a768712c09a47
+  checksum: 098e91d735803d93e42f9b6a7781281ba461165a00d741cfd3f5159509a9b8771ce10efe3f1d3cd6dbff9f4779a2ce7f4a55ba67f0086c2bbbe88b269e9641fc
   languageName: node
   linkType: hard
 
-"@zthun/fashion-tailor@npm:^0.1.2":
-  version: 0.1.2
-  resolution: "@zthun/fashion-tailor@npm:0.1.2"
+"@zthun/fashion-tailor@npm:^0.2.0":
+  version: 0.2.0
+  resolution: "@zthun/fashion-tailor@npm:0.2.0"
   dependencies:
     lodash: ^4.17.21
-  checksum: 2275146df1c4129ae4a3f30604e3ce20681c71c7c5b70f3f97471947873fe2a48aaae3e0102d6ebea003343c39e337138ee4991f9a4b5c98e57ae155cd58df98
+  checksum: 319a28c8a9258d3f96f04dc478c77a64121b6da1782290740d935684cbcff79919406bdc44d4fff9b35bdb40fbafbbf2890a848db0f61af46e33a3b23cc71fcc
   languageName: node
   linkType: hard
 
-"@zthun/fashion-theme@npm:^0.1.2":
-  version: 0.1.2
-  resolution: "@zthun/fashion-theme@npm:0.1.2"
+"@zthun/fashion-theme@npm:^0.2.0":
+  version: 0.2.0
+  resolution: "@zthun/fashion-theme@npm:0.2.0"
   dependencies:
     csstype: ^3.1.2
     lodash: ^4.17.21
-  checksum: 2146fc6e199a3d610f46883b436bc8116ab4a65413968b7a9c2079c82a81ae6070ce0229d0fc9f094dada26753a1cf8fd220a5e8e1763a0860ed00df5c13b618
+  checksum: 4c46bf69e4f643f9da671d1bed13faa23cae72f4e5c506f408d9e1324ba1f26fe331f54ba21efdc3cc5263ff3df2b4cdd64b850d426ce0c68d854bb517560e41
   languageName: node
   linkType: hard
 
@@ -4220,14 +4227,14 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@zthun/pokedex-web@workspace:packages/pokedex-web"
   dependencies:
-    "@cucumber/cucumber": ^9.1.2
+    "@cucumber/cucumber": ^9.2.0
     "@types/node": ^20.3.1
     "@zthun/cirque": ^4.3.0
     "@zthun/cirque-du-react": ^4.3.0
     "@zthun/cirque-du-selenium": ^4.3.0
-    "@zthun/fashion-boutique": ^0.1.2
-    "@zthun/fashion-tailor": ^0.1.2
-    "@zthun/fashion-theme": ^0.1.2
+    "@zthun/fashion-boutique": ^0.2.0
+    "@zthun/fashion-tailor": ^0.2.0
+    "@zthun/fashion-theme": ^0.2.0
     "@zthun/helpful-fn": ^0.17.0
     "@zthun/helpful-query": ^0.17.0
     "@zthun/helpful-react": ^0.17.0
@@ -4270,7 +4277,7 @@ __metadata:
     "@babel/core": ^7.22.5
     "@commitlint/cli": ^17.6.5
     "@commitlint/config-conventional": ^17.6.5
-    "@cucumber/cucumber": ^9.1.2
+    "@cucumber/cucumber": ^9.2.0
     "@types/jsdom": ^21.1.1
     "@types/lodash": ^4.14.195
     "@types/node": ^20.3.1
