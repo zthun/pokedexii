@@ -34,6 +34,51 @@ export interface IZPokemonSprites {
    * Front (shiny + female).
    */
   front_shiny_female?: string;
+
+  /**
+   * Other artwork.
+   */
+  other?: {
+    /**
+     * Dream world
+     */
+    dream_world?: {
+      /**
+       * Dream world front default.
+       */
+      front_default: string;
+      /**
+       * Dream world front female.
+       */
+      front_female?: string;
+    };
+    /**
+     * Home.
+     */
+    home?: {
+      /**
+       * Home front default.
+       */
+      front_default?: string;
+      /**
+       * Home front female.
+       */
+      front_female?: string;
+    };
+    /**
+     * Official artwork.
+     */
+    official?: {
+      /**
+       * Front default.
+       */
+      front_default?: string;
+      /**
+       * Front shiny.
+       */
+      front_shiny?: string;
+    };
+  };
 }
 
 /**
@@ -78,7 +123,12 @@ export class ZPokemonSpritesBuilder {
       front_default: `${ZPokemonSpritesBuilder.Endpoint}/${id}.png`,
       front_female: `${ZPokemonSpritesBuilder.Endpoint}/female/${id}.png`,
       front_shiny: `${ZPokemonSpritesBuilder.Endpoint}/shiny/${id}.png`,
-      front_shiny_female: `${ZPokemonSpritesBuilder.Endpoint}/shiny/female/${id}.png`
+      front_shiny_female: `${ZPokemonSpritesBuilder.Endpoint}/shiny/female/${id}.png`,
+      other: {
+        official: {
+          front_default: `${ZPokemonSpritesBuilder.Endpoint}/other/official-artwork/${id}.png`
+        }
+      }
     };
 
     return this;
