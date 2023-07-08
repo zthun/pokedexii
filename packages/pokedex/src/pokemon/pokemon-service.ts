@@ -1,3 +1,4 @@
+import { firstDefined } from '@zthun/helpful-fn';
 import {
   IZDataRequest,
   IZDataSource,
@@ -5,9 +6,9 @@ import {
   ZDataSourceStatic,
   ZDataSourceStaticOptionsBuilder
 } from '@zthun/helpful-query';
-import { IZHttpService, ZHttpRequestBuilder } from '@zthun/webigail-http';
-import { ZUrlBuilder } from '@zthun/webigail-url';
+import { IPokeApi, ZPokeApi } from '../poke-api/poke-api';
 import { IZPokemon, ZPokemonBuilder } from './pokemon';
+import { ZPokemonType } from './pokemon-type';
 
 /**
  * Represents a service that retrieves data from the pokemon api.
@@ -42,42 +43,31 @@ export interface IZPokemonService extends IZDataSource<IZPokemon> {
   /**
    * Gets information about a single pokemon.
    *
-   * @param idOrName -
-   *        The id or name of the pokemon.
+   * @param name -
+   *        The name of the pokemon.
    *
    * @returns
-   *        The pokemon with the given id or name.  Returns
+   *        The pokemon with the given name.  Returns
    *        a rejected promise if no such pokemon exists.
    */
-  get(idOrName: number | string): Promise<IZPokemon>;
+  get(name: string): Promise<IZPokemon>;
 }
 
 /**
  * Represents an implementation of an pokemon service that
  * uses the pokeapi.
  */
-export class ZPokemonServiceHttp implements IZPokemonService {
-  /**
-   * The public endpoint of the pokeapi.
-   */
-  public static readonly Endpoint = 'https://pokeapi.co/api/v2/pokemon';
-
-  // Due to the request of the pokemon api, this request results in
-  // a static JSON payload of less than 200k.  To reduce the load on
-  // the pokemon api, we can just cache all of the pokemon in this service.
-  // A better way to do this would be to prefetch and set a copy on a backend
-  // that stores it locally, and we can invoke that api instead, but
-  // this will suffice for now.
+export class ZPokemonServiceApi implements IZPokemonService {
   private _all: IZDataSource<IZPokemon>;
 
   /**
    * Initializes a new instance of this object.
    *
-   * @param _http -
-   *        The http service that will be responsible for
-   *        querying out to the pokeapi endpoint.
+   * @param _api -
+   *        The _api service that will be responsible for
+   *        querying out to the pokeapi endpoints.
    */
-  public constructor(private _http: IZHttpService) {
+  public constructor(private _api: IPokeApi) {
     const search = new ZDataSearchFields<IZPokemon>(['name']);
     const options = new ZDataSourceStaticOptionsBuilder<IZPokemon>().search(search).build();
     this._all = new ZDataSourceStatic(this._prefetch(), options);
@@ -91,11 +81,20 @@ export class ZPokemonServiceHttp implements IZPokemonService {
     return this._all.retrieve(request);
   }
 
-  public async get(idOrName: number | string): Promise<IZPokemon> {
-    const url = new ZUrlBuilder().parse(ZPokemonServiceHttp.Endpoint).append(`${idOrName}`).build();
-    const request = new ZHttpRequestBuilder().get().url(url).build();
-    const { data } = await this._http.request(request);
-    return data;
+  public async get(name: string): Promise<IZPokemon> {
+    const p = await this._api.pokemon(name);
+
+    const official = p.sprites?.other['official-artwork'];
+    const artwork = firstDefined(
+      '',
+      official?.front_default,
+      official?.front_female,
+      official?.front_shiny,
+      official?.front_shiny_female
+    );
+
+    const types = p.types.map((t) => t.type.name as ZPokemonType);
+    return new ZPokemonBuilder().who(p.id, p.name).artwork(artwork).types(types).build();
   }
 
   /**
@@ -108,14 +107,14 @@ export class ZPokemonServiceHttp implements IZPokemonService {
    *        A list of every pokemon from the pokemon api.
    */
   private async _prefetch(): Promise<IZPokemon[]> {
-    let url = new ZUrlBuilder().parse(ZPokemonServiceHttp.Endpoint).param('limit', '1').build();
-    let request = new ZHttpRequestBuilder().get().url(url).build();
-    const count = await this._http.request<{ count: number }>(request);
-
-    url = new ZUrlBuilder().parse(ZPokemonServiceHttp.Endpoint).param('limit', `${count.data.count}`).build();
-    request = new ZHttpRequestBuilder().get().url(url).build();
-    const { data } = await this._http.request<{ results: { name: string; url: string }[] }>(request);
-    const pokemon = data.results;
-    return pokemon.map((p) => new ZPokemonBuilder().generate(p.name, p.url).build());
+    const resources = await this._api.pokemons();
+    return await Promise.all(resources.results.map((r) => this.get(r.name)));
   }
+}
+
+/**
+ * Creates the default instance of the pokemon service.
+ */
+export function createPokemonService(): IZPokemonService {
+  return new ZPokemonServiceApi(new ZPokeApi());
 }

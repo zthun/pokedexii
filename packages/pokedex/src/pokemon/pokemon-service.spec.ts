@@ -1,12 +1,14 @@
 import { ZDataRequestBuilder } from '@zthun/helpful-query';
-import { ZHttpMethod, ZHttpResultBuilder, ZHttpServiceMock } from '@zthun/webigail-http';
-import { ZUrlBuilder } from '@zthun/webigail-url';
-import { beforeEach, describe, expect, it } from 'vitest';
+import { keyBy } from 'lodash';
+import { IPokeApiPage } from 'src/poke-api/poke-api-page';
+import { Mocked, beforeEach, describe, expect, it, vi } from 'vitest';
+import { IPokeApi } from '../poke-api/poke-api';
+import { IPokeApiPokemon } from '../poke-api/poke-api-pokemon';
 import { IZPokemon, ZPokemonBuilder } from './pokemon';
-import { ZPokemonServiceHttp } from './pokemon-service';
+import { ZPokemonServiceApi } from './pokemon-service';
 
 describe('ZPokemonService', () => {
-  let http: ZHttpServiceMock;
+  let api: Mocked<IPokeApi>;
   let bulbasaur: IZPokemon;
   let charmander: IZPokemon;
   let squirtle: IZPokemon;
@@ -14,7 +16,7 @@ describe('ZPokemonService', () => {
   let pokemon: IZPokemon[];
 
   function createTestTarget() {
-    return new ZPokemonServiceHttp(http);
+    return new ZPokemonServiceApi(api);
   }
 
   beforeEach(() => {
@@ -24,20 +26,64 @@ describe('ZPokemonService', () => {
     pikachu = new ZPokemonBuilder().pikachu().build();
 
     pokemon = [bulbasaur, charmander, squirtle, pikachu];
-    const pokemonPage = pokemon.map((p) => ({
-      name: p.name,
-      url: `http://pokeapi/pokemon/${p.id}`
-    }));
 
-    http = new ZHttpServiceMock();
+    const _pokeMap = keyBy<IPokeApiPokemon>(
+      pokemon.map((p) => ({
+        abilities: [],
+        base_experience: 1,
+        forms: [],
+        game_indices: [],
+        height: 1,
+        held_items: [],
+        id: p.id,
+        is_default: true,
+        location_area_encounters: '',
+        moves: [],
+        name: p.name,
+        order: 1,
+        species: {
+          name: 'pokemon',
+          url: 'http://pokeapi/species/pokemon'
+        },
+        sprites: {
+          other: {
+            'official-artwork': {
+              front_default: p.artwork
+            }
+          }
+        },
+        stats: [],
+        types: (p.types || []).map((t, i) => ({
+          slot: i,
+          type: {
+            name: t,
+            url: `http://pokeapi/types/${t}`
+          }
+        })),
+        weight: 1
+      })),
+      (p) => p.name
+    );
 
-    let result = new ZHttpResultBuilder({ count: pokemon.length }).build();
-    let endpoint = new ZUrlBuilder().parse(ZPokemonServiceHttp.Endpoint).param('limit', '1').build();
-    http.set<{ count: number }>(endpoint, ZHttpMethod.Get, result);
+    const _pokePage: IPokeApiPage = {
+      count: pokemon.length,
+      next: null,
+      previous: null,
+      results: pokemon.map((p) => ({
+        name: p.name,
+        url: `http://pokeapi/pokemon/${p.id}`
+      }))
+    };
 
-    result = new ZHttpResultBuilder({ results: pokemonPage }).build();
-    endpoint = new ZUrlBuilder().parse(ZPokemonServiceHttp.Endpoint).param('limit', `${pokemon.length}`).build();
-    http.set(endpoint, ZHttpMethod.Get, result);
+    api = vi.mocked<IPokeApi>({
+      pokemon: vi.fn(),
+      pokemons: vi.fn()
+    });
+
+    api.pokemons.mockResolvedValue(_pokePage);
+    api.pokemon.mockImplementation((name) =>
+      _pokeMap[name] ? Promise.resolve(_pokeMap[name]) : Promise.reject('Pokemon not found')
+    );
   });
 
   describe('List', () => {
@@ -64,23 +110,6 @@ describe('ZPokemonService', () => {
   });
 
   describe('Get', () => {
-    beforeEach(() => {
-      const result = new ZHttpResultBuilder(bulbasaur).build();
-      let endpoint = new ZUrlBuilder().parse(ZPokemonServiceHttp.Endpoint).append(`${bulbasaur.id}`).build();
-      http.set(endpoint, ZHttpMethod.Get, result);
-      endpoint = new ZUrlBuilder().parse(ZPokemonServiceHttp.Endpoint).append(`${bulbasaur.name}`).build();
-      http.set(endpoint, ZHttpMethod.Get, result);
-    });
-
-    it('should retrieve the requested pokemon by id', async () => {
-      // Arrange.
-      const target = createTestTarget();
-      // Act.
-      const actual = await target.get(bulbasaur.id);
-      // Assert.
-      expect(actual).toEqual(bulbasaur);
-    });
-
     it('should retrieve the requested pokemon by name', async () => {
       // Arrange.
       const target = createTestTarget();
