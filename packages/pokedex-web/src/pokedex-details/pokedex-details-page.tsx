@@ -1,4 +1,5 @@
 import {
+  ZBox,
   ZCard,
   ZChartProgress,
   ZDataPointBuilder,
@@ -13,11 +14,11 @@ import {
 import { ZSizeFixed, ZSizeVaried } from '@zthun/fashion-tailor';
 import { cssJoinDefined } from '@zthun/helpful-fn';
 import { asStateData, isStateErrored, isStateLoading } from '@zthun/helpful-react';
-import { IZPokemon } from '@zthun/pokedex';
+import { IZPokemon, ZPokemonMaxBaseStat } from '@zthun/pokedex';
 import { padStart, startCase } from 'lodash';
 import React, { useMemo } from 'react';
-import { ZPokemonMaxBaseStat } from '../../../pokedex/src/pokemon/pokemon-stat';
 import { usePokemonTheme } from '../pokemon-theme/pokemon-theme';
+import { ZPokemonTypeBadges } from '../pokemon-type-badge/pokemon-type-badges';
 import { usePokemon } from '../pokemon/pokemon-service';
 
 /**
@@ -28,7 +29,7 @@ export function ZPokedexDetailsPage() {
   const [pokemon] = usePokemon(name);
   const heading = useMemo(() => startCase(asStateData(pokemon)?.name), [pokemon]);
   const subHeading = useMemo(() => `#${padStart(String(asStateData(pokemon)?.id || '0'), 4, '0')}`, [pokemon]);
-  const { custom } = usePokemonTheme();
+  const { component, custom } = usePokemonTheme();
 
   const renderArtwork = (pokemon: IZPokemon) => (
     <ZCard
@@ -36,10 +37,14 @@ export function ZPokedexDetailsPage() {
       heading={heading}
       subHeading={subHeading}
       width={ZSizeFixed.Large}
+      widthXs={ZSizeVaried.Full}
       avatar={<ZIconFontAwesome name='palette' width={ZSizeFixed.Small} />}
     >
       <ZStack gap={ZSizeFixed.Small}>
-        <ZImageSource src={pokemon.artwork} width={ZSizeVaried.Full} />
+        <ZPokemonTypeBadges types={pokemon.types} />
+        <ZBox fashion={component}>
+          <ZImageSource src={pokemon.artwork} width={ZSizeVaried.Full} />
+        </ZBox>
       </ZStack>
     </ZCard>
   );
@@ -101,7 +106,7 @@ export function ZPokedexDetailsPage() {
     }
 
     return (
-      <ZGrid justifyContent='center' columns='auto 1fr auto' gap={ZSizeFixed.Small}>
+      <ZGrid justifyContent='center' columns='auto 1fr auto' columnsSm='1fr' gap={ZSizeFixed.Small}>
         {renderArtwork(pokemon)}
         {renderStats(pokemon)}
       </ZGrid>

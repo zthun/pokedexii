@@ -4,10 +4,10 @@ import { ZFashionThemeContext, ZTestRouter } from '@zthun/fashion-boutique';
 import { IZPokemon, IZPokemonService, ZPokemonBuilder } from '@zthun/pokedex';
 import { History, createMemoryHistory } from 'history';
 import React from 'react';
-import { createPokemonTheme } from 'src/pokemon-theme/pokemon-theme';
-import { ZPokemonServiceContext } from 'src/pokemon/pokemon-service';
 import { Mocked, beforeEach, describe, expect, it } from 'vitest';
 import { mock } from 'vitest-mock-extended';
+import { createPokemonTheme } from '../pokemon-theme/pokemon-theme';
+import { ZPokemonServiceContext } from '../pokemon/pokemon-service';
 import { ZPokedexDetailsPage } from './pokedex-details-page';
 import { ZPokedexDetailsPageComponentModel } from './pokedex-details-page.cm';
 
