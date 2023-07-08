@@ -1,12 +1,7 @@
-import { IZPokemonService, ZPokemonServiceHttp } from '@zthun/pokedex';
-import { ZHttpService } from '@zthun/webigail-http';
+import { createPokemonService } from '@zthun/pokedex';
 import { createContext, useContext } from 'react';
 
-export function createDefaultPokemonService(): IZPokemonService {
-  return new ZPokemonServiceHttp(new ZHttpService());
-}
-
-export const ZPokemonServiceContext = createContext(createDefaultPokemonService());
+export const ZPokemonServiceContext = createContext(createPokemonService());
 
 export function usePokemonService() {
   return useContext(ZPokemonServiceContext);
