@@ -5,9 +5,9 @@ import { ZDataSearchFields, ZDataSourceStatic, ZDataSourceStaticOptionsBuilder }
 import { IZPokemon, IZPokemonService, ZPokemonBuilder } from '@zthun/pokedex';
 import { MemoryHistory, createMemoryHistory } from 'history';
 import React from 'react';
-import { createPokemonTheme } from 'src/pokemon-theme/pokemon-theme';
 import { Mocked, beforeEach, describe, expect, it } from 'vitest';
 import { mock } from 'vitest-mock-extended';
+import { createPokemonTheme } from '../pokemon-theme/pokemon-theme';
 import { ZPokemonServiceContext } from '../pokemon/pokemon-service';
 import { ZPokedexListPage } from './pokedex-list-page';
 import { ZPokedexListPageComponentModel } from './pokedex-list-page.cm';
