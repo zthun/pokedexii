@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.4.0](https://github.com/zthun/pokedexii/compare/v0.3.4...v0.4.0) (2023-07-08)
+
+
+### Features
+
+* official artwork retrieval is now supported ([3db1c5c](https://github.com/zthun/pokedexii/commit/3db1c5c741991ae01051266f8ca542a55f088a73))
+
+
+
 ## [0.3.4](https://github.com/zthun/pokedexii/compare/v0.3.3...v0.3.4) (2023-06-24)
 
 **Note:** Version bump only for package @zthun/pokedex
