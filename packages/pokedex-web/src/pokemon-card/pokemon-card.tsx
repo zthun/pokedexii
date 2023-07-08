@@ -63,11 +63,7 @@ export function ZPokemonCard(props: IZPokemonCard) {
       onClick={onClick}
     >
       <div className={cssJoinDefined('ZPokemonCard-media', classes.media)}>
-        <ZImageSource
-          src={pokemon.sprites?.other?.official?.front_default}
-          width={ZSizeFixed.Large}
-          name={pokemon.name}
-        />
+        <ZImageSource src={pokemon.artwork} width={ZSizeFixed.Large} name={pokemon.name} />
       </div>
       <ZCaption className={cssJoinDefined('ZPokemonCard-number')}>#{padStart(String(pokemon.id), 4, '0')}</ZCaption>
       <ZH3 className={cssJoinDefined('ZPokemonCard-title', classes.title)}>{startCase(pokemon.name)}</ZH3>

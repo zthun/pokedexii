@@ -4,7 +4,7 @@ import { cssJoinDefined } from '@zthun/helpful-fn';
 import { IZPokemon } from '@zthun/pokedex';
 import React from 'react';
 import { usePokemonService } from 'src/pokemon/pokemon-service';
-import { ZPokemonCard } from './pokemon-card';
+import { ZPokemonCard } from '../pokemon-card/pokemon-card';
 
 export interface IZPokedexListPage {}
 
