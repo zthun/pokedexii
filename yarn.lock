@@ -4084,17 +4084,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@zthun/fashion-boutique@npm:^0.2.0":
-  version: 0.2.0
-  resolution: "@zthun/fashion-boutique@npm:0.2.0"
+"@zthun/fashion-boutique@npm:^0.3.1":
+  version: 0.3.1
+  resolution: "@zthun/fashion-boutique@npm:0.3.1"
   dependencies:
     "@emotion/react": ^11.11.1
     "@emotion/styled": ^11.11.0
     "@mui/material": ^5.13.4
     "@mui/system": ^5.13.2
     "@zthun/cirque": ^4.3.0
-    "@zthun/fashion-tailor": ^0.2.0
-    "@zthun/fashion-theme": ^0.2.0
+    "@zthun/fashion-tailor": ^0.3.1
+    "@zthun/fashion-theme": ^0.3.1
     "@zthun/helpful-fn": ^0.17.0
     "@zthun/helpful-obligation": ^0.17.0
     "@zthun/helpful-query": ^0.17.0
@@ -4109,26 +4109,26 @@ __metadata:
   peerDependencies:
     react: ^18.1.0
     react-dom: ^18.1.0
-  checksum: 098e91d735803d93e42f9b6a7781281ba461165a00d741cfd3f5159509a9b8771ce10efe3f1d3cd6dbff9f4779a2ce7f4a55ba67f0086c2bbbe88b269e9641fc
+  checksum: a51cdfad4fcc2a806731341adae7d8fb22f66c2a96550c2cdc090669f1e12b51e7cdd1553330ae2978841bd95bd9a9b7a27a2d17e5dfdcb26189a39073c7be04
   languageName: node
   linkType: hard
 
-"@zthun/fashion-tailor@npm:^0.2.0":
-  version: 0.2.0
-  resolution: "@zthun/fashion-tailor@npm:0.2.0"
+"@zthun/fashion-tailor@npm:^0.3.1":
+  version: 0.3.1
+  resolution: "@zthun/fashion-tailor@npm:0.3.1"
   dependencies:
     lodash: ^4.17.21
-  checksum: 319a28c8a9258d3f96f04dc478c77a64121b6da1782290740d935684cbcff79919406bdc44d4fff9b35bdb40fbafbbf2890a848db0f61af46e33a3b23cc71fcc
+  checksum: 47cddadabd13429fecbc268c6fd26d8438e08a3288ce99cf3f1b9ff522c6bb7883136b5a7cb7ffc2c20485849d3b16c4b521f5c791e003bc107e5e18d78fe392
   languageName: node
   linkType: hard
 
-"@zthun/fashion-theme@npm:^0.2.0":
-  version: 0.2.0
-  resolution: "@zthun/fashion-theme@npm:0.2.0"
+"@zthun/fashion-theme@npm:^0.3.1":
+  version: 0.3.1
+  resolution: "@zthun/fashion-theme@npm:0.3.1"
   dependencies:
     csstype: ^3.1.2
     lodash: ^4.17.21
-  checksum: 4c46bf69e4f643f9da671d1bed13faa23cae72f4e5c506f408d9e1324ba1f26fe331f54ba21efdc3cc5263ff3df2b4cdd64b850d426ce0c68d854bb517560e41
+  checksum: 125dd620b10fe5848293df18d8ab85c2bedf0b09bff7b24a389ae69af550f2934b0d042a37b790ac7c5cec327298b1089f5abeed830943b4ee227e147b8c911b
   languageName: node
   linkType: hard
 
@@ -4245,9 +4245,9 @@ __metadata:
     "@zthun/cirque": ^4.3.0
     "@zthun/cirque-du-react": ^4.3.0
     "@zthun/cirque-du-selenium": ^4.3.0
-    "@zthun/fashion-boutique": ^0.2.0
-    "@zthun/fashion-tailor": ^0.2.0
-    "@zthun/fashion-theme": ^0.2.0
+    "@zthun/fashion-boutique": ^0.3.1
+    "@zthun/fashion-tailor": ^0.3.1
+    "@zthun/fashion-theme": ^0.3.1
     "@zthun/helpful-fn": ^0.17.0
     "@zthun/helpful-query": ^0.17.0
     "@zthun/helpful-react": ^0.17.0
