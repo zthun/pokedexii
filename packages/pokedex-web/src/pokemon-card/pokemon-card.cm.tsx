@@ -1,5 +1,5 @@
-import { ZCircusActBuilder, ZCircusComponentModel } from '@zthun/cirque';
-import { IZPokemon, ZPokemonBuilder } from '@zthun/pokedex';
+import { ZCircusActBuilder, ZCircusBy, ZCircusComponentModel } from '@zthun/cirque';
+import { ZPokemonTypeBadgeComponentModel } from 'src/pokemon-type-badge/pokemon-type-badge.cm';
 
 /**
  * Represents the component model for a Pokemon card.
@@ -13,10 +13,18 @@ export class ZPokemonCardComponentModel extends ZCircusComponentModel {
    * @returns
    *        The name of the pokemon.
    */
-  public async who(): Promise<IZPokemon> {
-    const name = await this.driver.attribute('data-name', 'missing_no');
-    const id = await this.driver.attribute('data-id', '-1');
-    return new ZPokemonBuilder().who(+id, name).build();
+  public async name(): Promise<string> {
+    return await this.driver.attribute('data-name', 'missing_no');
+  }
+
+  /**
+   * Gets the badge types on the card.
+   *
+   * @returns
+   *        The badge types on the card.
+   */
+  public types(): Promise<ZPokemonTypeBadgeComponentModel[]> {
+    return ZCircusBy.all(this.driver, ZPokemonTypeBadgeComponentModel);
   }
 
   /**

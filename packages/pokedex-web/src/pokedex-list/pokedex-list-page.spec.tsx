@@ -1,10 +1,11 @@
 import { ZCircusBy } from '@zthun/cirque';
 import { ZCircusSetupRenderer } from '@zthun/cirque-du-react';
-import { ZTestRouter } from '@zthun/fashion-boutique';
+import { ZFashionThemeContext, ZTestRouter } from '@zthun/fashion-boutique';
 import { ZDataSearchFields, ZDataSourceStatic, ZDataSourceStaticOptionsBuilder } from '@zthun/helpful-query';
 import { IZPokemon, IZPokemonService, ZPokemonBuilder } from '@zthun/pokedex';
 import { MemoryHistory, createMemoryHistory } from 'history';
 import React from 'react';
+import { createPokemonTheme } from 'src/pokemon-theme/pokemon-theme';
 import { Mocked, beforeEach, describe, expect, it } from 'vitest';
 import { mock } from 'vitest-mock-extended';
 import { ZPokemonServiceContext } from '../pokemon/pokemon-service';
@@ -22,14 +23,17 @@ describe('ZPokedexListPage', () => {
 
   async function createTestTarget() {
     const element = (
-      <ZTestRouter navigator={history} location={history.location}>
-        <ZPokemonServiceContext.Provider value={pokemonService}>
-          <ZPokedexListPage />
-        </ZPokemonServiceContext.Provider>
-      </ZTestRouter>
+      <ZFashionThemeContext.Provider value={createPokemonTheme()}>
+        <ZTestRouter navigator={history} location={history.location}>
+          <ZPokemonServiceContext.Provider value={pokemonService}>
+            <ZPokedexListPage />
+          </ZPokemonServiceContext.Provider>
+        </ZTestRouter>
+      </ZFashionThemeContext.Provider>
     );
     const driver = await new ZCircusSetupRenderer(element).setup();
     const target = await ZCircusBy.first(driver, ZPokedexListPageComponentModel);
+    await (await target.grid()).load();
     return target;
   }
 
@@ -66,11 +70,22 @@ describe('ZPokedexListPage', () => {
     expected.sort();
     // Act.
     const cards = await target.cards();
-    const _pokemon = await Promise.all(cards.map((c) => c.who()));
-    const actual = _pokemon.map((p) => p.name);
+    const actual = await Promise.all(cards.map((c) => c.name()));
     actual.sort();
     // Assert.
     expect(actual).toEqual(expected);
+  });
+
+  it('should render pokemon types', async () => {
+    // Arrange.
+    const target = await createTestTarget();
+    const card = await target.card(charmander.name);
+    // Act
+    const types = await card!.types();
+    const badges = await Promise.all(types);
+    const actual = await Promise.all(badges.map((b) => b.type()));
+    // Assert
+    expect(actual).toEqual(charmander.types);
   });
 
   it('should render the list of searched pokemon', async () => {
