@@ -39,7 +39,7 @@ export function ZPokedexApp() {
       <ZFashionThemeContext.Provider value={PokemonTheme}>
         <ZBannerMain avatar={avatar} prefix={prefix}>
           <ZRouteMap>
-            <ZRoute path='/pokemon/:idOrName' element={<ZPokedexDetailsPage />} />
+            <ZRoute path='/pokemon/:name' element={<ZPokedexDetailsPage />} />
             <ZRoute path='/pokemon' element={<ZPokedexListPage />} />
             <ZRoute path='' element={<ZNavigate to='/pokemon' />} />
             <ZRoute path='*' element={<ZNotFound />} />
