@@ -19,10 +19,11 @@
     "access": "public"
   },
   "dependencies": {
+    "@zthun/helpful-fn": "^0.17.0",
     "@zthun/helpful-query": "^0.17.0",
-    "@zthun/webigail-http": "^0.1.0",
     "@zthun/webigail-url": "^0.1.0",
-    "lodash": "^4.17.21"
+    "lodash": "^4.17.21",
+    "pokeapi-js-wrapper": "^1.2.2"
   },
   "devDependencies": {
     "microbundle": "^0.15.1",
