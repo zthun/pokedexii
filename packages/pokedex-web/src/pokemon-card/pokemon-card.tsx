@@ -1,10 +1,10 @@
-import { ZCaption, ZH3, ZImageSource, ZStack, createStyleHook } from '@zthun/fashion-boutique';
+import { ZCaption, ZH3, ZImageSource, createStyleHook } from '@zthun/fashion-boutique';
 import { ZSizeFixed } from '@zthun/fashion-tailor';
-import { ZOrientation, cssJoinDefined } from '@zthun/helpful-fn';
-import { IZPokemon, ZPokemonType } from '@zthun/pokedex';
+import { cssJoinDefined } from '@zthun/helpful-fn';
+import { IZPokemon } from '@zthun/pokedex';
 import { padStart, startCase } from 'lodash';
 import React, { MouseEventHandler } from 'react';
-import { ZPokemonTypeBadge } from 'src/pokemon-type-badge/pokemon-type-badge';
+import { ZPokemonTypeBadges } from '../pokemon-type-badge/pokemon-type-badges';
 
 /**
  * Props for a pokemon card.
@@ -23,7 +23,6 @@ export interface IZPokemonCard {
 
 const usePokemonCardStyles = createStyleHook(({ theme, tailor }) => ({
   root: {
-    'border': `${tailor.thickness(ZSizeFixed.Small)} solid ${theme.opposite.main}`,
     'borderRadius': '0.5rem',
     'backgroundColor': theme.surface.main,
     'color': theme.surface.contrast,
@@ -33,7 +32,7 @@ const usePokemonCardStyles = createStyleHook(({ theme, tailor }) => ({
     'padding': tailor.gap(ZSizeFixed.Medium),
 
     '&:hover': {
-      borderColor: theme.primary.main
+      outline: `${tailor.thickness()} solid ${theme.primary.main}`
     }
   },
 
@@ -45,11 +44,8 @@ const usePokemonCardStyles = createStyleHook(({ theme, tailor }) => ({
   },
 
   title: {
-    fontSize: '1.2rem'
-  },
-
-  types: {
-    marginBottom: tailor.gap()
+    fontSize: '1.2rem',
+    marginTop: tailor.gap()
   }
 }));
 
@@ -59,24 +55,6 @@ const usePokemonCardStyles = createStyleHook(({ theme, tailor }) => ({
 export function ZPokemonCard(props: IZPokemonCard) {
   const { value: pokemon, onClick } = props;
   const { classes } = usePokemonCardStyles();
-
-  const renderTypes = () => {
-    const { types } = pokemon;
-
-    const renderType = (t: ZPokemonType) => (
-      <ZPokemonTypeBadge className={cssJoinDefined('ZPokemonCard-type')} key={t} type={t} />
-    );
-
-    return (
-      <ZStack
-        className={cssJoinDefined('ZPokemonCard-types', classes.types)}
-        orientation={ZOrientation.Horizontal}
-        gap={ZSizeFixed.Small}
-      >
-        {types?.map(renderType)}
-      </ZStack>
-    );
-  };
 
   return (
     <div
@@ -89,7 +67,7 @@ export function ZPokemonCard(props: IZPokemonCard) {
         <ZImageSource src={pokemon.artwork} width={ZSizeFixed.Large} name={pokemon.name} />
       </div>
       <ZCaption className={cssJoinDefined('ZPokemonCard-number')}>#{padStart(String(pokemon.id), 4, '0')}</ZCaption>
-      {renderTypes()}
+      <ZPokemonTypeBadges types={pokemon.types} />
       <ZH3 className={cssJoinDefined('ZPokemonCard-title', classes.title)}>{startCase(pokemon.name)}</ZH3>
     </div>
   );
