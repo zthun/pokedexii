@@ -58,7 +58,17 @@ export interface IZPokemonService extends IZDataSource<IZPokemon> {
  * uses the pokeapi.
  */
 export class ZPokemonServiceApi implements IZPokemonService {
-  private _all: IZDataSource<IZPokemon>;
+  private _source: IZDataSource<IZPokemon>;
+
+  private get _all() {
+    if (this._source == null) {
+      const search = new ZDataSearchFields<IZPokemon>(['name']);
+      const options = new ZDataSourceStaticOptionsBuilder<IZPokemon>().search(search).build();
+      this._source = new ZDataSourceStatic(this._prefetch(), options);
+    }
+
+    return this._source;
+  }
 
   /**
    * Initializes a new instance of this object.
@@ -67,11 +77,7 @@ export class ZPokemonServiceApi implements IZPokemonService {
    *        The _api service that will be responsible for
    *        querying out to the pokeapi endpoints.
    */
-  public constructor(private _api: IPokeApi) {
-    const search = new ZDataSearchFields<IZPokemon>(['name']);
-    const options = new ZDataSourceStaticOptionsBuilder<IZPokemon>().search(search).build();
-    this._all = new ZDataSourceStatic(this._prefetch(), options);
-  }
+  public constructor(private _api: IPokeApi) {}
 
   public async count(request: IZDataRequest): Promise<number> {
     return this._all.count(request);

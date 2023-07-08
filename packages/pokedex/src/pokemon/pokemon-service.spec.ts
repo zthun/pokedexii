@@ -107,6 +107,17 @@ describe('ZPokemonService', () => {
       // Assert.
       expect(actual).toEqual(expected);
     });
+
+    it('should prefetch only once', async () => {
+      // Arrange.
+      const target = createTestTarget();
+      const request = new ZDataRequestBuilder().page(2).size(2).build();
+      // Act.
+      await target.retrieve(request);
+      await target.retrieve(request);
+      // Assert.
+      expect(api.pokemons).toHaveBeenCalledTimes(1);
+    });
   });
 
   describe('Get', () => {
