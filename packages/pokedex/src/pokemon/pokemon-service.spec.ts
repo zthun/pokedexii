@@ -1,8 +1,8 @@
 import { ZDataRequestBuilder } from '@zthun/helpful-query';
 import { keyBy } from 'lodash';
-import { IPokeApiPage } from 'src/poke-api/poke-api-page';
 import { Mocked, beforeEach, describe, expect, it, vi } from 'vitest';
 import { IPokeApi } from '../poke-api/poke-api';
+import { IPokeApiPage } from '../poke-api/poke-api-page';
 import { IPokeApiPokemon } from '../poke-api/poke-api-pokemon';
 import { IZPokemon, ZPokemonBuilder } from './pokemon';
 import { ZPokemonServiceApi } from './pokemon-service';
