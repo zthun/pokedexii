@@ -1,5 +1,5 @@
 import { ZCircusActBuilder, ZCircusBy, ZCircusComponentModel } from '@zthun/cirque';
-import { ZPokemonTypeBadgeComponentModel } from 'src/pokemon-type-badge/pokemon-type-badge.cm';
+import { ZPokemonTypeBadgeComponentModel } from '../pokemon-type-badge/pokemon-type-badge.cm';
 
 /**
  * Represents the component model for a Pokemon card.
