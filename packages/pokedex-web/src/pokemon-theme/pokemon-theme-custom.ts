@@ -1,6 +1,14 @@
 import { IZFashion } from '@zthun/fashion-theme';
 import { ZPokemonType } from '@zthun/pokedex';
 import {
+  createAttackStatFashion,
+  createDefenseStatFashion,
+  createHpStatFashion,
+  createSpecialAttackStatFashion,
+  createSpecialDefenseStatFashion,
+  createSpeedStatFashion
+} from './pokemon-theme-custom-stats';
+import {
   createBugTypeFashion,
   createDarkTypeFashion,
   createDragonTypeFashion,
@@ -24,11 +32,27 @@ import {
 } from './pokemon-theme-custom-types';
 
 export interface IZPokemonThemeCustom {
+  stats: {
+    hp: IZFashion;
+    attack: IZFashion;
+    defense: IZFashion;
+    specialAttack: IZFashion;
+    specialDefense: IZFashion;
+    speed: IZFashion;
+  };
   types: Record<ZPokemonType, IZFashion>;
 }
 
 export function createPokemonThemeCustom(): IZPokemonThemeCustom {
   return {
+    stats: {
+      hp: createHpStatFashion(),
+      attack: createAttackStatFashion(),
+      defense: createDefenseStatFashion(),
+      specialAttack: createSpecialAttackStatFashion(),
+      specialDefense: createSpecialDefenseStatFashion(),
+      speed: createSpeedStatFashion()
+    },
     types: {
       [ZPokemonType.Unknown]: createUnknownTypeFashion(),
       [ZPokemonType.Normal]: createNormalTypeFashion(),
