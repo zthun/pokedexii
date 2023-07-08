@@ -1,4 +1,4 @@
-/* istanbul ignore file */
+/* istanbul ignore file -- @preserve */
 
 import { IPokeApiPage } from './poke-api-page';
 import { IPokeApiPokemon } from './poke-api-pokemon';
