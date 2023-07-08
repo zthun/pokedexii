@@ -13,6 +13,7 @@ import {
 import { ZSizeFixed, ZSizeVaried } from '@zthun/fashion-tailor';
 import { cssJoinDefined } from '@zthun/helpful-fn';
 import { asStateData, isStateErrored, isStateLoading } from '@zthun/helpful-react';
+import { IZPokemon } from '@zthun/pokedex';
 import { padStart, startCase } from 'lodash';
 import React, { useMemo } from 'react';
 import { ZPokemonMaxBaseStat } from '../../../pokedex/src/pokemon/pokemon-stat';
@@ -29,15 +30,7 @@ export function ZPokedexDetailsPage() {
   const subHeading = useMemo(() => `#${padStart(String(asStateData(pokemon)?.id || '0'), 4, '0')}`, [pokemon]);
   const { custom } = usePokemonTheme();
 
-  if (isStateLoading(pokemon)) {
-    return <ZSuspenseRotate width={ZSizeFixed.ExtraLarge} />;
-  }
-
-  if (isStateErrored(pokemon)) {
-    return <ZNotFound />;
-  }
-
-  const renderArtwork = () => (
+  const renderArtwork = (pokemon: IZPokemon) => (
     <ZCard
       className={cssJoinDefined('ZPokedexDetailsPage-artwork')}
       heading={heading}
@@ -51,7 +44,7 @@ export function ZPokedexDetailsPage() {
     </ZCard>
   );
 
-  const renderStats = () => {
+  const renderStats = (pokemon: IZPokemon) => {
     const { stats } = pokemon;
 
     const hp = new ZDataPointBuilder(stats.hp.base, ZPokemonMaxBaseStat)
@@ -98,10 +91,22 @@ export function ZPokedexDetailsPage() {
     );
   };
 
-  return (
-    <ZGrid className='ZPokedexDetailsPage-root' justifyContent='center' columns='auto 1fr auto' gap={ZSizeFixed.Small}>
-      {renderArtwork()}
-      {renderStats()}
-    </ZGrid>
-  );
+  const renderPage = () => {
+    if (isStateLoading(pokemon)) {
+      return <ZSuspenseRotate width={ZSizeFixed.ExtraLarge} />;
+    }
+
+    if (isStateErrored(pokemon)) {
+      return <ZNotFound />;
+    }
+
+    return (
+      <ZGrid justifyContent='center' columns='auto 1fr auto' gap={ZSizeFixed.Small}>
+        {renderArtwork(pokemon)}
+        {renderStats(pokemon)}
+      </ZGrid>
+    );
+  };
+
+  return <div className='ZPokedexDetailsPage-root'>{renderPage()}</div>;
 }
