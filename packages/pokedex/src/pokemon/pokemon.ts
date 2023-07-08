@@ -1,4 +1,5 @@
 import { ZUrlBuilder } from '@zthun/webigail-url';
+import { IZPokemonStat } from './pokemon-stat';
 import { ZPokemonType } from './pokemon-type';
 
 /**
@@ -7,6 +8,10 @@ import { ZPokemonType } from './pokemon-type';
 export interface IZPokemon {
   /**
    * The id number.
+   *
+   * This actually varies from game to game, so it is not
+   * a reliable source to identify a pokemon.  Use the
+   * name instead.
    */
   id: number;
 
@@ -16,6 +21,18 @@ export interface IZPokemon {
    * This is normally lower case.
    */
   name: string;
+
+  /**
+   * The stat list for the pokemon.
+   */
+  stats: {
+    hp: IZPokemonStat;
+    attack: IZPokemonStat;
+    defense: IZPokemonStat;
+    specialAttack: IZPokemonStat;
+    specialDefense: IZPokemonStat;
+    speed: IZPokemonStat;
+  };
 
   /**
    * The url for the pokemon artwork.
@@ -40,7 +57,15 @@ export class ZPokemonBuilder {
   public constructor() {
     this._pokemon = {
       id: 0,
-      name: 'missingno'
+      name: 'missingno',
+      stats: {
+        hp: { base: 0, effort: 0 },
+        attack: { base: 0, effort: 0 },
+        defense: { base: 0, effort: 0 },
+        specialAttack: { base: 0, effort: 0 },
+        specialDefense: { base: 0, effort: 0 },
+        speed: { base: 0, effort: 0 }
+      }
     };
   }
 
@@ -128,6 +153,102 @@ export class ZPokemonBuilder {
   }
 
   /**
+   * Sets the hp stats for the pokemon.
+   *
+   * @param base -
+   *        The base stat value.
+   * @param effort -
+   *        The default effort stat.
+   *
+   * @returns
+   *        This object.
+   */
+  public hp(base: number, effort = 0) {
+    this._pokemon.stats.hp = { base, effort };
+    return this;
+  }
+
+  /**
+   * Sets the attack stats for the pokemon.
+   *
+   * @param base -
+   *        The base stat value.
+   * @param effort -
+   *        The default effort stat.
+   *
+   * @returns
+   *        This object.
+   */
+  public attack(base: number, effort = 0) {
+    this._pokemon.stats.attack = { base, effort };
+    return this;
+  }
+
+  /**
+   * Sets the defense stats for the pokemon.
+   *
+   * @param base -
+   *        The base stat value.
+   * @param effort -
+   *        The default effort stat.
+   *
+   * @returns
+   *        This object.
+   */
+  public defense(base: number, effort = 0) {
+    this._pokemon.stats.defense = { base, effort };
+    return this;
+  }
+
+  /**
+   * Sets the special attack stats for the pokemon.
+   *
+   * @param base -
+   *        The base stat value.
+   * @param effort -
+   *        The default effort stat.
+   *
+   * @returns
+   *        This object.
+   */
+  public specialAttack(base: number, effort = 0) {
+    this._pokemon.stats.specialAttack = { base, effort };
+    return this;
+  }
+
+  /**
+   * Sets the special defense stats for the pokemon.
+   *
+   * @param base -
+   *        The base stat value.
+   * @param effort -
+   *        The default effort stat.
+   *
+   * @returns
+   *        This object.
+   */
+  public specialDefense(base: number, effort = 0) {
+    this._pokemon.stats.specialDefense = { base, effort };
+    return this;
+  }
+
+  /**
+   * Sets the speed stats for the pokemon.
+   *
+   * @param base -
+   *        The base stat value.
+   * @param effort -
+   *        The default effort stat.
+   *
+   * @returns
+   *        This object.
+   */
+  public speed(base: number, effort = 0) {
+    this._pokemon.stats.speed = { base, effort };
+    return this;
+  }
+
+  /**
    * Sets Bulbasaur's information.
    *
    * It's better to retrieve this from something like the pokeapi,
@@ -138,7 +259,15 @@ export class ZPokemonBuilder {
    *        A reference to this object.
    */
   public bulbasaur() {
-    return this.who(1, 'bulbasaur').type(ZPokemonType.Grass).type(ZPokemonType.Poison);
+    return this.who(1, 'bulbasaur')
+      .type(ZPokemonType.Grass)
+      .type(ZPokemonType.Poison)
+      .hp(45)
+      .attack(49)
+      .defense(49)
+      .specialAttack(65, 1)
+      .specialDefense(65)
+      .speed(45);
   }
 
   /**
@@ -152,7 +281,14 @@ export class ZPokemonBuilder {
    *        A reference to this object.
    */
   public charmander() {
-    return this.who(4, 'charmander').type(ZPokemonType.Fire);
+    return this.who(4, 'charmander')
+      .type(ZPokemonType.Fire)
+      .hp(39)
+      .attack(52)
+      .defense(43)
+      .specialAttack(60)
+      .specialDefense(50)
+      .speed(65, 1);
   }
 
   /**
@@ -166,7 +302,14 @@ export class ZPokemonBuilder {
    *        A reference to this object.
    */
   public squirtle() {
-    return this.who(7, 'squirtle').type(ZPokemonType.Water);
+    return this.who(7, 'squirtle')
+      .type(ZPokemonType.Water)
+      .hp(44)
+      .attack(48)
+      .defense(65, 1)
+      .specialAttack(50)
+      .specialDefense(64)
+      .speed(43);
   }
 
   /**
@@ -180,7 +323,14 @@ export class ZPokemonBuilder {
    *        A reference to this object.
    */
   public pikachu() {
-    return this.who(25, 'pikachu').type(ZPokemonType.Electric);
+    return this.who(25, 'pikachu')
+      .type(ZPokemonType.Electric)
+      .hp(35)
+      .attack(55)
+      .defense(40)
+      .specialAttack(50)
+      .specialDefense(50)
+      .speed(90, 2);
   }
 
   /**
