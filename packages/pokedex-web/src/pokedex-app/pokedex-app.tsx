@@ -11,12 +11,12 @@ import {
   ZRouter
 } from '@zthun/fashion-boutique';
 import { ZSizeFixed } from '@zthun/fashion-tailor';
-import { createDarkTheme } from '@zthun/fashion-theme';
 import React from 'react';
+import { createPokemonTheme } from 'src/pokemon-theme/pokemon-theme';
 import { ZPokedexDetailsPage } from '../pokedex-details/pokedex-details-page';
 import { ZPokedexListPage } from '../pokedex-list/pokedex-list-page';
 
-const PokemonTheme = createDarkTheme();
+const PokemonTheme = createPokemonTheme();
 
 /**
  * Represents the root entry point into the application.
