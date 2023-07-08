@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.5.0](https://github.com/zthun/pokedexii/compare/v0.4.0...v0.5.0) (2023-07-08)
+
+
+### Features
+
+* cards now display pokemon types ([badae25](https://github.com/zthun/pokedexii/commit/badae25aaaa2b6cd17c4b8341ff080dca31f77a6))
+* pokemon theme ([3cd1c18](https://github.com/zthun/pokedexii/commit/3cd1c18e8ad7afe90b647f55de6fcdd15dcc3027))
+* type badge displays a fashionable pokemon type ([0b473e3](https://github.com/zthun/pokedexii/commit/0b473e3e25aeca8b79ca059c65ad4c6122c36102))
+
+
+### Bug Fixes
+
+* export pokemon type ([4c4f67b](https://github.com/zthun/pokedexii/commit/4c4f67b518d2cef2de084a41785c79872ff50ef2))
+
+
+
 ## [0.4.0](https://github.com/zthun/pokedexii/compare/v0.3.4...v0.4.0) (2023-07-08)
 
 

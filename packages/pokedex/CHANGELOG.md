@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.5.0](https://github.com/zthun/pokedexii/compare/v0.4.0...v0.5.0) (2023-07-08)
+
+
+### Bug Fixes
+
+* export pokemon type ([4c4f67b](https://github.com/zthun/pokedexii/commit/4c4f67b518d2cef2de084a41785c79872ff50ef2))
+
+
+
 ## [0.4.0](https://github.com/zthun/pokedexii/compare/v0.3.4...v0.4.0) (2023-07-08)
 
 
