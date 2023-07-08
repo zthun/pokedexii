@@ -52,7 +52,38 @@ describe('ZPokemonService', () => {
             }
           }
         },
-        stats: [],
+        stats: [
+          {
+            stat: { name: 'hp', url: 'http://pokeapi/stats/hp' },
+            base_stat: p.stats.hp.base,
+            effort: p.stats.hp.effort
+          },
+          {
+            stat: { name: 'attack', url: 'http://pokeapi/stats/attack' },
+            base_stat: p.stats.attack.base,
+            effort: p.stats.attack.effort
+          },
+          {
+            stat: { name: 'defense', url: 'http://pokeapi/stats/defense' },
+            base_stat: p.stats.defense.base,
+            effort: p.stats.defense.effort
+          },
+          {
+            stat: { name: 'special-attack', url: 'http://pokeapi/stats/special-attack' },
+            base_stat: p.stats.specialAttack.base,
+            effort: p.stats.specialAttack.effort
+          },
+          {
+            stat: { name: 'special-defense', url: 'http://pokeapi/stats/special-defense' },
+            base_stat: p.stats.specialDefense.base,
+            effort: p.stats.specialDefense.effort
+          },
+          {
+            stat: { name: 'speed', url: 'http://pokeapi/stats/speed' },
+            base_stat: p.stats.speed.base,
+            effort: p.stats.speed.effort
+          }
+        ],
         types: (p.types || []).map((t, i) => ({
           slot: i,
           type: {
@@ -121,13 +152,54 @@ describe('ZPokemonService', () => {
   });
 
   describe('Get', () => {
-    it('should retrieve the requested pokemon by name', async () => {
+    const shouldSetProperty = async <T>(expected: T, name: string, propertyFn: (p: IZPokemon) => T) => {
       // Arrange.
       const target = createTestTarget();
       // Act.
-      const actual = await target.get(bulbasaur.name);
+      const pkm = await target.get(bulbasaur.name);
+      const actual = propertyFn(pkm);
       // Assert.
-      expect(actual).toEqual(bulbasaur);
+      expect(actual).toEqual(expected);
+    };
+
+    it('should set the id', async () => {
+      await shouldSetProperty(bulbasaur.id, bulbasaur.name, (p) => p.id);
+    });
+
+    it('should set the name', async () => {
+      await shouldSetProperty(bulbasaur.name, bulbasaur.name, (p) => p.name);
+    });
+
+    it('should set the artwork', async () => {
+      await shouldSetProperty(bulbasaur.artwork, bulbasaur.name, (p) => p.artwork);
+    });
+
+    it('should set the types', async () => {
+      await shouldSetProperty(bulbasaur.types, bulbasaur.name, (p) => p.types);
+    });
+
+    it('should set the hp stat', async () => {
+      await shouldSetProperty(bulbasaur.stats.hp, bulbasaur.name, (p) => p.stats.hp);
+    });
+
+    it('should set the attack stat', async () => {
+      await shouldSetProperty(bulbasaur.stats.attack, bulbasaur.name, (p) => p.stats.attack);
+    });
+
+    it('should set the defense stat', async () => {
+      await shouldSetProperty(bulbasaur.stats.defense, bulbasaur.name, (p) => p.stats.defense);
+    });
+
+    it('should set the special attack stat', async () => {
+      await shouldSetProperty(bulbasaur.stats.specialAttack, bulbasaur.name, (p) => p.stats.specialAttack);
+    });
+
+    it('should set the special defense stat', async () => {
+      await shouldSetProperty(bulbasaur.stats.specialDefense, bulbasaur.name, (p) => p.stats.specialDefense);
+    });
+
+    it('should set the speed stat', async () => {
+      await shouldSetProperty(bulbasaur.stats.speed, bulbasaur.name, (p) => p.stats.speed);
     });
   });
 });

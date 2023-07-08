@@ -6,6 +6,7 @@ import {
   ZDataSourceStatic,
   ZDataSourceStaticOptionsBuilder
 } from '@zthun/helpful-query';
+import { keyBy } from 'lodash';
 import { IPokeApi, ZPokeApi } from '../poke-api/poke-api';
 import { IZPokemon, ZPokemonBuilder } from './pokemon';
 import { ZPokemonType } from './pokemon-type';
@@ -99,8 +100,26 @@ export class ZPokemonServiceApi implements IZPokemonService {
       official?.front_shiny_female
     );
 
+    const stats = keyBy(p.stats, (s) => s.stat.name);
+    const hp = stats['hp'];
+    const attack = stats['attack'];
+    const defense = stats['defense'];
+    const specialAttack = stats['special-attack'];
+    const specialDefense = stats['special-defense'];
+    const speed = stats['speed'];
+
     const types = p.types.map((t) => t.type.name as ZPokemonType);
-    return new ZPokemonBuilder().who(p.id, p.name).artwork(artwork).types(types).build();
+    return new ZPokemonBuilder()
+      .who(p.id, p.name)
+      .artwork(artwork)
+      .types(types)
+      .hp(hp.base_stat, hp.effort)
+      .attack(attack.base_stat, attack.effort)
+      .defense(defense.base_stat, defense.effort)
+      .specialAttack(specialAttack.base_stat, specialAttack.effort)
+      .specialDefense(specialDefense.base_stat, specialDefense.effort)
+      .speed(speed.base_stat, speed.effort)
+      .build();
   }
 
   /**
