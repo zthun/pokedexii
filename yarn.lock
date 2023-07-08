@@ -38,7 +38,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/core@npm:^7.12.10, @babel/core@npm:^7.12.3, @babel/core@npm:^7.22.5":
+"@babel/core@npm:^7.12.10, @babel/core@npm:^7.12.3, @babel/core@npm:^7.22.8":
   version: 7.22.8
   resolution: "@babel/core@npm:7.22.8"
   dependencies:
@@ -2859,7 +2859,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mui/material@npm:^5.13.4":
+"@mui/material@npm:^5.13.7":
   version: 5.13.7
   resolution: "@mui/material@npm:5.13.7"
   dependencies:
@@ -2930,7 +2930,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mui/system@npm:^5.13.2, @mui/system@npm:^5.13.7":
+"@mui/system@npm:^5.13.7":
   version: 5.13.7
   resolution: "@mui/system@npm:5.13.7"
   dependencies:
@@ -3696,7 +3696,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:^20.3.1":
+"@types/node@npm:*, @types/node@npm:^20.4.1":
   version: 20.4.1
   resolution: "@types/node@npm:20.4.1"
   checksum: 22cbcc792f2eb636fe4188778ed0f32658ab872aa7fcb9847b3fa289a42b14b9f5e30c6faec50ef3c7adbc6c2a246926e5858136bb8b10c035a3fcaa6afbeed2
@@ -3927,9 +3927,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vitest/coverage-istanbul@npm:^0.32.2":
-  version: 0.32.4
-  resolution: "@vitest/coverage-istanbul@npm:0.32.4"
+"@vitest/coverage-istanbul@npm:^0.33.0":
+  version: 0.33.0
+  resolution: "@vitest/coverage-istanbul@npm:0.33.0"
   dependencies:
     istanbul-lib-coverage: ^3.2.0
     istanbul-lib-instrument: ^5.2.1
@@ -3939,60 +3939,60 @@ __metadata:
     test-exclude: ^6.0.0
   peerDependencies:
     vitest: ">=0.32.0 <1"
-  checksum: 55311feb99b4180d1c3f2eed089b58525e30a6f16048c18e6848e5c59dc1b085c27720890f384367ff55c8a2f2e9f78641ac28e133721f86a7c8336c21748da2
+  checksum: 3150306696e41b9edb6f2519b12a833958bf28c4d77f09cb09760273c1a589375e56e5317e698a2d15a599f2ebadde3edd704e9604cbc6b073386faa22327bb8
   languageName: node
   linkType: hard
 
-"@vitest/expect@npm:0.32.4":
-  version: 0.32.4
-  resolution: "@vitest/expect@npm:0.32.4"
+"@vitest/expect@npm:0.33.0":
+  version: 0.33.0
+  resolution: "@vitest/expect@npm:0.33.0"
   dependencies:
-    "@vitest/spy": 0.32.4
-    "@vitest/utils": 0.32.4
+    "@vitest/spy": 0.33.0
+    "@vitest/utils": 0.33.0
     chai: ^4.3.7
-  checksum: fb44ae0507c3a0298e472e64f4d298f60b159c7ce05201987cbd60ba6b11069a97bed5f689f911ac66096ee573c64ed0c17a2511661ad7823ce31a86244b8cd8
+  checksum: da6bf8e4a4f23218088b4e7dcdf6eb9f8d92e82a98a674edf8be2f333625179da6802936a948e7a60e0918da53e7ec548183d1d9d42f0e1c4e2d3f66fd63e11f
   languageName: node
   linkType: hard
 
-"@vitest/runner@npm:0.32.4":
-  version: 0.32.4
-  resolution: "@vitest/runner@npm:0.32.4"
+"@vitest/runner@npm:0.33.0":
+  version: 0.33.0
+  resolution: "@vitest/runner@npm:0.33.0"
   dependencies:
-    "@vitest/utils": 0.32.4
+    "@vitest/utils": 0.33.0
     p-limit: ^4.0.0
     pathe: ^1.1.1
-  checksum: 06f2b4003963a7f18954bcd690ebd3b917e1d45d998a8c9a23458569a8ae9b50a18fcf511ac100343eeddf1df1e47f8eba870e193afa895ccb348a679e5295de
+  checksum: de731aa0687cf15f141e81fb11027ff52860292f6d8957678c9fcd307502e4f9fd679bcaff93b53d29eeeb694d403d6aa52d49d341f998ec2b794e7abe061572
   languageName: node
   linkType: hard
 
-"@vitest/snapshot@npm:0.32.4":
-  version: 0.32.4
-  resolution: "@vitest/snapshot@npm:0.32.4"
+"@vitest/snapshot@npm:0.33.0":
+  version: 0.33.0
+  resolution: "@vitest/snapshot@npm:0.33.0"
   dependencies:
-    magic-string: ^0.30.0
+    magic-string: ^0.30.1
     pathe: ^1.1.1
     pretty-format: ^29.5.0
-  checksum: d8907fc0504acfb59df88aaf43a210161f7e2f22eaaa96c6562b7a1c9e28b12d2b572afcd49ae224a8a9947fabf473e956c7ea7c7d25f794d5521d7d45f24b78
+  checksum: ff2604d5bf09342eab45109df06f4e2e9e78698bf26b0eed1f4871d7757312e43de90ead938698be3e03e9873d4081ebeb69c94928b8065c53d1e9f28742185e
   languageName: node
   linkType: hard
 
-"@vitest/spy@npm:0.32.4":
-  version: 0.32.4
-  resolution: "@vitest/spy@npm:0.32.4"
+"@vitest/spy@npm:0.33.0":
+  version: 0.33.0
+  resolution: "@vitest/spy@npm:0.33.0"
   dependencies:
     tinyspy: ^2.1.1
-  checksum: 742870e7554dd8d478de85bc265c3af051e1f3420093fdc9978fe9871472db37da6da69c66d80ad604029d1dfdc303f1159613d9ccf08dba1c3991eb4e7616a7
+  checksum: 501a704a10b411f407fbcedeaf1f469e6fcac4894af11fa89c74e6f64bf3eebbcd006cf86377ae379708c0b8c860243db504f5d4e90d382419aa666458b76800
   languageName: node
   linkType: hard
 
-"@vitest/utils@npm:0.32.4":
-  version: 0.32.4
-  resolution: "@vitest/utils@npm:0.32.4"
+"@vitest/utils@npm:0.33.0":
+  version: 0.33.0
+  resolution: "@vitest/utils@npm:0.33.0"
   dependencies:
     diff-sequences: ^29.4.3
     loupe: ^2.3.6
     pretty-format: ^29.5.0
-  checksum: 7d81162c3afaa638d30c47a28b7eced62abb8d7a8c891b10fa2f9756b2b6609d767142162044fe976c2cb8c17911d135fb3950f83e6d2bbd90150a042237bd25
+  checksum: 8c5b381f5599ca517bedd0e46805e91b1150564473d37b2b80ef45aa9c16cb59d296513dd34bc2171904beb28be73b89e5333056539d49a0ba9d513ae7672a0a
   languageName: node
   linkType: hard
 
@@ -4084,17 +4084,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@zthun/fashion-boutique@npm:^0.3.1":
-  version: 0.3.1
-  resolution: "@zthun/fashion-boutique@npm:0.3.1"
+"@zthun/fashion-boutique@npm:^0.4.0":
+  version: 0.4.0
+  resolution: "@zthun/fashion-boutique@npm:0.4.0"
   dependencies:
     "@emotion/react": ^11.11.1
     "@emotion/styled": ^11.11.0
-    "@mui/material": ^5.13.4
-    "@mui/system": ^5.13.2
+    "@mui/material": ^5.13.7
+    "@mui/system": ^5.13.7
     "@zthun/cirque": ^4.3.0
-    "@zthun/fashion-tailor": ^0.3.1
-    "@zthun/fashion-theme": ^0.3.1
+    "@zthun/fashion-tailor": ^0.4.0
+    "@zthun/fashion-theme": ^0.4.0
     "@zthun/helpful-fn": ^0.17.0
     "@zthun/helpful-obligation": ^0.17.0
     "@zthun/helpful-query": ^0.17.0
@@ -4104,31 +4104,31 @@ __metadata:
     csstype: ^3.1.2
     history: ^5.3.0
     lodash: ^4.17.21
-    react-router-dom: ^6.12.1
+    react-router-dom: ^6.14.1
     tss-react: ^4.8.6
   peerDependencies:
     react: ^18.1.0
     react-dom: ^18.1.0
-  checksum: a51cdfad4fcc2a806731341adae7d8fb22f66c2a96550c2cdc090669f1e12b51e7cdd1553330ae2978841bd95bd9a9b7a27a2d17e5dfdcb26189a39073c7be04
+  checksum: 70a0b76848652f1a288ac90880a18e27346b4fb8a515b625660214aeb81f6bf0e8657ff65e2e5bffd2919ceee3fe7605fb83de664d56abb672a796bc5c395522
   languageName: node
   linkType: hard
 
-"@zthun/fashion-tailor@npm:^0.3.1":
-  version: 0.3.1
-  resolution: "@zthun/fashion-tailor@npm:0.3.1"
+"@zthun/fashion-tailor@npm:^0.4.0":
+  version: 0.4.0
+  resolution: "@zthun/fashion-tailor@npm:0.4.0"
   dependencies:
     lodash: ^4.17.21
-  checksum: 47cddadabd13429fecbc268c6fd26d8438e08a3288ce99cf3f1b9ff522c6bb7883136b5a7cb7ffc2c20485849d3b16c4b521f5c791e003bc107e5e18d78fe392
+  checksum: ef44644e2b168bb33abfc5164e4228c090084007ba26c17f83a464f0ef79bbe4e1adffa2dd83d56b14435a2a13e02fe7f6dea77acb72c4e9e56ec4f51033e3ed
   languageName: node
   linkType: hard
 
-"@zthun/fashion-theme@npm:^0.3.1":
-  version: 0.3.1
-  resolution: "@zthun/fashion-theme@npm:0.3.1"
+"@zthun/fashion-theme@npm:^0.4.0":
+  version: 0.4.0
+  resolution: "@zthun/fashion-theme@npm:0.4.0"
   dependencies:
     csstype: ^3.1.2
     lodash: ^4.17.21
-  checksum: 125dd620b10fe5848293df18d8ab85c2bedf0b09bff7b24a389ae69af550f2934b0d042a37b790ac7c5cec327298b1089f5abeed830943b4ee227e147b8c911b
+  checksum: d2608862fffa46e2a57492a1a636f2aa90718be3fffb8d69aae42d8db85de824ebf5f7d96424041606a672ab864f4662ca0b3207ccab4a15ca8de9b7afc23eaa
   languageName: node
   linkType: hard
 
@@ -4241,13 +4241,13 @@ __metadata:
   resolution: "@zthun/pokedex-web@workspace:packages/pokedex-web"
   dependencies:
     "@cucumber/cucumber": ^9.2.0
-    "@types/node": ^20.3.1
+    "@types/node": ^20.4.1
     "@zthun/cirque": ^4.3.0
     "@zthun/cirque-du-react": ^4.3.0
     "@zthun/cirque-du-selenium": ^4.3.0
-    "@zthun/fashion-boutique": ^0.3.1
-    "@zthun/fashion-tailor": ^0.3.1
-    "@zthun/fashion-theme": ^0.3.1
+    "@zthun/fashion-boutique": ^0.4.0
+    "@zthun/fashion-tailor": ^0.4.0
+    "@zthun/fashion-theme": ^0.4.0
     "@zthun/helpful-fn": ^0.17.0
     "@zthun/helpful-query": ^0.17.0
     "@zthun/helpful-react": ^0.17.0
@@ -4259,11 +4259,11 @@ __metadata:
     react-dom: ^18.2.0
     ts-node: ^10.9.1
     tsconfig-paths: ^4.2.0
-    typescript: ^5.1.3
-    vite: ^4.3.9
+    typescript: ^5.1.6
+    vite: ^4.4.2
     vite-tsconfig-paths: ^4.2.0
-    vitest: ^0.32.2
-    vitest-mock-extended: ^1.1.3
+    vitest: ^0.33.0
+    vitest-mock-extended: ^1.1.4
   languageName: unknown
   linkType: soft
 
@@ -4277,8 +4277,8 @@ __metadata:
     lodash: ^4.17.21
     microbundle: ^0.15.1
     pokeapi-js-wrapper: ^1.2.2
-    typescript: ^5.1.3
-    vitest: ^0.32.2
+    typescript: ^5.1.6
+    vitest: ^0.33.0
   languageName: unknown
   linkType: soft
 
@@ -4286,27 +4286,27 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@zthun/pokedexii@workspace:."
   dependencies:
-    "@babel/core": ^7.22.5
+    "@babel/core": ^7.22.8
     "@commitlint/cli": ^17.6.6
     "@commitlint/config-conventional": ^17.6.6
     "@cucumber/cucumber": ^9.2.0
     "@types/jsdom": ^21.1.1
     "@types/lodash": ^4.14.195
-    "@types/node": ^20.3.1
-    "@vitest/coverage-istanbul": ^0.32.2
+    "@types/node": ^20.4.1
+    "@vitest/coverage-istanbul": ^0.33.0
     "@zthun/lint-janitor": ^14.2.0
     "@zthun/lint-janitor-config": ^14.2.0
     husky: ^8.0.3
     jsdom: ^22.1.0
-    lerna: ^7.0.2
+    lerna: ^7.1.1
     react: ^18.2.0
     react-dom: ^18.2.0
     rimraf: ^5.0.1
     ts-node: ^10.9.1
     tsconfig-paths: ^4.2.0
-    typescript: ^5.1.3
-    vite: ^4.3.9
-    vitest: ^0.32.2
+    typescript: ^5.1.6
+    vite: ^4.4.2
+    vitest: ^0.33.0
     vitest-tsconfig-paths: ^3.4.1
   languageName: unknown
   linkType: soft
@@ -9054,7 +9054,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lerna@npm:^7.0.2":
+"lerna@npm:^7.1.1":
   version: 7.1.1
   resolution: "lerna@npm:7.1.1"
   dependencies:
@@ -9540,7 +9540,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"magic-string@npm:^0.30.0":
+"magic-string@npm:^0.30.1":
   version: 0.30.1
   resolution: "magic-string@npm:0.30.1"
   dependencies:
@@ -11784,7 +11784,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-router-dom@npm:^6.12.1":
+"react-router-dom@npm:^6.14.1":
   version: 6.14.1
   resolution: "react-router-dom@npm:6.14.1"
   dependencies:
@@ -13467,10 +13467,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tinypool@npm:^0.5.0":
-  version: 0.5.0
-  resolution: "tinypool@npm:0.5.0"
-  checksum: 4e0dfd8f28666d541c1d92304222edc4613f05d74fe2243c8520d466a2cc6596011a7072c1c41a7de7522351b82fda07e8038198e8f43673d8d69401c5903f8c
+"tinypool@npm:^0.6.0":
+  version: 0.6.0
+  resolution: "tinypool@npm:0.6.0"
+  checksum: 996bf3a922993cec568d6b6ddc72531700b2a8aea24623ed6946a8929557b0f17629955d20defda09cb3b12fc94087159f14cb8e06570adce7d1b7d2eef00a91
   languageName: node
   linkType: hard
 
@@ -13801,7 +13801,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:>=3 < 6, typescript@npm:^4.6.4 || ^5.0.0, typescript@npm:^5.1.3":
+"typescript@npm:>=3 < 6, typescript@npm:^4.6.4 || ^5.0.0, typescript@npm:^5.1.6":
   version: 5.1.6
   resolution: "typescript@npm:5.1.6"
   bin:
@@ -13821,7 +13821,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@>=3 < 6#~builtin<compat/typescript>, typescript@patch:typescript@^4.6.4 || ^5.0.0#~builtin<compat/typescript>, typescript@patch:typescript@^5.1.3#~builtin<compat/typescript>":
+"typescript@patch:typescript@>=3 < 6#~builtin<compat/typescript>, typescript@patch:typescript@^4.6.4 || ^5.0.0#~builtin<compat/typescript>, typescript@patch:typescript@^5.1.6#~builtin<compat/typescript>":
   version: 5.1.6
   resolution: "typescript@patch:typescript@npm%3A5.1.6#~builtin<compat/typescript>::version=5.1.6&hash=ad5954"
   bin:
@@ -14080,9 +14080,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite-node@npm:0.32.4":
-  version: 0.32.4
-  resolution: "vite-node@npm:0.32.4"
+"vite-node@npm:0.33.0":
+  version: 0.33.0
+  resolution: "vite-node@npm:0.33.0"
   dependencies:
     cac: ^6.7.14
     debug: ^4.3.4
@@ -14092,7 +14092,7 @@ __metadata:
     vite: ^3.0.0 || ^4.0.0
   bin:
     vite-node: vite-node.mjs
-  checksum: 6edb7aafcc30b97213435e7b3bfa43e2133feadd46680c0e54b44064f9e38f9b6e3a75f7c0ccde6bf3b6f34cb9681ec6510fb966a11f9ca7239e9473200a4a24
+  checksum: 7c37911251d3e318fe4ad6b4093207498336ce190a58afb43a9ae701eee7f110ef80920b79061710cf6abcc6335ce58f6ca412ee6b268f25fe10f278c94cc264
   languageName: node
   linkType: hard
 
@@ -14112,7 +14112,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite@npm:^3.0.0 || ^4.0.0, vite@npm:^4.3.9":
+"vite@npm:^3.0.0 || ^4.0.0, vite@npm:^4.4.2":
   version: 4.4.2
   resolution: "vite@npm:4.4.2"
   dependencies:
@@ -14152,7 +14152,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vitest-mock-extended@npm:^1.1.3":
+"vitest-mock-extended@npm:^1.1.4":
   version: 1.1.4
   resolution: "vitest-mock-extended@npm:1.1.4"
   dependencies:
@@ -14176,33 +14176,33 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vitest@npm:^0.32.2":
-  version: 0.32.4
-  resolution: "vitest@npm:0.32.4"
+"vitest@npm:^0.33.0":
+  version: 0.33.0
+  resolution: "vitest@npm:0.33.0"
   dependencies:
     "@types/chai": ^4.3.5
     "@types/chai-subset": ^1.3.3
     "@types/node": "*"
-    "@vitest/expect": 0.32.4
-    "@vitest/runner": 0.32.4
-    "@vitest/snapshot": 0.32.4
-    "@vitest/spy": 0.32.4
-    "@vitest/utils": 0.32.4
+    "@vitest/expect": 0.33.0
+    "@vitest/runner": 0.33.0
+    "@vitest/snapshot": 0.33.0
+    "@vitest/spy": 0.33.0
+    "@vitest/utils": 0.33.0
     acorn: ^8.9.0
     acorn-walk: ^8.2.0
     cac: ^6.7.14
     chai: ^4.3.7
     debug: ^4.3.4
     local-pkg: ^0.4.3
-    magic-string: ^0.30.0
+    magic-string: ^0.30.1
     pathe: ^1.1.1
     picocolors: ^1.0.0
     std-env: ^3.3.3
     strip-literal: ^1.0.1
     tinybench: ^2.5.0
-    tinypool: ^0.5.0
+    tinypool: ^0.6.0
     vite: ^3.0.0 || ^4.0.0
-    vite-node: 0.32.4
+    vite-node: 0.33.0
     why-is-node-running: ^2.2.2
   peerDependencies:
     "@edge-runtime/vm": "*"
@@ -14232,7 +14232,7 @@ __metadata:
       optional: true
   bin:
     vitest: vitest.mjs
-  checksum: 0f3347aac5656e6ba14c2f82d8fc5bfa333766ec745f7250f02a28d4cf6b35e645a300f0116a7db542430f59edb96cfeb3d2bc87856b84c776c25d10581f051b
+  checksum: c1884b2a1a41af81ee54c86a986a32b6a4c69ec3b3f7d2322f92c8fad5532d6a12160e7efb7927e4c53d95806ef4ede9549bdd82c66604e281c71056212f56e7
   languageName: node
   linkType: hard
 
