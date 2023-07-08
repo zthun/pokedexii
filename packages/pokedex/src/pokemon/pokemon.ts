@@ -1,5 +1,5 @@
-import { last } from 'lodash';
-import { IZPokemonSprites, ZPokemonSpritesBuilder } from './pokemon-sprites';
+import { ZUrlBuilder } from '@zthun/webigail-url';
+import { ZPokemonType } from './pokemon-type';
 
 /**
  * Represents information about a pokemon.
@@ -9,16 +9,23 @@ export interface IZPokemon {
    * The id number.
    */
   id: number;
+
   /**
    * The pokemon name.
    *
    * This is normally lower case.
    */
   name: string;
+
   /**
-   * A sprite sheet for the pokemon.
+   * The url for the pokemon artwork.
    */
-  sprites: IZPokemonSprites;
+  artwork?: string;
+
+  /**
+   * The types for this pokemon.
+   */
+  types?: ZPokemonType[];
 }
 
 /**
@@ -33,8 +40,7 @@ export class ZPokemonBuilder {
   public constructor() {
     this._pokemon = {
       id: 0,
-      name: 'missingno',
-      sprites: new ZPokemonSpritesBuilder().id(0).build()
+      name: 'missingno'
     };
   }
 
@@ -52,58 +58,130 @@ export class ZPokemonBuilder {
   public who(id: number, name: string): this {
     this._pokemon.id = id;
     this._pokemon.name = name;
-    this._pokemon.sprites = new ZPokemonSpritesBuilder().id(id).build();
+    return this.art(id);
+  }
+
+  /**
+   * Sets the url for the pokemon artwork.
+   *
+   * @param artwork -
+   *        The value to set.
+   *
+   * @returns
+   *        This object.
+   */
+  public artwork(artwork: string): this {
+    this._pokemon.artwork = artwork;
     return this;
   }
 
   /**
-   * Auto generates the id and sprite sheets based on the url.
+   * Builds the artwork from the standard github content.
    *
-   * The pokemon api returns a list with the pokemon name and url.
-   * You can use this method to detect the id and sprite sheet.
+   * @param id -
+   *        The id number of the pokemon.
    *
-   * @param name -
-   *        The pokemon name.
-   * @param url -
-   *        The endpoint url of the pokemon to retrieve.
+   * @returns
+   *        This object.
    */
-  public generate(name: string, url: string) {
-    const tokens = url.split('/').filter((t) => !!t);
-    const id = +last(tokens)!;
-    return this.who(id, name);
+  public art(id: number): this {
+    const url = new ZUrlBuilder('https', 'raw.githubusercontent.com')
+      .append('PokeAPI')
+      .append('sprites')
+      .append('master')
+      .append('sprites')
+      .append('pokemon')
+      .append('other')
+      .append('official-artwork')
+      .append(`${id}.png`)
+      .build();
+
+    return this.artwork(url);
+  }
+
+  /**
+   * Sets the pokemon types.
+   *
+   * @param types -
+   *        The types to set.
+   *
+   * @returns
+   *        This object.
+   */
+  public types(types: ZPokemonType[]) {
+    this._pokemon.types = types;
+    return this;
+  }
+
+  /**
+   * Adds an individual type.
+   *
+   * @param type -
+   *        The type to add.
+   *
+   * @returns
+   *        This object.
+   */
+  public type(type: ZPokemonType) {
+    const types = this._pokemon.types || [];
+    return this.types([...types, type]);
   }
 
   /**
    * Sets Bulbasaur's information.
    *
+   * It's better to retrieve this from something like the pokeapi,
+   * but this just sets limited information which is good for
+   * testing and demos.
+   *
    * @returns
    *        A reference to this object.
    */
-  public bulbasaur = this.who.bind(this, 1, 'bulbasaur');
+  public bulbasaur() {
+    return this.who(1, 'bulbasaur').type(ZPokemonType.Grass).type(ZPokemonType.Poison);
+  }
 
   /**
    * Sets Charmander's information.
    *
+   * It's better to retrieve this from something like the pokeapi,
+   * but this just sets limited information which is good for
+   * testing and demos.
+   *
    * @returns
    *        A reference to this object.
    */
-  public charmander = this.who.bind(this, 4, 'charmander');
+  public charmander() {
+    return this.who(4, 'charmander').type(ZPokemonType.Fire);
+  }
 
   /**
    * Sets Squirtle's information.
    *
-   * @returns
-   *        A reference to this object.
-   */
-  public squirtle = this.who.bind(this, 7, 'squirtle');
-
-  /**
-   * Sets Pikachu's information.
+   * It's better to retrieve this from something like the pokeapi,
+   * but this just sets limited information which is good for
+   * testing and demos.
    *
    * @returns
    *        A reference to this object.
    */
-  public pikachu = this.who.bind(this, 25, 'pikachu');
+  public squirtle() {
+    return this.who(7, 'squirtle').type(ZPokemonType.Water);
+  }
+
+  /**
+   * Sets Pikachu's information.
+   *
+   * It's better to retrieve this from something like the pokeapi,
+   * but this just sets limited information which is good for
+   * testing and demos.
+   *
+   * @returns
+   *        A reference to this object.
+   */
+  public pikachu() {
+    return this.who(25, 'pikachu').type(ZPokemonType.Electric);
+  }
 
   /**
    * Returns a deep copy of the built pokemon.
