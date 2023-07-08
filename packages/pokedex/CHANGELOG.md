@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.6.0](https://github.com/zthun/pokedexii/compare/v0.5.0...v0.6.0) (2023-07-08)
+
+
+### Features
+
+* pokemon not gives back stat information ([35947f0](https://github.com/zthun/pokedexii/commit/35947f0b7c41c36a2b2e6e3f377a312779b83d1f))
+* service converts pokeapi stats to stat information ([35ef91d](https://github.com/zthun/pokedexii/commit/35ef91d6664f15907bbfc28c734994f0b87ddb3f))
+
+
+
 ## [0.5.0](https://github.com/zthun/pokedexii/compare/v0.4.0...v0.5.0) (2023-07-08)
 
 
