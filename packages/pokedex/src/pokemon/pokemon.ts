@@ -1,7 +1,40 @@
 import { ZUrlBuilder } from '@zthun/webigail-url';
 import { IZPokedexNamedResource } from '../pokedex-resource/pokedex-named-resource';
 import { ZType } from '../type/type';
-import { IZPokemonStat } from './pokemon-stat';
+
+/**
+ * The maximum base stat a pokemon can have.
+ */
+export const ZPokemonMaxBaseStat = 255;
+
+/**
+ * A stat value
+ */
+export interface IZPokemonStat {
+  /**
+   * Base stat upon capture.
+   */
+  base: number;
+  /**
+   * Effort gain upon level up.
+   */
+  effort: number;
+}
+
+/**
+ * A weakness of the pokemon to a specific type.
+ */
+export interface IZPokemonWeakness {
+  /**
+   * The type.
+   */
+  type: ZType;
+
+  /**
+   * The damage multiplier.
+   */
+  damage: 2 | 4;
+}
 
 /**
  * Represents information about a pokemon.
@@ -39,6 +72,8 @@ export interface IZPokemon extends IZPokedexNamedResource {
     specialDefense: IZPokemonStat;
     speed: IZPokemonStat;
   };
+
+  weaknesses: IZPokemonWeakness[];
 
   /**
    * The url for the pokemon artwork.
@@ -79,7 +114,8 @@ export class ZPokemonBuilder {
         specialDefense: { base: 0, effort: 0 },
         speed: { base: 0, effort: 0 }
       },
-      types: []
+      types: [],
+      weaknesses: []
     };
   }
 
@@ -173,6 +209,59 @@ export class ZPokemonBuilder {
    */
   public type(type: ZType) {
     return this.types([...this._pokemon.types, type]);
+  }
+
+  /**
+   * Sets the list of weaknesses.
+   *
+   * @param weaknesses -
+   *        The weaknesses to set.
+   *
+   * @returns
+   *        This object.
+   */
+  public weaknesses(weaknesses: IZPokemonWeakness[]) {
+    this._pokemon.weaknesses = weaknesses;
+    return this;
+  }
+
+  /**
+   * Adds a weakness.
+   *
+   * @param weakness -
+   *        The weakness to add.
+   *
+   * @returns
+   *        This object.
+   */
+  public weakness(weakness: IZPokemonWeakness) {
+    return this.weaknesses(this._pokemon.weaknesses.concat(weakness));
+  }
+
+  /**
+   * Adds a 2x weakness.
+   *
+   * @param type -
+   *        The type to add the weakness from.
+   *
+   * @returns
+   *        This object.
+   */
+  public doubleDamageFrom(type: ZType) {
+    return this.weakness({ type, damage: 2 });
+  }
+
+  /**
+   * Adds a 4x weakness.
+   *
+   * @param type -
+   *        The type to add the weakness from.
+   *
+   * @returns
+   *        This object.
+   */
+  public quadrupleDamageFrom(type: ZType) {
+    return this.weakness({ type, damage: 4 });
   }
 
   /**
@@ -314,6 +403,10 @@ export class ZPokemonBuilder {
       .name('bulbasaur')
       .type(ZType.Grass)
       .type(ZType.Poison)
+      .doubleDamageFrom(ZType.Fire)
+      .doubleDamageFrom(ZType.Flying)
+      .doubleDamageFrom(ZType.Ice)
+      .doubleDamageFrom(ZType.Psychic)
       .hp(45)
       .attack(49)
       .defense(49)
@@ -338,6 +431,9 @@ export class ZPokemonBuilder {
     return this.id(4)
       .name('charmander')
       .type(ZType.Fire)
+      .doubleDamageFrom(ZType.Ground)
+      .doubleDamageFrom(ZType.Rock)
+      .doubleDamageFrom(ZType.Water)
       .hp(39)
       .attack(52)
       .defense(43)
@@ -346,6 +442,24 @@ export class ZPokemonBuilder {
       .speed(65, 1)
       .height(6)
       .weight(85);
+  }
+
+  public charizard() {
+    return this.id(6)
+      .name('charizard')
+      .type(ZType.Fire)
+      .type(ZType.Flying)
+      .doubleDamageFrom(ZType.Electric)
+      .quadrupleDamageFrom(ZType.Rock)
+      .doubleDamageFrom(ZType.Water)
+      .hp(78)
+      .attack(84)
+      .defense(78)
+      .specialAttack(109, 3)
+      .specialDefense(85)
+      .speed(100)
+      .height(17)
+      .weight(905);
   }
 
   /**
@@ -362,6 +476,8 @@ export class ZPokemonBuilder {
     return this.id(7)
       .name('squirtle')
       .type(ZType.Water)
+      .doubleDamageFrom(ZType.Electric)
+      .doubleDamageFrom(ZType.Grass)
       .hp(44)
       .attack(48)
       .defense(65, 1)
@@ -386,6 +502,7 @@ export class ZPokemonBuilder {
     return this.id(25)
       .name('pikachu')
       .type(ZType.Electric)
+      .doubleDamageFrom(ZType.Ground)
       .hp(35)
       .attack(55)
       .defense(40)

@@ -1,5 +1,5 @@
 import { firstDefined } from '@zthun/helpful-fn';
-import { keyBy } from 'lodash';
+import { keyBy, mapValues } from 'lodash';
 import { IPokeApi, ZPokeApi } from '../poke-api/poke-api';
 import { IPokeApiConverter } from '../poke-api/poke-api-converter';
 import { IPokeApiPage } from '../poke-api/poke-api-page';
@@ -7,7 +7,7 @@ import { IPokeApiPokemon } from '../poke-api/poke-api-pokemon';
 import { IPokeApiRetrieval } from '../poke-api/poke-api-retrieval';
 import { IZPokedexResourceService, ZPokedexResourceService } from '../pokedex-resource/pokedex-resource-service';
 import { ZType } from '../type/type';
-import { IZPokemon, ZPokemonBuilder } from './pokemon';
+import { IZPokemon, IZPokemonWeakness, ZPokemonBuilder } from './pokemon';
 
 type Converter = IPokeApiConverter<IPokeApiPokemon, IZPokemon>;
 type Retriever = IPokeApiRetrieval<IPokeApiPokemon>;
@@ -23,7 +23,7 @@ class ZPokemonService implements Converter, Retriever {
     return this._api.pokemon(name);
   }
 
-  public convert(resource: IPokeApiPokemon): Promise<IZPokemon> {
+  public async convert(resource: IPokeApiPokemon): Promise<IZPokemon> {
     const official = resource.sprites?.other['official-artwork'];
     const artwork = firstDefined(
       '',
@@ -42,11 +42,15 @@ class ZPokemonService implements Converter, Retriever {
     const speed = stats['speed'];
 
     const types = resource.types.map((t) => t.type.name as ZType);
+
+    const weaknesses = await this._calculateWeaknesses(types);
+
     const pokemon = new ZPokemonBuilder()
       .id(resource.id)
       .name(resource.name)
       .artwork(artwork)
       .types(types)
+      .weaknesses(weaknesses)
       .hp(hp.base_stat, hp.effort)
       .attack(attack.base_stat, attack.effort)
       .defense(defense.base_stat, defense.effort)
@@ -58,6 +62,24 @@ class ZPokemonService implements Converter, Retriever {
       .build();
 
     return Promise.resolve(pokemon);
+  }
+
+  private async _calculateWeaknesses(types: ZType[]): Promise<IZPokemonWeakness[]> {
+    // Calculating the weaknesses of the pokemon is done through the number of types that they take double
+    // damage from.  These numbers are multiplied together to give either 2x or 4x damage.
+    // Double damage from is a 2x multiplier, half damage from is a 0.5x multiplier, and no damage from is
+    // a 0x multiplier.
+    const _types = await Promise.all(types.map((t) => this._api.type(t)));
+    const lookup = mapValues(keyBy(Object.values(ZType)), () => 1);
+
+    _types.forEach((type) => {
+      type.damage_relations.double_damage_from.map((dd) => dd.name).forEach((dd) => (lookup[dd] *= 2));
+      type.damage_relations.half_damage_from.map((dd) => dd.name).forEach((dd) => (lookup[dd] *= 0.5));
+      type.damage_relations.no_damage_from.map((dd) => dd.name).forEach((dd) => (lookup[dd] *= 0));
+    });
+
+    const results = Object.keys(lookup).map((type: ZType) => ({ type, damage: lookup[type] }));
+    return results.filter((r) => r.damage > 1).map((r) => r as IZPokemonWeakness);
   }
 }
 
