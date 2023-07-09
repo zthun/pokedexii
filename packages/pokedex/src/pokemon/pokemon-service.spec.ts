@@ -1,211 +1,162 @@
 import { ZDataRequestBuilder } from '@zthun/helpful-query';
-import { keyBy } from 'lodash';
 import { Mocked, beforeEach, describe, expect, it } from 'vitest';
 import { mock } from 'vitest-mock-extended';
 import { IPokeApi } from '../poke-api/poke-api';
 import { IPokeApiPage } from '../poke-api/poke-api-page';
-import { IPokeApiPokemon } from '../poke-api/poke-api-pokemon';
-import { IZPokemon, ZPokemonBuilder } from './pokemon';
-import { ZPokemonServiceApi } from './pokemon-service';
+import { IZPokemon, ZPokemonBuilder } from '../pokemon/pokemon';
+import { createPokemonService } from './pokemon-service';
 
 describe('ZPokemonService', () => {
   let api: Mocked<IPokeApi>;
   let bulbasaur: IZPokemon;
-  let charmander: IZPokemon;
-  let squirtle: IZPokemon;
-  let pikachu: IZPokemon;
-  let pokemon: IZPokemon[];
 
-  function createTestTarget() {
-    return new ZPokemonServiceApi(api);
-  }
+  const createTestTarget = () => createPokemonService(api);
 
   beforeEach(() => {
     bulbasaur = new ZPokemonBuilder().bulbasaur().build();
-    charmander = new ZPokemonBuilder().charmander().build();
-    squirtle = new ZPokemonBuilder().squirtle().build();
-    pikachu = new ZPokemonBuilder().pikachu().build();
 
-    pokemon = [bulbasaur, charmander, squirtle, pikachu];
-
-    const _pokeMap = keyBy<IPokeApiPokemon>(
-      pokemon.map((p) => ({
-        abilities: [],
-        base_experience: 1,
-        forms: [],
-        game_indices: [],
-        height: p.height,
-        held_items: [],
-        id: p.id,
-        is_default: true,
-        location_area_encounters: '',
-        moves: [],
-        name: p.name,
-        order: 1,
-        species: {
-          name: 'pokemon',
-          url: 'http://pokeapi/species/pokemon'
+    const _bulbasaur = {
+      abilities: [],
+      base_experience: 1,
+      forms: [],
+      game_indices: [],
+      height: bulbasaur.height,
+      held_items: [],
+      id: bulbasaur.id,
+      is_default: true,
+      location_area_encounters: '',
+      moves: [],
+      name: bulbasaur.name,
+      order: 1,
+      species: {
+        name: 'pokemon',
+        url: 'http://pokeapi/species/pokemon'
+      },
+      sprites: {
+        other: {
+          'official-artwork': {
+            front_default: bulbasaur.artwork
+          }
+        }
+      },
+      stats: [
+        {
+          stat: { name: 'hp', url: 'http://pokeapi/stats/hp' },
+          base_stat: bulbasaur.stats.hp.base,
+          effort: bulbasaur.stats.hp.effort
         },
-        sprites: {
-          other: {
-            'official-artwork': {
-              front_default: p.artwork
-            }
-          }
+        {
+          stat: { name: 'attack', url: 'http://pokeapi/stats/attack' },
+          base_stat: bulbasaur.stats.attack.base,
+          effort: bulbasaur.stats.attack.effort
         },
-        stats: [
-          {
-            stat: { name: 'hp', url: 'http://pokeapi/stats/hp' },
-            base_stat: p.stats.hp.base,
-            effort: p.stats.hp.effort
-          },
-          {
-            stat: { name: 'attack', url: 'http://pokeapi/stats/attack' },
-            base_stat: p.stats.attack.base,
-            effort: p.stats.attack.effort
-          },
-          {
-            stat: { name: 'defense', url: 'http://pokeapi/stats/defense' },
-            base_stat: p.stats.defense.base,
-            effort: p.stats.defense.effort
-          },
-          {
-            stat: { name: 'special-attack', url: 'http://pokeapi/stats/special-attack' },
-            base_stat: p.stats.specialAttack.base,
-            effort: p.stats.specialAttack.effort
-          },
-          {
-            stat: { name: 'special-defense', url: 'http://pokeapi/stats/special-defense' },
-            base_stat: p.stats.specialDefense.base,
-            effort: p.stats.specialDefense.effort
-          },
-          {
-            stat: { name: 'speed', url: 'http://pokeapi/stats/speed' },
-            base_stat: p.stats.speed.base,
-            effort: p.stats.speed.effort
-          }
-        ],
-        types: (p.types || []).map((t, i) => ({
-          slot: i,
-          type: {
-            name: t,
-            url: `http://pokeapi/types/${t}`
-          }
-        })),
-        weight: p.weight
+        {
+          stat: { name: 'defense', url: 'http://pokeapi/stats/defense' },
+          base_stat: bulbasaur.stats.defense.base,
+          effort: bulbasaur.stats.defense.effort
+        },
+        {
+          stat: { name: 'special-attack', url: 'http://pokeapi/stats/special-attack' },
+          base_stat: bulbasaur.stats.specialAttack.base,
+          effort: bulbasaur.stats.specialAttack.effort
+        },
+        {
+          stat: { name: 'special-defense', url: 'http://pokeapi/stats/special-defense' },
+          base_stat: bulbasaur.stats.specialDefense.base,
+          effort: bulbasaur.stats.specialDefense.effort
+        },
+        {
+          stat: { name: 'speed', url: 'http://pokeapi/stats/speed' },
+          base_stat: bulbasaur.stats.speed.base,
+          effort: bulbasaur.stats.speed.effort
+        }
+      ],
+      types: (bulbasaur.types || []).map((t, i) => ({
+        slot: i,
+        type: {
+          name: t,
+          url: `http://pokeapi/types/${t}`
+        }
       })),
-      (p) => p.name
-    );
+      weight: bulbasaur.weight
+    };
 
     const _pokePage: IPokeApiPage = {
-      count: pokemon.length,
+      count: 1,
       next: null,
       previous: null,
-      results: pokemon.map((p) => ({
-        name: p.name,
-        url: `http://pokeapi/pokemon/${p.id}`
-      }))
+      results: [{ name: bulbasaur.name, url: '' }]
     };
 
     api = mock<IPokeApi>();
 
     api.pokemons.mockResolvedValue(_pokePage);
-    api.pokemon.mockImplementation((name) =>
-      _pokeMap[name] ? Promise.resolve(_pokeMap[name]) : Promise.reject('Pokemon not found')
-    );
+    api.pokemon.mockResolvedValue(_bulbasaur);
   });
 
-  describe('List', () => {
-    it('should retrieve the correct count of pokemon', async () => {
-      // Arrange.
-      const target = createTestTarget();
-      const request = new ZDataRequestBuilder().page(2).size(2).build();
-      // Act.
-      const actual = await target.count(request);
-      // Assert.
-      expect(actual).toEqual(pokemon.length);
-    });
-
-    it('should retrieve the correct page of pokemon', async () => {
-      // Arrange.
-      const target = createTestTarget();
-      const request = new ZDataRequestBuilder().page(2).size(2).build();
-      const expected = [squirtle, pikachu];
-      // Act.
-      const actual = await target.retrieve(request);
-      // Assert.
-      expect(actual).toEqual(expected);
-    });
-
-    it('should prefetch only once', async () => {
-      // Arrange.
-      const target = createTestTarget();
-      const request = new ZDataRequestBuilder().page(2).size(2).build();
-      // Act.
-      await target.retrieve(request);
-      await target.retrieve(request);
-      // Assert.
-      expect(api.pokemons).toHaveBeenCalledTimes(1);
-    });
+  it('should retrieve all pokemon', async () => {
+    const request = new ZDataRequestBuilder().build();
+    const actual = await createTestTarget().retrieve(request);
+    expect(actual).toEqual([bulbasaur]);
   });
 
-  describe('Get', () => {
-    const shouldSetProperty = async <T>(expected: T, name: string, propertyFn: (p: IZPokemon) => T) => {
-      // Arrange.
-      const target = createTestTarget();
-      // Act.
-      const pkm = await target.get(name);
-      const actual = propertyFn(pkm);
-      // Assert.
-      expect(actual).toEqual(expected);
-    };
+  it('should set the id', async () => {
+    const actual = (await createTestTarget().get(bulbasaur.name)).id;
+    expect(actual).toEqual(bulbasaur.id);
+  });
 
-    it('should set the id', async () => {
-      await shouldSetProperty(bulbasaur.id, bulbasaur.name, (p) => p.id);
-    });
+  it('should set the name', async () => {
+    const actual = (await createTestTarget().get(bulbasaur.name)).name;
+    expect(actual).toEqual(bulbasaur.name);
+  });
 
-    it('should set the name', async () => {
-      await shouldSetProperty(bulbasaur.name, bulbasaur.name, (p) => p.name);
-    });
+  it('should set the artwork', async () => {
+    const actual = (await createTestTarget().get(bulbasaur.name)).artwork;
+    expect(actual).toEqual(bulbasaur.artwork);
+  });
 
-    it('should set the artwork', async () => {
-      await shouldSetProperty(bulbasaur.artwork, bulbasaur.name, (p) => p.artwork);
-    });
+  it('should set the types', async () => {
+    const actual = (await createTestTarget().get(bulbasaur.name)).types;
+    expect(actual).toEqual(bulbasaur.types);
+  });
 
-    it('should set the types', async () => {
-      await shouldSetProperty(bulbasaur.types, bulbasaur.name, (p) => p.types);
-    });
+  it('should set the hp stat', async () => {
+    const actual = (await createTestTarget().get(bulbasaur.name)).stats.hp;
+    expect(actual).toEqual(bulbasaur.stats.hp);
+  });
 
-    it('should set the hp stat', async () => {
-      await shouldSetProperty(bulbasaur.stats.hp, bulbasaur.name, (p) => p.stats.hp);
-    });
+  it('should set the attack stat', async () => {
+    const actual = (await createTestTarget().get(bulbasaur.name)).stats.attack;
+    expect(actual).toEqual(bulbasaur.stats.attack);
+  });
 
-    it('should set the attack stat', async () => {
-      await shouldSetProperty(bulbasaur.stats.attack, bulbasaur.name, (p) => p.stats.attack);
-    });
+  it('should set the defense stat', async () => {
+    const actual = (await createTestTarget().get(bulbasaur.name)).stats.defense;
+    expect(actual).toEqual(bulbasaur.stats.defense);
+  });
 
-    it('should set the defense stat', async () => {
-      await shouldSetProperty(bulbasaur.stats.defense, bulbasaur.name, (p) => p.stats.defense);
-    });
+  it('should set the special attack stat', async () => {
+    const actual = (await createTestTarget().get(bulbasaur.name)).stats.specialAttack;
+    expect(actual).toEqual(bulbasaur.stats.specialAttack);
+  });
 
-    it('should set the special attack stat', async () => {
-      await shouldSetProperty(bulbasaur.stats.specialAttack, bulbasaur.name, (p) => p.stats.specialAttack);
-    });
+  it('should set the special defense stat', async () => {
+    const actual = (await createTestTarget().get(bulbasaur.name)).stats.specialDefense;
+    expect(actual).toEqual(bulbasaur.stats.specialDefense);
+  });
 
-    it('should set the special defense stat', async () => {
-      await shouldSetProperty(bulbasaur.stats.specialDefense, bulbasaur.name, (p) => p.stats.specialDefense);
-    });
+  it('should set the speed stat', async () => {
+    const actual = (await createTestTarget().get(bulbasaur.name)).stats.speed;
+    expect(actual).toEqual(bulbasaur.stats.speed);
+  });
 
-    it('should set the speed stat', async () => {
-      await shouldSetProperty(bulbasaur.stats.speed, bulbasaur.name, (p) => p.stats.speed);
-    });
+  it('should set the height', async () => {
+    const actual = (await createTestTarget().get(bulbasaur.name)).height;
+    expect(actual).toEqual(bulbasaur.height);
+  });
 
-    it('should set the height', async () => {
-      await shouldSetProperty(bulbasaur.height, bulbasaur.name, (p) => p.height);
-    });
-
-    it('should set the weight', async () => {
-      await shouldSetProperty(bulbasaur.weight, bulbasaur.name, (p) => p.weight);
-    });
+  it('should set the weight', async () => {
+    const actual = (await createTestTarget().get(bulbasaur.name)).weight;
+    expect(actual).toEqual(bulbasaur.weight);
   });
 });

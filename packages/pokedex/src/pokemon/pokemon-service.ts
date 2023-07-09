@@ -1,31 +1,30 @@
 import { firstDefined } from '@zthun/helpful-fn';
 import { keyBy } from 'lodash';
-import { IPokeApiPage } from 'src/poke-api/poke-api-page';
 import { IPokeApi, ZPokeApi } from '../poke-api/poke-api';
-import { IZPokemonResourceService, ZPokemonResourceService } from '../pokemon-resource/pokemon-resource-service';
-import { ZPokemonType } from '../pokemon-type/pokemon-type';
+import { IPokeApiConverter } from '../poke-api/poke-api-converter';
+import { IPokeApiPage } from '../poke-api/poke-api-page';
+import { IPokeApiPokemon } from '../poke-api/poke-api-pokemon';
+import { IPokeApiRetrieval } from '../poke-api/poke-api-retrieval';
+import { IZPokedexResourceService, ZPokedexResourceService } from '../pokedex-resource/pokedex-resource-service';
+import { ZType } from '../type/type';
 import { IZPokemon, ZPokemonBuilder } from './pokemon';
 
-/**
- * Represents an implementation of a resource service that
- * returns pokemon.
- */
-export class ZPokemonServiceApi extends ZPokemonResourceService<IZPokemon> {
-  /**
-   * Initializes a new instance of this object.
-   *
-   * @param _api -
-   *        The _api service that will be responsible for
-   *        querying out to the pokeapi endpoints.
-   */
-  public constructor(private _api: IPokeApi) {
-    super();
+type Converter = IPokeApiConverter<IPokeApiPokemon, IZPokemon>;
+type Retriever = IPokeApiRetrieval<IPokeApiPokemon>;
+
+class ZPokemonService implements Converter, Retriever {
+  public constructor(private _api: IPokeApi) {}
+
+  public list(): Promise<IPokeApiPage> {
+    return this._api.pokemons();
   }
 
-  public async get(name: string): Promise<IZPokemon> {
-    const p = await this._api.pokemon(name);
+  public get(name: string): Promise<IPokeApiPokemon> {
+    return this._api.pokemon(name);
+  }
 
-    const official = p.sprites?.other['official-artwork'];
+  public convert(resource: IPokeApiPokemon): Promise<IZPokemon> {
+    const official = resource.sprites?.other['official-artwork'];
     const artwork = firstDefined(
       '',
       official?.front_default,
@@ -34,7 +33,7 @@ export class ZPokemonServiceApi extends ZPokemonResourceService<IZPokemon> {
       official?.front_shiny_female
     );
 
-    const stats = keyBy(p.stats, (s) => s.stat.name);
+    const stats = keyBy(resource.stats, (s) => s.stat.name);
     const hp = stats['hp'];
     const attack = stats['attack'];
     const defense = stats['defense'];
@@ -42,9 +41,10 @@ export class ZPokemonServiceApi extends ZPokemonResourceService<IZPokemon> {
     const specialDefense = stats['special-defense'];
     const speed = stats['speed'];
 
-    const types = p.types.map((t) => t.type.name as ZPokemonType);
-    return new ZPokemonBuilder()
-      .who(p.id, p.name)
+    const types = resource.types.map((t) => t.type.name as ZType);
+    const pokemon = new ZPokemonBuilder()
+      .id(resource.id)
+      .name(resource.name)
       .artwork(artwork)
       .types(types)
       .hp(hp.base_stat, hp.effort)
@@ -53,19 +53,17 @@ export class ZPokemonServiceApi extends ZPokemonResourceService<IZPokemon> {
       .specialAttack(specialAttack.base_stat, specialAttack.effort)
       .specialDefense(specialDefense.base_stat, specialDefense.effort)
       .speed(speed.base_stat, speed.effort)
-      .height(p.height)
-      .weight(p.weight)
+      .height(resource.height)
+      .weight(resource.weight)
       .build();
-  }
 
-  protected fetch(): Promise<IPokeApiPage> {
-    return this._api.pokemons();
+    return Promise.resolve(pokemon);
   }
 }
 
-/**
- * Creates the default instance of the pokemon service.
- */
-export function createPokemonService(): IZPokemonResourceService<IZPokemon> {
-  return new ZPokemonServiceApi(new ZPokeApi());
+export type IZPokemonService = IZPokedexResourceService<IZPokemon>;
+
+export function createPokemonService(api: IPokeApi = new ZPokeApi()): IZPokemonService {
+  const r = new ZPokemonService(api);
+  return new ZPokedexResourceService(r, r);
 }

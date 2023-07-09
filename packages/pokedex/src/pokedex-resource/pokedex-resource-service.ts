@@ -5,9 +5,11 @@ import {
   ZDataSourceStatic,
   ZDataSourceStaticOptionsBuilder
 } from '@zthun/helpful-query';
-import { IPokeApiPage } from 'src/poke-api/poke-api-page';
+import { IPokeApiConverter } from 'src/poke-api/poke-api-converter';
+import { IPokeApiRetrieval } from 'src/poke-api/poke-api-retrieval';
+import { IZPokedexNamedResource } from './pokedex-named-resource';
 
-export interface IZPokemonResourceService<T extends object> extends IZDataSource<T> {
+export interface IZPokedexResourceService<T extends IZPokedexNamedResource> extends IZDataSource<T> {
   /**
    * Gets information about a single resource.
    *
@@ -21,7 +23,7 @@ export interface IZPokemonResourceService<T extends object> extends IZDataSource
   get(name: string): Promise<T>;
 }
 
-export abstract class ZPokemonResourceService<T extends object> implements IZPokemonResourceService<T> {
+export class ZPokedexResourceService<P, T extends IZPokedexNamedResource> implements IZPokedexResourceService<T> {
   private _source: IZDataSource<T>;
 
   private get _all() {
@@ -34,6 +36,8 @@ export abstract class ZPokemonResourceService<T extends object> implements IZPok
     return this._source;
   }
 
+  public constructor(private _retriever: IPokeApiRetrieval<P>, private _converter: IPokeApiConverter<P, T>) {}
+
   public async count(request: IZDataRequest): Promise<number> {
     return this._all.count(request);
   }
@@ -42,16 +46,10 @@ export abstract class ZPokemonResourceService<T extends object> implements IZPok
     return this._all.retrieve(request);
   }
 
-  public abstract get(name: string): Promise<T>;
-
-  /**
-   * Fetch the list of data for this resource.
-   *
-   * @returns
-   *        The list of every resource.
-   *
-   */
-  protected abstract fetch(): Promise<IPokeApiPage>;
+  public async get(name: string): Promise<T> {
+    const p = await this._retriever.get(name);
+    return this._converter.convert(p);
+  }
 
   /**
    * Prefetches the list to cache it in memory.
@@ -60,7 +58,7 @@ export abstract class ZPokemonResourceService<T extends object> implements IZPok
    *        A list of every item from the api resource.
    */
   private async _prefetch(): Promise<T[]> {
-    const resources = await this.fetch();
+    const resources = await this._retriever.list();
     return await Promise.all(resources.results.map((r) => this.get(r.name)));
   }
 }

@@ -1,11 +1,12 @@
 import { ZUrlBuilder } from '@zthun/webigail-url';
-import { ZPokemonType } from '../pokemon-type/pokemon-type';
+import { IZPokedexNamedResource } from '../pokedex-resource/pokedex-named-resource';
+import { ZType } from '../type/type';
 import { IZPokemonStat } from './pokemon-stat';
 
 /**
  * Represents information about a pokemon.
  */
-export interface IZPokemon {
+export interface IZPokemon extends IZPokedexNamedResource {
   /**
    * The id number.
    *
@@ -16,13 +17,6 @@ export interface IZPokemon {
    * By default, this will be the index of the national pokedex.
    */
   id: number;
-
-  /**
-   * The pokemon name.
-   *
-   * This is normally lower case.
-   */
-  name: string;
 
   /**
    * The height of the pokemon in decimeters.
@@ -54,7 +48,7 @@ export interface IZPokemon {
   /**
    * The types for this pokemon.
    */
-  types: ZPokemonType[];
+  types: ZType[];
 }
 
 /**
@@ -65,6 +59,11 @@ export class ZPokemonBuilder {
 
   /**
    * Initializes a new instance of this object.
+   *
+   * If you build directly after an invocation to this
+   * constructor, you will be left with missingno.
+   *
+   * https://bulbapedia.bulbagarden.net/wiki/MissingNo
    */
   public constructor() {
     this._pokemon = {
@@ -85,21 +84,30 @@ export class ZPokemonBuilder {
   }
 
   /**
-   * Who's that pokemon?  Sets the needed information.
+   * Who's that pokemon? Sets the national id.
+   *
+   * This will also set the default value for the artwork
+   * given some major assumptions.  This value may not always
+   * be correct for the artwork, but you can use it for demos
+   * and test cases assuming that it continues to be valid.
    *
    * @param id -
-   *        The pokemon id from the national pokedex, or the
-   *        id of the pokemon given a pokedex context.
-   * @param name -
-   *        The pokemon name.
+   *        The national id of the pokemon.
    *
    * @returns
    *        A reference to this object.
    */
-  public who(id: number, name: string): this {
+  public id(id: number): this {
     this._pokemon.id = id;
-    this._pokemon.name = name;
     return this.art(id);
+  }
+
+  /**
+   * Sets the name of the pokemon.
+   */
+  public name(name: string): this {
+    this._pokemon.name = name;
+    return this;
   }
 
   /**
@@ -149,7 +157,7 @@ export class ZPokemonBuilder {
    * @returns
    *        This object.
    */
-  public types(types: ZPokemonType[]) {
+  public types(types: ZType[]) {
     this._pokemon.types = types;
     return this;
   }
@@ -163,9 +171,8 @@ export class ZPokemonBuilder {
    * @returns
    *        This object.
    */
-  public type(type: ZPokemonType) {
-    const types = this._pokemon.types || [];
-    return this.types([...types, type]);
+  public type(type: ZType) {
+    return this.types([...this._pokemon.types, type]);
   }
 
   /**
@@ -303,9 +310,10 @@ export class ZPokemonBuilder {
    *        A reference to this object.
    */
   public bulbasaur() {
-    return this.who(1, 'bulbasaur')
-      .type(ZPokemonType.Grass)
-      .type(ZPokemonType.Poison)
+    return this.id(1)
+      .name('bulbasaur')
+      .type(ZType.Grass)
+      .type(ZType.Poison)
       .hp(45)
       .attack(49)
       .defense(49)
@@ -327,8 +335,9 @@ export class ZPokemonBuilder {
    *        A reference to this object.
    */
   public charmander() {
-    return this.who(4, 'charmander')
-      .type(ZPokemonType.Fire)
+    return this.id(4)
+      .name('charmander')
+      .type(ZType.Fire)
       .hp(39)
       .attack(52)
       .defense(43)
@@ -350,8 +359,9 @@ export class ZPokemonBuilder {
    *        A reference to this object.
    */
   public squirtle() {
-    return this.who(7, 'squirtle')
-      .type(ZPokemonType.Water)
+    return this.id(7)
+      .name('squirtle')
+      .type(ZType.Water)
       .hp(44)
       .attack(48)
       .defense(65, 1)
@@ -373,8 +383,9 @@ export class ZPokemonBuilder {
    *        A reference to this object.
    */
   public pikachu() {
-    return this.who(25, 'pikachu')
-      .type(ZPokemonType.Electric)
+    return this.id(25)
+      .name('pikachu')
+      .type(ZType.Electric)
       .hp(35)
       .attack(55)
       .defense(40)
