@@ -1,26 +1,26 @@
 import { IZPokedexNamedResource } from '../pokedex-resource/pokedex-named-resource';
 
 export enum ZType {
-  Unknown = 'unknown',
-  Normal = 'normal',
-  Fighting = 'fighting',
-  Flying = 'flying',
-  Poison = 'poison',
-  Ground = 'ground',
-  Rock = 'rock',
   Bug = 'bug',
-  Ghost = 'ghost',
-  Steel = 'steel',
-  Fire = 'fire',
-  Water = 'water',
-  Grass = 'grass',
-  Electric = 'electric',
-  Psychic = 'psychic',
-  Ice = 'ice',
-  Dragon = 'dragon',
   Dark = 'dark',
+  Dragon = 'dragon',
+  Electric = 'electric',
   Fairy = 'fairy',
-  Shadow = 'shadow'
+  Fighting = 'fighting',
+  Fire = 'fire',
+  Flying = 'flying',
+  Ghost = 'ghost',
+  Grass = 'grass',
+  Ground = 'ground',
+  Ice = 'ice',
+  Normal = 'normal',
+  Poison = 'poison',
+  Psychic = 'psychic',
+  Rock = 'rock',
+  Shadow = 'shadow',
+  Steel = 'steel',
+  Unknown = 'unknown',
+  Water = 'water'
 }
 
 export interface IZType extends IZPokedexNamedResource<ZType> {
@@ -90,6 +90,23 @@ export class ZTypeBuilder {
       .halfDamageTo([ZType.Bug, ZType.Grass])
       .noDamageFrom([ZType.Electric])
       .noDamageTo([ZType.Flying]);
+  }
+
+  public fire() {
+    return this.name(ZType.Fire)
+      .doubleDamageFrom([ZType.Ground, ZType.Rock, ZType.Water])
+      .doubleDamageTo([ZType.Bug, ZType.Steel, ZType.Grass, ZType.Ice])
+      .halfDamageFrom([ZType.Bug, ZType.Steel, ZType.Fire, ZType.Grass, ZType.Ice, ZType.Fairy])
+      .halfDamageTo([ZType.Rock, ZType.Fire, ZType.Water, ZType.Dragon]);
+  }
+
+  public flying() {
+    return this.name(ZType.Flying)
+      .doubleDamageFrom([ZType.Rock, ZType.Electric, ZType.Ice])
+      .doubleDamageTo([ZType.Fighting, ZType.Bug, ZType.Grass])
+      .halfDamageFrom([ZType.Fighting, ZType.Bug, ZType.Grass])
+      .halfDamageTo([ZType.Rock, ZType.Steel, ZType.Electric])
+      .noDamageFrom([ZType.Ground]);
   }
 
   public build(): IZType {
