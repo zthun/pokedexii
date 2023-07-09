@@ -1,6 +1,7 @@
 import { ZDataRequestBuilder } from '@zthun/helpful-query';
 import { keyBy } from 'lodash';
-import { Mocked, beforeEach, describe, expect, it, vi } from 'vitest';
+import { Mocked, beforeEach, describe, expect, it } from 'vitest';
+import { mock } from 'vitest-mock-extended';
 import { IPokeApi } from '../poke-api/poke-api';
 import { IPokeApiPage } from '../poke-api/poke-api-page';
 import { IPokeApiPokemon } from '../poke-api/poke-api-pokemon';
@@ -106,10 +107,7 @@ describe('ZPokemonService', () => {
       }))
     };
 
-    api = vi.mocked<IPokeApi>({
-      pokemon: vi.fn(),
-      pokemons: vi.fn()
-    });
+    api = mock<IPokeApi>();
 
     api.pokemons.mockResolvedValue(_pokePage);
     api.pokemon.mockImplementation((name) =>
@@ -156,7 +154,7 @@ describe('ZPokemonService', () => {
       // Arrange.
       const target = createTestTarget();
       // Act.
-      const pkm = await target.get(bulbasaur.name);
+      const pkm = await target.get(name);
       const actual = propertyFn(pkm);
       // Assert.
       expect(actual).toEqual(expected);
