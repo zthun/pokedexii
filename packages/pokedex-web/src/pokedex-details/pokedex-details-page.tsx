@@ -98,7 +98,11 @@ export function ZPokedexDetailsPage() {
   const renderAttributes = (pokemon: IZPokemon) => {
     const { height, weight, types } = pokemon;
 
-    const renderAttribute = (label: ReactNode, value: ReactNode) => <ZLabeled label={label}>{value}</ZLabeled>;
+    const renderAttribute = (label: ReactNode, value: ReactNode) => (
+      <ZBox margin={{ bottom: ZSizeFixed.Medium }}>
+        <ZLabeled label={label}>{value}</ZLabeled>
+      </ZBox>
+    );
 
     const renderHeight = () => {
       const inchesPerDecimeter = 3.937;
@@ -107,7 +111,7 @@ export function ZPokedexDetailsPage() {
       const inch = inches % 12;
       const _height = `${ft}' ${inch}"`;
 
-      return renderAttribute('Height', <ZCaption>{_height}</ZCaption>);
+      return renderAttribute('Height', <ZCaption compact>{_height}</ZCaption>);
     };
 
     const renderWeight = () => {
@@ -116,7 +120,7 @@ export function ZPokedexDetailsPage() {
       const lbs = +pounds.toFixed(2);
       const _weight = `${lbs} lbs`;
 
-      return renderAttribute('Weight', <ZCaption>{_weight}</ZCaption>);
+      return renderAttribute('Weight', <ZCaption compact>{_weight}</ZCaption>);
     };
 
     return (
