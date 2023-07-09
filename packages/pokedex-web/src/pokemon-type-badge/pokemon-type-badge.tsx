@@ -23,7 +23,7 @@ const usePokemonTypeBadgeStyles = createStyleHook(
         textAlign: 'center',
         paddingTop: tailor.gap(ZSizeFixed.ExtraSmall),
         paddingBottom: tailor.gap(ZSizeFixed.ExtraSmall),
-        width: '4rem'
+        width: '100%'
       }
     };
   }

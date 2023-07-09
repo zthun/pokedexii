@@ -1,6 +1,6 @@
-import { ZStack } from '@zthun/fashion-boutique';
+import { ZGrid } from '@zthun/fashion-boutique';
 import { ZSizeFixed } from '@zthun/fashion-tailor';
-import { ZOrientation, cssJoinDefined } from '@zthun/helpful-fn';
+import { cssJoinDefined } from '@zthun/helpful-fn';
 import { ZType } from '@zthun/pokedex';
 import { uniq } from 'lodash';
 import React, { useMemo } from 'react';
@@ -15,14 +15,15 @@ export function ZPokemonTypeBadges(props: IZPokemonTypeBadges) {
   const _types = useMemo(() => uniq(types), [types]);
 
   return (
-    <ZStack
+    <ZGrid
       className={cssJoinDefined('ZPokemonTypeBadges-root')}
-      orientation={ZOrientation.Horizontal}
+      columns='1fr 1fr'
+      columnsXs='1fr'
       gap={ZSizeFixed.Small}
     >
       {_types?.map((t) => (
         <ZPokemonTypeBadge key={t} type={t} />
       ))}
-    </ZStack>
+    </ZGrid>
   );
 }
