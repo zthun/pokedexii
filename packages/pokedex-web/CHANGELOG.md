@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.6.0](https://github.com/zthun/pokedexii/compare/v0.5.0...v0.6.0) (2023-07-08)
+
+
+### Features
+
+* details page shows pokemon information ([745a615](https://github.com/zthun/pokedexii/commit/745a615834d2b0896374dd345aae508d7a40f063))
+* stats have their own themes ([2f3de30](https://github.com/zthun/pokedexii/commit/2f3de30fdc906a49d04af9d8f7945fe2db4dc7c6))
+
+
+
 ## [0.5.0](https://github.com/zthun/pokedexii/compare/v0.4.0...v0.5.0) (2023-07-08)
 
 
