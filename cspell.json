@@ -6,6 +6,7 @@
     "Bonta",
     "BUILDKIT",
     "bulbasaur",
+    "charizard",
     "charmander",
     "commitlint",
     "conventionalcommits",
@@ -24,5 +25,10 @@
     "zthun",
     "zthunworks"
   ],
-  "dictionaries": ["typescript", "node", "npm", "en_US"]
+  "dictionaries": [
+    "typescript",
+    "node",
+    "npm",
+    "en_US"
+  ]
 }
