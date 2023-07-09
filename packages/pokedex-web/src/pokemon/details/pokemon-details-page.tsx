@@ -20,7 +20,7 @@ import { IZPokemon, ZPokemonMaxBaseStat } from '@zthun/pokedex';
 import { padStart, startCase } from 'lodash';
 import React, { ReactNode, useMemo } from 'react';
 import { usePokemonTheme } from '../../theme/pokemon-theme';
-import { ZPokemonTypeBadges } from '../../type/pokemon-type-badges';
+import { ZTypeBadges } from '../../type/type-badges';
 import { usePokemon } from '../pokemon-service';
 
 /**
@@ -132,7 +132,7 @@ export function ZPokedexDetailsPage() {
       >
         {renderHeight()}
         {renderWeight()}
-        {renderAttribute('Types', <ZPokemonTypeBadges types={types} />)}
+        {renderAttribute('Types', <ZTypeBadges types={types} />)}
       </ZCard>
     );
   };

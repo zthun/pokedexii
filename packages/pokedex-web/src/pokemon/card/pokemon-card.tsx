@@ -4,7 +4,7 @@ import { cssJoinDefined } from '@zthun/helpful-fn';
 import { IZPokemon } from '@zthun/pokedex';
 import { padStart, startCase } from 'lodash';
 import React, { MouseEventHandler } from 'react';
-import { ZPokemonTypeBadges } from '../../type/pokemon-type-badges';
+import { ZTypeBadges } from '../../type/type-badges';
 
 /**
  * Props for a pokemon card.
@@ -67,7 +67,7 @@ export function ZPokemonCard(props: IZPokemonCard) {
         <ZImageSource src={pokemon.artwork} width={ZSizeFixed.Large} name={pokemon.name} />
       </div>
       <ZCaption className={cssJoinDefined('ZPokemonCard-number')}>#{padStart(String(pokemon.id), 4, '0')}</ZCaption>
-      <ZPokemonTypeBadges types={pokemon.types} />
+      <ZTypeBadges types={pokemon.types} />
       <ZH3 className={cssJoinDefined('ZPokemonCard-title', classes.title)}>{startCase(pokemon.name)}</ZH3>
     </div>
   );

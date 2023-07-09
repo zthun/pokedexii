@@ -1,5 +1,5 @@
 import { ZCircusActBuilder, ZCircusBy, ZCircusComponentModel } from '@zthun/cirque';
-import { ZPokemonTypeBadgeComponentModel } from '../../type/pokemon-type-badge.cm';
+import { ZTypeBadgeComponentModel } from '../../type/type-badge.cm';
 
 /**
  * Represents the component model for a Pokemon card.
@@ -23,8 +23,8 @@ export class ZPokemonCardComponentModel extends ZCircusComponentModel {
    * @returns
    *        The badge types on the card.
    */
-  public types(): Promise<ZPokemonTypeBadgeComponentModel[]> {
-    return ZCircusBy.all(this.driver, ZPokemonTypeBadgeComponentModel);
+  public types(): Promise<ZTypeBadgeComponentModel[]> {
+    return ZCircusBy.all(this.driver, ZTypeBadgeComponentModel);
   }
 
   /**
