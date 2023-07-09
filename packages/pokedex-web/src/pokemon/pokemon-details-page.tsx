@@ -96,7 +96,7 @@ export function ZPokedexDetailsPage() {
   };
 
   const renderAttributes = (pokemon: IZPokemon) => {
-    const { height, weight, types } = pokemon;
+    const { height, weight, types, weaknesses } = pokemon;
 
     const renderAttribute = (label: ReactNode, value: ReactNode) => (
       <ZBox margin={{ bottom: ZSizeFixed.Medium }}>
@@ -133,6 +133,7 @@ export function ZPokedexDetailsPage() {
         {renderHeight()}
         {renderWeight()}
         {renderAttribute('Types', <ZTypeBadges types={types} />)}
+        {renderAttribute('Weaknesses', <ZTypeBadges types={weaknesses} />)}
       </ZCard>
     );
   };
