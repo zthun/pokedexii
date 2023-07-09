@@ -1,11 +1,13 @@
 import {
   ZBox,
+  ZCaption,
   ZCard,
   ZChartProgress,
   ZDataPointBuilder,
   ZGrid,
   ZIconFontAwesome,
   ZImageSource,
+  ZLabeled,
   ZNotFound,
   ZStack,
   ZSuspenseRotate,
@@ -16,7 +18,7 @@ import { cssJoinDefined } from '@zthun/helpful-fn';
 import { asStateData, isStateErrored, isStateLoading } from '@zthun/helpful-react';
 import { IZPokemon, ZPokemonMaxBaseStat } from '@zthun/pokedex';
 import { padStart, startCase } from 'lodash';
-import React, { useMemo } from 'react';
+import React, { ReactNode, useMemo } from 'react';
 import { usePokemonTheme } from '../pokemon-theme/pokemon-theme';
 import { ZPokemonTypeBadges } from '../pokemon-type-badge/pokemon-type-badges';
 import { usePokemon } from '../pokemon/pokemon-service';
@@ -36,12 +38,9 @@ export function ZPokedexDetailsPage() {
       className={cssJoinDefined('ZPokedexDetailsPage-artwork')}
       heading={heading}
       subHeading={subHeading}
-      width={ZSizeFixed.Large}
-      widthXs={ZSizeVaried.Full}
       avatar={<ZIconFontAwesome name='palette' width={ZSizeFixed.Small} />}
     >
       <ZStack gap={ZSizeFixed.Small}>
-        <ZPokemonTypeBadges types={pokemon.types} />
         <ZBox fashion={component}>
           <ZImageSource src={pokemon.artwork} width={ZSizeVaried.Full} />
         </ZBox>
@@ -96,6 +95,44 @@ export function ZPokedexDetailsPage() {
     );
   };
 
+  const renderAttributes = (pokemon: IZPokemon) => {
+    const { height, weight, types } = pokemon;
+
+    const renderAttribute = (label: ReactNode, value: ReactNode) => <ZLabeled label={label}>{value}</ZLabeled>;
+
+    const renderHeight = () => {
+      const inchesPerDecimeter = 3.937;
+      const inches = Math.round(height * inchesPerDecimeter);
+      const ft = Math.floor(inches / 12);
+      const inch = inches % 12;
+      const _height = `${ft}' ${inch}"`;
+
+      return renderAttribute('Height', <ZCaption>{_height}</ZCaption>);
+    };
+
+    const renderWeight = () => {
+      const hectogramsPerPound = 4.536;
+      const pounds = weight / hectogramsPerPound;
+      const lbs = +pounds.toFixed(2);
+      const _weight = `${lbs} lbs`;
+
+      return renderAttribute('Weight', <ZCaption>{_weight}</ZCaption>);
+    };
+
+    return (
+      <ZCard
+        className={cssJoinDefined('ZPokedexDetailsPage-attributes')}
+        heading='Attributes'
+        subHeading='Physical Aspects'
+        avatar={<ZIconFontAwesome name='dumbbell' width={ZSizeFixed.Small} />}
+      >
+        {renderHeight()}
+        {renderWeight()}
+        {renderAttribute('Types', <ZPokemonTypeBadges types={types} />)}
+      </ZCard>
+    );
+  };
+
   const renderPage = () => {
     if (isStateLoading(pokemon)) {
       return <ZSuspenseRotate width={ZSizeFixed.ExtraLarge} />;
@@ -106,8 +143,9 @@ export function ZPokedexDetailsPage() {
     }
 
     return (
-      <ZGrid justifyContent='center' columns='auto 1fr auto' columnsSm='1fr' gap={ZSizeFixed.Small}>
+      <ZGrid justifyContent='center' columns='auto auto 1fr' columnsMd='1fr 1fr' columnsSm='1fr' gap={ZSizeFixed.Small}>
         {renderArtwork(pokemon)}
+        {renderAttributes(pokemon)}
         {renderStats(pokemon)}
       </ZGrid>
     );
