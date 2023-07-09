@@ -1,6 +1,6 @@
 import { ZUrlBuilder } from '@zthun/webigail-url';
+import { ZPokemonType } from '../pokemon-type/pokemon-type';
 import { IZPokemonStat } from './pokemon-stat';
-import { ZPokemonType } from './pokemon-type';
 
 /**
  * Represents information about a pokemon.
@@ -12,6 +12,8 @@ export interface IZPokemon {
    * This actually varies from game to game, so it is not
    * a reliable source to identify a pokemon.  Use the
    * name instead.
+   *
+   * By default, this will be the index of the national pokedex.
    */
   id: number;
 
@@ -21,6 +23,16 @@ export interface IZPokemon {
    * This is normally lower case.
    */
   name: string;
+
+  /**
+   * The height of the pokemon in decimeters.
+   */
+  height: number;
+
+  /**
+   * The weight of the pokemon in hectograms.
+   */
+  weight: number;
 
   /**
    * The stat list for the pokemon.
@@ -42,7 +54,7 @@ export interface IZPokemon {
   /**
    * The types for this pokemon.
    */
-  types?: ZPokemonType[];
+  types: ZPokemonType[];
 }
 
 /**
@@ -58,6 +70,8 @@ export class ZPokemonBuilder {
     this._pokemon = {
       id: 0,
       name: 'missingno',
+      height: 0,
+      weight: 0,
       stats: {
         hp: { base: 0, effort: 0 },
         attack: { base: 0, effort: 0 },
@@ -65,7 +79,8 @@ export class ZPokemonBuilder {
         specialAttack: { base: 0, effort: 0 },
         specialDefense: { base: 0, effort: 0 },
         speed: { base: 0, effort: 0 }
-      }
+      },
+      types: []
     };
   }
 
@@ -73,7 +88,8 @@ export class ZPokemonBuilder {
    * Who's that pokemon?  Sets the needed information.
    *
    * @param id -
-   *        The pokemon id.
+   *        The pokemon id from the national pokedex, or the
+   *        id of the pokemon given a pokedex context.
    * @param name -
    *        The pokemon name.
    *
@@ -249,6 +265,34 @@ export class ZPokemonBuilder {
   }
 
   /**
+   * Sets the height of the pokemon in decimeters.
+   *
+   * @param val -
+   *        The value to set.
+   *
+   * @returns
+   *        This object.
+   */
+  public height(val: number) {
+    this._pokemon.height = val;
+    return this;
+  }
+
+  /**
+   * Sets the weight of the pokemon in hectograms.
+   *
+   * @param val -
+   *        The value to set.
+   *
+   * @returns
+   *        This object.
+   */
+  public weight(val: number) {
+    this._pokemon.weight = val;
+    return this;
+  }
+
+  /**
    * Sets Bulbasaur's information.
    *
    * It's better to retrieve this from something like the pokeapi,
@@ -267,7 +311,9 @@ export class ZPokemonBuilder {
       .defense(49)
       .specialAttack(65, 1)
       .specialDefense(65)
-      .speed(45);
+      .speed(45)
+      .height(7)
+      .weight(69);
   }
 
   /**
@@ -288,7 +334,9 @@ export class ZPokemonBuilder {
       .defense(43)
       .specialAttack(60)
       .specialDefense(50)
-      .speed(65, 1);
+      .speed(65, 1)
+      .height(6)
+      .weight(85);
   }
 
   /**
@@ -309,7 +357,9 @@ export class ZPokemonBuilder {
       .defense(65, 1)
       .specialAttack(50)
       .specialDefense(64)
-      .speed(43);
+      .speed(43)
+      .height(5)
+      .weight(90);
   }
 
   /**
@@ -330,7 +380,9 @@ export class ZPokemonBuilder {
       .defense(40)
       .specialAttack(50)
       .specialDefense(50)
-      .speed(90, 2);
+      .speed(90, 2)
+      .height(4)
+      .weight(60);
   }
 
   /**

@@ -8,8 +8,8 @@ import {
 } from '@zthun/helpful-query';
 import { keyBy } from 'lodash';
 import { IPokeApi, ZPokeApi } from '../poke-api/poke-api';
+import { ZPokemonType } from '../pokemon-type/pokemon-type';
 import { IZPokemon, ZPokemonBuilder } from './pokemon';
-import { ZPokemonType } from './pokemon-type';
 
 /**
  * Represents a service that retrieves data from the pokemon api.
@@ -119,6 +119,8 @@ export class ZPokemonServiceApi implements IZPokemonService {
       .specialAttack(specialAttack.base_stat, specialAttack.effort)
       .specialDefense(specialDefense.base_stat, specialDefense.effort)
       .speed(speed.base_stat, speed.effort)
+      .height(p.height)
+      .weight(p.weight)
       .build();
   }
 

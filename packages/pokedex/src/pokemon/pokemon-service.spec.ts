@@ -33,7 +33,7 @@ describe('ZPokemonService', () => {
         base_experience: 1,
         forms: [],
         game_indices: [],
-        height: 1,
+        height: p.height,
         held_items: [],
         id: p.id,
         is_default: true,
@@ -91,7 +91,7 @@ describe('ZPokemonService', () => {
             url: `http://pokeapi/types/${t}`
           }
         })),
-        weight: 1
+        weight: p.weight
       })),
       (p) => p.name
     );
@@ -200,6 +200,14 @@ describe('ZPokemonService', () => {
 
     it('should set the speed stat', async () => {
       await shouldSetProperty(bulbasaur.stats.speed, bulbasaur.name, (p) => p.stats.speed);
+    });
+
+    it('should set the height', async () => {
+      await shouldSetProperty(bulbasaur.height, bulbasaur.name, (p) => p.height);
+    });
+
+    it('should set the weight', async () => {
+      await shouldSetProperty(bulbasaur.weight, bulbasaur.name, (p) => p.weight);
     });
   });
 });
