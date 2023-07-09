@@ -4,7 +4,7 @@ import { cssJoinDefined } from '@zthun/helpful-fn';
 import { IZPokemon } from '@zthun/pokedex';
 import { padStart, startCase } from 'lodash';
 import React, { MouseEventHandler } from 'react';
-import { ZPokemonTypeBadges } from '../pokemon-type-badge/pokemon-type-badges';
+import { ZPokemonTypeBadges } from '../../type/pokemon-type-badges';
 
 /**
  * Props for a pokemon card.

@@ -12,9 +12,9 @@ import {
 } from '@zthun/fashion-boutique';
 import { ZSizeFixed } from '@zthun/fashion-tailor';
 import React from 'react';
-import { ZPokedexDetailsPage } from '../pokedex-details/pokedex-details-page';
-import { ZPokedexListPage } from '../pokedex-list/pokedex-list-page';
-import { createPokemonTheme } from '../pokemon-theme/pokemon-theme';
+import { ZPokedexDetailsPage } from '../pokemon/details/pokemon-details-page';
+import { ZPokedexListPage } from '../pokemon/list/pokemon-list-page';
+import { createPokemonTheme } from '../theme/pokemon-theme';
 
 const PokemonTheme = createPokemonTheme();
 

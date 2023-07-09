@@ -4,7 +4,7 @@ import { cssJoinDefined } from '@zthun/helpful-fn';
 import { ZType } from '@zthun/pokedex';
 import { startCase } from 'lodash';
 import React, { useMemo } from 'react';
-import { IZPokemonThemeUtility } from '../pokemon-theme/pokemon-theme';
+import { IZPokemonThemeUtility } from '../theme/pokemon-theme';
 
 export interface IZPokemonTypeBadge extends IZComponentStyle {
   type: ZType;
