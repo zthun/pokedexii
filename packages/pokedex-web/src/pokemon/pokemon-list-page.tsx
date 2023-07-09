@@ -3,8 +3,8 @@ import { ZSizeFixed } from '@zthun/fashion-tailor';
 import { cssJoinDefined } from '@zthun/helpful-fn';
 import { IZPokemon } from '@zthun/pokedex';
 import React from 'react';
-import { ZPokemonCard } from '../card/pokemon-card';
-import { usePokemonService } from '../pokemon-service';
+import { ZPokemonCard } from './pokemon-card';
+import { usePokemonService } from './pokemon-service';
 
 export interface IZPokedexListPage {}
 

@@ -19,9 +19,9 @@ import { asStateData, isStateErrored, isStateLoading } from '@zthun/helpful-reac
 import { IZPokemon, ZPokemonMaxBaseStat } from '@zthun/pokedex';
 import { padStart, startCase } from 'lodash';
 import React, { ReactNode, useMemo } from 'react';
-import { usePokemonTheme } from '../../theme/pokemon-theme';
-import { ZTypeBadges } from '../../type/type-badges';
-import { usePokemon } from '../pokemon-service';
+import { usePokemonTheme } from '../theme/pokemon-theme';
+import { ZTypeBadges } from '../type/type-badges';
+import { usePokemon } from './pokemon-service';
 
 /**
  * Represents the page for pokemon details.

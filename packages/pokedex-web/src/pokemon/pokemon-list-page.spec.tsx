@@ -7,10 +7,10 @@ import { MemoryHistory, createMemoryHistory } from 'history';
 import React from 'react';
 import { Mocked, beforeEach, describe, expect, it } from 'vitest';
 import { mock } from 'vitest-mock-extended';
-import { createPokemonTheme } from '../../theme/pokemon-theme';
-import { ZPokemonServiceContext } from '../pokemon-service';
+import { createPokemonTheme } from '../theme/pokemon-theme';
 import { ZPokedexListPage } from './pokemon-list-page';
 import { ZPokedexListPageComponentModel } from './pokemon-list-page.cm';
+import { ZPokemonServiceContext } from './pokemon-service';
 
 describe('ZPokedexListPage', () => {
   let pokemonService: Mocked<IZPokemonService>;

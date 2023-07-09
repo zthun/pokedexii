@@ -12,8 +12,8 @@ import {
 } from '@zthun/fashion-boutique';
 import { ZSizeFixed } from '@zthun/fashion-tailor';
 import React from 'react';
-import { ZPokedexDetailsPage } from '../pokemon/details/pokemon-details-page';
-import { ZPokedexListPage } from '../pokemon/list/pokemon-list-page';
+import { ZPokedexDetailsPage } from '../pokemon/pokemon-details-page';
+import { ZPokedexListPage } from '../pokemon/pokemon-list-page';
 import { createPokemonTheme } from '../theme/pokemon-theme';
 
 const PokemonTheme = createPokemonTheme();

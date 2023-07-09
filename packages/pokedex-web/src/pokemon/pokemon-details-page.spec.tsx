@@ -6,10 +6,10 @@ import { History, createMemoryHistory } from 'history';
 import React from 'react';
 import { Mocked, beforeEach, describe, expect, it } from 'vitest';
 import { mock } from 'vitest-mock-extended';
-import { createPokemonTheme } from '../../theme/pokemon-theme';
-import { ZPokemonServiceContext } from '../pokemon-service';
+import { createPokemonTheme } from '../theme/pokemon-theme';
 import { ZPokedexDetailsPage } from './pokemon-details-page';
 import { ZPokedexDetailsPageComponentModel } from './pokemon-details-page.cm';
+import { ZPokemonServiceContext } from './pokemon-service';
 
 describe('ZPokedexDetailsPage', () => {
   let history: History;
