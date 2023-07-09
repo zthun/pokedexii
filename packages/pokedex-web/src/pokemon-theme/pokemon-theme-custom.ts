@@ -1,5 +1,5 @@
 import { IZFashion } from '@zthun/fashion-theme';
-import { ZPokemonType } from '@zthun/pokedex';
+import { ZType } from '@zthun/pokedex';
 import {
   createAttackStatFashion,
   createDefenseStatFashion,
@@ -40,7 +40,7 @@ export interface IZPokemonThemeCustom {
     specialDefense: IZFashion;
     speed: IZFashion;
   };
-  types: Record<ZPokemonType, IZFashion>;
+  types: Record<ZType, IZFashion>;
 }
 
 export function createPokemonThemeCustom(): IZPokemonThemeCustom {
@@ -54,26 +54,26 @@ export function createPokemonThemeCustom(): IZPokemonThemeCustom {
       speed: createSpeedStatFashion()
     },
     types: {
-      [ZPokemonType.Unknown]: createUnknownTypeFashion(),
-      [ZPokemonType.Normal]: createNormalTypeFashion(),
-      [ZPokemonType.Fighting]: createFightingTypeFashion(),
-      [ZPokemonType.Flying]: createFlyingTypeFashion(),
-      [ZPokemonType.Poison]: createPoisonTypeFashion(),
-      [ZPokemonType.Ground]: createGroundTypeFashion(),
-      [ZPokemonType.Rock]: createRockTypeFashion(),
-      [ZPokemonType.Bug]: createBugTypeFashion(),
-      [ZPokemonType.Ghost]: createGhostTypeFashion(),
-      [ZPokemonType.Steel]: createSteelTypeFashion(),
-      [ZPokemonType.Fire]: createFireTypeFashion(),
-      [ZPokemonType.Water]: createWaterTypeFashion(),
-      [ZPokemonType.Grass]: createGrassTypeFashion(),
-      [ZPokemonType.Electric]: createElectricTypeFashion(),
-      [ZPokemonType.Psychic]: createPsychicTypeFashion(),
-      [ZPokemonType.Ice]: createIceTypeFashion(),
-      [ZPokemonType.Dragon]: createDragonTypeFashion(),
-      [ZPokemonType.Dark]: createDarkTypeFashion(),
-      [ZPokemonType.Fairy]: createFairyTypeFashion(),
-      [ZPokemonType.Shadow]: createShadowTypeFashion()
+      [ZType.Unknown]: createUnknownTypeFashion(),
+      [ZType.Normal]: createNormalTypeFashion(),
+      [ZType.Fighting]: createFightingTypeFashion(),
+      [ZType.Flying]: createFlyingTypeFashion(),
+      [ZType.Poison]: createPoisonTypeFashion(),
+      [ZType.Ground]: createGroundTypeFashion(),
+      [ZType.Rock]: createRockTypeFashion(),
+      [ZType.Bug]: createBugTypeFashion(),
+      [ZType.Ghost]: createGhostTypeFashion(),
+      [ZType.Steel]: createSteelTypeFashion(),
+      [ZType.Fire]: createFireTypeFashion(),
+      [ZType.Water]: createWaterTypeFashion(),
+      [ZType.Grass]: createGrassTypeFashion(),
+      [ZType.Electric]: createElectricTypeFashion(),
+      [ZType.Psychic]: createPsychicTypeFashion(),
+      [ZType.Ice]: createIceTypeFashion(),
+      [ZType.Dragon]: createDragonTypeFashion(),
+      [ZType.Dark]: createDarkTypeFashion(),
+      [ZType.Fairy]: createFairyTypeFashion(),
+      [ZType.Shadow]: createShadowTypeFashion()
     }
   };
 }

@@ -1,10 +1,10 @@
 import { ZCircusComponentModel } from '@zthun/cirque';
-import { ZPokemonType } from '@zthun/pokedex';
+import { ZType } from '@zthun/pokedex';
 
 export class ZPokemonTypeBadgeComponentModel extends ZCircusComponentModel {
   public static readonly Selector = '.ZPokemonTypeBadge-root';
 
-  public type(): Promise<ZPokemonType> {
-    return this.driver.attribute('data-name', ZPokemonType.Unknown);
+  public type(): Promise<ZType> {
+    return this.driver.attribute('data-name', ZType.Unknown);
   }
 }

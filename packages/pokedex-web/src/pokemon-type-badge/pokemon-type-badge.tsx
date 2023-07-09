@@ -1,13 +1,13 @@
 import { IZComponentStyle, createStyleHook } from '@zthun/fashion-boutique';
 import { ZSizeFixed } from '@zthun/fashion-tailor';
 import { cssJoinDefined } from '@zthun/helpful-fn';
-import { ZPokemonType } from '@zthun/pokedex';
+import { ZType } from '@zthun/pokedex';
 import { startCase } from 'lodash';
 import React, { useMemo } from 'react';
 import { IZPokemonThemeUtility } from '../pokemon-theme/pokemon-theme';
 
 export interface IZPokemonTypeBadge extends IZComponentStyle {
-  type: ZPokemonType;
+  type: ZType;
 }
 
 const usePokemonTypeBadgeStyles = createStyleHook(
