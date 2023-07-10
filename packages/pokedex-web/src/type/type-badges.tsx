@@ -1,4 +1,4 @@
-import { ZGrid, ZIconFontAwesome } from '@zthun/fashion-boutique';
+import { IZComponentStyle, ZGrid, ZIconFontAwesome } from '@zthun/fashion-boutique';
 import { ZSizeFixed } from '@zthun/fashion-tailor';
 import { cssJoinDefined } from '@zthun/helpful-fn';
 import { IZPokemonWeakness, ZType } from '@zthun/pokedex';
@@ -14,15 +14,16 @@ function typeIsPokemonWeakness(t: any): t is IZPokemonWeakness {
   return typeof t === 'object' && Object.prototype.hasOwnProperty.call(t, 'damage');
 }
 
-export interface IZTypeBadges {
-  types?: (ZType | IZPokemonWeakness)[];
+export interface IZTypeBadges extends IZComponentStyle {
+  types: (ZType | IZPokemonWeakness)[];
 }
 
 export function ZTypeBadges(props: IZTypeBadges) {
-  const { types } = props;
+  const { className, types } = props;
 
   const render4xDamage = () => (
     <ZIconFontAwesome
+      className='ZTypeBadges-4x-damage'
       name='circle-exclamation'
       width={ZSizeFixed.ExtraSmall}
       tooltip='This pokemon receives 4x damage from this type.'
@@ -37,10 +38,15 @@ export function ZTypeBadges(props: IZTypeBadges) {
     return { type };
   };
 
-  const _types: IZTypeWithBadge[] = useMemo(() => (types || []).map(typeWithBadge), [types]);
+  const _types: IZTypeWithBadge[] = useMemo(() => types.map(typeWithBadge), [types]);
 
   return (
-    <ZGrid className={cssJoinDefined('ZTypeBadges-root')} columns='1fr 1fr' columnsXs='1fr' gap={ZSizeFixed.Small}>
+    <ZGrid
+      className={cssJoinDefined('ZTypeBadges-root', className)}
+      columns='1fr 1fr'
+      columnsXs='1fr'
+      gap={ZSizeFixed.Small}
+    >
       {_types.map((t) => (
         <ZTypeBadge key={t.type} type={t.type} suffix={t.suffix} />
       ))}

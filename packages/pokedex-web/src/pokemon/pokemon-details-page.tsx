@@ -33,16 +33,17 @@ export function ZPokemonDetailsPage() {
   const subHeading = useMemo(() => `#${padStart(String(asStateData(pokemon)?.id || '0'), 4, '0')}`, [pokemon]);
   const { component, custom } = usePokemonTheme();
 
-  const renderArtwork = (pokemon: IZPokemon) => (
+  const renderPokemon = (pokemon: IZPokemon) => (
     <ZCard
-      className={cssJoinDefined('ZPokedexDetailsPage-artwork')}
+      className={cssJoinDefined('ZPokemonDetailsPage-artwork')}
       heading={heading}
       subHeading={subHeading}
+      name='pokemon'
       avatar={<ZIconFontAwesome name='palette' width={ZSizeFixed.Small} />}
     >
       <ZStack gap={ZSizeFixed.Small}>
         <ZBox fashion={component}>
-          <ZImageSource src={pokemon.artwork} width={ZSizeVaried.Full} />
+          <ZImageSource src={pokemon.artwork} width={ZSizeVaried.Full} name='artwork' />
         </ZBox>
       </ZStack>
     </ZCard>
@@ -78,18 +79,19 @@ export function ZPokemonDetailsPage() {
 
     return (
       <ZCard
-        className={cssJoinDefined('ZPokedexDetailsPage-stats')}
+        className={cssJoinDefined('ZPokemonDetailsPage-stats')}
         heading='Stats'
         subHeading={`Max base value is ${ZPokemonMaxBaseStat}`}
+        name='stats'
         avatar={<ZIconFontAwesome name='star' width={ZSizeFixed.Small} />}
       >
         <ZStack gap={ZSizeFixed.Small}>
-          <ZChartProgress points={hp} height={ZSizeFixed.Small} />
-          <ZChartProgress points={attack} height={ZSizeFixed.Small} />
-          <ZChartProgress points={defense} height={ZSizeFixed.Small} />
-          <ZChartProgress points={specialAttack} height={ZSizeFixed.Small} />
-          <ZChartProgress points={specialDefense} height={ZSizeFixed.Small} />
-          <ZChartProgress points={speed} height={ZSizeFixed.Small} />
+          <ZChartProgress points={hp} height={ZSizeFixed.Small} name='hp' />
+          <ZChartProgress points={attack} height={ZSizeFixed.Small} name='attack' />
+          <ZChartProgress points={defense} height={ZSizeFixed.Small} name='defense' />
+          <ZChartProgress points={specialAttack} height={ZSizeFixed.Small} name='special-attack' />
+          <ZChartProgress points={specialDefense} height={ZSizeFixed.Small} name='special-defense' />
+          <ZChartProgress points={speed} height={ZSizeFixed.Small} name='speed' />
         </ZStack>
       </ZCard>
     );
@@ -99,7 +101,7 @@ export function ZPokemonDetailsPage() {
     const { height, weight, types, weaknesses } = pokemon;
 
     const renderAttribute = (label: ReactNode, value: ReactNode) => (
-      <ZBox className='ZP' margin={{ bottom: ZSizeFixed.Medium }}>
+      <ZBox margin={{ bottom: ZSizeFixed.Medium }}>
         <ZLabeled label={label}>{value}</ZLabeled>
       </ZBox>
     );
@@ -111,7 +113,12 @@ export function ZPokemonDetailsPage() {
       const inch = inches % 12;
       const _height = `${ft}' ${inch}"`;
 
-      return renderAttribute('Height', <ZCaption compact>{_height}</ZCaption>);
+      return renderAttribute(
+        'Height',
+        <ZCaption className={cssJoinDefined('ZPokemonDetailsPage-height')} compact>
+          {_height}
+        </ZCaption>
+      );
     };
 
     const renderWeight = () => {
@@ -120,20 +127,26 @@ export function ZPokemonDetailsPage() {
       const lbs = +pounds.toFixed(2);
       const _weight = `${lbs} lbs`;
 
-      return renderAttribute('Weight', <ZCaption compact>{_weight}</ZCaption>);
+      return renderAttribute(
+        'Weight',
+        <ZCaption className={cssJoinDefined('ZPokemonDetailsPage-weight')} compact>
+          {_weight}
+        </ZCaption>
+      );
     };
 
     return (
       <ZCard
-        className={cssJoinDefined('ZPokedexDetailsPage-attributes')}
+        className={cssJoinDefined('ZPokemonDetailsPage-attributes')}
         heading='Attributes'
         subHeading='Physical Aspects'
+        name='attributes'
         avatar={<ZIconFontAwesome name='dumbbell' width={ZSizeFixed.Small} />}
       >
         {renderHeight()}
         {renderWeight()}
-        {renderAttribute('Types', <ZTypeBadges types={types} />)}
-        {renderAttribute('Weaknesses', <ZTypeBadges types={weaknesses} />)}
+        {renderAttribute('Types', <ZTypeBadges className='ZPokemonDetailsPage-types' types={types} />)}
+        {renderAttribute('Weaknesses', <ZTypeBadges className='ZPokemonDetailsPage-weaknesses' types={weaknesses} />)}
       </ZCard>
     );
   };
@@ -149,12 +162,12 @@ export function ZPokemonDetailsPage() {
 
     return (
       <ZGrid justifyContent='center' columns='auto auto 1fr' columnsMd='1fr 1fr' columnsSm='1fr' gap={ZSizeFixed.Small}>
-        {renderArtwork(pokemon)}
+        {renderPokemon(pokemon)}
         {renderAttributes(pokemon)}
         {renderStats(pokemon)}
       </ZGrid>
     );
   };
 
-  return <div className='ZPokedexDetailsPage-root'>{renderPage()}</div>;
+  return <div className='ZPokemonDetailsPage-root'>{renderPage()}</div>;
 }
