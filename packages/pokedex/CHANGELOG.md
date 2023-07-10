@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.7.1](https://github.com/zthun/pokedexii/compare/v0.7.0...v0.7.1) (2023-07-10)
+
+
+### Bug Fixes
+
+* api resource should now cache properly ([e764a4b](https://github.com/zthun/pokedexii/commit/e764a4b4e5b2fdf2694d8c413ad37d971ef35851))
+
+
+
 ## [0.7.0](https://github.com/zthun/pokedexii/compare/v0.6.0...v0.7.0) (2023-07-09)
 
 
