@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.7.0](https://github.com/zthun/pokedexii/compare/v0.6.0...v0.7.0) (2023-07-09)
+
+
+### Features
+
+* details page now renders weaknesses ([5fc2e90](https://github.com/zthun/pokedexii/commit/5fc2e90f25c9dcf6fc107ba75bd8c1ce72ba496a))
+* pokemon attributes describe height, weight, and type strengths and weaknesses ([db8cb67](https://github.com/zthun/pokedexii/commit/db8cb67ee5d65aa134be1a762bb0c643440e9b23))
+
+
+
 ## [0.6.0](https://github.com/zthun/pokedexii/compare/v0.5.0...v0.6.0) (2023-07-08)
 
 
