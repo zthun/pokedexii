@@ -14,6 +14,9 @@ export interface IPokeApi {
 }
 
 export class ZPokeApi implements IPokeApi {
+  private _types = new Map<string, Promise<IPokeApiType>>();
+  private _pokemon = new Map<string, Promise<IPokeApiPokemon>>();
+
   private _pokedex = new Pokedex();
 
   private static _instance = new ZPokeApi();
@@ -24,12 +27,19 @@ export class ZPokeApi implements IPokeApi {
 
   private constructor() {}
 
+  private _getFromMap<T>(name: string, map: Map<string, Promise<T>>, getFn: (name: string) => Promise<T>) {
+    if (!map.has(name)) {
+      map.set(name, getFn(name));
+    }
+    return map.get(name)!;
+  }
+
   public pokemons(): Promise<IPokeApiPage> {
     return this._pokedex.getPokemonsList();
   }
 
   public pokemon(name: string): Promise<IPokeApiPokemon> {
-    return this._pokedex.getPokemonByName(name);
+    return this._getFromMap(name, this._pokemon, this._pokedex.getPokemonByName.bind(this._pokedex));
   }
 
   public types(): Promise<IPokeApiPage> {
@@ -37,6 +47,6 @@ export class ZPokeApi implements IPokeApi {
   }
 
   public type(name: string): Promise<IPokeApiType> {
-    return this._pokedex.getTypeByName(name);
+    return this._getFromMap(name, this._types, this._pokedex.getTypeByName.bind(this._pokedex));
   }
 }
