@@ -45,7 +45,7 @@ class ZTypeService implements Converter, Retriever {
 
 export type IZTypeService = IZPokedexResourceService<IZType>;
 
-export function createTypeService(api: IPokeApi = new ZPokeApi()): IZTypeService {
+export function createTypeService(api: IPokeApi = ZPokeApi.instance()): IZTypeService {
   const r = new ZTypeService(api);
   return new ZPokedexResourceService(r, r);
 }

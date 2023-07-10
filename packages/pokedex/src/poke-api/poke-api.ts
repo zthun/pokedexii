@@ -16,6 +16,14 @@ export interface IPokeApi {
 export class ZPokeApi implements IPokeApi {
   private _pokedex = new Pokedex();
 
+  private static _instance = new ZPokeApi();
+
+  public static instance() {
+    return ZPokeApi._instance;
+  }
+
+  private constructor() {}
+
   public pokemons(): Promise<IPokeApiPage> {
     return this._pokedex.getPokemonsList();
   }

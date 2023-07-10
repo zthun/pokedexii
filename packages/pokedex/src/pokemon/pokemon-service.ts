@@ -15,7 +15,12 @@ type Retriever = IPokeApiRetrieval<IPokeApiPokemon>;
 class ZPokemonService implements Converter, Retriever {
   public constructor(private _api: IPokeApi) {}
 
-  public list(): Promise<IPokeApiPage> {
+  public async list(): Promise<IPokeApiPage> {
+    // This first call is just to cache all the types.  There's an issue with
+    // the caching layer in the pokeapi-js-wrapper where it does not properly
+    // cache things if running concurrently.  So we're just going to cheese this
+    // here.
+    await Promise.all(Object.values(ZType).map((t) => this._api.type(t)));
     return this._api.pokemons();
   }
 
@@ -85,7 +90,7 @@ class ZPokemonService implements Converter, Retriever {
 
 export type IZPokemonService = IZPokedexResourceService<IZPokemon>;
 
-export function createPokemonService(api: IPokeApi = new ZPokeApi()): IZPokemonService {
+export function createPokemonService(api: IPokeApi = ZPokeApi.instance()): IZPokemonService {
   const r = new ZPokemonService(api);
   return new ZPokedexResourceService(r, r);
 }
