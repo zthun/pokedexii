@@ -3,15 +3,21 @@
 import { ZHttpRequestBuilder, ZHttpService } from '@zthun/webigail-http';
 import { ZUrlBuilder } from '@zthun/webigail-url';
 import localForage from 'localforage';
+import { IPokeApiEvolutionChain } from './poke-api-evolution-chain';
 import { IPokeApiPage } from './poke-api-page';
 import { IPokeApiPokemon } from './poke-api-pokemon';
+import { IPokeApiSpecies } from './poke-api-species';
 import { IPokeApiType } from './poke-api-type';
 
 export interface IPokeApi {
-  pokemons(): Promise<IPokeApiPage>;
+  pokemonList(): Promise<IPokeApiPage>;
   pokemon(name: string): Promise<IPokeApiPokemon>;
-  types(): Promise<IPokeApiPage>;
+  typeList(): Promise<IPokeApiPage>;
   type(name: string): Promise<IPokeApiType>;
+  speciesList(): Promise<IPokeApiPage>;
+  species(name: string): Promise<IPokeApiSpecies>;
+  evolutionList(): Promise<IPokeApiPage>;
+  evolution(name: string): Promise<IPokeApiEvolutionChain>;
 }
 
 export class ZPokeApi implements IPokeApi {
@@ -54,7 +60,7 @@ export class ZPokeApi implements IPokeApi {
     return cached;
   }
 
-  public pokemons(): Promise<IPokeApiPage> {
+  public pokemonList(): Promise<IPokeApiPage> {
     return this._resource('pokemon');
   }
 
@@ -62,11 +68,28 @@ export class ZPokeApi implements IPokeApi {
     return this._resource('pokemon', name);
   }
 
-  public types(): Promise<IPokeApiPage> {
+  public typeList(): Promise<IPokeApiPage> {
     return this._resource('type');
   }
 
   public type(name: string): Promise<IPokeApiType> {
     return this._resource('type', name);
+  }
+
+  public speciesList(): Promise<IPokeApiPage> {
+    return this._resource('species');
+  }
+
+  public species(name: string): Promise<IPokeApiSpecies> {
+    return this._resource('species', name);
+  }
+
+  public evolutionList(): Promise<IPokeApiPage> {
+    return this._resource('evolution-chain');
+  }
+
+  public evolution(name: string): Promise<IPokeApiEvolutionChain> {
+    // Note - The name here is actually a number.
+    return this._resource('evolution-chain', name);
   }
 }
