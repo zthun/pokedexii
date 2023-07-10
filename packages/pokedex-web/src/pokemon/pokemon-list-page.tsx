@@ -6,9 +6,7 @@ import React from 'react';
 import { ZPokemonCard } from './pokemon-card';
 import { usePokemonService } from './pokemon-service';
 
-export interface IZPokedexListPage {}
-
-export function ZPokedexListPage() {
+export function ZPokemonListPage() {
   const service = usePokemonService();
   const navigate = useNavigate();
 
@@ -19,7 +17,7 @@ export function ZPokedexListPage() {
 
   return (
     <ZGridView
-      className={cssJoinDefined('ZPokedexListPage-root')}
+      className={cssJoinDefined('ZPokemonListPage-root')}
       dataSource={service}
       renderItem={renderPokemon}
       GridProps={{

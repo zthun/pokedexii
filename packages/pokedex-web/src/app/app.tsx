@@ -12,8 +12,8 @@ import {
 } from '@zthun/fashion-boutique';
 import { ZSizeFixed } from '@zthun/fashion-tailor';
 import React from 'react';
-import { ZPokedexDetailsPage } from '../pokemon/pokemon-details-page';
-import { ZPokedexListPage } from '../pokemon/pokemon-list-page';
+import { ZPokemonDetailsPage } from '../pokemon/pokemon-details-page';
+import { ZPokemonListPage } from '../pokemon/pokemon-list-page';
 import { createPokemonTheme } from '../theme/pokemon-theme';
 
 const PokemonTheme = createPokemonTheme();
@@ -39,8 +39,8 @@ export function ZPokedexApp() {
       <ZFashionThemeContext.Provider value={PokemonTheme}>
         <ZBannerMain avatar={avatar} prefix={prefix}>
           <ZRouteMap>
-            <ZRoute path='/pokemon/:name' element={<ZPokedexDetailsPage />} />
-            <ZRoute path='/pokemon' element={<ZPokedexListPage />} />
+            <ZRoute path='/pokemon/:name' element={<ZPokemonDetailsPage />} />
+            <ZRoute path='/pokemon' element={<ZPokemonListPage />} />
             <ZRoute path='' element={<ZNavigate to='/pokemon' />} />
             <ZRoute path='*' element={<ZNotFound />} />
           </ZRouteMap>

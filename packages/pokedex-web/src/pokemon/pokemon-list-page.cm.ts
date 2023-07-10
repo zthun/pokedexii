@@ -5,8 +5,8 @@ import { ZPokemonCardComponentModel } from './pokemon-card.cm';
 /**
  * Represents the component model for the pokedex list page.
  */
-export class ZPokedexListPageComponentModel extends ZCircusComponentModel {
-  public static readonly Selector = '.ZPokedexListPage-root';
+export class ZPokemonListPageComponentModel extends ZCircusComponentModel {
+  public static readonly Selector = '.ZPokemonListPage-root';
 
   /**
    * Returns the root grid that contains the search and pagination.

@@ -8,11 +8,11 @@ import React from 'react';
 import { Mocked, beforeEach, describe, expect, it } from 'vitest';
 import { mock } from 'vitest-mock-extended';
 import { createPokemonTheme } from '../theme/pokemon-theme';
-import { ZPokedexListPage } from './pokemon-list-page';
-import { ZPokedexListPageComponentModel } from './pokemon-list-page.cm';
+import { ZPokemonListPage } from './pokemon-list-page';
+import { ZPokemonListPageComponentModel } from './pokemon-list-page.cm';
 import { ZPokemonServiceContext } from './pokemon-service';
 
-describe('ZPokedexListPage', () => {
+describe('ZPokemonListPage', () => {
   let pokemonService: Mocked<IZPokemonService>;
   let bulbasaur: IZPokemon;
   let charmander: IZPokemon;
@@ -26,13 +26,13 @@ describe('ZPokedexListPage', () => {
       <ZFashionThemeContext.Provider value={createPokemonTheme()}>
         <ZTestRouter navigator={history} location={history.location}>
           <ZPokemonServiceContext.Provider value={pokemonService}>
-            <ZPokedexListPage />
+            <ZPokemonListPage />
           </ZPokemonServiceContext.Provider>
         </ZTestRouter>
       </ZFashionThemeContext.Provider>
     );
     const driver = await new ZCircusSetupRenderer(element).setup();
-    const target = await ZCircusBy.first(driver, ZPokedexListPageComponentModel);
+    const target = await ZCircusBy.first(driver, ZPokemonListPageComponentModel);
     await (await target.grid()).load();
     return target;
   }

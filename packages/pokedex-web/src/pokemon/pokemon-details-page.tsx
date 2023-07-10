@@ -26,7 +26,7 @@ import { usePokemon } from './pokemon-service';
 /**
  * Represents the page for pokemon details.
  */
-export function ZPokedexDetailsPage() {
+export function ZPokemonDetailsPage() {
   const { name } = useParams();
   const [pokemon] = usePokemon(name);
   const heading = useMemo(() => startCase(asStateData(pokemon)?.name), [pokemon]);
@@ -99,7 +99,7 @@ export function ZPokedexDetailsPage() {
     const { height, weight, types, weaknesses } = pokemon;
 
     const renderAttribute = (label: ReactNode, value: ReactNode) => (
-      <ZBox margin={{ bottom: ZSizeFixed.Medium }}>
+      <ZBox className='ZP' margin={{ bottom: ZSizeFixed.Medium }}>
         <ZLabeled label={label}>{value}</ZLabeled>
       </ZBox>
     );
