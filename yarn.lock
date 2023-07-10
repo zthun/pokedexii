@@ -4273,10 +4273,11 @@ __metadata:
   dependencies:
     "@zthun/helpful-fn": ^0.17.0
     "@zthun/helpful-query": ^0.17.0
+    "@zthun/webigail-http": ^0.1.0
     "@zthun/webigail-url": ^0.1.0
+    localforage: ^1.10.0
     lodash: ^4.17.21
     microbundle: ^0.15.1
-    pokeapi-js-wrapper: ^1.2.2
     typescript: ^5.1.6
     vitest: ^0.33.0
     vitest-mock-extended: ^1.1.4
@@ -4786,15 +4787,6 @@ __metadata:
   version: 1.0.5
   resolution: "available-typed-arrays@npm:1.0.5"
   checksum: 20eb47b3cefd7db027b9bbb993c658abd36d4edd3fe1060e83699a03ee275b0c9b216cc076ff3f2db29073225fb70e7613987af14269ac1fe2a19803ccc97f1a
-  languageName: node
-  linkType: hard
-
-"axios@npm:^0.24.0":
-  version: 0.24.0
-  resolution: "axios@npm:0.24.0"
-  dependencies:
-    follow-redirects: ^1.14.4
-  checksum: 468cf496c08a6aadfb7e699bebdac02851e3043d4e7d282350804ea8900e30d368daa6e3cd4ab83b8ddb5a3b1e17a5a21ada13fc9cebd27b74828f47a4236316
   languageName: node
   linkType: hard
 
@@ -7207,7 +7199,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"follow-redirects@npm:^1.14.4, follow-redirects@npm:^1.15.0":
+"follow-redirects@npm:^1.15.0":
   version: 1.15.2
   resolution: "follow-redirects@npm:1.15.2"
   peerDependenciesMeta:
@@ -11105,16 +11097,6 @@ __metadata:
     mlly: ^1.2.0
     pathe: ^1.1.0
   checksum: 4b305c834b912ddcc8a0fe77530c0b0321fe340396f84cbb87aecdbc126606f47f2178f23b8639e71a4870f9631c7217aef52ffed0ae17ea2dbbe7e43d116a6e
-  languageName: node
-  linkType: hard
-
-"pokeapi-js-wrapper@npm:^1.2.2":
-  version: 1.2.2
-  resolution: "pokeapi-js-wrapper@npm:1.2.2"
-  dependencies:
-    axios: ^0.24.0
-    localforage: ^1.10.0
-  checksum: 2e0fbf609110bd4f2b650c561befcac414b6c6f36912dcbb854dcbfe384fe5f581039aad7a714b5396a177887597e12fd53cc28730b3361d429b8030c4a00519
   languageName: node
   linkType: hard
 
