@@ -28,7 +28,8 @@ export class ZPokedexResourceService<P, T extends IZPokedexNamedResource> implem
 
   private get _all() {
     if (this._source == null) {
-      const search = new ZDataSearchFields<T>(['name']);
+      // Most things have an id.  In this case, we can just use the id field.
+      const search = new ZDataSearchFields<T>(['name', 'id']);
       const options = new ZDataSourceStaticOptionsBuilder<T>().search(search).build();
       this._source = new ZDataSourceStatic(this._prefetch(), options);
     }
