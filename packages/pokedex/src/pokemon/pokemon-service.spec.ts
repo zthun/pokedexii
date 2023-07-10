@@ -127,10 +127,10 @@ describe('ZPokemonService', () => {
 
     api = mock<IPokeApi>();
 
-    api.pokemons.mockResolvedValue(_pokemonPage);
+    api.pokemonList.mockResolvedValue(_pokemonPage);
     api.pokemon.mockResolvedValue(_charizard);
 
-    api.types.mockResolvedValue(_typePage);
+    api.typeList.mockResolvedValue(_typePage);
     api.type.mockResolvedValueOnce(_fire).mockResolvedValueOnce(_flying);
   });
 

@@ -13,7 +13,7 @@ class ZTypeService implements Converter, Retriever {
   public constructor(private _api: IPokeApi) {}
 
   public list(): Promise<IPokeApiPage> {
-    return this._api.types();
+    return this._api.typeList();
   }
 
   public get(name: string): Promise<IPokeApiType> {

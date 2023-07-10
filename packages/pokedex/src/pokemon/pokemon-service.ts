@@ -16,7 +16,7 @@ class ZPokemonService implements Converter, Retriever {
   public constructor(private _api: IPokeApi) {}
 
   public async list(): Promise<IPokeApiPage> {
-    return this._api.pokemons();
+    return this._api.pokemonList();
   }
 
   public get(name: string): Promise<IPokeApiPokemon> {

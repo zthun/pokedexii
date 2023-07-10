@@ -44,7 +44,7 @@ describe('ZTypeService', () => {
 
     api = mock<IPokeApi>();
 
-    api.types.mockResolvedValue(_typePage);
+    api.typeList.mockResolvedValue(_typePage);
     api.type.mockResolvedValue(_ground);
   });
 
