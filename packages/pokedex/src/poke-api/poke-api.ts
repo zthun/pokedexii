@@ -6,6 +6,7 @@ import localForage from 'localforage';
 import { IPokeApiEvolutionChain } from './poke-api-evolution-chain';
 import { IPokeApiPage } from './poke-api-page';
 import { IPokeApiPokemon } from './poke-api-pokemon';
+import { PokeApiUrl } from './poke-api-resource';
 import { IPokeApiSpecies } from './poke-api-species';
 import { IPokeApiType } from './poke-api-type';
 
@@ -21,21 +22,20 @@ export interface IPokeApi {
 }
 
 export class ZPokeApi implements IPokeApi {
-  private static readonly DATABASE = 'https://pokeapi.co/api/v2';
   private _flightMap = new Map<string, Promise<any>>();
   private _http = new ZHttpService();
 
   private static _instance = new ZPokeApi();
 
   public static instance() {
-    localForage.config({ name: ZPokeApi.DATABASE });
+    localForage.config({ name: PokeApiUrl });
     return ZPokeApi._instance;
   }
 
   private constructor() {}
 
   private _resourceUrl(resource: string, name?: string) {
-    const root = new ZUrlBuilder('https', 'pokeapi.co').append('api').append('v2').append(resource);
+    const root = new ZUrlBuilder().parse(PokeApiUrl).append(resource);
     return name == null ? root.param('limit', '10000').build() : root.append(name).build();
   }
 

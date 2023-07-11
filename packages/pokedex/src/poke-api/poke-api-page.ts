@@ -1,5 +1,4 @@
-import { IZNamedResource } from '../resource/resource';
-import { IPokeApiNamedResource } from './poke-api-resource';
+import { IPokeApiNamedResource, createResource } from './poke-api-resource';
 
 export interface IPokeApiPage {
   count: number;
@@ -8,11 +7,14 @@ export interface IPokeApiPage {
   results: IPokeApiNamedResource[];
 }
 
-export function createApiPage<T extends IZNamedResource>(resources: T[]): IPokeApiPage {
+export function createApiPage<N extends string, I extends number, T extends { name: N; id: I }>(
+  resource: string,
+  resources: T[]
+): IPokeApiPage {
   return {
     count: resources.length,
     next: null,
     previous: null,
-    results: resources.map((r) => ({ name: r.name, url: '' }))
+    results: resources.map((r) => createResource(resource, r.id, r.name))
   };
 }
