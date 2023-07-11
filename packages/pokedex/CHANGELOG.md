@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.8.0](https://github.com/zthun/pokedexii/compare/v0.7.2...v0.8.0) (2023-07-11)
+
+
+### Features
+
+* allow id in search ([a7dab25](https://github.com/zthun/pokedexii/commit/a7dab25859e3ff415f64c2df70c22ac4bb2f9a5e))
+* evolution model ([af18440](https://github.com/zthun/pokedexii/commit/af18440a9b6b71899686ae4d2ae5ed2e3b20ab3c))
+* gender support ([2785e4b](https://github.com/zthun/pokedexii/commit/2785e4b10092298ffc38e972c2595f4c9184fafc))
+* ids can now be strings or numbers ([78de024](https://github.com/zthun/pokedexii/commit/78de02443896353d9c81631f388f8beebf192bfa))
+* species service describes pokemon species ([e714452](https://github.com/zthun/pokedexii/commit/e714452585dd1e697af5c9265c149d711f00a7ad))
+* support for species and evolutions ([3bebf18](https://github.com/zthun/pokedexii/commit/3bebf185e558474d4b66061b9f5ceda9ddb8a707))
+
+
+
 ## [0.7.2](https://github.com/zthun/pokedexii/compare/v0.7.1...v0.7.2) (2023-07-10)
 
 **Note:** Version bump only for package @zthun/pokedex
