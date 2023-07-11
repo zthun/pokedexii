@@ -1,4 +1,4 @@
-import { IZNamedResource } from '../resource/resource';
+import { IZResource } from '../resource/resource';
 
 export enum ZType {
   Bug = 'bug',
@@ -23,7 +23,7 @@ export enum ZType {
   Water = 'water'
 }
 
-export interface IZType extends IZNamedResource<ZType> {
+export interface IZType extends IZResource<ZType> {
   doubleDamageFrom: ZType[];
   doubleDamageTo: ZType[];
   halfDamageFrom: ZType[];
@@ -37,6 +37,7 @@ export class ZTypeBuilder {
 
   public constructor() {
     this._type = {
+      id: 0,
       name: ZType.Unknown,
       doubleDamageFrom: [],
       doubleDamageTo: [],
@@ -45,6 +46,11 @@ export class ZTypeBuilder {
       noDamageFrom: [],
       noDamageTo: []
     };
+  }
+
+  public id(id: number) {
+    this._type.id = id;
+    return this;
   }
 
   public name(type: ZType) {
@@ -83,7 +89,8 @@ export class ZTypeBuilder {
   }
 
   public ground() {
-    return this.name(ZType.Ground)
+    return this.id(5)
+      .name(ZType.Ground)
       .doubleDamageFrom([ZType.Water, ZType.Grass, ZType.Ice])
       .doubleDamageTo([ZType.Poison, ZType.Rock, ZType.Steel, ZType.Fire, ZType.Electric])
       .halfDamageFrom([ZType.Poison, ZType.Rock])
@@ -93,7 +100,8 @@ export class ZTypeBuilder {
   }
 
   public fire() {
-    return this.name(ZType.Fire)
+    return this.id(10)
+      .name(ZType.Fire)
       .doubleDamageFrom([ZType.Ground, ZType.Rock, ZType.Water])
       .doubleDamageTo([ZType.Bug, ZType.Steel, ZType.Grass, ZType.Ice])
       .halfDamageFrom([ZType.Bug, ZType.Steel, ZType.Fire, ZType.Grass, ZType.Ice, ZType.Fairy])
@@ -101,7 +109,8 @@ export class ZTypeBuilder {
   }
 
   public flying() {
-    return this.name(ZType.Flying)
+    return this.id(3)
+      .name(ZType.Flying)
       .doubleDamageFrom([ZType.Rock, ZType.Electric, ZType.Ice])
       .doubleDamageTo([ZType.Fighting, ZType.Bug, ZType.Grass])
       .halfDamageFrom([ZType.Fighting, ZType.Bug, ZType.Grass])

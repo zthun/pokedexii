@@ -32,6 +32,7 @@ class ZTypeService implements Converter, Retriever {
     const noDamageFrom = resource.damage_relations.no_damage_from.map((t) => t.name as ZType);
 
     return new ZTypeBuilder()
+      .id(resource.id)
       .name(name)
       .doubleDamageTo(doubleDamageTo)
       .doubleDamageFrom(doubleDamageFrom)

@@ -1,5 +1,5 @@
 import { ZUrlBuilder } from '@zthun/webigail-url';
-import { IZNamedResource } from '../resource/resource';
+import { IZResource } from '../resource/resource';
 import { ZType } from '../type/type';
 
 /**
@@ -39,18 +39,7 @@ export interface IZPokemonWeakness {
 /**
  * Represents information about a pokemon variant.
  */
-export interface IZPokemon extends IZNamedResource {
-  /**
-   * The id number.
-   *
-   * This actually varies from game to game, so it is not
-   * a reliable source to identify a pokemon.  Use the
-   * name instead.
-   *
-   * By default, this will be the index of the national pokedex.
-   */
-  id: number;
-
+export interface IZPokemon extends IZResource {
   /**
    * The height of the pokemon in decimeters.
    */

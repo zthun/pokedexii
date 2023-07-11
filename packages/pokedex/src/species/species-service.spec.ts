@@ -47,7 +47,7 @@ describe('ZSpeciesService', () => {
     urshifu = new ZSpeciesBuilder().urshifu().build();
 
     const _urshifu = createApiSpecies(urshifu);
-    const _speciesPage = createApiPage([urshifu]);
+    const _speciesPage = createApiPage('species', [urshifu]);
 
     api = mock<IPokeApi>();
 

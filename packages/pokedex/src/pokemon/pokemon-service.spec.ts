@@ -111,11 +111,11 @@ describe('ZPokemonService', () => {
     ground = new ZTypeBuilder().ground().build();
 
     const _charizard = createApiPokemon(charizard);
-    const _pokemonPage = createApiPage([charizard]);
+    const _pokemonPage = createApiPage('pokemon', [charizard]);
 
     const _fire = createApiType(fire);
     const _flying = createApiType(flying);
-    const _typePage = createApiPage([fire, ground, flying]);
+    const _typePage = createApiPage('pokemon', [fire, ground, flying]);
 
     api = mock<IPokeApi>();
 

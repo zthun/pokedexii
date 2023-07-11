@@ -26,7 +26,7 @@ describe('ZTypeService', () => {
       },
       game_indices: [],
       generation: { name: '', url: '' },
-      id: 0,
+      id: ground.id,
       move_damage_class: { name: '', url: '' },
       moves: [],
       name: ground.name,
@@ -35,7 +35,7 @@ describe('ZTypeService', () => {
       pokemon: []
     };
 
-    const _typePage = createApiPage([ground]);
+    const _typePage = createApiPage('type', [ground]);
 
     api = mock<IPokeApi>();
 
@@ -47,6 +47,11 @@ describe('ZTypeService', () => {
     const request = new ZDataRequestBuilder().build();
     const actual = await createTestTarget().retrieve(request);
     expect(actual).toEqual([ground]);
+  });
+
+  it('should set the id', async () => {
+    const actual = (await createTestTarget().get(ground.name)).id;
+    expect(actual).toEqual(ground.id);
   });
 
   it('should set the name', async () => {
