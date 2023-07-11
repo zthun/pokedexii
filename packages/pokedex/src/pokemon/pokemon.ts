@@ -73,6 +73,9 @@ export interface IZPokemon extends IZPokedexNamedResource {
     speed: IZPokemonStat;
   };
 
+  /**
+   * The type weaknesses of this pokemon.
+   */
   weaknesses: IZPokemonWeakness[];
 
   /**
