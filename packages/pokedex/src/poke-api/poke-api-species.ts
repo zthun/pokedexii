@@ -37,12 +37,12 @@ export interface IPokeApiSpecies {
   capture_rate: number;
   color: IPokeApiResource;
   egg_groups: IPokeApiResource[];
-  evolution_chain: IPokeApiResource[];
+  evolution_chain: IPokeApiResource;
   evolves_from_species: IPokeApiResource;
   flavor_text_entries: IPokeApiSpeciesFlavorText[];
   form_descriptions: unknown[];
   forms_switchable: boolean;
-  gender_rate: 1;
+  gender_rate: number;
   genera: IPokeApiSpeciesGenus[];
   generation: IPokeApiResource;
   growth_rate: IPokeApiResource;
