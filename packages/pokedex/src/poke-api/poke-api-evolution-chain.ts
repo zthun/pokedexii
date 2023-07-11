@@ -1,7 +1,7 @@
 import { IPokeApiResource } from './poke-api-resource';
 
-interface IPokeApiEvolutionChainDetails {
-  gender: IPokeApiResource | null;
+export interface IPokeApiEvolutionChainDetails {
+  gender: number | null;
   held_item: IPokeApiResource | null;
   item: IPokeApiResource | null;
   known_move: IPokeApiResource | null;
@@ -21,7 +21,7 @@ interface IPokeApiEvolutionChainDetails {
   turn_upside_down: boolean;
 }
 
-interface IPokeApiEvolutionChainLink {
+export interface IPokeApiEvolutionChainLink {
   evolution_details: IPokeApiEvolutionChainDetails[];
   evolves_to: IPokeApiEvolutionChainLink[];
   is_baby: boolean;
@@ -29,7 +29,7 @@ interface IPokeApiEvolutionChainLink {
 }
 
 export interface IPokeApiEvolutionChain {
-  baby_trigger_item;
+  baby_trigger_item: unknown;
   chain: IPokeApiEvolutionChainLink;
   id: number;
 }
