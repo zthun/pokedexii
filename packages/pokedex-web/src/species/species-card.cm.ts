@@ -1,11 +1,11 @@
 import { ZCircusActBuilder, ZCircusBy, ZCircusComponentModel } from '@zthun/cirque';
-import { ZSuspenseComponentModel } from '@zthun/fashion-boutique';
+import { ZAlertComponentModel, ZSuspenseComponentModel } from '@zthun/fashion-boutique';
 import { ZTypeBadgeComponentModel } from '../type/type-badge.cm';
 
 /**
  * Represents the component model for a Pokemon card.
  */
-export class ZPokemonCardComponentModel extends ZCircusComponentModel {
+export class ZSpeciesCardComponentModel extends ZCircusComponentModel {
   public static readonly Selector = '.ZSpeciesCard-root';
 
   /**
@@ -26,6 +26,16 @@ export class ZPokemonCardComponentModel extends ZCircusComponentModel {
    */
   public types(): Promise<ZTypeBadgeComponentModel[]> {
     return ZCircusBy.all(this.driver, ZTypeBadgeComponentModel);
+  }
+
+  /**
+   * Gets the error that occurred while this card was loading.
+   *
+   * @returns
+   *        The error alert or null if there is no error.
+   */
+  public error(): Promise<ZAlertComponentModel | null> {
+    return ZCircusBy.optional(this.driver, ZAlertComponentModel, 'error');
   }
 
   /**
