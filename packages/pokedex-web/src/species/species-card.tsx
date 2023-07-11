@@ -23,7 +23,7 @@ export interface IZSpeciesCard {
   /**
    * The species name.
    */
-  value: string;
+  speciesName: string;
 
   /**
    * The optional handler for when the card is clicked.
@@ -63,8 +63,8 @@ const useSpeciesCardStyles = createStyleHook(({ theme, tailor }) => ({
  * A component that displays quick species information.
  */
 export function ZSpeciesCard(props: IZSpeciesCard) {
-  const { value: name, onClick } = props;
-  const [species] = useSpecies(name);
+  const { speciesName, onClick } = props;
+  const [species] = useSpecies(speciesName);
   const [pokemon] = usePokemon(asStateData(species)?.main);
   const { classes } = useSpeciesCardStyles();
 
@@ -81,6 +81,7 @@ export function ZSpeciesCard(props: IZSpeciesCard) {
           heading='Error Loading Species'
           message={species.message}
           avatar={<ZIconFontAwesome name='circle-exclamation' width={ZSizeFixed.Medium} />}
+          name='error'
         />
       );
     }
@@ -91,6 +92,7 @@ export function ZSpeciesCard(props: IZSpeciesCard) {
           heading='Error Loading Pokemon'
           message={pokemon.message}
           avatar={<ZIconFontAwesome name='circle-exclamation' width={ZSizeFixed.Medium} />}
+          name='error'
         />
       );
     }
@@ -110,7 +112,7 @@ export function ZSpeciesCard(props: IZSpeciesCard) {
   };
 
   return (
-    <div className={cssJoinDefined('ZSpeciesCard-root', classes.root)} onClick={onClick} data-name={name}>
+    <div className={cssJoinDefined('ZSpeciesCard-root', classes.root)} onClick={onClick} data-name={speciesName}>
       {renderContent()}
     </div>
   );
