@@ -1,7 +1,7 @@
 import { ZGridView, useNavigate } from '@zthun/fashion-boutique';
 import { ZSizeFixed } from '@zthun/fashion-tailor';
 import { cssJoinDefined } from '@zthun/helpful-fn';
-import { IZSpecies } from '@zthun/pokedex';
+import { IZResource } from '@zthun/pokedex';
 import React from 'react';
 import { ZSpeciesCard } from './species-card';
 import { useSpeciesService } from './species-service';
@@ -10,9 +10,9 @@ export function ZSpeciesListPage() {
   const service = useSpeciesService();
   const navigate = useNavigate();
 
-  function renderSpecies(species: IZSpecies) {
+  function renderSpecies(species: IZResource) {
     const handleClick = () => navigate(`/pokemon/${species.name}`);
-    return <ZSpeciesCard key={species.id} value={species.name} onClick={handleClick} />;
+    return <ZSpeciesCard key={species.id} speciesName={species.name} onClick={handleClick} />;
   }
 
   return (
