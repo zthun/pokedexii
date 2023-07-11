@@ -2,6 +2,7 @@ import { ZDataRequestBuilder } from '@zthun/helpful-query';
 import { Mocked, beforeEach, describe, expect, it } from 'vitest';
 import { mock } from 'vitest-mock-extended';
 import { IPokeApi } from '../poke-api/poke-api';
+import { createApiPage } from '../poke-api/poke-api-page';
 import { IPokeApiPokemon } from '../poke-api/poke-api-pokemon';
 import { IPokeApiType } from '../poke-api/poke-api-type';
 import { IZPokemon, ZPokemonBuilder } from '../pokemon/pokemon';
