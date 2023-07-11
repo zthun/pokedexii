@@ -8,7 +8,7 @@ import {
 } from '../poke-api/poke-api-evolution-chain';
 import { IPokeApiPage } from '../poke-api/poke-api-page';
 import { IPokeApiRetrieval } from '../poke-api/poke-api-retrieval';
-import { IZPokedexResourceService, ZPokedexResourceService } from '../pokedex-resource/pokedex-resource-service';
+import { IZPokedexResourceService, ZPokedexResourceService } from '../resource/pokedex-resource-service';
 import { IZEvolution, ZEvolutionBuilder } from './evolution';
 import { ZEvolutionNodeBuilder } from './evolution-node';
 import { ZEvolutionTrigger, ZEvolutionTriggerBuilder } from './evolution-trigger';

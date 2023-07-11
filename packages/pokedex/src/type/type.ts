@@ -1,4 +1,4 @@
-import { IZPokedexNamedResource } from '../pokedex-resource/pokedex-named-resource';
+import { IZPokedexNamedResource } from '../resource/pokedex-named-resource';
 
 export enum ZType {
   Bug = 'bug',

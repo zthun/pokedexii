@@ -5,7 +5,7 @@ import { IPokeApiConverter } from '../poke-api/poke-api-converter';
 import { IPokeApiPage } from '../poke-api/poke-api-page';
 import { IPokeApiPokemon } from '../poke-api/poke-api-pokemon';
 import { IPokeApiRetrieval } from '../poke-api/poke-api-retrieval';
-import { IZPokedexResourceService, ZPokedexResourceService } from '../pokedex-resource/pokedex-resource-service';
+import { IZPokedexResourceService, ZPokedexResourceService } from '../resource/pokedex-resource-service';
 import { ZType } from '../type/type';
 import { IZPokemon, IZPokemonWeakness, ZPokemonBuilder } from './pokemon';
 

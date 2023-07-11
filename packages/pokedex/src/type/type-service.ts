@@ -3,7 +3,7 @@ import { IPokeApiConverter } from '../poke-api/poke-api-converter';
 import { IPokeApiPage } from '../poke-api/poke-api-page';
 import { IPokeApiRetrieval } from '../poke-api/poke-api-retrieval';
 import { IPokeApiType } from '../poke-api/poke-api-type';
-import { IZPokedexResourceService, ZPokedexResourceService } from '../pokedex-resource/pokedex-resource-service';
+import { IZPokedexResourceService, ZPokedexResourceService } from '../resource/pokedex-resource-service';
 import { IZType, ZType, ZTypeBuilder } from './type';
 
 type Converter = IPokeApiConverter<IPokeApiType, IZType>;
