@@ -1,4 +1,4 @@
-import { IZPokedexNamedResource } from '../resource/pokedex-named-resource';
+import { IZPokedexNamedResource } from '../resource/resource';
 
 /**
  * Represents a species of pokemon.

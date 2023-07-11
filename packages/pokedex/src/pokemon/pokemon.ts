@@ -1,5 +1,5 @@
 import { ZUrlBuilder } from '@zthun/webigail-url';
-import { IZPokedexNamedResource } from '../resource/pokedex-named-resource';
+import { IZPokedexNamedResource } from '../resource/resource';
 import { ZType } from '../type/type';
 
 /**

@@ -6,8 +6,8 @@ import { IPokeApiConverter } from '../poke-api/poke-api-converter';
 import { IPokeApiPage } from '../poke-api/poke-api-page';
 import { IPokeApiNamedResource } from '../poke-api/poke-api-resource';
 import { IPokeApiRetrieval } from '../poke-api/poke-api-retrieval';
-import { IZPokedexNamedResource } from './pokedex-named-resource';
-import { ZPokedexResourceService } from './pokedex-resource-service';
+import { IZPokedexNamedResource } from './resource';
+import { ZPokedexResourceService } from './resource-service';
 
 describe('ZPokemonResourceService', () => {
   let retriever: Mocked<IPokeApiRetrieval<IPokeApiNamedResource>>;

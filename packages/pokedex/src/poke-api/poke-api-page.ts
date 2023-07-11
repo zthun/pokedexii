@@ -1,4 +1,4 @@
-import { IZPokedexNamedResource } from '../resource/pokedex-named-resource';
+import { IZPokedexNamedResource } from '../resource/resource';
 import { IPokeApiNamedResource } from './poke-api-resource';
 
 export interface IPokeApiPage {

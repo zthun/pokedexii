@@ -1,4 +1,4 @@
-import { IZPokedexNamedResource } from '../resource/pokedex-named-resource';
+import { IZPokedexNamedResource } from '../resource/resource';
 import { IZEvolutionNode, ZEvolutionNodeBuilder } from './evolution-node';
 
 /**

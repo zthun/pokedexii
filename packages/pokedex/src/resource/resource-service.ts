@@ -7,7 +7,7 @@ import {
 } from '@zthun/helpful-query';
 import { IPokeApiConverter } from '../poke-api/poke-api-converter';
 import { IPokeApiRetrieval } from '../poke-api/poke-api-retrieval';
-import { IZPokedexNamedResource } from './pokedex-named-resource';
+import { IZPokedexNamedResource } from './resource';
 
 export interface IZPokedexResourceService<T extends IZPokedexNamedResource<any>> extends IZDataSource<T> {
   /**
