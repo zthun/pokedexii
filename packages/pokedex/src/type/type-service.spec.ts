@@ -43,10 +43,10 @@ describe('ZTypeService', () => {
     api.type.mockResolvedValue(_ground);
   });
 
-  it('should retrieve all pokemon', async () => {
+  it('should retrieve all types', async () => {
     const request = new ZDataRequestBuilder().build();
     const actual = await createTestTarget().retrieve(request);
-    expect(actual).toEqual([ground]);
+    expect(actual).toEqual([{ id: ground.id, name: ground.name }]);
   });
 
   it('should set the id', async () => {

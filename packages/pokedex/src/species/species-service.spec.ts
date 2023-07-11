@@ -58,7 +58,7 @@ describe('ZSpeciesService', () => {
   it('should retrieve all species', async () => {
     const request = new ZDataRequestBuilder().build();
     const actual = await createTestTarget().retrieve(request);
-    expect(actual).toEqual([urshifu]);
+    expect(actual).toEqual([{ id: urshifu.id, name: urshifu.name }]);
   });
 
   it('should set the id', async () => {

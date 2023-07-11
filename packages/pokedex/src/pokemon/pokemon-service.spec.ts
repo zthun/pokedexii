@@ -129,7 +129,7 @@ describe('ZPokemonService', () => {
   it('should retrieve all pokemon', async () => {
     const request = new ZDataRequestBuilder().build();
     const actual = await createTestTarget().retrieve(request);
-    expect(actual).toEqual([charizard]);
+    expect(actual).toEqual([{ id: charizard.id, name: charizard.name }]);
   });
 
   it('should set the id', async () => {
