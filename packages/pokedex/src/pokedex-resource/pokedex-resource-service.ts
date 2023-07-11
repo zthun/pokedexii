@@ -9,7 +9,7 @@ import { IPokeApiConverter } from 'src/poke-api/poke-api-converter';
 import { IPokeApiRetrieval } from 'src/poke-api/poke-api-retrieval';
 import { IZPokedexNamedResource } from './pokedex-named-resource';
 
-export interface IZPokedexResourceService<T extends IZPokedexNamedResource> extends IZDataSource<T> {
+export interface IZPokedexResourceService<T extends IZPokedexNamedResource<any>> extends IZDataSource<T> {
   /**
    * Gets information about a single resource.
    *
@@ -23,7 +23,7 @@ export interface IZPokedexResourceService<T extends IZPokedexNamedResource> exte
   get(name: string): Promise<T>;
 }
 
-export class ZPokedexResourceService<P, T extends IZPokedexNamedResource> implements IZPokedexResourceService<T> {
+export class ZPokedexResourceService<P, T extends IZPokedexNamedResource<any>> implements IZPokedexResourceService<T> {
   private _source: IZDataSource<T>;
 
   private get _all() {
