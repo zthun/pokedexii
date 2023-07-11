@@ -7,7 +7,7 @@ import {
   ZSuspenseComponentModel
 } from '@zthun/fashion-boutique';
 import { ZType } from '@zthun/pokedex';
-import { ZTypeBadgeComponentModel } from 'src/type/type-badge.cm';
+import { ZTypeBadgeComponentModel } from '../type/type-badge.cm';
 
 /**
  * Represents the component model for the pokemon details page.

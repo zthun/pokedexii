@@ -5,8 +5,8 @@ import {
   ZDataSourceStatic,
   ZDataSourceStaticOptionsBuilder
 } from '@zthun/helpful-query';
-import { IPokeApiConverter } from 'src/poke-api/poke-api-converter';
-import { IPokeApiRetrieval } from 'src/poke-api/poke-api-retrieval';
+import { IPokeApiConverter } from '../poke-api/poke-api-converter';
+import { IPokeApiRetrieval } from '../poke-api/poke-api-retrieval';
 import { IZPokedexNamedResource } from './pokedex-named-resource';
 
 export interface IZPokedexResourceService<T extends IZPokedexNamedResource<any>> extends IZDataSource<T> {

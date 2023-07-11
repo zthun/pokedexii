@@ -1,5 +1,5 @@
-import { IZPokedexNamedResource } from 'src/pokedex-resource/pokedex-named-resource';
 import { ZGender } from '../gender/gender';
+import { IZPokedexNamedResource } from '../pokedex-resource/pokedex-named-resource';
 
 export enum ZEvolutionTrigger {
   AgileStyleMove = 'agile-style-move',

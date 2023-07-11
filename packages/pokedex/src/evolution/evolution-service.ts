@@ -1,4 +1,4 @@
-import { ZGender } from 'src/gender/gender';
+import { ZGender } from '../gender/gender';
 import { IPokeApi, ZPokeApi } from '../poke-api/poke-api';
 import { IPokeApiConverter } from '../poke-api/poke-api-converter';
 import {

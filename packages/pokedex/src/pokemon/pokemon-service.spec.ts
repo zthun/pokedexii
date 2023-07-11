@@ -1,13 +1,13 @@
 import { ZDataRequestBuilder } from '@zthun/helpful-query';
-import { IPokeApiPokemon } from 'src/poke-api/poke-api-pokemon';
-import { IPokeApiType } from 'src/poke-api/poke-api-type';
-import { IZPokedexNamedResource } from 'src/pokedex-resource/pokedex-named-resource';
-import { IZType, ZTypeBuilder } from 'src/type/type';
 import { Mocked, beforeEach, describe, expect, it } from 'vitest';
 import { mock } from 'vitest-mock-extended';
 import { IPokeApi } from '../poke-api/poke-api';
 import { IPokeApiPage } from '../poke-api/poke-api-page';
+import { IPokeApiPokemon } from '../poke-api/poke-api-pokemon';
+import { IPokeApiType } from '../poke-api/poke-api-type';
+import { IZPokedexNamedResource } from '../pokedex-resource/pokedex-named-resource';
 import { IZPokemon, ZPokemonBuilder } from '../pokemon/pokemon';
+import { IZType, ZTypeBuilder } from '../type/type';
 import { createPokemonService } from './pokemon-service';
 
 describe('ZPokemonService', () => {
