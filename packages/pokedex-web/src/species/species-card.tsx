@@ -4,7 +4,7 @@ import {
   ZH3,
   ZIconFontAwesome,
   ZImageSource,
-  ZSuspenseRotate,
+  ZSuspenseProgress,
   createStyleHook
 } from '@zthun/fashion-boutique';
 import { ZSizeFixed } from '@zthun/fashion-tailor';
@@ -72,7 +72,7 @@ export function ZSpeciesCard(props: IZSpeciesCard) {
     const isLoading = isStateLoading(species) || isStateLoading(pokemon);
 
     if (isLoading) {
-      return <ZSuspenseRotate />;
+      return <ZSuspenseProgress />;
     }
 
     if (isStateErrored(species)) {
