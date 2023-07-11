@@ -1,5 +1,5 @@
 import { ZGender } from '../gender/gender';
-import { IZNamedResource } from '../resource/resource';
+import { IZResource } from '../resource/resource';
 
 export enum ZEvolutionTrigger {
   AgileStyleMove = 'agile-style-move',
@@ -17,7 +17,7 @@ export enum ZEvolutionTrigger {
   UseItem = 'use-item'
 }
 
-export interface IZEvolutionTrigger extends IZNamedResource<ZEvolutionTrigger> {
+export interface IZEvolutionTrigger extends IZResource {
   affection?: number;
   gender?: ZGender;
   happiness?: number;
@@ -41,10 +41,25 @@ export class ZEvolutionTriggerBuilder {
 
   public constructor() {
     this._trigger = {
+      id: 0,
       name: ZEvolutionTrigger.Other,
       rain: false,
       turnUpsideDown: false
     };
+  }
+
+  /**
+   * Sets the id of the trigger.
+   *
+   * @param id -
+   *        The id of the trigger.
+   *
+   * @returns
+   *        This object
+   */
+  public id(id: number) {
+    this._trigger.id = id;
+    return this;
   }
 
   /**

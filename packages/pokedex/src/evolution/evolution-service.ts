@@ -7,6 +7,7 @@ import {
   IPokeApiEvolutionChainLink
 } from '../poke-api/poke-api-evolution-chain';
 import { IPokeApiPage } from '../poke-api/poke-api-page';
+import { findId } from '../poke-api/poke-api-resource';
 import { IPokeApiRetrieval } from '../poke-api/poke-api-retrieval';
 import { IZResourceService, ZResourceService } from '../resource/resource-service';
 import { IZEvolution, ZEvolutionBuilder } from './evolution';
@@ -34,6 +35,7 @@ class ZEvolutionService implements Converter, Retriever {
       const genders = Object.values(ZGender);
 
       let trigger = new ZEvolutionTriggerBuilder()
+        .id(findId(details.trigger))
         .name(details.trigger.name as ZEvolutionTrigger)
         .rain(details.needs_overworld_rain)
         .turnUpsideDown(details.turn_upside_down);
@@ -65,7 +67,7 @@ class ZEvolutionService implements Converter, Retriever {
         .build();
     };
 
-    const evolution = new ZEvolutionBuilder().name(id).head(_convert(chain)).build();
+    const evolution = new ZEvolutionBuilder().id(id).head(_convert(chain)).build();
     return Promise.resolve(evolution);
   }
 }

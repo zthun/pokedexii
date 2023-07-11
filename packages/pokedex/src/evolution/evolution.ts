@@ -1,10 +1,10 @@
-import { IZNamedResource } from '../resource/resource';
+import { IZResource } from '../resource/resource';
 import { IZEvolutionNode, ZEvolutionNodeBuilder } from './evolution-node';
 
 /**
  * Represents an evolution chain.
  */
-export interface IZEvolution extends IZNamedResource<number> {
+export interface IZEvolution extends IZResource {
   /**
    * Represents the head node.
    */
@@ -16,7 +16,8 @@ export class ZEvolutionBuilder {
 
   public constructor() {
     this._evolution = {
-      name: 0,
+      id: 0,
+      name: '0',
       head: new ZEvolutionNodeBuilder().build()
     };
   }
@@ -24,23 +25,15 @@ export class ZEvolutionBuilder {
   /**
    * Sets the evolution name.
    *
-   * Evolution names are just numeric ids.  Note that all stages of
-   * an evolution chain have the same id.  For example, the evolution chain
-   * for gardevoir is the same as ralts.  The name alone will always bring you
-   * back to the first entry in the chain, even if you are in the middle
-   * of it.
-   *
-   * Thus, in order to correctly identity where you are in the chain, you
-   * need both, the name and the species.
-   *
-   * @param name -
+   * @param id -
    *        The name id.
    *
    * @returns
    *        This object.
    */
-  public name(name: number) {
-    this._evolution.name = name;
+  public id(id: number) {
+    this._evolution.id = id;
+    this._evolution.name = String(id);
     return this;
   }
 
@@ -65,7 +58,7 @@ export class ZEvolutionBuilder {
    *        This object.
    */
   public ralts() {
-    return this.name(140).head(new ZEvolutionNodeBuilder().ralts().build());
+    return this.id(140).head(new ZEvolutionNodeBuilder().ralts().build());
   }
 
   /**
