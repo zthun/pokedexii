@@ -3,27 +3,20 @@ import { findIndex } from 'lodash';
 import { Mocked, beforeEach, describe, expect, it } from 'vitest';
 import { mock } from 'vitest-mock-extended';
 import { IPokeApiConverter } from '../poke-api/poke-api-converter';
-import { IPokeApiPage } from '../poke-api/poke-api-page';
-import { IPokeApiNamedResource } from '../poke-api/poke-api-resource';
+import { createApiPage } from '../poke-api/poke-api-page';
+import { IPokeApiNamedResource, createResource, findId } from '../poke-api/poke-api-resource';
 import { IPokeApiRetrieval } from '../poke-api/poke-api-retrieval';
-import { IZNamedResource } from './resource';
+import { IZResource } from './resource';
 import { ZResourceService } from './resource-service';
 
 describe('ZResourceService', () => {
   let retriever: Mocked<IPokeApiRetrieval<IPokeApiNamedResource>>;
-  let converter: Mocked<IPokeApiConverter<IPokeApiNamedResource, IZNamedResource>>;
-  let resourceA: IZNamedResource;
-  let resourceB: IZNamedResource;
-  let resourceC: IZNamedResource;
-  let resourceD: IZNamedResource;
-  let resources: IZNamedResource[];
-
-  const createPage = (resources: IZNamedResource[]): IPokeApiPage => ({
-    count: resources.length,
-    next: null,
-    previous: null,
-    results: resources.map((r) => ({ name: r.name, url: '' }))
-  });
+  let converter: Mocked<IPokeApiConverter<IPokeApiNamedResource, IZResource>>;
+  let resourceA: IZResource;
+  let resourceB: IZResource;
+  let resourceC: IZResource;
+  let resourceD: IZResource;
+  let resources: IZResource[];
 
   const createTestTarget = () => new ZResourceService(retriever, converter);
 
@@ -35,21 +28,21 @@ describe('ZResourceService', () => {
     }
 
     const target = resources[index];
-    return Promise.resolve({ name: target.name, url: '' });
+    return Promise.resolve(createResource('resource', target.id, target.name));
   };
 
   beforeEach(() => {
-    resourceA = { name: 'resource-a' };
-    resourceB = { name: 'resource-b' };
-    resourceC = { name: 'resource-c' };
-    resourceD = { name: 'resource-d' };
+    resourceA = { id: 1, name: 'resource-a' };
+    resourceB = { id: 2, name: 'resource-b' };
+    resourceC = { id: 3, name: 'resource-c' };
+    resourceD = { id: 4, name: 'resource-d' };
     resources = [resourceA, resourceB, resourceC, resourceD];
 
-    converter = mock<IPokeApiConverter<IPokeApiNamedResource, IZNamedResource>>();
-    converter.convert.mockImplementation((r) => Promise.resolve({ name: r.name }));
+    converter = mock<IPokeApiConverter<IPokeApiNamedResource, IZResource>>();
+    converter.convert.mockImplementation((r) => Promise.resolve({ name: r.name, id: findId(r) }));
 
     retriever = mock<IPokeApiRetrieval<IPokeApiNamedResource>>();
-    retriever.list.mockResolvedValue(createPage(resources));
+    retriever.list.mockResolvedValue(createApiPage('resource', resources));
     retriever.get.mockImplementation(getResourceByName);
   });
 

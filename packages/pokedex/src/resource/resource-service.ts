@@ -7,9 +7,8 @@ import {
 } from '@zthun/helpful-query';
 import { IPokeApiConverter } from '../poke-api/poke-api-converter';
 import { IPokeApiRetrieval } from '../poke-api/poke-api-retrieval';
-import { IZNamedResource } from './resource';
 
-export interface IZResourceService<T extends IZNamedResource<any>> extends IZDataSource<T> {
+export interface IZResourceService<T extends object> extends IZDataSource<T> {
   /**
    * Gets information about a single resource.
    *
@@ -23,12 +22,11 @@ export interface IZResourceService<T extends IZNamedResource<any>> extends IZDat
   get(name: string): Promise<T>;
 }
 
-export class ZResourceService<P, T extends IZNamedResource<any>> implements IZResourceService<T> {
+export class ZResourceService<P, T extends object> implements IZResourceService<T> {
   private _source: IZDataSource<T>;
 
   private get _all() {
     if (this._source == null) {
-      // Most things have an id.  In this case, we can just use the id field.
       const search = new ZDataSearchFields<T>(['name', 'id']);
       const options = new ZDataSourceStaticOptionsBuilder<T>().search(search).build();
       this._source = new ZDataSourceStatic(this._prefetch(), options);
