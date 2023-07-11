@@ -37,7 +37,7 @@ export interface IZPokemonWeakness {
 }
 
 /**
- * Represents information about a pokemon.
+ * Represents information about a pokemon variant.
  */
 export interface IZPokemon extends IZPokedexNamedResource {
   /**
