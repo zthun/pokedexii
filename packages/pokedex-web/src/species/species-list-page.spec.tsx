@@ -110,6 +110,7 @@ describe('ZSpeciesListPage', () => {
     expected.sort();
     // Act.
     const cards = await target.cards();
+    await Promise.all(cards.map((c) => c.load()));
     const actual = await Promise.all(cards.map((c) => c.name()));
     actual.sort();
     // Assert.
@@ -153,5 +154,35 @@ describe('ZSpeciesListPage', () => {
     const actual = history.location.pathname;
     // Assert.
     expect(actual).toEqual(`/pokemon/${charmander.name}`);
+  });
+
+  it('should render errors on the cards that fail to load species data', async () => {
+    // Arrange.
+    const expected = new Error('Species not found');
+    speciesService.get.mockRejectedValue(expected);
+    const target = await createTestTarget();
+    const card = await target.card(charmander.name);
+    await card?.load();
+    // Act.
+    const error = await card?.error();
+    const message = await error?.message();
+    const actual = await message?.text();
+    // Assert.
+    expect(actual).toEqual(expected.message);
+  });
+
+  it('should render errors on the cards that fail to load pokemon data', async () => {
+    // Arrange.
+    const expected = new Error('Pokemon not found');
+    pokemonService.get.mockRejectedValue(expected);
+    const target = await createTestTarget();
+    const card = await target.card(charmander.name);
+    await card?.load();
+    // Act.
+    const error = await card?.error();
+    const message = await error?.message();
+    const actual = await message?.text();
+    // Assert.
+    expect(actual).toEqual(expected.message);
   });
 });
