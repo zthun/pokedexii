@@ -77,11 +77,11 @@ export class ZPokeApi implements IPokeApi {
   }
 
   public speciesList(): Promise<IPokeApiPage> {
-    return this._resource('species');
+    return this._resource('pokemon-species');
   }
 
   public species(name: string): Promise<IPokeApiSpecies> {
-    return this._resource('species', name);
+    return this._resource('pokemon-species', name);
   }
 
   public evolutionList(): Promise<IPokeApiPage> {
