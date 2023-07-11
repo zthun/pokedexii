@@ -1,6 +1,6 @@
 import { firstDefined } from '@zthun/helpful-fn';
 import { ZUrlBuilder } from '@zthun/webigail-url';
-import { last, split } from 'lodash';
+import { last, split, trim, trimEnd } from 'lodash';
 
 export const PokeApiUrl = 'https://pokeapi.co/api/v2';
 
@@ -13,7 +13,9 @@ export interface IPokeApiNamedResource extends IPokeApiResource {
 }
 
 export function findId(resource: IPokeApiResource): number {
-  return +firstDefined('0', last(split(resource.url, '/')));
+  let { url } = resource;
+  url = trim(trimEnd(url, '/'));
+  return +firstDefined('0', last(split(url, '/')));
 }
 
 export function createResource(resource: string, id: number): IPokeApiResource;
