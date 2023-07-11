@@ -2,7 +2,7 @@ import { ZDataRequestBuilder } from '@zthun/helpful-query';
 import { Mocked, beforeEach, describe, expect, it } from 'vitest';
 import { mock } from 'vitest-mock-extended';
 import { IPokeApi } from '../poke-api/poke-api';
-import { IPokeApiPage } from '../poke-api/poke-api-page';
+import { createApiPage } from '../poke-api/poke-api-page';
 import { IZType, ZTypeBuilder } from './type';
 import { createTypeService } from './type-service';
 
@@ -35,12 +35,7 @@ describe('ZTypeService', () => {
       pokemon: []
     };
 
-    const _typePage: IPokeApiPage = {
-      count: 1,
-      next: null,
-      previous: null,
-      results: [{ name: _ground.name, url: '' }]
-    };
+    const _typePage = createApiPage([ground]);
 
     api = mock<IPokeApi>();
 
