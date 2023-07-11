@@ -2,10 +2,8 @@ import { ZDataRequestBuilder } from '@zthun/helpful-query';
 import { Mocked, beforeEach, describe, expect, it } from 'vitest';
 import { mock } from 'vitest-mock-extended';
 import { IPokeApi } from '../poke-api/poke-api';
-import { IPokeApiPage } from '../poke-api/poke-api-page';
 import { IPokeApiPokemon } from '../poke-api/poke-api-pokemon';
 import { IPokeApiType } from '../poke-api/poke-api-type';
-import { IZPokedexNamedResource } from '../pokedex-resource/pokedex-named-resource';
 import { IZPokemon, ZPokemonBuilder } from '../pokemon/pokemon';
 import { IZType, ZTypeBuilder } from '../type/type';
 import { createPokemonService } from './pokemon-service';
@@ -18,13 +16,6 @@ describe('ZPokemonService', () => {
   let ground: IZType;
 
   const createTestTarget = () => createPokemonService(api);
-
-  const createApiPage = <T extends IZPokedexNamedResource>(resources: T[]): IPokeApiPage => ({
-    count: resources.length,
-    next: null,
-    previous: null,
-    results: resources.map((r) => ({ name: r.name, url: '' }))
-  });
 
   const createApiPokemon = (pokemon: IZPokemon): IPokeApiPokemon => ({
     abilities: [],
