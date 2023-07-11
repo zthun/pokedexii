@@ -1,9 +1,9 @@
 import { ZDataRequestBuilder } from '@zthun/helpful-query';
-import { IPokeApiSpecies } from 'src/poke-api/poke-api-species';
 import { Mocked, beforeEach, describe, expect, it } from 'vitest';
 import { mock } from 'vitest-mock-extended';
 import { IPokeApi } from '../poke-api/poke-api';
 import { createApiPage } from '../poke-api/poke-api-page';
+import { IPokeApiSpecies } from '../poke-api/poke-api-species';
 import { IZSpecies, ZSpeciesBuilder } from './species';
 import { createSpeciesService } from './species-service';
 

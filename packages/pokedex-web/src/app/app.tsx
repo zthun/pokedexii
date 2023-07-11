@@ -13,7 +13,7 @@ import {
 import { ZSizeFixed } from '@zthun/fashion-tailor';
 import React from 'react';
 import { ZPokemonDetailsPage } from '../pokemon/pokemon-details-page';
-import { ZPokemonListPage } from '../pokemon/pokemon-list-page';
+import { ZSpeciesListPage } from '../species/species-list-page';
 import { createPokemonTheme } from '../theme/pokemon-theme';
 
 const PokemonTheme = createPokemonTheme();
@@ -40,7 +40,7 @@ export function ZPokedexApp() {
         <ZBannerMain avatar={avatar} prefix={prefix}>
           <ZRouteMap>
             <ZRoute path='/pokemon/:name' element={<ZPokemonDetailsPage />} />
-            <ZRoute path='/pokemon' element={<ZPokemonListPage />} />
+            <ZRoute path='/pokemon' element={<ZSpeciesListPage />} />
             <ZRoute path='' element={<ZNavigate to='/pokemon' />} />
             <ZRoute path='*' element={<ZNotFound />} />
           </ZRouteMap>

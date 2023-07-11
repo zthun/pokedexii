@@ -1,8 +1,8 @@
-import { IPokeApiSpecies } from 'src/poke-api/poke-api-species';
 import { IPokeApi, ZPokeApi } from '../poke-api/poke-api';
 import { IPokeApiConverter } from '../poke-api/poke-api-converter';
 import { IPokeApiPage } from '../poke-api/poke-api-page';
 import { IPokeApiRetrieval } from '../poke-api/poke-api-retrieval';
+import { IPokeApiSpecies } from '../poke-api/poke-api-species';
 import { IZPokedexResourceService, ZPokedexResourceService } from '../pokedex-resource/pokedex-resource-service';
 import { IZSpecies, ZSpeciesBuilder } from './species';
 
