@@ -1,52 +1,52 @@
-import { IPokeApiResource } from './poke-api-resource';
+import { IPokeApiNamedResource, IPokeApiResource } from './poke-api-resource';
 
 interface IPokeApiSpeciesGenus {
   genus: string;
-  language: IPokeApiResource;
+  language: IPokeApiNamedResource;
 }
 
 interface IPokeApiSpeciesFlavorText {
   flavor_text: string;
-  language: IPokeApiResource;
-  version: IPokeApiResource;
+  language: IPokeApiNamedResource;
+  version: IPokeApiNamedResource;
 }
 
 interface IPokeApiSpeciesName {
-  language: IPokeApiResource;
+  language: IPokeApiNamedResource;
   name: string;
 }
 
 interface IPokeApiSpeciesPalParkEncounter {
-  area: IPokeApiResource;
+  area: IPokeApiNamedResource;
   base_score: 90;
   rate: 3;
 }
 
 interface IPokeApiSpeciesPokedexNumbers {
   entry_number: number;
-  pokedex: IPokeApiResource;
+  pokedex: IPokeApiNamedResource;
 }
 
 interface IPokeApiSpeciesVariety {
   is_default: boolean;
-  pokemon: IPokeApiResource;
+  pokemon: IPokeApiNamedResource;
 }
 
 export interface IPokeApiSpecies {
   base_happiness: number;
   capture_rate: number;
-  color: IPokeApiResource;
-  egg_groups: IPokeApiResource[];
+  color: IPokeApiNamedResource;
+  egg_groups: IPokeApiNamedResource[];
   evolution_chain: IPokeApiResource;
-  evolves_from_species: IPokeApiResource;
+  evolves_from_species: IPokeApiNamedResource;
   flavor_text_entries: IPokeApiSpeciesFlavorText[];
   form_descriptions: unknown[];
   forms_switchable: boolean;
   gender_rate: number;
   genera: IPokeApiSpeciesGenus[];
-  generation: IPokeApiResource;
-  growth_rate: IPokeApiResource;
-  habitat: IPokeApiResource;
+  generation: IPokeApiNamedResource;
+  growth_rate: IPokeApiNamedResource;
+  habitat: IPokeApiNamedResource;
   has_gender_differences: boolean;
   hatch_counter: number;
   id: number;
@@ -58,6 +58,6 @@ export interface IPokeApiSpecies {
   order: number;
   pal_park_encounters: IPokeApiSpeciesPalParkEncounter[];
   pokedex_numbers: IPokeApiSpeciesPokedexNumbers[];
-  shape: IPokeApiResource;
+  shape: IPokeApiNamedResource;
   varieties: IPokeApiSpeciesVariety[];
 }

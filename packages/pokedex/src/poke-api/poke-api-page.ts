@@ -1,11 +1,11 @@
 import { IZPokedexNamedResource } from '../pokedex-resource/pokedex-named-resource';
-import { IPokeApiResource } from './poke-api-resource';
+import { IPokeApiNamedResource } from './poke-api-resource';
 
 export interface IPokeApiPage {
   count: number;
   next?: string | null;
   previous?: string | null;
-  results: IPokeApiResource[];
+  results: IPokeApiNamedResource[];
 }
 
 export function createApiPage<T extends IZPokedexNamedResource>(resources: T[]): IPokeApiPage {

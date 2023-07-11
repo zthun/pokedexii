@@ -1,41 +1,41 @@
-import { IPokeApiResource } from './poke-api-resource';
+import { IPokeApiNamedResource } from './poke-api-resource';
 
 interface IPokeApiTypeName {
-  language: IPokeApiResource;
+  language: IPokeApiNamedResource;
   name: string;
 }
 
 interface IPokeApiTypeGameIndex {
   game_index: number;
-  generation: IPokeApiResource;
+  generation: IPokeApiNamedResource;
 }
 
 interface IPokeApiTypeDamageRelation {
-  double_damage_from: IPokeApiResource[];
-  double_damage_to: IPokeApiResource[];
-  half_damage_from: IPokeApiResource[];
-  half_damage_to: IPokeApiResource[];
-  no_damage_from: IPokeApiResource[];
-  no_damage_to: IPokeApiResource[];
+  double_damage_from: IPokeApiNamedResource[];
+  double_damage_to: IPokeApiNamedResource[];
+  half_damage_from: IPokeApiNamedResource[];
+  half_damage_to: IPokeApiNamedResource[];
+  no_damage_from: IPokeApiNamedResource[];
+  no_damage_to: IPokeApiNamedResource[];
 }
 
 interface IPokeApiPastDamageRelation {
   damage_relations: IPokeApiTypeDamageRelation;
-  generation: IPokeApiResource;
+  generation: IPokeApiNamedResource;
 }
 
 interface IPokeApiTypePokemon {
-  pokemon: IPokeApiResource;
+  pokemon: IPokeApiNamedResource;
   slot: number;
 }
 
 export interface IPokeApiType {
   damage_relations: IPokeApiTypeDamageRelation;
   game_indices: IPokeApiTypeGameIndex[];
-  generation: IPokeApiResource;
+  generation: IPokeApiNamedResource;
   id: number;
-  move_damage_class: IPokeApiResource;
-  moves: IPokeApiResource[];
+  move_damage_class: IPokeApiNamedResource;
+  moves: IPokeApiNamedResource[];
   name: string;
   names: IPokeApiTypeName[];
   past_damage_relations: IPokeApiPastDamageRelation[];

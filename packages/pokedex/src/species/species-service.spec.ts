@@ -18,7 +18,7 @@ describe('ZSpeciesService', () => {
     capture_rate: species.capture,
     color: { name: 'blue', url: '' },
     egg_groups: [],
-    evolution_chain: { name: String(species.evolution), url: '' },
+    evolution_chain: { url: `https://pokeapi.co/evolution-chain/${species.evolution}` },
     evolves_from_species: { name: '', url: '' },
     flavor_text_entries: [],
     form_descriptions: [],

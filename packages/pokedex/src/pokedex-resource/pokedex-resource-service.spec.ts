@@ -4,14 +4,14 @@ import { Mocked, beforeEach, describe, expect, it } from 'vitest';
 import { mock } from 'vitest-mock-extended';
 import { IPokeApiConverter } from '../poke-api/poke-api-converter';
 import { IPokeApiPage } from '../poke-api/poke-api-page';
-import { IPokeApiResource } from '../poke-api/poke-api-resource';
+import { IPokeApiNamedResource } from '../poke-api/poke-api-resource';
 import { IPokeApiRetrieval } from '../poke-api/poke-api-retrieval';
 import { IZPokedexNamedResource } from './pokedex-named-resource';
 import { ZPokedexResourceService } from './pokedex-resource-service';
 
 describe('ZPokemonResourceService', () => {
-  let retriever: Mocked<IPokeApiRetrieval<IPokeApiResource>>;
-  let converter: Mocked<IPokeApiConverter<IPokeApiResource, IZPokedexNamedResource>>;
+  let retriever: Mocked<IPokeApiRetrieval<IPokeApiNamedResource>>;
+  let converter: Mocked<IPokeApiConverter<IPokeApiNamedResource, IZPokedexNamedResource>>;
   let resourceA: IZPokedexNamedResource;
   let resourceB: IZPokedexNamedResource;
   let resourceC: IZPokedexNamedResource;
@@ -27,7 +27,7 @@ describe('ZPokemonResourceService', () => {
 
   const createTestTarget = () => new ZPokedexResourceService(retriever, converter);
 
-  const getResourceByName = (name: string): Promise<IPokeApiResource> => {
+  const getResourceByName = (name: string): Promise<IPokeApiNamedResource> => {
     const index = findIndex(resources, (r) => r.name === name);
 
     if (index < 0) {
@@ -45,10 +45,10 @@ describe('ZPokemonResourceService', () => {
     resourceD = { name: 'resource-d' };
     resources = [resourceA, resourceB, resourceC, resourceD];
 
-    converter = mock<IPokeApiConverter<IPokeApiResource, IZPokedexNamedResource>>();
+    converter = mock<IPokeApiConverter<IPokeApiNamedResource, IZPokedexNamedResource>>();
     converter.convert.mockImplementation((r) => Promise.resolve({ name: r.name }));
 
-    retriever = mock<IPokeApiRetrieval<IPokeApiResource>>();
+    retriever = mock<IPokeApiRetrieval<IPokeApiNamedResource>>();
     retriever.list.mockResolvedValue(createPage(resources));
     retriever.get.mockImplementation(getResourceByName);
   });

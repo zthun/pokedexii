@@ -1,4 +1,7 @@
 export interface IPokeApiResource {
-  name: string;
   url: string;
+}
+
+export interface IPokeApiNamedResource extends IPokeApiResource {
+  name: string;
 }

@@ -1,34 +1,34 @@
-import { IPokeApiResource } from './poke-api-resource';
+import { IPokeApiNamedResource } from './poke-api-resource';
 
 interface IPokeApiPokemonAbility {
   is_hidden: boolean;
   slot: number;
-  ability: IPokeApiResource;
+  ability: IPokeApiNamedResource;
 }
 
 interface IPokeApiPokemonGameIndex {
   game_index: number;
-  version: IPokeApiResource;
+  version: IPokeApiNamedResource;
 }
 
 interface IPokeApiPokemonHeldItemVersionDetails {
   rarity: number;
-  version: IPokeApiResource;
+  version: IPokeApiNamedResource;
 }
 
 interface IPokeApiPokemonHeldItem {
   version_details: IPokeApiPokemonHeldItemVersionDetails[];
-  item: IPokeApiResource;
+  item: IPokeApiNamedResource;
 }
 
 interface IPokeApiPokemonMovesVersionGroupDetails {
   level_learned_at: number;
-  move_learn_method: IPokeApiResource;
+  move_learn_method: IPokeApiNamedResource;
 }
 
 interface IPokeApiPokemonMoves {
   version_group_details: IPokeApiPokemonMovesVersionGroupDetails[];
-  move: IPokeApiResource;
+  move: IPokeApiNamedResource;
 }
 
 interface IPokeApiPokemonSpriteFrames {
@@ -54,18 +54,18 @@ interface IPokeApiPokemonSprites extends IPokeApiPokemonSpriteFrames {
 interface IPokeApiPokemonStats {
   base_stat: number;
   effort: number;
-  stat: IPokeApiResource;
+  stat: IPokeApiNamedResource;
 }
 
 interface IPokeApiPokemonTypes {
   slot: number;
-  type: IPokeApiResource;
+  type: IPokeApiNamedResource;
 }
 
 export interface IPokeApiPokemon {
   abilities: IPokeApiPokemonAbility[];
   base_experience: number;
-  forms: IPokeApiResource[];
+  forms: IPokeApiNamedResource[];
   game_indices: IPokeApiPokemonGameIndex[];
   height: number;
   held_items: IPokeApiPokemonHeldItem[];
@@ -75,7 +75,7 @@ export interface IPokeApiPokemon {
   moves: IPokeApiPokemonMoves[];
   name: string;
   order: number;
-  species: IPokeApiResource;
+  species: IPokeApiNamedResource;
   sprites: IPokeApiPokemonSprites;
   stats: IPokeApiPokemonStats[];
   types: IPokeApiPokemonTypes[];

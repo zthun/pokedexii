@@ -1,23 +1,23 @@
-import { IPokeApiResource } from './poke-api-resource';
+import { IPokeApiNamedResource } from './poke-api-resource';
 
 export interface IPokeApiEvolutionChainDetails {
   gender: number | null;
-  held_item: IPokeApiResource | null;
-  item: IPokeApiResource | null;
-  known_move: IPokeApiResource | null;
-  known_move_type: IPokeApiResource | null;
-  location: IPokeApiResource | null;
+  held_item: IPokeApiNamedResource | null;
+  item: IPokeApiNamedResource | null;
+  known_move: IPokeApiNamedResource | null;
+  known_move_type: IPokeApiNamedResource | null;
+  location: IPokeApiNamedResource | null;
   min_affection: number;
   min_beauty: number;
   min_happiness: number;
   min_level: number;
   needs_overworld_rain: boolean;
-  party_species: IPokeApiResource | null;
-  party_type: IPokeApiResource | null;
-  relative_physical_stats: IPokeApiResource[] | null;
+  party_species: IPokeApiNamedResource | null;
+  party_type: IPokeApiNamedResource | null;
+  relative_physical_stats: IPokeApiNamedResource[] | null;
   time_of_day: string;
-  trade_species: IPokeApiResource | null;
-  trigger: IPokeApiResource;
+  trade_species: IPokeApiNamedResource | null;
+  trigger: IPokeApiNamedResource;
   turn_upside_down: boolean;
 }
 
@@ -25,7 +25,7 @@ export interface IPokeApiEvolutionChainLink {
   evolution_details: IPokeApiEvolutionChainDetails[];
   evolves_to: IPokeApiEvolutionChainLink[];
   is_baby: boolean;
-  species: IPokeApiResource;
+  species: IPokeApiNamedResource;
 }
 
 export interface IPokeApiEvolutionChain {
