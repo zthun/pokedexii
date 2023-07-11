@@ -99,6 +99,44 @@ export class ZSpeciesBuilder {
       .variety('urshifu-rapid-strike-gmax');
   }
 
+  public bulbasaur() {
+    return this.name('bulbasaur').id(1).happiness(50).capture(45).evolution(1).variety('bulbasaur', true);
+  }
+
+  public charmander() {
+    return this.name('charmander').id(4).happiness(50).capture(45).evolution(2).variety('charmander', true);
+  }
+
+  public squirtle() {
+    return this.name('squirtle').id(7).happiness(50).capture(45).evolution(3).variety('squirtle', true);
+  }
+
+  public pikachu() {
+    return this.name('pikachu')
+      .id(25)
+      .happiness(50)
+      .capture(190)
+      .evolution(10)
+      .variety('pikachu', true)
+      .variety('pikachu-rock-star')
+      .variety('pikachu-belle')
+      .variety('pikachu-pop-star')
+      .variety('pikachu-phd')
+      .variety('pikachu-phd')
+      .variety('pikachu-libre')
+      .variety('pikachu-cosplay')
+      .variety('pikachu-original-cap')
+      .variety('pikachu-hoenn-cap')
+      .variety('pikachu-sinnoh-cap')
+      .variety('pikachu-unova-cap')
+      .variety('pikachu-kalos-cap')
+      .variety('pikachu-alola-cap')
+      .variety('pikachu-partner-cap')
+      .variety('pikachu-starter')
+      .variety('pikachu-world-cap')
+      .variety('pikachu-gmax');
+  }
+
   public build() {
     return structuredClone(this._species);
   }
