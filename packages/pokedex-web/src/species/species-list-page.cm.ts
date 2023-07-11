@@ -1,6 +1,6 @@
 import { ZCircusBy, ZCircusComponentModel } from '@zthun/cirque';
 import { ZGridViewComponentModel } from '@zthun/fashion-boutique';
-import { ZPokemonCardComponentModel } from './species-card.cm';
+import { ZSpeciesCardComponentModel } from './species-card.cm';
 
 /**
  * Represents the component model for the pokedex list page.
@@ -24,9 +24,9 @@ export class ZPokemonListPageComponentModel extends ZCircusComponentModel {
    * @returns
    *        The cards on the current page.
    */
-  public async cards(): Promise<ZPokemonCardComponentModel[]> {
+  public async cards(): Promise<ZSpeciesCardComponentModel[]> {
     const grid = await this.grid();
-    return ZCircusBy.all(grid.driver, ZPokemonCardComponentModel);
+    return ZCircusBy.all(grid.driver, ZSpeciesCardComponentModel);
   }
 
   /**
@@ -38,8 +38,8 @@ export class ZPokemonListPageComponentModel extends ZCircusComponentModel {
    * @returns
    *        The card that represents the current pokemon.
    */
-  public async card(name: string): Promise<ZPokemonCardComponentModel | null> {
+  public async card(name: string): Promise<ZSpeciesCardComponentModel | null> {
     const grid = await this.grid();
-    return ZCircusBy.optional(grid.driver, ZPokemonCardComponentModel, name);
+    return ZCircusBy.optional(grid.driver, ZSpeciesCardComponentModel, name);
   }
 }
