@@ -5,10 +5,12 @@ import {
   ZDataSourceStatic,
   ZDataSourceStaticOptionsBuilder
 } from '@zthun/helpful-query';
+import { findId } from 'src/poke-api/poke-api-resource';
 import { IPokeApiConverter } from '../poke-api/poke-api-converter';
 import { IPokeApiRetrieval } from '../poke-api/poke-api-retrieval';
+import { IZResource } from './resource';
 
-export interface IZResourceService<T extends object> extends IZDataSource<T> {
+export interface IZResourceService<T extends IZResource> extends IZDataSource<IZResource> {
   /**
    * Gets information about a single resource.
    *
@@ -22,8 +24,8 @@ export interface IZResourceService<T extends object> extends IZDataSource<T> {
   get(name: string): Promise<T>;
 }
 
-export class ZResourceService<P, T extends object> implements IZResourceService<T> {
-  private _source: IZDataSource<T>;
+export class ZResourceService<P, T extends IZResource> implements IZResourceService<T> {
+  private _source: IZDataSource<IZResource>;
 
   private get _all() {
     if (this._source == null) {
@@ -41,7 +43,7 @@ export class ZResourceService<P, T extends object> implements IZResourceService<
     return this._all.count(request);
   }
 
-  public async retrieve(request: IZDataRequest): Promise<T[]> {
+  public async retrieve(request: IZDataRequest): Promise<IZResource[]> {
     return this._all.retrieve(request);
   }
 
@@ -56,8 +58,8 @@ export class ZResourceService<P, T extends object> implements IZResourceService<
    * @returns
    *        A list of every item from the api resource.
    */
-  private async _prefetch(): Promise<T[]> {
+  private async _prefetch(): Promise<IZResource[]> {
     const resources = await this._retriever.list();
-    return await Promise.all(resources.results.map((r) => this.get(r.name)));
+    return resources.results.map((r) => ({ id: findId(r), name: r.name }));
   }
 }
