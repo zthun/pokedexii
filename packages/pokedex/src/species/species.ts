@@ -1,11 +1,11 @@
-import { IZPokedexNamedResource } from '../resource/resource';
+import { IZNamedResource } from '../resource/resource';
 
 /**
  * Represents a species of pokemon.
  *
  * A pokemon species is the root of the pokemon hierarchy.
  */
-export interface IZSpecies extends IZPokedexNamedResource {
+export interface IZSpecies extends IZNamedResource {
   /**
    * The national id of the pokemon species.
    */

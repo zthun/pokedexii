@@ -1,4 +1,4 @@
-import { IZPokedexNamedResource } from '../resource/resource';
+import { IZNamedResource } from '../resource/resource';
 
 export enum ZType {
   Bug = 'bug',
@@ -23,7 +23,7 @@ export enum ZType {
   Water = 'water'
 }
 
-export interface IZType extends IZPokedexNamedResource<ZType> {
+export interface IZType extends IZNamedResource<ZType> {
   doubleDamageFrom: ZType[];
   doubleDamageTo: ZType[];
   halfDamageFrom: ZType[];

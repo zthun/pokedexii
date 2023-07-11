@@ -1,10 +1,10 @@
-import { IZPokedexNamedResource } from '../resource/resource';
+import { IZNamedResource } from '../resource/resource';
 import { IZEvolutionNode, ZEvolutionNodeBuilder } from './evolution-node';
 
 /**
  * Represents an evolution chain.
  */
-export interface IZEvolution extends IZPokedexNamedResource<number> {
+export interface IZEvolution extends IZNamedResource<number> {
   /**
    * Represents the head node.
    */

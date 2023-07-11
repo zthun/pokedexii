@@ -1,4 +1,4 @@
-import { IZPokedexNamedResource } from '../resource/resource';
+import { IZNamedResource } from '../resource/resource';
 import { IPokeApiNamedResource } from './poke-api-resource';
 
 export interface IPokeApiPage {
@@ -8,7 +8,7 @@ export interface IPokeApiPage {
   results: IPokeApiNamedResource[];
 }
 
-export function createApiPage<T extends IZPokedexNamedResource>(resources: T[]): IPokeApiPage {
+export function createApiPage<T extends IZNamedResource>(resources: T[]): IPokeApiPage {
   return {
     count: resources.length,
     next: null,

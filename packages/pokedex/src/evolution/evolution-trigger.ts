@@ -1,5 +1,5 @@
 import { ZGender } from '../gender/gender';
-import { IZPokedexNamedResource } from '../resource/resource';
+import { IZNamedResource } from '../resource/resource';
 
 export enum ZEvolutionTrigger {
   AgileStyleMove = 'agile-style-move',
@@ -17,7 +17,7 @@ export enum ZEvolutionTrigger {
   UseItem = 'use-item'
 }
 
-export interface IZEvolutionTrigger extends IZPokedexNamedResource<ZEvolutionTrigger> {
+export interface IZEvolutionTrigger extends IZNamedResource<ZEvolutionTrigger> {
   affection?: number;
   gender?: ZGender;
   happiness?: number;

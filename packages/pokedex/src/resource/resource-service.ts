@@ -7,9 +7,9 @@ import {
 } from '@zthun/helpful-query';
 import { IPokeApiConverter } from '../poke-api/poke-api-converter';
 import { IPokeApiRetrieval } from '../poke-api/poke-api-retrieval';
-import { IZPokedexNamedResource } from './resource';
+import { IZNamedResource } from './resource';
 
-export interface IZPokedexResourceService<T extends IZPokedexNamedResource<any>> extends IZDataSource<T> {
+export interface IZResourceService<T extends IZNamedResource<any>> extends IZDataSource<T> {
   /**
    * Gets information about a single resource.
    *
@@ -23,7 +23,7 @@ export interface IZPokedexResourceService<T extends IZPokedexNamedResource<any>>
   get(name: string): Promise<T>;
 }
 
-export class ZPokedexResourceService<P, T extends IZPokedexNamedResource<any>> implements IZPokedexResourceService<T> {
+export class ZResourceService<P, T extends IZNamedResource<any>> implements IZResourceService<T> {
   private _source: IZDataSource<T>;
 
   private get _all() {

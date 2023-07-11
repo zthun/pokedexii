@@ -5,7 +5,7 @@ import { IPokeApiConverter } from '../poke-api/poke-api-converter';
 import { IPokeApiPage } from '../poke-api/poke-api-page';
 import { IPokeApiRetrieval } from '../poke-api/poke-api-retrieval';
 import { IPokeApiSpecies } from '../poke-api/poke-api-species';
-import { IZPokedexResourceService, ZPokedexResourceService } from '../resource/resource-service';
+import { IZResourceService, ZResourceService } from '../resource/resource-service';
 import { IZSpecies, ZSpeciesBuilder } from './species';
 
 type Converter = IPokeApiConverter<IPokeApiSpecies, IZSpecies>;
@@ -40,9 +40,9 @@ class ZSpeciesService implements Converter, Retriever {
   }
 }
 
-export type IZSpeciesService = IZPokedexResourceService<IZSpecies>;
+export type IZSpeciesService = IZResourceService<IZSpecies>;
 
 export function createSpeciesService(api: IPokeApi = ZPokeApi.instance()): IZSpeciesService {
   const r = new ZSpeciesService(api);
-  return new ZPokedexResourceService(r, r);
+  return new ZResourceService(r, r);
 }

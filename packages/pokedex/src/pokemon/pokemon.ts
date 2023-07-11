@@ -1,5 +1,5 @@
 import { ZUrlBuilder } from '@zthun/webigail-url';
-import { IZPokedexNamedResource } from '../resource/resource';
+import { IZNamedResource } from '../resource/resource';
 import { ZType } from '../type/type';
 
 /**
@@ -39,7 +39,7 @@ export interface IZPokemonWeakness {
 /**
  * Represents information about a pokemon variant.
  */
-export interface IZPokemon extends IZPokedexNamedResource {
+export interface IZPokemon extends IZNamedResource {
   /**
    * The id number.
    *

@@ -8,7 +8,7 @@ import {
 } from '../poke-api/poke-api-evolution-chain';
 import { IPokeApiPage } from '../poke-api/poke-api-page';
 import { IPokeApiRetrieval } from '../poke-api/poke-api-retrieval';
-import { IZPokedexResourceService, ZPokedexResourceService } from '../resource/resource-service';
+import { IZResourceService, ZResourceService } from '../resource/resource-service';
 import { IZEvolution, ZEvolutionBuilder } from './evolution';
 import { ZEvolutionNodeBuilder } from './evolution-node';
 import { ZEvolutionTrigger, ZEvolutionTriggerBuilder } from './evolution-trigger';
@@ -70,9 +70,9 @@ class ZEvolutionService implements Converter, Retriever {
   }
 }
 
-export type IZEvolutionService = IZPokedexResourceService<IZEvolution>;
+export type IZEvolutionService = IZResourceService<IZEvolution>;
 
 export function createEvolutionService(api: IPokeApi = ZPokeApi.instance()): IZEvolutionService {
   const r = new ZEvolutionService(api);
-  return new ZPokedexResourceService(r, r);
+  return new ZResourceService(r, r);
 }

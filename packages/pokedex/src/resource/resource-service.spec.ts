@@ -6,26 +6,26 @@ import { IPokeApiConverter } from '../poke-api/poke-api-converter';
 import { IPokeApiPage } from '../poke-api/poke-api-page';
 import { IPokeApiNamedResource } from '../poke-api/poke-api-resource';
 import { IPokeApiRetrieval } from '../poke-api/poke-api-retrieval';
-import { IZPokedexNamedResource } from './resource';
-import { ZPokedexResourceService } from './resource-service';
+import { IZNamedResource } from './resource';
+import { ZResourceService } from './resource-service';
 
-describe('ZPokemonResourceService', () => {
+describe('ZResourceService', () => {
   let retriever: Mocked<IPokeApiRetrieval<IPokeApiNamedResource>>;
-  let converter: Mocked<IPokeApiConverter<IPokeApiNamedResource, IZPokedexNamedResource>>;
-  let resourceA: IZPokedexNamedResource;
-  let resourceB: IZPokedexNamedResource;
-  let resourceC: IZPokedexNamedResource;
-  let resourceD: IZPokedexNamedResource;
-  let resources: IZPokedexNamedResource[];
+  let converter: Mocked<IPokeApiConverter<IPokeApiNamedResource, IZNamedResource>>;
+  let resourceA: IZNamedResource;
+  let resourceB: IZNamedResource;
+  let resourceC: IZNamedResource;
+  let resourceD: IZNamedResource;
+  let resources: IZNamedResource[];
 
-  const createPage = (resources: IZPokedexNamedResource[]): IPokeApiPage => ({
+  const createPage = (resources: IZNamedResource[]): IPokeApiPage => ({
     count: resources.length,
     next: null,
     previous: null,
     results: resources.map((r) => ({ name: r.name, url: '' }))
   });
 
-  const createTestTarget = () => new ZPokedexResourceService(retriever, converter);
+  const createTestTarget = () => new ZResourceService(retriever, converter);
 
   const getResourceByName = (name: string): Promise<IPokeApiNamedResource> => {
     const index = findIndex(resources, (r) => r.name === name);
@@ -45,7 +45,7 @@ describe('ZPokemonResourceService', () => {
     resourceD = { name: 'resource-d' };
     resources = [resourceA, resourceB, resourceC, resourceD];
 
-    converter = mock<IPokeApiConverter<IPokeApiNamedResource, IZPokedexNamedResource>>();
+    converter = mock<IPokeApiConverter<IPokeApiNamedResource, IZNamedResource>>();
     converter.convert.mockImplementation((r) => Promise.resolve({ name: r.name }));
 
     retriever = mock<IPokeApiRetrieval<IPokeApiNamedResource>>();

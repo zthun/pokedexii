@@ -5,7 +5,7 @@ import { IPokeApiConverter } from '../poke-api/poke-api-converter';
 import { IPokeApiPage } from '../poke-api/poke-api-page';
 import { IPokeApiPokemon } from '../poke-api/poke-api-pokemon';
 import { IPokeApiRetrieval } from '../poke-api/poke-api-retrieval';
-import { IZPokedexResourceService, ZPokedexResourceService } from '../resource/resource-service';
+import { IZResourceService, ZResourceService } from '../resource/resource-service';
 import { ZType } from '../type/type';
 import { IZPokemon, IZPokemonWeakness, ZPokemonBuilder } from './pokemon';
 
@@ -83,9 +83,9 @@ class ZPokemonService implements Converter, Retriever {
   }
 }
 
-export type IZPokemonService = IZPokedexResourceService<IZPokemon>;
+export type IZPokemonService = IZResourceService<IZPokemon>;
 
 export function createPokemonService(api: IPokeApi = ZPokeApi.instance()): IZPokemonService {
   const r = new ZPokemonService(api);
-  return new ZPokedexResourceService(r, r);
+  return new ZResourceService(r, r);
 }

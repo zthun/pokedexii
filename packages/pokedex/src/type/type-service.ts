@@ -3,7 +3,7 @@ import { IPokeApiConverter } from '../poke-api/poke-api-converter';
 import { IPokeApiPage } from '../poke-api/poke-api-page';
 import { IPokeApiRetrieval } from '../poke-api/poke-api-retrieval';
 import { IPokeApiType } from '../poke-api/poke-api-type';
-import { IZPokedexResourceService, ZPokedexResourceService } from '../resource/resource-service';
+import { IZResourceService, ZResourceService } from '../resource/resource-service';
 import { IZType, ZType, ZTypeBuilder } from './type';
 
 type Converter = IPokeApiConverter<IPokeApiType, IZType>;
@@ -43,9 +43,9 @@ class ZTypeService implements Converter, Retriever {
   }
 }
 
-export type IZTypeService = IZPokedexResourceService<IZType>;
+export type IZTypeService = IZResourceService<IZType>;
 
 export function createTypeService(api: IPokeApi = ZPokeApi.instance()): IZTypeService {
   const r = new ZTypeService(api);
-  return new ZPokedexResourceService(r, r);
+  return new ZResourceService(r, r);
 }
