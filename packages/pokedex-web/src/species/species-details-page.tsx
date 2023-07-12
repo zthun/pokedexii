@@ -1,13 +1,11 @@
 import {
   ZBox,
-  ZCaption,
   ZCard,
   ZChartProgress,
   ZDataPointBuilder,
   ZGrid,
   ZIconFontAwesome,
   ZImageSource,
-  ZLabeled,
   ZNotFound,
   ZStack,
   ZSuspenseRotate,
@@ -18,10 +16,10 @@ import { cssJoinDefined } from '@zthun/helpful-fn';
 import { asStateData, isStateErrored, isStateLoading } from '@zthun/helpful-react';
 import { IZPokemon, ZPokemonMaxBaseStat } from '@zthun/pokedex';
 import { padStart, startCase } from 'lodash';
-import React, { ReactNode, useMemo } from 'react';
+import React, { useMemo } from 'react';
+import { ZPokemonAttributesCard } from 'src/pokemon/pokemon-attributes-card';
 import { usePokemon } from '../pokemon/pokemon-service';
 import { usePokemonTheme } from '../theme/pokemon-theme';
-import { ZTypeBadges } from '../type/type-badges';
 import { useSpecies } from './species-service';
 
 /**
@@ -100,60 +98,6 @@ export function ZSpeciesDetailsPage() {
     );
   };
 
-  const renderAttributes = (pokemon: IZPokemon) => {
-    const { height, weight, types, weaknesses } = pokemon;
-
-    const renderAttribute = (label: ReactNode, value: ReactNode) => (
-      <ZBox margin={{ bottom: ZSizeFixed.Medium }}>
-        <ZLabeled label={label}>{value}</ZLabeled>
-      </ZBox>
-    );
-
-    const renderHeight = () => {
-      const inchesPerDecimeter = 3.937;
-      const inches = Math.round(height * inchesPerDecimeter);
-      const ft = Math.floor(inches / 12);
-      const inch = inches % 12;
-      const _height = `${ft}' ${inch}"`;
-
-      return renderAttribute(
-        'Height',
-        <ZCaption className={cssJoinDefined('ZSpeciesDetailsPage-height')} compact>
-          {_height}
-        </ZCaption>
-      );
-    };
-
-    const renderWeight = () => {
-      const hectogramsPerPound = 4.536;
-      const pounds = weight / hectogramsPerPound;
-      const lbs = +pounds.toFixed(2);
-      const _weight = `${lbs} lbs`;
-
-      return renderAttribute(
-        'Weight',
-        <ZCaption className={cssJoinDefined('ZSpeciesDetailsPage-weight')} compact>
-          {_weight}
-        </ZCaption>
-      );
-    };
-
-    return (
-      <ZCard
-        className={cssJoinDefined('ZSpeciesDetailsPage-attributes')}
-        heading='Attributes'
-        subHeading='Physical Aspects'
-        name='attributes'
-        avatar={<ZIconFontAwesome name='dumbbell' width={ZSizeFixed.Small} />}
-      >
-        {renderHeight()}
-        {renderWeight()}
-        {renderAttribute('Types', <ZTypeBadges className='ZSpeciesDetailsPage-types' types={types} />)}
-        {renderAttribute('Weaknesses', <ZTypeBadges className='ZSpeciesDetailsPage-weaknesses' types={weaknesses} />)}
-      </ZCard>
-    );
-  };
-
   const renderPage = () => {
     if (!name) {
       return <ZNotFound />;
@@ -170,7 +114,7 @@ export function ZSpeciesDetailsPage() {
     return (
       <ZGrid justifyContent='center' columns='auto auto 1fr' columnsMd='1fr 1fr' columnsSm='1fr' gap={ZSizeFixed.Small}>
         {renderPokemon(pokemon)}
-        {renderAttributes(pokemon)}
+        <ZPokemonAttributesCard pokemonName={species.main} />
         {renderStats(pokemon)}
       </ZGrid>
     );

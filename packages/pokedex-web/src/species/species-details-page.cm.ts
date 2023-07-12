@@ -1,4 +1,4 @@
-import { IZCircusDriver, ZCircusBy, ZCircusComponentModel } from '@zthun/cirque';
+import { ZCircusBy, ZCircusComponentModel } from '@zthun/cirque';
 import {
   ZCardComponentModel,
   ZChartComponentModel,
@@ -6,8 +6,7 @@ import {
   ZNotFoundComponentModel,
   ZSuspenseComponentModel
 } from '@zthun/fashion-boutique';
-import { ZType } from '@zthun/pokedex';
-import { ZTypeBadgeComponentModel } from '../type/type-badge.cm';
+import { ZPokemonAttributesCardComponentModel } from 'src/pokemon/pokemon-attributes-card.cm';
 
 /**
  * Represents the component model for the pokemon details page.
@@ -37,39 +36,8 @@ export class ZSpeciesDetailsPageComponentModel extends ZCircusComponentModel {
     return img.attribute('src');
   }
 
-  public async height(): Promise<string> {
-    return (await this.driver.select('.ZSpeciesDetailsPage-height')).text();
-  }
-
-  public async weight(): Promise<string> {
-    return (await this.driver.select('.ZSpeciesDetailsPage-weight')).text();
-  }
-
-  public async types(): Promise<ZTypeBadgeComponentModel[]> {
-    const group = await this.driver.select('.ZSpeciesDetailsPage-types');
-    return ZCircusBy.all(group, ZTypeBadgeComponentModel);
-  }
-
-  private async _weaknesses(): Promise<IZCircusDriver> {
-    return this.driver.select('.ZSpeciesDetailsPage-weaknesses');
-  }
-
-  public async weaknesses(): Promise<ZTypeBadgeComponentModel[]> {
-    const group = await this._weaknesses();
-    return ZCircusBy.all(group, ZTypeBadgeComponentModel);
-  }
-
-  public async weakness(type: ZType): Promise<ZTypeBadgeComponentModel | null> {
-    const group = await this._weaknesses();
-    return ZCircusBy.optional(group, ZTypeBadgeComponentModel, type);
-  }
-
-  public async has4xDamage(type: ZType): Promise<boolean> {
-    const weakness = await this.weakness(type);
-    const item = await weakness?.item();
-    const suffix = await item?.suffix();
-    const found = await suffix?.peek('.ZTypeBadges-4x-damage');
-    return !!found;
+  public attributes(): Promise<ZPokemonAttributesCardComponentModel> {
+    return ZCircusBy.first(this.driver, ZPokemonAttributesCardComponentModel);
   }
 
   public async hp(): Promise<ZChartComponentModel> {
