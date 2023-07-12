@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.10.0](https://github.com/zthun/pokedexii/compare/v0.9.0...v0.10.0) (2023-07-12)
+
+
+### Features
+
+* added species specific card support ([8909ff5](https://github.com/zthun/pokedexii/commit/8909ff504f9d175a93d2e2fcae7072f06713156c))
+
+
+
 ## [0.9.0](https://github.com/zthun/pokedexii/compare/v0.8.1...v0.9.0) (2023-07-12)
 
 
