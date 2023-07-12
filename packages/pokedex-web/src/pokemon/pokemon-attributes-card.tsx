@@ -49,7 +49,7 @@ export function ZPokemonAttributesCard(props: IZPokemonInformationCard) {
     );
   };
 
-  const renderContent = (pokemon: IZPokemon) => {
+  const renderContent = ([pokemon]: IZPokemon[]) => {
     const { types, weaknesses } = pokemon;
     return (
       <>

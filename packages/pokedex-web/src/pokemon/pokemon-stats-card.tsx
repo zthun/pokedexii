@@ -13,7 +13,7 @@ export function ZPokemonStatsCard(props: IZPokemonInformationCard) {
   const [pokemon] = usePokemon(pokemonName);
   const { custom } = usePokemonTheme();
 
-  const renderContent = (pokemon: IZPokemon) => {
+  const renderContent = ([pokemon]: IZPokemon[]) => {
     const { stats } = pokemon;
 
     const hp = new ZDataPointBuilder(stats.hp.base, ZPokemonMaxBaseStat)
