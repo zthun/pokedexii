@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.8.1](https://github.com/zthun/pokedexii/compare/v0.8.0...v0.8.1) (2023-07-11)
+
+
+### Bug Fixes
+
+* no more warnings on duplicate ids ([50dd86f](https://github.com/zthun/pokedexii/commit/50dd86fd87282e6be6f9dc10fc6aaa22274d57be))
+* resource name for species is pokemon-species ([015b503](https://github.com/zthun/pokedexii/commit/015b503f5e064a0022afa496d131068f33408cea))
+
+
+
 ## [0.8.0](https://github.com/zthun/pokedexii/compare/v0.7.2...v0.8.0) (2023-07-11)
 
 
