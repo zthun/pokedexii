@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.9.0](https://github.com/zthun/pokedexii/compare/v0.8.1...v0.9.0) (2023-07-12)
+
+
+### Features
+
+* added charizard to species builder ([38b475e](https://github.com/zthun/pokedexii/commit/38b475ec4f2e0fc1f7fc3740b045c36111522f5b))
+
+
+
 ## [0.8.1](https://github.com/zthun/pokedexii/compare/v0.8.0...v0.8.1) (2023-07-11)
 
 
