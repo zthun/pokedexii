@@ -1,20 +1,11 @@
 import { ZCircusBy } from '@zthun/cirque';
 import { ZCircusSetupRenderer } from '@zthun/cirque-du-react';
 import { ZFashionThemeContext, ZRoute, ZRouteMap, ZTestRouter } from '@zthun/fashion-boutique';
-import {
-  IZPokemon,
-  IZPokemonService,
-  IZSpecies,
-  IZSpeciesService,
-  ZPokemonBuilder,
-  ZSpeciesBuilder
-} from '@zthun/pokedex';
+import { IZSpecies, IZSpeciesService, ZSpeciesBuilder } from '@zthun/pokedex';
 import { History, createMemoryHistory } from 'history';
-import { padStart, startCase } from 'lodash';
 import React from 'react';
 import { Mocked, beforeEach, describe, expect, it } from 'vitest';
 import { mock } from 'vitest-mock-extended';
-import { ZPokemonServiceContext } from '../pokemon/pokemon-service';
 import { createPokemonTheme } from '../theme/pokemon-theme';
 import { ZSpeciesDetailsPage } from './species-details-page';
 import { ZSpeciesDetailsPageComponentModel } from './species-details-page.cm';
@@ -22,23 +13,19 @@ import { ZSpeciesServiceContext } from './species-service';
 
 describe('ZSpeciesDetailsPage', () => {
   let history: History;
-  let pokemonService: Mocked<IZPokemonService>;
   let speciesService: Mocked<IZSpeciesService>;
-  let charizard$: IZSpecies;
-  let charizard: IZPokemon;
+  let charizard: IZSpecies;
 
   const createTestTarget = async () => {
     const element = (
       <ZFashionThemeContext.Provider value={createPokemonTheme()}>
         <ZSpeciesServiceContext.Provider value={speciesService}>
-          <ZPokemonServiceContext.Provider value={pokemonService}>
-            <ZTestRouter navigator={history} location={history.location}>
-              <ZRouteMap>
-                <ZRoute path='/pokemon/:name' element={<ZSpeciesDetailsPage />} />
-                <ZRoute path='/not-pokemon' element={<ZSpeciesDetailsPage />} />
-              </ZRouteMap>
-            </ZTestRouter>
-          </ZPokemonServiceContext.Provider>
+          <ZTestRouter navigator={history} location={history.location}>
+            <ZRouteMap>
+              <ZRoute path='/pokemon/:name' element={<ZSpeciesDetailsPage />} />
+              <ZRoute path='/not-pokemon' element={<ZSpeciesDetailsPage />} />
+            </ZRouteMap>
+          </ZTestRouter>
         </ZSpeciesServiceContext.Provider>
       </ZFashionThemeContext.Provider>
     );
@@ -49,28 +36,22 @@ describe('ZSpeciesDetailsPage', () => {
   };
 
   beforeEach(() => {
-    charizard$ = new ZSpeciesBuilder().charizard().build();
-    charizard = new ZPokemonBuilder().charizard().build();
+    charizard = new ZSpeciesBuilder().charizard().build();
     history = createMemoryHistory({ initialEntries: [`/pokemon/${charizard.name}`] });
-
-    pokemonService = mock<IZPokemonService>();
-    pokemonService.get.mockResolvedValue(charizard);
-
     speciesService = mock<IZSpeciesService>();
-    speciesService.get.mockResolvedValue(charizard$);
+    speciesService.get.mockResolvedValue(charizard);
+  });
+
+  it('should render the correct species', async () => {
+    // Arrange.
+    const target = await createTestTarget();
+    // Act.
+    const actual = await target.species();
+    // Assert.
+    expect(actual).toEqual(charizard.name);
   });
 
   describe('Error', () => {
-    it('should render a NotFound component if the pokemon cannot be found', async () => {
-      // Arrange.
-      pokemonService.get.mockRejectedValue(new Error('Game Over!'));
-      const target = await createTestTarget();
-      // Act.
-      const actual = await target.notFound();
-      // Assert.
-      expect(actual).toBeTruthy();
-    });
-
     it('should render a NotFound if the species cannot be found', async () => {
       // Arrange.
       speciesService.get.mockRejectedValue(new Error('Game Over!'));
@@ -92,33 +73,14 @@ describe('ZSpeciesDetailsPage', () => {
     });
   });
 
-  describe('Pokemon', () => {
-    it('should render the pokemon name', async () => {
+  describe('Varieties', () => {
+    it('should render the varieties card', async () => {
       // Arrange.
       const target = await createTestTarget();
       // Act.
-      const actual = await target.name();
+      const actual = await target.varieties();
       // Assert.
-      expect(actual).toEqual(startCase(charizard.name));
-    });
-
-    it('should render the pokemon id', async () => {
-      // Arrange.
-      const target = await createTestTarget();
-      const expected = `#${padStart(String(charizard.id), 4, '0')}`;
-      // Act.
-      const actual = await target.id();
-      // Assert.
-      expect(actual).toEqual(expected);
-    });
-
-    it('should render the pokemon artwork', async () => {
-      // Arrange.
-      const target = await createTestTarget();
-      // Act.
-      const actual = await target.artwork();
-      // Assert.
-      expect(actual).toEqual(charizard.artwork);
+      expect(actual).toBeTruthy();
     });
   });
 

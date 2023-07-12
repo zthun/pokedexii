@@ -1,12 +1,8 @@
 import { ZCircusBy, ZCircusComponentModel } from '@zthun/cirque';
-import {
-  ZCardComponentModel,
-  ZImageSourceComponentModel,
-  ZNotFoundComponentModel,
-  ZSuspenseComponentModel
-} from '@zthun/fashion-boutique';
+import { ZNotFoundComponentModel, ZSuspenseComponentModel } from '@zthun/fashion-boutique';
 import { ZPokemonAttributesCardComponentModel } from '../pokemon/pokemon-attributes-card.cm';
 import { ZPokemonStatsCardComponentModel } from '../pokemon/pokemon-stats-card.cm';
+import { ZSpeciesVarietiesCardComponentModel } from './species-varieties-card.cm';
 
 /**
  * Represents the component model for the pokemon details page.
@@ -14,26 +10,8 @@ import { ZPokemonStatsCardComponentModel } from '../pokemon/pokemon-stats-card.c
 export class ZSpeciesDetailsPageComponentModel extends ZCircusComponentModel {
   public static readonly Selector = '.ZSpeciesDetailsPage-root';
 
-  public pokemon(): Promise<ZCardComponentModel> {
-    return ZCircusBy.first(this.driver, ZCardComponentModel, 'pokemon');
-  }
-
-  public async name(): Promise<string> {
-    const pokemon = await this.pokemon();
-    return pokemon.heading();
-  }
-
-  public async id(): Promise<string> {
-    const pokemon = await this.pokemon();
-    return pokemon.subHeading();
-  }
-
-  public async artwork(): Promise<string | null> {
-    const pokemon = await this.pokemon();
-    const content = await pokemon.content();
-    const artwork = await ZCircusBy.first(content, ZImageSourceComponentModel, 'artwork');
-    const img = await artwork.driver.select('img');
-    return img.attribute('src');
+  public species(): Promise<string> {
+    return this.driver.attribute('data-name', 'missingno');
   }
 
   public attributes(): Promise<ZPokemonAttributesCardComponentModel> {
@@ -42,6 +20,10 @@ export class ZSpeciesDetailsPageComponentModel extends ZCircusComponentModel {
 
   public stats(): Promise<ZPokemonStatsCardComponentModel> {
     return ZCircusBy.first(this.driver, ZPokemonStatsCardComponentModel);
+  }
+
+  public varieties(): Promise<ZSpeciesVarietiesCardComponentModel> {
+    return ZCircusBy.first(this.driver, ZSpeciesVarietiesCardComponentModel);
   }
 
   public async notFound(): Promise<ZNotFoundComponentModel | null> {
