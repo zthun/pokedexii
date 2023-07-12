@@ -12,7 +12,7 @@ import {
 } from '@zthun/fashion-boutique';
 import { ZSizeFixed } from '@zthun/fashion-tailor';
 import React from 'react';
-import { ZSpeciesDetailsPage } from 'src/species/species-details-page';
+import { ZSpeciesDetailsPage } from '../species/species-details-page';
 import { ZSpeciesListPage } from '../species/species-list-page';
 import { createPokemonTheme } from '../theme/pokemon-theme';
 

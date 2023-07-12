@@ -5,8 +5,8 @@ import {
   ZDataSourceStatic,
   ZDataSourceStaticOptionsBuilder
 } from '@zthun/helpful-query';
-import { findId } from 'src/poke-api/poke-api-resource';
 import { IPokeApiConverter } from '../poke-api/poke-api-converter';
+import { findId } from '../poke-api/poke-api-resource';
 import { IPokeApiRetrieval } from '../poke-api/poke-api-retrieval';
 import { IZResource } from './resource';
 

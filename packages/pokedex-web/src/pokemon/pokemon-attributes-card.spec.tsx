@@ -24,7 +24,7 @@ describe('ZPokemonAttributesCard', () => {
     );
     const driver = await new ZCircusSetupRenderer(element).setup();
     const target = await ZCircusBy.first(driver, ZPokemonAttributesCardComponentModel);
-    await (await target.card()).load();
+    await target.asResourceCard().load();
     return target;
   };
 

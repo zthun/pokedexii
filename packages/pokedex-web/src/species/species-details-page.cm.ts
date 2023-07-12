@@ -1,12 +1,12 @@
 import { ZCircusBy, ZCircusComponentModel } from '@zthun/cirque';
 import {
   ZCardComponentModel,
-  ZChartComponentModel,
   ZImageSourceComponentModel,
   ZNotFoundComponentModel,
   ZSuspenseComponentModel
 } from '@zthun/fashion-boutique';
-import { ZPokemonAttributesCardComponentModel } from 'src/pokemon/pokemon-attributes-card.cm';
+import { ZPokemonAttributesCardComponentModel } from '../pokemon/pokemon-attributes-card.cm';
+import { ZPokemonStatsCardComponentModel } from '../pokemon/pokemon-stats-card.cm';
 
 /**
  * Represents the component model for the pokemon details page.
@@ -40,28 +40,8 @@ export class ZSpeciesDetailsPageComponentModel extends ZCircusComponentModel {
     return ZCircusBy.first(this.driver, ZPokemonAttributesCardComponentModel);
   }
 
-  public async hp(): Promise<ZChartComponentModel> {
-    return ZCircusBy.first(this.driver, ZChartComponentModel, 'hp');
-  }
-
-  public async attack(): Promise<ZChartComponentModel> {
-    return ZCircusBy.first(this.driver, ZChartComponentModel, 'attack');
-  }
-
-  public async defense(): Promise<ZChartComponentModel> {
-    return ZCircusBy.first(this.driver, ZChartComponentModel, 'defense');
-  }
-
-  public async specialAttack(): Promise<ZChartComponentModel> {
-    return ZCircusBy.first(this.driver, ZChartComponentModel, 'special-attack');
-  }
-
-  public async specialDefense(): Promise<ZChartComponentModel> {
-    return ZCircusBy.first(this.driver, ZChartComponentModel, 'special-defense');
-  }
-
-  public async speed(): Promise<ZChartComponentModel> {
-    return ZCircusBy.first(this.driver, ZChartComponentModel, 'speed');
+  public stats(): Promise<ZPokemonStatsCardComponentModel> {
+    return ZCircusBy.first(this.driver, ZPokemonStatsCardComponentModel);
   }
 
   public async notFound(): Promise<ZNotFoundComponentModel | null> {

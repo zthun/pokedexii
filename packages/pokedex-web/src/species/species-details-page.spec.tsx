@@ -1,6 +1,6 @@
 import { ZCircusBy } from '@zthun/cirque';
 import { ZCircusSetupRenderer } from '@zthun/cirque-du-react';
-import { ZChartComponentModel, ZFashionThemeContext, ZRoute, ZRouteMap, ZTestRouter } from '@zthun/fashion-boutique';
+import { ZFashionThemeContext, ZRoute, ZRouteMap, ZTestRouter } from '@zthun/fashion-boutique';
 import {
   IZPokemon,
   IZPokemonService,
@@ -134,42 +134,13 @@ describe('ZSpeciesDetailsPage', () => {
   });
 
   describe('Stats', () => {
-    const shouldRenderStat = async (
-      expected: number,
-      chart: (target: ZSpeciesDetailsPageComponentModel) => Promise<ZChartComponentModel>
-    ) => {
+    it('should render the stats of the pokemon', async () => {
       // Arrange.
       const target = await createTestTarget();
       // Act.
-      const _chart = await chart(target);
-      const [point] = await _chart.points();
-      const { x: actual } = point;
+      const actual = await target.stats();
       // Assert.
-      expect(actual).toEqual(expected);
-    };
-
-    it('should render hp', async () => {
-      await shouldRenderStat(charizard.stats.hp.base, (t) => t.hp());
-    });
-
-    it('should render attack', async () => {
-      await shouldRenderStat(charizard.stats.attack.base, (t) => t.attack());
-    });
-
-    it('should render defense', async () => {
-      await shouldRenderStat(charizard.stats.defense.base, (t) => t.defense());
-    });
-
-    it('should render special attack', async () => {
-      await shouldRenderStat(charizard.stats.specialAttack.base, (t) => t.specialAttack());
-    });
-
-    it('should render special defense', async () => {
-      await shouldRenderStat(charizard.stats.specialDefense.base, (t) => t.specialDefense());
-    });
-
-    it('should render speed', async () => {
-      await shouldRenderStat(charizard.stats.speed.base, (t) => t.speed());
+      expect(actual).toBeTruthy();
     });
   });
 });

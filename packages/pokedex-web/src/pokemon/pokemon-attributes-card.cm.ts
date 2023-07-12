@@ -1,6 +1,6 @@
 import { IZCircusDriver, ZCircusBy, ZCircusComponentModel } from '@zthun/cirque';
 import { ZType } from '@zthun/pokedex';
-import { ZResourceCardComponentModel } from 'src/resource/resource-card.cm';
+import { ZResourceCardComponentModel } from '../resource/resource-card.cm';
 import { ZTypeBadgeComponentModel } from '../type/type-badge.cm';
 
 /**
@@ -13,8 +13,8 @@ export class ZPokemonAttributesCardComponentModel extends ZCircusComponentModel 
     return this.driver.attribute('data-name', 'missingno');
   }
 
-  public card(): Promise<ZResourceCardComponentModel> {
-    return Promise.resolve(new ZResourceCardComponentModel(this.driver));
+  public asResourceCard(): ZResourceCardComponentModel {
+    return new ZResourceCardComponentModel(this.driver);
   }
 
   public async height(): Promise<string> {

@@ -3,15 +3,12 @@ import { ZSizeFixed } from '@zthun/fashion-tailor';
 import { cssJoinDefined } from '@zthun/helpful-fn';
 import { IZPokemon } from '@zthun/pokedex';
 import React, { ReactNode } from 'react';
-import { ZResourceCard } from 'src/resource/resource-card';
-import { ZTypeBadges } from 'src/type/type-badges';
+import { ZResourceCard } from '../resource/resource-card';
+import { ZTypeBadges } from '../type/type-badges';
+import { IZPokemonInformationCard } from './pokemon-resource-card';
 import { usePokemon } from './pokemon-service';
 
-export interface IZPokemonAttributesCard {
-  pokemonName: string;
-}
-
-export function ZPokemonAttributesCard(props: IZPokemonAttributesCard) {
+export function ZPokemonAttributesCard(props: IZPokemonInformationCard) {
   const { pokemonName } = props;
   const [pokemon] = usePokemon(pokemonName);
 
