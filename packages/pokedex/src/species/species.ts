@@ -107,6 +107,18 @@ export class ZSpeciesBuilder {
     return this.name('charmander').id(4).happiness(50).capture(45).evolution(2).variety('charmander', true);
   }
 
+  public charizard() {
+    return this.name('charizard')
+      .id(6)
+      .happiness(50)
+      .capture(45)
+      .evolution(2)
+      .variety('charizard', true)
+      .variety('charizard-mega-x')
+      .variety('charizard-mega-y')
+      .variety('charizard-gmax');
+  }
+
   public squirtle() {
     return this.name('squirtle').id(7).happiness(50).capture(45).evolution(3).variety('squirtle', true);
   }
