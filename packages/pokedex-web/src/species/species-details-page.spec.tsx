@@ -1,56 +1,70 @@
 import { ZCircusBy } from '@zthun/cirque';
 import { ZCircusSetupRenderer } from '@zthun/cirque-du-react';
 import { ZChartComponentModel, ZFashionThemeContext, ZRoute, ZRouteMap, ZTestRouter } from '@zthun/fashion-boutique';
-import { IZPokemon, IZPokemonService, ZPokemonBuilder, ZType } from '@zthun/pokedex';
+import {
+  IZPokemon,
+  IZPokemonService,
+  IZSpecies,
+  IZSpeciesService,
+  ZPokemonBuilder,
+  ZSpeciesBuilder,
+  ZType
+} from '@zthun/pokedex';
 import { History, createMemoryHistory } from 'history';
 import { padStart, startCase } from 'lodash';
 import React from 'react';
 import { Mocked, beforeEach, describe, expect, it } from 'vitest';
 import { mock } from 'vitest-mock-extended';
+import { ZPokemonServiceContext } from '../pokemon/pokemon-service';
 import { createPokemonTheme } from '../theme/pokemon-theme';
-import { ZPokemonDetailsPage } from './pokemon-details-page';
-import { ZPokemonDetailsPageComponentModel } from './pokemon-details-page.cm';
-import { ZPokemonServiceContext } from './pokemon-service';
+import { ZSpeciesDetailsPage } from './species-details-page';
+import { ZSpeciesDetailsPageComponentModel } from './species-details-page.cm';
+import { ZSpeciesServiceContext } from './species-service';
 
-describe('ZPokedexDetailsPage', () => {
+describe('ZSpeciesDetailsPage', () => {
   let history: History;
   let pokemonService: Mocked<IZPokemonService>;
+  let speciesService: Mocked<IZSpeciesService>;
+  let charizard$: IZSpecies;
   let charizard: IZPokemon;
 
   const createTestTarget = async () => {
     const element = (
       <ZFashionThemeContext.Provider value={createPokemonTheme()}>
-        <ZPokemonServiceContext.Provider value={pokemonService}>
-          <ZTestRouter navigator={history} location={history.location}>
-            <ZRouteMap>
-              <ZRoute path='/pokemon/:name' element={<ZPokemonDetailsPage />} />
-              <ZRoute path='/not-pokemon' element={<ZPokemonDetailsPage />} />
-            </ZRouteMap>
-          </ZTestRouter>
-        </ZPokemonServiceContext.Provider>
+        <ZSpeciesServiceContext.Provider value={speciesService}>
+          <ZPokemonServiceContext.Provider value={pokemonService}>
+            <ZTestRouter navigator={history} location={history.location}>
+              <ZRouteMap>
+                <ZRoute path='/pokemon/:name' element={<ZSpeciesDetailsPage />} />
+                <ZRoute path='/not-pokemon' element={<ZSpeciesDetailsPage />} />
+              </ZRouteMap>
+            </ZTestRouter>
+          </ZPokemonServiceContext.Provider>
+        </ZSpeciesServiceContext.Provider>
       </ZFashionThemeContext.Provider>
     );
     const driver = await new ZCircusSetupRenderer(element).setup();
-    const target = await ZCircusBy.first(driver, ZPokemonDetailsPageComponentModel);
+    const target = await ZCircusBy.first(driver, ZSpeciesDetailsPageComponentModel);
     await target.load();
     return target;
   };
 
   beforeEach(() => {
+    charizard$ = new ZSpeciesBuilder().charizard().build();
     charizard = new ZPokemonBuilder().charizard().build();
     history = createMemoryHistory({ initialEntries: [`/pokemon/${charizard.name}`] });
 
     pokemonService = mock<IZPokemonService>();
     pokemonService.get.mockResolvedValue(charizard);
+
+    speciesService = mock<IZSpeciesService>();
+    speciesService.get.mockResolvedValue(charizard$);
   });
 
   describe('Error', () => {
-    beforeEach(() => {
-      pokemonService.get.mockRejectedValue(new Error('Game Over!'));
-    });
-
-    it('should render a NotFound component if the page errors', async () => {
+    it('should render a NotFound component if the pokemon cannot be found', async () => {
       // Arrange.
+      pokemonService.get.mockRejectedValue(new Error('Game Over!'));
       const target = await createTestTarget();
       // Act.
       const actual = await target.notFound();
@@ -58,15 +72,24 @@ describe('ZPokedexDetailsPage', () => {
       expect(actual).toBeTruthy();
     });
 
-    it('should render missingno if the name cannot be parsed from the path', async () => {
+    it('should render a NotFound if the species cannot be found', async () => {
+      // Arrange.
+      speciesService.get.mockRejectedValue(new Error('Game Over!'));
+      const target = await createTestTarget();
+      // Act.
+      const actual = await target.notFound();
+      // Assert.
+      expect(actual).toBeTruthy();
+    });
+
+    it('should render NotFound if the name cannot be parsed from the path', async () => {
       // Arrange.
       history = createMemoryHistory({ initialEntries: [`/not-pokemon`] });
       const target = await createTestTarget();
-      const missingno = new ZPokemonBuilder().build();
       // Act.
-      const actual = await target.name();
+      const actual = await target.notFound();
       // Assert.
-      expect(actual).toEqual(startCase(missingno.name));
+      expect(actual).toBeTruthy();
     });
   });
 
@@ -173,7 +196,7 @@ describe('ZPokedexDetailsPage', () => {
   describe('Stats', () => {
     const shouldRenderStat = async (
       expected: number,
-      chart: (target: ZPokemonDetailsPageComponentModel) => Promise<ZChartComponentModel>
+      chart: (target: ZSpeciesDetailsPageComponentModel) => Promise<ZChartComponentModel>
     ) => {
       // Arrange.
       const target = await createTestTarget();

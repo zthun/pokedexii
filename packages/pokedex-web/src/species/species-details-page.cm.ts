@@ -12,8 +12,8 @@ import { ZTypeBadgeComponentModel } from '../type/type-badge.cm';
 /**
  * Represents the component model for the pokemon details page.
  */
-export class ZPokemonDetailsPageComponentModel extends ZCircusComponentModel {
-  public static readonly Selector = '.ZPokemonDetailsPage-root';
+export class ZSpeciesDetailsPageComponentModel extends ZCircusComponentModel {
+  public static readonly Selector = '.ZSpeciesDetailsPage-root';
 
   public pokemon(): Promise<ZCardComponentModel> {
     return ZCircusBy.first(this.driver, ZCardComponentModel, 'pokemon');
@@ -38,20 +38,20 @@ export class ZPokemonDetailsPageComponentModel extends ZCircusComponentModel {
   }
 
   public async height(): Promise<string> {
-    return (await this.driver.select('.ZPokemonDetailsPage-height')).text();
+    return (await this.driver.select('.ZSpeciesDetailsPage-height')).text();
   }
 
   public async weight(): Promise<string> {
-    return (await this.driver.select('.ZPokemonDetailsPage-weight')).text();
+    return (await this.driver.select('.ZSpeciesDetailsPage-weight')).text();
   }
 
   public async types(): Promise<ZTypeBadgeComponentModel[]> {
-    const group = await this.driver.select('.ZPokemonDetailsPage-types');
+    const group = await this.driver.select('.ZSpeciesDetailsPage-types');
     return ZCircusBy.all(group, ZTypeBadgeComponentModel);
   }
 
   private async _weaknesses(): Promise<IZCircusDriver> {
-    return this.driver.select('.ZPokemonDetailsPage-weaknesses');
+    return this.driver.select('.ZSpeciesDetailsPage-weaknesses');
   }
 
   public async weaknesses(): Promise<ZTypeBadgeComponentModel[]> {

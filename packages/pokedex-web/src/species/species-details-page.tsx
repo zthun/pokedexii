@@ -19,23 +19,26 @@ import { asStateData, isStateErrored, isStateLoading } from '@zthun/helpful-reac
 import { IZPokemon, ZPokemonMaxBaseStat } from '@zthun/pokedex';
 import { padStart, startCase } from 'lodash';
 import React, { ReactNode, useMemo } from 'react';
+import { usePokemon } from '../pokemon/pokemon-service';
 import { usePokemonTheme } from '../theme/pokemon-theme';
 import { ZTypeBadges } from '../type/type-badges';
-import { usePokemon } from './pokemon-service';
+import { useSpecies } from './species-service';
 
 /**
  * Represents the page for pokemon details.
  */
-export function ZPokemonDetailsPage() {
+export function ZSpeciesDetailsPage() {
   const { name } = useParams();
-  const [pokemon] = usePokemon(name);
+  const [species] = useSpecies(name);
+  const [pokemon] = usePokemon(asStateData(species)?.main);
+
   const heading = useMemo(() => startCase(asStateData(pokemon)?.name), [pokemon]);
   const subHeading = useMemo(() => `#${padStart(String(asStateData(pokemon)?.id || '0'), 4, '0')}`, [pokemon]);
   const { component, custom } = usePokemonTheme();
 
   const renderPokemon = (pokemon: IZPokemon) => (
     <ZCard
-      className={cssJoinDefined('ZPokemonDetailsPage-artwork')}
+      className={cssJoinDefined('ZSpeciesDetailsPage-artwork')}
       heading={heading}
       subHeading={subHeading}
       name='pokemon'
@@ -79,7 +82,7 @@ export function ZPokemonDetailsPage() {
 
     return (
       <ZCard
-        className={cssJoinDefined('ZPokemonDetailsPage-stats')}
+        className={cssJoinDefined('ZSpeciesDetailsPage-stats')}
         heading='Stats'
         subHeading={`Max base value is ${ZPokemonMaxBaseStat}`}
         name='stats'
@@ -115,7 +118,7 @@ export function ZPokemonDetailsPage() {
 
       return renderAttribute(
         'Height',
-        <ZCaption className={cssJoinDefined('ZPokemonDetailsPage-height')} compact>
+        <ZCaption className={cssJoinDefined('ZSpeciesDetailsPage-height')} compact>
           {_height}
         </ZCaption>
       );
@@ -129,7 +132,7 @@ export function ZPokemonDetailsPage() {
 
       return renderAttribute(
         'Weight',
-        <ZCaption className={cssJoinDefined('ZPokemonDetailsPage-weight')} compact>
+        <ZCaption className={cssJoinDefined('ZSpeciesDetailsPage-weight')} compact>
           {_weight}
         </ZCaption>
       );
@@ -137,7 +140,7 @@ export function ZPokemonDetailsPage() {
 
     return (
       <ZCard
-        className={cssJoinDefined('ZPokemonDetailsPage-attributes')}
+        className={cssJoinDefined('ZSpeciesDetailsPage-attributes')}
         heading='Attributes'
         subHeading='Physical Aspects'
         name='attributes'
@@ -145,18 +148,22 @@ export function ZPokemonDetailsPage() {
       >
         {renderHeight()}
         {renderWeight()}
-        {renderAttribute('Types', <ZTypeBadges className='ZPokemonDetailsPage-types' types={types} />)}
-        {renderAttribute('Weaknesses', <ZTypeBadges className='ZPokemonDetailsPage-weaknesses' types={weaknesses} />)}
+        {renderAttribute('Types', <ZTypeBadges className='ZSpeciesDetailsPage-types' types={types} />)}
+        {renderAttribute('Weaknesses', <ZTypeBadges className='ZSpeciesDetailsPage-weaknesses' types={weaknesses} />)}
       </ZCard>
     );
   };
 
   const renderPage = () => {
-    if (isStateLoading(pokemon)) {
+    if (!name) {
+      return <ZNotFound />;
+    }
+
+    if (isStateLoading(species) || isStateLoading(pokemon)) {
       return <ZSuspenseRotate width={ZSizeFixed.ExtraLarge} />;
     }
 
-    if (isStateErrored(pokemon)) {
+    if (isStateErrored(species) || isStateErrored(pokemon)) {
       return <ZNotFound />;
     }
 
@@ -169,5 +176,5 @@ export function ZPokemonDetailsPage() {
     );
   };
 
-  return <div className='ZPokemonDetailsPage-root'>{renderPage()}</div>;
+  return <div className='ZSpeciesDetailsPage-root'>{renderPage()}</div>;
 }
