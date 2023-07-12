@@ -93,6 +93,17 @@ describe('ZSpeciesDetailsPage', () => {
       // Assert.
       expect(actual).toBeTruthy();
     });
+
+    it('should render the attributes card with the main pokemon if there are no varieties', async () => {
+      // Arrange.
+      const expected = new ZSpeciesBuilder().build();
+      speciesService.get.mockResolvedValue(expected);
+      const target = await createTestTarget();
+      // Assert.
+      const actual = await (await target.attributes()).pokemon();
+      // Assert.
+      expect(actual).toEqual(expected.main);
+    });
   });
 
   describe('Stats', () => {
@@ -103,6 +114,17 @@ describe('ZSpeciesDetailsPage', () => {
       const actual = await target.stats();
       // Assert.
       expect(actual).toBeTruthy();
+    });
+
+    it('should render the stats card with the main pokemon if there are no varieties', async () => {
+      // Arrange.
+      const expected = new ZSpeciesBuilder().build();
+      speciesService.get.mockResolvedValue(expected);
+      const target = await createTestTarget();
+      // Assert.
+      const actual = await (await target.stats()).pokemon();
+      // Assert.
+      expect(actual).toEqual(expected.main);
     });
   });
 });
