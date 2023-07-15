@@ -5,10 +5,10 @@ import { IZPokemon, ZPokemonMaxBaseStat } from '@zthun/pokedex';
 import React from 'react';
 import { ZResourceCard } from '../resource/resource-card';
 import { usePokemonTheme } from '../theme/pokemon-theme';
-import { IZPokemonInformationCard } from './pokemon-resource-card';
+import { IZPokemonCard } from './pokemon-card';
 import { usePokemon } from './pokemon-service';
 
-export function ZPokemonStatsCard(props: IZPokemonInformationCard) {
+export function ZPokemonStatsCard(props: IZPokemonCard) {
   const { pokemonName } = props;
   const [pokemon] = usePokemon(pokemonName);
   const { custom } = usePokemonTheme();

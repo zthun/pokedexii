@@ -5,10 +5,10 @@ import { IZPokemon } from '@zthun/pokedex';
 import React, { ReactNode } from 'react';
 import { ZResourceCard } from '../resource/resource-card';
 import { ZTypeBadges } from '../type/type-badges';
-import { IZPokemonInformationCard } from './pokemon-resource-card';
+import { IZPokemonCard } from './pokemon-card';
 import { usePokemon } from './pokemon-service';
 
-export function ZPokemonAttributesCard(props: IZPokemonInformationCard) {
+export function ZPokemonAttributesCard(props: IZPokemonCard) {
   const { pokemonName } = props;
   const [pokemon] = usePokemon(pokemonName);
 
