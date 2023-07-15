@@ -1,6 +1,6 @@
 import { IZComponentAdornment, IZComponentStyle, ZLineItem, createStyleHook } from '@zthun/fashion-boutique';
 import { ZSizeFixed } from '@zthun/fashion-tailor';
-import { cssJoinDefined } from '@zthun/helpful-fn';
+import { cssJoinDefined, firstDefined } from '@zthun/helpful-fn';
 import { ZType } from '@zthun/pokedex';
 import { startCase } from 'lodash';
 import React, { useMemo } from 'react';
@@ -13,14 +13,17 @@ export interface IZTypeBadge extends IZComponentStyle, IZComponentAdornment {
 const useTypeBadgeStyles = createStyleHook(({ theme, tailor }: IZPokemonThemeUtility, props: IZTypeBadge) => {
   const { type } = props;
   const fashion = theme.custom.types[type];
+  const border = firstDefined(fashion.main, fashion.dark);
 
   return {
     root: {
-      color: fashion.contrast,
-      backgroundColor: fashion.main,
+      background: fashion.main,
+      border: `${tailor.thickness(ZSizeFixed.Medium)} solid ${border}`,
       borderRadius: tailor.thickness(ZSizeFixed.ExtraLarge),
+      color: fashion.contrast,
+      padding: tailor.gap(ZSizeFixed.ExtraSmall),
       textAlign: 'center',
-      padding: tailor.gap(ZSizeFixed.ExtraSmall)
+      textTransform: 'uppercase'
     }
   };
 });
