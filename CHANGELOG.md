@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.11.0](https://github.com/zthun/pokedexii/compare/v0.10.0...v0.11.0) (2023-07-17)
+
+
+### Features
+
+* add evolution information to species details ([c55031e](https://github.com/zthun/pokedexii/commit/c55031e7a09ceed5ed0f6efb7a8dae1fbd64b389))
+* species details evolution chain card describes the growth path of the pokemon ([4bcdde9](https://github.com/zthun/pokedexii/commit/4bcdde9e2e9c9234b27a541d43c92d6975bdac67))
+* support ralts, kirlia, gardevoir, and gallade ([fe5be0c](https://github.com/zthun/pokedexii/commit/fe5be0cff20f9631b22418d9c8eb559af2fa4877))
+
+
+### Bug Fixes
+
+* api response signatures ([c00705d](https://github.com/zthun/pokedexii/commit/c00705d5bedaa17aebf225319c09ca6352f9344f))
+* evolution id can now be discovered when retrieving species information ([301043e](https://github.com/zthun/pokedexii/commit/301043e3637d9d7fe05e2d37d645fe8292199c03))
+* missing assignments for relative stats and beauty ([ddaef90](https://github.com/zthun/pokedexii/commit/ddaef90dd56eee30a142793d6cf0779886c54be3))
+* missing evolution trigger values and wrong assignments ([27bb2bb](https://github.com/zthun/pokedexii/commit/27bb2bb616ba18b53078427d4bf50ba06b56d5c1))
+
+
+
 ## [0.10.0](https://github.com/zthun/pokedexii/compare/v0.9.0...v0.10.0) (2023-07-12)
 
 

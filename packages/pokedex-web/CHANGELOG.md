@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.11.0](https://github.com/zthun/pokedexii/compare/v0.10.0...v0.11.0) (2023-07-17)
+
+
+### Features
+
+* add evolution information to species details ([c55031e](https://github.com/zthun/pokedexii/commit/c55031e7a09ceed5ed0f6efb7a8dae1fbd64b389))
+* species details evolution chain card describes the growth path of the pokemon ([4bcdde9](https://github.com/zthun/pokedexii/commit/4bcdde9e2e9c9234b27a541d43c92d6975bdac67))
+
+
+
 ## [0.10.0](https://github.com/zthun/pokedexii/compare/v0.9.0...v0.10.0) (2023-07-12)
 
 
