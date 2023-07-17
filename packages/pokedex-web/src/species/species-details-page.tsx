@@ -10,7 +10,7 @@ import {
 import { ZSizeFixed } from '@zthun/fashion-tailor';
 import { isStateErrored, isStateLoading } from '@zthun/helpful-react';
 import React, { useState } from 'react';
-import { ZEvolutionChainCard } from 'src/evolution/evolution-chain-card';
+import { ZEvolutionChainCard } from '../evolution/evolution-chain-card';
 import { ZPokemonAttributesCard } from '../pokemon/pokemon-attributes-card';
 import { ZPokemonStatsCard } from '../pokemon/pokemon-stats-card';
 import { useSpecies } from './species-service';

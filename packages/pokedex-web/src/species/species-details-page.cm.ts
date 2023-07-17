@@ -1,6 +1,6 @@
 import { ZCircusBy, ZCircusComponentModel } from '@zthun/cirque';
 import { ZNotFoundComponentModel, ZSuspenseComponentModel } from '@zthun/fashion-boutique';
-import { ZEvolutionChainCardComponentModel } from 'src/evolution/evolution-chain-card.cm';
+import { ZEvolutionChainCardComponentModel } from '../evolution/evolution-chain-card.cm';
 import { ZPokemonAttributesCardComponentModel } from '../pokemon/pokemon-attributes-card.cm';
 import { ZPokemonStatsCardComponentModel } from '../pokemon/pokemon-stats-card.cm';
 import { ZSpeciesVarietiesCardComponentModel } from './species-varieties-card.cm';

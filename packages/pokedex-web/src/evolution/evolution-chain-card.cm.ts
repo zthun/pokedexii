@@ -1,5 +1,5 @@
 import { ZCircusBy, ZCircusComponentModel } from '@zthun/cirque';
-import { ZResourceCardComponentModel } from 'src/resource/resource-card.cm';
+import { ZResourceCardComponentModel } from '../resource/resource-card.cm';
 import { ZEvolutionNodeListComponentModel } from './evolution-node-list.cm';
 
 export class ZEvolutionChainCardComponentModel extends ZCircusComponentModel {

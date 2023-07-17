@@ -13,10 +13,10 @@ import {
 } from '@zthun/pokedex';
 import { History, createMemoryHistory } from 'history';
 import React from 'react';
-import { ZEvolutionServiceContext } from 'src/evolution/evolution-service';
-import { ZPokemonServiceContext } from 'src/pokemon/pokemon-service';
 import { Mocked, beforeEach, describe, expect, it } from 'vitest';
 import { mock } from 'vitest-mock-extended';
+import { ZEvolutionServiceContext } from '../evolution/evolution-service';
+import { ZPokemonServiceContext } from '../pokemon/pokemon-service';
 import { createPokemonTheme } from '../theme/pokemon-theme';
 import { ZSpeciesDetailsPage } from './species-details-page';
 import { ZSpeciesDetailsPageComponentModel } from './species-details-page.cm';
