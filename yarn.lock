@@ -38,7 +38,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/core@npm:^7.12.10, @babel/core@npm:^7.12.3, @babel/core@npm:^7.22.8":
+"@babel/core@npm:^7.12.10, @babel/core@npm:^7.12.3, @babel/core@npm:^7.22.9":
   version: 7.22.9
   resolution: "@babel/core@npm:7.22.9"
   dependencies:
@@ -2139,7 +2139,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@cucumber/cucumber@npm:^9.2.0":
+"@cucumber/cucumber@npm:^9.3.0":
   version: 9.3.0
   resolution: "@cucumber/cucumber@npm:9.3.0"
   dependencies:
@@ -3692,7 +3692,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:^20.4.1":
+"@types/node@npm:*, @types/node@npm:^20.4.2":
   version: 20.4.2
   resolution: "@types/node@npm:20.4.2"
   checksum: 99e544ea7560d51f01f95627fc40394c24a13da8f041121a0da13e4ef0a2aa332932eaf9a5e8d0e30d1c07106e96a183be392cbba62e8cf0bf6a085d5c0f4149
@@ -4236,8 +4236,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@zthun/pokedex-web@workspace:packages/pokedex-web"
   dependencies:
-    "@cucumber/cucumber": ^9.2.0
-    "@types/node": ^20.4.1
+    "@cucumber/cucumber": ^9.3.0
+    "@types/node": ^20.4.2
     "@zthun/cirque": ^4.3.0
     "@zthun/cirque-du-react": ^4.3.0
     "@zthun/cirque-du-selenium": ^4.3.0
@@ -4256,7 +4256,7 @@ __metadata:
     ts-node: ^10.9.1
     tsconfig-paths: ^4.2.0
     typescript: ^5.1.6
-    vite: ^4.4.2
+    vite: ^4.4.4
     vite-tsconfig-paths: ^4.2.0
     vitest: ^0.33.0
     vitest-mock-extended: ^1.1.4
@@ -4284,26 +4284,26 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@zthun/pokedexii@workspace:."
   dependencies:
-    "@babel/core": ^7.22.8
+    "@babel/core": ^7.22.9
     "@commitlint/cli": ^17.6.6
     "@commitlint/config-conventional": ^17.6.6
-    "@cucumber/cucumber": ^9.2.0
+    "@cucumber/cucumber": ^9.3.0
     "@types/jsdom": ^21.1.1
     "@types/lodash": ^4.14.195
-    "@types/node": ^20.4.1
+    "@types/node": ^20.4.2
     "@vitest/coverage-istanbul": ^0.33.0
     "@zthun/lint-janitor": ^14.2.0
     "@zthun/lint-janitor-config": ^14.2.0
     husky: ^8.0.3
     jsdom: ^22.1.0
-    lerna: ^7.1.1
+    lerna: ^7.1.4
     react: ^18.2.0
     react-dom: ^18.2.0
     rimraf: ^5.0.1
     ts-node: ^10.9.1
     tsconfig-paths: ^4.2.0
     typescript: ^5.1.6
-    vite: ^4.4.2
+    vite: ^4.4.4
     vitest: ^0.33.0
     vitest-tsconfig-paths: ^3.4.1
   languageName: unknown
@@ -9061,7 +9061,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lerna@npm:^7.1.1":
+"lerna@npm:^7.1.4":
   version: 7.1.4
   resolution: "lerna@npm:7.1.4"
   dependencies:
@@ -14147,7 +14147,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite@npm:^3.0.0 || ^4.0.0, vite@npm:^4.4.2":
+"vite@npm:^3.0.0 || ^4.0.0, vite@npm:^4.4.4":
   version: 4.4.4
   resolution: "vite@npm:4.4.4"
   dependencies:
