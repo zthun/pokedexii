@@ -43,6 +43,10 @@ describe('ZTypeService', () => {
     api.type.mockResolvedValue(_ground);
   });
 
+  it('should create a default instance', async () => {
+    expect(createTypeService()).toBeTruthy();
+  });
+
   it('should retrieve all types', async () => {
     const request = new ZDataRequestBuilder().build();
     const actual = await createTestTarget().retrieve(request);
