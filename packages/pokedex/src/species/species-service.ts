@@ -1,8 +1,7 @@
-import { firstDefined } from '@zthun/helpful-fn';
-import { last, split } from 'lodash';
 import { IPokeApi, ZPokeApi } from '../poke-api/poke-api';
 import { IPokeApiConverter } from '../poke-api/poke-api-converter';
 import { IPokeApiPage } from '../poke-api/poke-api-page';
+import { findId } from '../poke-api/poke-api-resource';
 import { IPokeApiRetrieval } from '../poke-api/poke-api-retrieval';
 import { IPokeApiSpecies } from '../poke-api/poke-api-species';
 import { IZResourceService, ZResourceService } from '../resource/resource-service';
@@ -23,14 +22,14 @@ class ZSpeciesService implements Converter, Retriever {
   }
 
   public async convert(resource: IPokeApiSpecies): Promise<IZSpecies> {
-    const evolution = firstDefined('0', last(split(resource.evolution_chain.url, '/')));
+    const evolution = findId(resource.evolution_chain);
 
     let species = new ZSpeciesBuilder()
       .happiness(resource.base_happiness)
       .id(resource.id)
       .capture(resource.capture_rate)
       .name(resource.name)
-      .evolution(+evolution);
+      .evolution(evolution);
 
     resource.varieties.forEach((v) => {
       species = species.variety(v.pokemon.name, v.is_default);
