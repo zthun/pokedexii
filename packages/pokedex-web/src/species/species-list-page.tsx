@@ -22,11 +22,10 @@ export function ZSpeciesListPage() {
       renderItem={renderSpecies}
       GridProps={{
         gap: ZSizeFixed.Small,
-        columns: '1fr 1fr 1fr 1fr 1fr 1fr',
-        columnsLg: '1fr 1fr 1fr 1fr',
-        columnsMd: '1fr 1fr 1fr',
-        columnsSm: '1fr 1fr',
-        columnsXs: '1fr'
+        columns: '1fr 1fr 1fr 1fr',
+        columnsLg: '1fr 1fr 1fr',
+        columnsMd: '1fr 1fr',
+        columnsSm: '1fr'
       }}
     />
   );
