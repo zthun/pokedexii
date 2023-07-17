@@ -7,10 +7,10 @@ export interface IPokeApiEvolutionChainDetails {
   known_move: IPokeApiNamedResource | null;
   known_move_type: IPokeApiNamedResource | null;
   location: IPokeApiNamedResource | null;
-  min_affection: number;
-  min_beauty: number;
-  min_happiness: number;
-  min_level: number;
+  min_affection: number | null;
+  min_beauty: number | null;
+  min_happiness: number | null;
+  min_level: number | null;
   needs_overworld_rain: boolean;
   party_species: IPokeApiNamedResource | null;
   party_type: IPokeApiNamedResource | null;
