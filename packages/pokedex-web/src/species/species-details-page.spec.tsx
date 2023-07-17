@@ -1,9 +1,20 @@
 import { ZCircusBy } from '@zthun/cirque';
 import { ZCircusSetupRenderer } from '@zthun/cirque-du-react';
 import { ZFashionThemeContext, ZRoute, ZRouteMap, ZTestRouter } from '@zthun/fashion-boutique';
-import { IZSpecies, IZSpeciesService, ZSpeciesBuilder } from '@zthun/pokedex';
+import {
+  IZEvolutionService,
+  IZPokemon,
+  IZPokemonService,
+  IZSpecies,
+  IZSpeciesService,
+  ZEvolutionBuilder,
+  ZPokemonBuilder,
+  ZSpeciesBuilder
+} from '@zthun/pokedex';
 import { History, createMemoryHistory } from 'history';
 import React from 'react';
+import { ZEvolutionServiceContext } from 'src/evolution/evolution-service';
+import { ZPokemonServiceContext } from 'src/pokemon/pokemon-service';
 import { Mocked, beforeEach, describe, expect, it } from 'vitest';
 import { mock } from 'vitest-mock-extended';
 import { createPokemonTheme } from '../theme/pokemon-theme';
@@ -13,19 +24,26 @@ import { ZSpeciesServiceContext } from './species-service';
 
 describe('ZSpeciesDetailsPage', () => {
   let history: History;
+  let evolutionService: Mocked<IZEvolutionService>;
+  let pokemonService: Mocked<IZPokemonService>;
   let speciesService: Mocked<IZSpeciesService>;
-  let charizard: IZSpecies;
+  let charizard$: IZSpecies;
+  let charizard: IZPokemon;
 
   const createTestTarget = async () => {
     const element = (
       <ZFashionThemeContext.Provider value={createPokemonTheme()}>
         <ZSpeciesServiceContext.Provider value={speciesService}>
-          <ZTestRouter navigator={history} location={history.location}>
-            <ZRouteMap>
-              <ZRoute path='/pokemon/:name' element={<ZSpeciesDetailsPage />} />
-              <ZRoute path='/not-pokemon' element={<ZSpeciesDetailsPage />} />
-            </ZRouteMap>
-          </ZTestRouter>
+          <ZPokemonServiceContext.Provider value={pokemonService}>
+            <ZEvolutionServiceContext.Provider value={evolutionService}>
+              <ZTestRouter navigator={history} location={history.location}>
+                <ZRouteMap>
+                  <ZRoute path='/pokemon/:name' element={<ZSpeciesDetailsPage />} />
+                  <ZRoute path='/not-pokemon' element={<ZSpeciesDetailsPage />} />
+                </ZRouteMap>
+              </ZTestRouter>
+            </ZEvolutionServiceContext.Provider>
+          </ZPokemonServiceContext.Provider>
         </ZSpeciesServiceContext.Provider>
       </ZFashionThemeContext.Provider>
     );
@@ -36,10 +54,18 @@ describe('ZSpeciesDetailsPage', () => {
   };
 
   beforeEach(() => {
-    charizard = new ZSpeciesBuilder().charizard().build();
-    history = createMemoryHistory({ initialEntries: [`/pokemon/${charizard.name}`] });
+    charizard$ = new ZSpeciesBuilder().charizard().build();
+    charizard = new ZPokemonBuilder().charizard().build();
+    history = createMemoryHistory({ initialEntries: [`/pokemon/${charizard$.name}`] });
+
+    evolutionService = mock<IZEvolutionService>();
+    evolutionService.get.mockResolvedValue(new ZEvolutionBuilder().ralts().build());
+
+    pokemonService = mock<IZPokemonService>();
+    pokemonService.get.mockResolvedValue(charizard);
+
     speciesService = mock<IZSpeciesService>();
-    speciesService.get.mockResolvedValue(charizard);
+    speciesService.get.mockResolvedValue(charizard$);
   });
 
   it('should render the correct species', async () => {
@@ -48,7 +74,7 @@ describe('ZSpeciesDetailsPage', () => {
     // Act.
     const actual = await target.species();
     // Assert.
-    expect(actual).toEqual(charizard.name);
+    expect(actual).toEqual(charizard$.name);
   });
 
   describe('Error', () => {
@@ -79,6 +105,17 @@ describe('ZSpeciesDetailsPage', () => {
       const target = await createTestTarget();
       // Act.
       const actual = await target.varieties();
+      // Assert.
+      expect(actual).toBeTruthy();
+    });
+  });
+
+  describe('Evolution', () => {
+    it('should render the evolution chain of the pokemon', async () => {
+      // Arrange.
+      const target = await createTestTarget();
+      // Act.
+      const actual = await target.evolution();
       // Assert.
       expect(actual).toBeTruthy();
     });

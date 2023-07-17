@@ -1,7 +1,16 @@
-import { ZFullScreen, ZGrid, ZNotFound, ZSuspenseRotate, useParams } from '@zthun/fashion-boutique';
+import {
+  ZBreadcrumbsOutlet,
+  ZFullScreen,
+  ZGrid,
+  ZGridSpan,
+  ZNotFound,
+  ZSuspenseRotate,
+  useParams
+} from '@zthun/fashion-boutique';
 import { ZSizeFixed } from '@zthun/fashion-tailor';
 import { isStateErrored, isStateLoading } from '@zthun/helpful-react';
 import React, { useState } from 'react';
+import { ZEvolutionChainCard } from 'src/evolution/evolution-chain-card';
 import { ZPokemonAttributesCard } from '../pokemon/pokemon-attributes-card';
 import { ZPokemonStatsCard } from '../pokemon/pokemon-stats-card';
 import { useSpecies } from './species-service';
@@ -39,12 +48,16 @@ export function ZSpeciesDetailsPage() {
         <ZSpeciesVarietiesCard speciesName={name} value={variety} onValueChange={setVariety} />
         <ZPokemonAttributesCard pokemonName={pokemon} />
         <ZPokemonStatsCard pokemonName={pokemon} />
+        <ZGridSpan columnStart={1} columnEnd={3} columnStartMd='unset' columnEndMd='unset'>
+          <ZEvolutionChainCard evolutionName={String(species.evolution)} />
+        </ZGridSpan>
       </ZGrid>
     );
   };
 
   return (
     <div className='ZSpeciesDetailsPage-root' data-name={name}>
+      <ZBreadcrumbsOutlet />
       {renderPage()}
     </div>
   );

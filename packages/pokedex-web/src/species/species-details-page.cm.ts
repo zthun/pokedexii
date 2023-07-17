@@ -1,5 +1,6 @@
 import { ZCircusBy, ZCircusComponentModel } from '@zthun/cirque';
 import { ZNotFoundComponentModel, ZSuspenseComponentModel } from '@zthun/fashion-boutique';
+import { ZEvolutionChainCardComponentModel } from 'src/evolution/evolution-chain-card.cm';
 import { ZPokemonAttributesCardComponentModel } from '../pokemon/pokemon-attributes-card.cm';
 import { ZPokemonStatsCardComponentModel } from '../pokemon/pokemon-stats-card.cm';
 import { ZSpeciesVarietiesCardComponentModel } from './species-varieties-card.cm';
@@ -24,6 +25,10 @@ export class ZSpeciesDetailsPageComponentModel extends ZCircusComponentModel {
 
   public varieties(): Promise<ZSpeciesVarietiesCardComponentModel> {
     return ZCircusBy.first(this.driver, ZSpeciesVarietiesCardComponentModel);
+  }
+
+  public evolution(): Promise<ZEvolutionChainCardComponentModel> {
+    return ZCircusBy.first(this.driver, ZEvolutionChainCardComponentModel);
   }
 
   public async notFound(): Promise<ZNotFoundComponentModel | null> {
