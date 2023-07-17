@@ -506,6 +506,118 @@ export class ZPokemonBuilder {
   }
 
   /**
+   * Sets Ralts's information.
+   *
+   * It's better to retrieve this from something like the pokeapi,
+   * but this just sets limited information which is good for
+   * testing and demos.
+   *
+   * @returns
+   *        A reference to this object.
+   */
+  public ralts() {
+    return this.id(280)
+      .name('ralts')
+      .type(ZType.Psychic)
+      .type(ZType.Fairy)
+      .doubleDamageFrom(ZType.Ghost)
+      .doubleDamageFrom(ZType.Poison)
+      .doubleDamageFrom(ZType.Steel)
+      .hp(28)
+      .attack(25)
+      .defense(25)
+      .specialAttack(45)
+      .specialDefense(35)
+      .speed(40)
+      .height(4)
+      .weight(66);
+  }
+
+  /**
+   * Sets Kirlia's information.
+   *
+   * It's better to retrieve this from something like the pokeapi,
+   * but this just sets limited information which is good for
+   * testing and demos.
+   *
+   * @returns
+   *        A reference to this object.
+   */
+  public kirlia() {
+    return this.id(281)
+      .name('kirlia')
+      .type(ZType.Psychic)
+      .type(ZType.Fairy)
+      .doubleDamageFrom(ZType.Ghost)
+      .doubleDamageFrom(ZType.Poison)
+      .doubleDamageFrom(ZType.Steel)
+      .hp(38)
+      .attack(25)
+      .defense(35)
+      .specialAttack(65)
+      .specialDefense(55)
+      .speed(50)
+      .height(4)
+      .weight(66);
+  }
+
+  /**
+   * Sets Gardevoir's information.
+   *
+   * It's better to retrieve this from something like the pokeapi,
+   * but this just sets limited information which is good for
+   * testing and demos.
+   *
+   * @returns
+   *        A reference to this object.
+   */
+  public gardevoir() {
+    return this.id(282)
+      .name('gardevoir')
+      .type(ZType.Psychic)
+      .type(ZType.Fairy)
+      .doubleDamageFrom(ZType.Ghost)
+      .doubleDamageFrom(ZType.Poison)
+      .doubleDamageFrom(ZType.Steel)
+      .hp(68)
+      .attack(65)
+      .defense(65)
+      .specialAttack(125)
+      .specialDefense(115)
+      .speed(80)
+      .height(16)
+      .weight(484);
+  }
+
+  /**
+   * Sets Gallade's information.
+   *
+   * It's better to retrieve this from something like the pokeapi,
+   * but this just sets limited information which is good for
+   * testing and demos.
+   *
+   * @returns
+   *        A reference to this object.
+   */
+  public gallade() {
+    return this.id(475)
+      .name('gallade')
+      .type(ZType.Psychic)
+      .type(ZType.Fighting)
+      .doubleDamageFrom(ZType.Fairy)
+      .doubleDamageFrom(ZType.Flying)
+      .doubleDamageFrom(ZType.Ghost)
+      .hp(68)
+      .attack(125)
+      .defense(65)
+      .specialAttack(65)
+      .specialDefense(115)
+      .speed(80)
+      .height(16)
+      .weight(520);
+  }
+
+  /**
    * Returns a deep copy of the built pokemon.
    *
    * @returns

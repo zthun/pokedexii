@@ -149,6 +149,34 @@ export class ZSpeciesBuilder {
       .variety('pikachu-gmax');
   }
 
+  public ralts() {
+    return this.name('ralts').id(280).happiness(35).capture(235).evolution(140).variety('ralts', true);
+  }
+
+  public kirlia() {
+    return this.name('kirlia').id(281).happiness(35).capture(120).evolution(140).variety('kirlia', true);
+  }
+
+  public gardevoir() {
+    return this.name('gardevoir')
+      .id(282)
+      .happiness(35)
+      .capture(45)
+      .evolution(140)
+      .variety('gardevoir', true)
+      .variety('gardevoir-mega');
+  }
+
+  public gallade() {
+    return this.name('gallade')
+      .id(475)
+      .happiness(35)
+      .capture(45)
+      .evolution(140)
+      .variety('gallade', true)
+      .variety('gallade-mega');
+  }
+
   public build() {
     return structuredClone(this._species);
   }
