@@ -1,6 +1,6 @@
 import { ZCircusBy, ZCircusComponentModel } from '@zthun/cirque';
 import { ZButtonComponentModel } from '@zthun/fashion-boutique';
-import { ZResourceCardComponentModel } from 'src/resource/resource-card.cm';
+import { ZResourceCardComponentModel } from '../resource/resource-card.cm';
 
 export class ZSpeciesVarietiesCardComponentModel extends ZCircusComponentModel {
   public static readonly Selector = '.ZSpeciesVarietiesCard-root';
