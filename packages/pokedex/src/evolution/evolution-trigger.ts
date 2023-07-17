@@ -17,8 +17,9 @@ export enum ZEvolutionTrigger {
   UseItem = 'use-item'
 }
 
-export interface IZEvolutionTrigger extends IZResource {
+export interface IZEvolutionTrigger extends IZResource<ZEvolutionTrigger> {
   affection?: number;
+  beauty?: number;
   gender?: ZGender;
   happiness?: number;
   held?: string;
@@ -87,6 +88,20 @@ export class ZEvolutionTriggerBuilder {
    */
   public affection(affection: number) {
     this._trigger.affection = affection;
+    return this;
+  }
+
+  /**
+   * Sets a minimum beauty requirement.
+   *
+   * @param beauty -
+   *        The value to set.
+   *
+   * @returns
+   *        This object.
+   */
+  public beauty(beauty: number) {
+    this._trigger.beauty = beauty;
     return this;
   }
 
@@ -166,7 +181,7 @@ export class ZEvolutionTriggerBuilder {
    *        This object.
    */
   public item(item: string) {
-    this._trigger.held = item;
+    this._trigger.item = item;
     return this;
   }
 
