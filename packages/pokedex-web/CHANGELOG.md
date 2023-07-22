@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.11.1](https://github.com/zthun/pokedexii/compare/v0.11.0...v0.11.1) (2023-07-17)
+
+
+### Bug Fixes
+
+* species page should no longer display horizontal scrollbars ([cc32ec1](https://github.com/zthun/pokedexii/commit/cc32ec18d959868b38c1625774568e23b22c7e15))
+
+
+
 ## [0.11.0](https://github.com/zthun/pokedexii/compare/v0.10.0...v0.11.0) (2023-07-17)
 
 
