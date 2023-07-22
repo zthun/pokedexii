@@ -1,7 +1,14 @@
-import { ZBubble, ZIconFontAwesome, ZImageSource, ZSuspenseRotate, createStyleHook } from '@zthun/fashion-boutique';
+import {
+  ZBubble,
+  ZIconFontAwesome,
+  ZImageSource,
+  ZSuspenseRotate,
+  createStyleHook,
+  useNavigate
+} from '@zthun/fashion-boutique';
 import { ZSizeFixed, ZSizeVaried } from '@zthun/fashion-tailor';
 import { cssJoinDefined } from '@zthun/helpful-fn';
-import { asStateData, isStateErrored, isStateLoading } from '@zthun/helpful-react';
+import { asStateData, isStateErrored, isStateLoaded, isStateLoading } from '@zthun/helpful-react';
 import { IZEvolutionNode, ZSpeciesBuilder } from '@zthun/pokedex';
 import { startCase } from 'lodash';
 import React from 'react';
@@ -24,10 +31,13 @@ const useEvolutionBubbleStyles = createStyleHook(({ tailor }) => {
 
 export function ZEvolutionNodeBubble(props: IZEvolutionNodeBubble) {
   const { node } = props;
+  const navigate = useNavigate();
   const [species] = useSpecies(node.species);
   const [pokemon] = usePokemon(asStateData(species)?.main);
   const { classes } = useEvolutionBubbleStyles();
   const { custom } = usePokemonTheme();
+
+  const handleClick = isStateLoaded(species) ? navigate.bind(null, `/pokemon/${species.name}`) : undefined;
 
   const renderAvatar = () => {
     if (isStateLoading(species) || isStateLoading(pokemon)) {
@@ -61,6 +71,7 @@ export function ZEvolutionNodeBubble(props: IZEvolutionNodeBubble) {
         padding={ZSizeFixed.ExtraSmall}
         border={ZSizeFixed.ExtraLarge}
         fashion={custom.evolution}
+        onClick={handleClick}
       >
         {renderAvatar()}
       </ZBubble>

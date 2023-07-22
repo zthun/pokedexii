@@ -1,6 +1,6 @@
 import { ZCircusBy } from '@zthun/cirque';
 import { ZCircusSetupRenderer } from '@zthun/cirque-du-react';
-import { ZFashionThemeContext } from '@zthun/fashion-boutique';
+import { ZFashionThemeContext, ZTestRouter } from '@zthun/fashion-boutique';
 import { ZDataRequestBuilder, ZDataSourceStatic, ZFilterBinaryBuilder } from '@zthun/helpful-query';
 import {
   IZEvolution,
@@ -13,6 +13,7 @@ import {
   ZPokemonBuilder,
   ZSpeciesBuilder
 } from '@zthun/pokedex';
+import { MemoryHistory, createMemoryHistory } from 'history';
 import { last } from 'lodash';
 import React from 'react';
 import { Mocked, beforeEach, describe, expect, it } from 'vitest';
@@ -34,6 +35,7 @@ describe('ZEvolutionChainCard', () => {
   let kirlia: IZPokemon;
   let gardevoir: IZPokemon;
   let gallade: IZPokemon;
+  let history: MemoryHistory;
 
   let speciesService: Mocked<IZSpeciesService>;
   let pokemonService: Mocked<IZPokemonService>;
@@ -45,7 +47,9 @@ describe('ZEvolutionChainCard', () => {
         <ZSpeciesServiceContext.Provider value={speciesService}>
           <ZPokemonServiceContext.Provider value={pokemonService}>
             <ZEvolutionServiceContext.Provider value={evolutionService}>
-              <ZEvolutionChainCard evolutionName={evolution.name}></ZEvolutionChainCard>;
+              <ZTestRouter navigator={history} location={history.location}>
+                <ZEvolutionChainCard evolutionName={evolution.name}></ZEvolutionChainCard>;
+              </ZTestRouter>
             </ZEvolutionServiceContext.Provider>
           </ZPokemonServiceContext.Provider>
         </ZSpeciesServiceContext.Provider>
@@ -58,6 +62,8 @@ describe('ZEvolutionChainCard', () => {
   };
 
   beforeEach(() => {
+    history = createMemoryHistory();
+
     evolution = new ZEvolutionBuilder().ralts().build();
 
     ralts$ = new ZSpeciesBuilder().ralts().build();

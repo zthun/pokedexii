@@ -1,6 +1,6 @@
 import { ZCircusBy } from '@zthun/cirque';
 import { ZCircusSetupRenderer } from '@zthun/cirque-du-react';
-import { ZFashionThemeContext } from '@zthun/fashion-boutique';
+import { ZFashionThemeContext, ZTestRouter } from '@zthun/fashion-boutique';
 import {
   IZEvolutionNode,
   IZPokemon,
@@ -11,6 +11,7 @@ import {
   ZPokemonBuilder,
   ZSpeciesBuilder
 } from '@zthun/pokedex';
+import { MemoryHistory, createMemoryHistory } from 'history';
 import { startCase } from 'lodash';
 import React from 'react';
 import { Mocked, beforeEach, describe, expect, it } from 'vitest';
@@ -25,6 +26,7 @@ describe('ZEvolutionNodeBubble', () => {
   let node: IZEvolutionNode;
   let gardevoir$: IZSpecies;
   let gardevoir: IZPokemon;
+  let history: MemoryHistory;
 
   let speciesService: Mocked<IZSpeciesService>;
   let pokemonService: Mocked<IZPokemonService>;
@@ -34,7 +36,9 @@ describe('ZEvolutionNodeBubble', () => {
       <ZFashionThemeContext.Provider value={createPokemonTheme()}>
         <ZSpeciesServiceContext.Provider value={speciesService}>
           <ZPokemonServiceContext.Provider value={pokemonService}>
-            <ZEvolutionNodeBubble node={node} />;
+            <ZTestRouter navigator={history} location={history.location}>
+              <ZEvolutionNodeBubble node={node} />
+            </ZTestRouter>
           </ZPokemonServiceContext.Provider>
         </ZSpeciesServiceContext.Provider>
       </ZFashionThemeContext.Provider>
@@ -46,6 +50,8 @@ describe('ZEvolutionNodeBubble', () => {
   };
 
   beforeEach(() => {
+    history = createMemoryHistory();
+
     node = new ZEvolutionNodeBuilder().gardevoir().build();
 
     gardevoir$ = new ZSpeciesBuilder().gardevoir().build();
@@ -90,6 +96,18 @@ describe('ZEvolutionNodeBubble', () => {
       const actual = await target.name();
       // Assert.
       expect(actual).toEqual(startCase(gardevoir.name));
+    });
+
+    it('click should navigate you to the selected species', async () => {
+      // Arrange.
+      const expected = `/pokemon/${gardevoir$.name}`;
+      const target = await createTestTarget();
+      const bubble = await target.bubble();
+      // Act.
+      await bubble.click();
+      const actual = history.location.pathname;
+      // Assert
+      expect(actual).toEqual(expected);
     });
   });
 });
