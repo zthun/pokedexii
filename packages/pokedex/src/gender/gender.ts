@@ -1,5 +1,5 @@
 export enum ZGender {
-  Male = 'male',
   Female = 'female',
+  Male = 'male',
   Genderless = 'genderless'
 }
