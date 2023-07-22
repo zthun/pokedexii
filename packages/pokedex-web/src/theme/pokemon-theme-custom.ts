@@ -1,4 +1,4 @@
-import { IZFashion, ZFashionBuilder, rgb, white } from '@zthun/fashion-theme';
+import { IZFashion, ZFashionBuilder, fromRgb, rgb, white } from '@zthun/fashion-theme';
 import { ZType } from '@zthun/pokedex';
 import {
   createAttackStatFashion,
@@ -45,7 +45,15 @@ export interface IZPokemonThemeCustom {
 }
 
 function createEvolutionFashion() {
-  return new ZFashionBuilder().name('Evolution').main(rgb(90, 90, 90)).border(white()).contrast(white()).build();
+  return new ZFashionBuilder()
+    .name('Evolution')
+    .spectrum(fromRgb(90, 90, 90))
+    .border(white())
+    .focus({
+      border: rgb(144, 202, 249)
+    })
+    .contrast(white())
+    .build();
 }
 
 export function createPokemonThemeCustom(): IZPokemonThemeCustom {
