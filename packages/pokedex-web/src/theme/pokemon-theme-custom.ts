@@ -1,4 +1,4 @@
-import { IZFashion } from '@zthun/fashion-theme';
+import { IZFashion, ZFashionBuilder, rgb, white } from '@zthun/fashion-theme';
 import { ZType } from '@zthun/pokedex';
 import {
   createAttackStatFashion,
@@ -41,6 +41,11 @@ export interface IZPokemonThemeCustom {
     speed: IZFashion;
   };
   types: Record<ZType, IZFashion>;
+  evolution: IZFashion;
+}
+
+function createEvolutionFashion() {
+  return new ZFashionBuilder().name('Evolution').main(rgb(90, 90, 90)).border(white()).contrast(white()).build();
 }
 
 export function createPokemonThemeCustom(): IZPokemonThemeCustom {
@@ -74,6 +79,7 @@ export function createPokemonThemeCustom(): IZPokemonThemeCustom {
       [ZType.Dark]: createDarkTypeFashion(),
       [ZType.Fairy]: createFairyTypeFashion(),
       [ZType.Shadow]: createShadowTypeFashion()
-    }
+    },
+    evolution: createEvolutionFashion()
   };
 }

@@ -13,7 +13,7 @@ export interface IZTypeBadge extends IZComponentStyle, IZComponentAdornment {
 const useTypeBadgeStyles = createStyleHook(({ theme, tailor }: IZPokemonThemeUtility, props: IZTypeBadge) => {
   const { type } = props;
   const fashion = theme.custom.types[type];
-  const border = firstDefined(fashion.main, fashion.dark);
+  const border = firstDefined(fashion.main, fashion.border);
 
   return {
     root: {
