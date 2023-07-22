@@ -21,11 +21,11 @@
   },
   "devDependencies": {
     "@babel/core": "^7.22.9",
-    "@commitlint/cli": "^17.6.6",
-    "@commitlint/config-conventional": "^17.6.6",
+    "@commitlint/cli": "^17.6.7",
+    "@commitlint/config-conventional": "^17.6.7",
     "@types/jsdom": "^21.1.1",
     "@types/lodash": "^4.14.195",
-    "@types/node": "^20.4.2",
+    "@types/node": "^20.4.4",
     "@vitest/coverage-istanbul": "^0.33.0",
     "@zthun/lint-janitor": "^14.2.0",
     "@zthun/lint-janitor-config": "^14.2.0",
@@ -38,7 +38,7 @@
     "ts-node": "^10.9.1",
     "tsconfig-paths": "^4.2.0",
     "typescript": "^5.1.6",
-    "vite": "^4.4.4",
+    "vite": "^4.4.6",
     "vitest": "^0.33.0",
     "vitest-tsconfig-paths": "^3.4.1"
   },
