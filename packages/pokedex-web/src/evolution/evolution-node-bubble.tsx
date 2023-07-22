@@ -7,6 +7,7 @@ import { startCase } from 'lodash';
 import React from 'react';
 import { usePokemon } from '../pokemon/pokemon-service';
 import { useSpecies } from '../species/species-service';
+import { usePokemonTheme } from '../theme/pokemon-theme';
 
 export interface IZEvolutionNodeBubble {
   node: IZEvolutionNode;
@@ -26,6 +27,7 @@ export function ZEvolutionNodeBubble(props: IZEvolutionNodeBubble) {
   const [species] = useSpecies(node.species);
   const [pokemon] = usePokemon(asStateData(species)?.main);
   const { classes } = useEvolutionBubbleStyles();
+  const { custom } = usePokemonTheme();
 
   const renderAvatar = () => {
     if (isStateLoading(species) || isStateLoading(pokemon)) {
@@ -58,6 +60,7 @@ export function ZEvolutionNodeBubble(props: IZEvolutionNodeBubble) {
         width={ZSizeFixed.Large}
         padding={ZSizeFixed.ExtraSmall}
         border={ZSizeFixed.ExtraLarge}
+        fashion={custom.evolution}
       >
         {renderAvatar()}
       </ZBubble>
