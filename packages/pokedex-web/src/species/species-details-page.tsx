@@ -54,7 +54,7 @@ export function ZSpeciesDetailsPage() {
         <ZSpeciesVarietiesCard speciesName={name} value={variety} onValueChange={setVariety} />
         <ZPokemonAttributesCard pokemonName={pokemon} />
         <ZPokemonStatsCard pokemonName={pokemon} />
-        <ZGridSpan columnStart={1} columnEnd={3} columnStartMd='unset' columnEndMd='unset'>
+        <ZGridSpan columnStart={1} columnEnd={4} columnStartMd='unset' columnEndMd='unset'>
           <ZEvolutionChainCard evolutionName={String(species.evolution)} />
         </ZGridSpan>
       </ZGrid>
