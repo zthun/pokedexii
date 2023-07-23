@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.13.0](https://github.com/zthun/pokedexii/compare/v0.12.0...v0.13.0) (2023-07-23)
+
+
+### Features
+
+* render trigger information for evolutions ([5a1517b](https://github.com/zthun/pokedexii/commit/5a1517be61c88b98f72539805f63e6bd0ac51aee))
+
+
+
 ## [0.12.0](https://github.com/zthun/pokedexii/compare/v0.11.2...v0.12.0) (2023-07-22)
 
 

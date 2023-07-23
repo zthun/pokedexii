@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.13.0](https://github.com/zthun/pokedexii/compare/v0.12.0...v0.13.0) (2023-07-23)
+
+
+### Bug Fixes
+
+* gender order now matches pokeapi ([2bb3619](https://github.com/zthun/pokedexii/commit/2bb36193a486ba7a77f5651c44b1468d5d8f0846))
+
+
+
 ## [0.12.0](https://github.com/zthun/pokedexii/compare/v0.11.2...v0.12.0) (2023-07-22)
 
 **Note:** Version bump only for package @zthun/pokedex
