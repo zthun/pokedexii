@@ -64,7 +64,7 @@ export function ZEvolutionNodeList(props: IZEvolutionNodeList) {
     addRequirement(trigger.beauty, 'Beauty');
     addRequirement(trigger.gender, 'Gender');
     addRequirement(trigger.happiness, 'Happiness');
-    addRequirement(trigger.held, 'Item');
+    addRequirement(trigger.held, 'Hold');
     addRequirement(trigger.item, 'Item');
     addRequirement(trigger.level, 'Level');
     addRequirement(trigger.location, 'Location');
