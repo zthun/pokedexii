@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.12.0](https://github.com/zthun/pokedexii/compare/v0.11.2...v0.12.0) (2023-07-22)
+
+
+### Features
+
+* clicking on an evolution node takes you to the species ([0bf3b5e](https://github.com/zthun/pokedexii/commit/0bf3b5ef017553c2e1f81699fb7275b2df02f913))
+
+
+### Bug Fixes
+
+* variant resets to first when location changes on species details ([a9a9ac1](https://github.com/zthun/pokedexii/commit/a9a9ac1a21d5bbe181184796e69c960c8d20e670))
+
+
+
 ## [0.11.2](https://github.com/zthun/pokedexii/compare/v0.11.1...v0.11.2) (2023-07-22)
 
 **Note:** Version bump only for package @zthun/pokedex-web
