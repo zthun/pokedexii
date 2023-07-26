@@ -19,8 +19,8 @@
     "access": "public"
   },
   "dependencies": {
-    "@zthun/helpful-fn": "^0.18.0",
-    "@zthun/helpful-query": "^0.18.0",
+    "@zthun/helpful-fn": "^0.20.1",
+    "@zthun/helpful-query": "^0.20.1",
     "@zthun/webigail-http": "^0.1.0",
     "@zthun/webigail-url": "^0.1.0",
     "localforage": "^1.10.0",
