@@ -1,5 +1,6 @@
 import { IZCircusDriver, ZCircusBy, ZCircusComponentModel } from '@zthun/cirque';
 import { ZType } from '@zthun/pokedex';
+import { kebabCase } from 'lodash';
 import { ZResourceCardComponentModel } from '../resource/resource-card.cm';
 import { ZTypeBadgeComponentModel } from '../type/type-badge.cm';
 
@@ -42,6 +43,12 @@ export class ZPokemonAttributesCardComponentModel extends ZCircusComponentModel 
   public async weakness(type: ZType): Promise<ZTypeBadgeComponentModel | null> {
     const group = await this._weaknesses();
     return ZCircusBy.optional(group, ZTypeBadgeComponentModel, type);
+  }
+
+  public async abilities(): Promise<string[]> {
+    const group = await this.driver.query('.ZPokemonAttributesCard-ability');
+    const abilities = await Promise.all(group.map((a) => a.text()));
+    return abilities.map((f) => f.replace('(Hidden)', '').trim()).map((a) => kebabCase(a));
   }
 
   public async has4xDamage(type: ZType): Promise<boolean> {

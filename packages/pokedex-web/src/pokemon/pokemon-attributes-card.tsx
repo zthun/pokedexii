@@ -1,9 +1,11 @@
-import { ZBox, ZCaption, ZIconFontAwesome, ZLabeled } from '@zthun/fashion-boutique';
+import { ZBox, ZCaption, ZIconFontAwesome, ZLabeled, ZTextColor } from '@zthun/fashion-boutique';
 import { ZSizeFixed } from '@zthun/fashion-tailor';
 import { cssJoinDefined } from '@zthun/helpful-fn';
-import { IZPokemon } from '@zthun/pokedex';
+import { IZPokemon, IZPokemonAbility } from '@zthun/pokedex';
+import { startCase } from 'lodash';
 import React, { ReactNode } from 'react';
 import { ZResourceCard } from '../resource/resource-card';
+import { usePokemonTheme } from '../theme/pokemon-theme';
 import { ZTypeBadges } from '../type/type-badges';
 import { IZPokemonResourceCard } from './pokemon-resource-card';
 import { usePokemon } from './pokemon-service';
@@ -11,6 +13,7 @@ import { usePokemon } from './pokemon-service';
 export function ZPokemonAttributesCard(props: IZPokemonResourceCard) {
   const { pokemonName } = props;
   const [pokemon] = usePokemon(pokemonName);
+  const { success: hidden, inherit } = usePokemonTheme();
 
   const renderAttribute = (label: ReactNode, value: ReactNode) => (
     <ZBox margin={{ bottom: ZSizeFixed.Medium }}>
@@ -49,12 +52,33 @@ export function ZPokemonAttributesCard(props: IZPokemonResourceCard) {
     );
   };
 
+  const renderAbilities = (pokemon: IZPokemon) => {
+    const { abilities } = pokemon;
+
+    const renderAbility = (ability: IZPokemonAbility) => {
+      const flavor = startCase(ability.name);
+      return (
+        <ZTextColor key={ability.name} fashion={ability.hidden ? hidden : inherit}>
+          <ZCaption className={cssJoinDefined('ZPokemonAttributesCard-ability')} compact>
+            {ability.hidden ? `${flavor} (Hidden)` : flavor}
+          </ZCaption>
+        </ZTextColor>
+      );
+    };
+
+    return renderAttribute(
+      'Abilities',
+      <div className={cssJoinDefined('ZPokemonAttributesCard-abilities')}>{abilities.map(renderAbility)}</div>
+    );
+  };
+
   const renderContent = ([pokemon]: IZPokemon[]) => {
     const { types, weaknesses } = pokemon;
     return (
       <>
         {renderHeight(pokemon)}
         {renderWeight(pokemon)}
+        {renderAbilities(pokemon)}
         {renderAttribute('Types', <ZTypeBadges className='ZPokemonAttributesCard-types' types={types} />)}
         {renderAttribute(
           'Weaknesses',

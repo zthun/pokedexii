@@ -75,6 +75,16 @@ describe('ZPokemonAttributesCard', () => {
       expect(actual).toEqual(charizard.types);
     });
 
+    it('should render the pokemon abilities', async () => {
+      // Arrange.
+      const target = await createTestTarget();
+      const expected = charizard.abilities.map((a) => a.name);
+      // Act.
+      const actual = await target.abilities();
+      // Assert.
+      expect(actual).toEqual(expected);
+    });
+
     it('should render the pokemon weaknesses', async () => {
       // Arrange.
       const target = await createTestTarget();
