@@ -3,8 +3,8 @@ import { ZSizeFixed, ZSizeVaried } from '@zthun/fashion-tailor';
 import { IZType, ZType } from '@zthun/pokedex';
 import { startCase } from 'lodash';
 import React from 'react';
-import { usePokemonTheme } from 'src/theme/pokemon-theme';
 import { ZResourceCard } from '../resource/resource-card';
+import { usePokemonTheme } from '../theme/pokemon-theme';
 import { ZTypeBadges } from './type-badges';
 import { useType } from './type-service';
 
