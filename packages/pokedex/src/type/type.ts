@@ -30,6 +30,7 @@ export interface IZType extends IZResource<ZType> {
   halfDamageTo: ZType[];
   noDamageFrom: ZType[];
   noDamageTo: ZType[];
+  artwork: string;
 }
 
 export class ZTypeBuilder {
@@ -44,7 +45,8 @@ export class ZTypeBuilder {
       halfDamageFrom: [],
       halfDamageTo: [],
       noDamageFrom: [],
-      noDamageTo: []
+      noDamageTo: [],
+      artwork: '/svg/normal.svg'
     };
   }
 
@@ -55,6 +57,7 @@ export class ZTypeBuilder {
 
   public name(type: ZType) {
     this._type.name = type;
+    this._type.artwork = `/svg/${type}.svg`;
     return this;
   }
 
