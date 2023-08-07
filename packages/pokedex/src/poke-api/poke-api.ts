@@ -68,8 +68,15 @@ export class ZPokeApi implements IPokeApi {
     return this._resource('pokemon', name);
   }
 
-  public typeList(): Promise<IPokeApiPage> {
-    return this._resource('type');
+  public async typeList(): Promise<IPokeApiPage> {
+    // Note:  Shadow and unknown aren't actually types
+    // so we can just exclude them for now until some
+    // game actually uses them.  I'm pretty sure these
+    // are placeholders.
+    const exclude = ['shadow', 'unknown'];
+    const page = await this._resource<IPokeApiPage>('type');
+    page.results = page.results.filter((t) => exclude.indexOf(t.name) < 0);
+    return page;
   }
 
   public type(name: string): Promise<IPokeApiType> {

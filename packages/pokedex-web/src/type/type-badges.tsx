@@ -16,10 +16,11 @@ function typeIsPokemonWeakness(t: any): t is IZPokemonWeakness {
 
 export interface IZTypeBadges extends IZComponentStyle {
   types: (ZType | IZPokemonWeakness)[];
+  compact?: boolean;
 }
 
 export function ZTypeBadges(props: IZTypeBadges) {
-  const { className, types } = props;
+  const { className, compact, types } = props;
 
   const render4xDamage = () => (
     <ZIconFontAwesome
@@ -39,16 +40,19 @@ export function ZTypeBadges(props: IZTypeBadges) {
   };
 
   const _types: IZTypeWithBadge[] = useMemo(() => types.map(typeWithBadge), [types]);
+  const columns = compact ? 'auto auto auto auto' : '1fr 1fr';
+  const columnsXs = compact ? 'auto auto auto auto' : '1fr';
 
   return (
     <ZGrid
       className={cssJoinDefined('ZTypeBadges-root', className)}
-      columns='1fr 1fr'
-      columnsXs='1fr'
+      columns={columns}
+      columnsXs={columnsXs}
+      justifyContent='start'
       gap={ZSizeFixed.Small}
     >
       {_types.map((t) => (
-        <ZTypeBadge key={t.type} type={t.type} suffix={t.suffix} />
+        <ZTypeBadge key={t.type} compact={compact} type={t.type} suffix={t.suffix} />
       ))}
     </ZGrid>
   );

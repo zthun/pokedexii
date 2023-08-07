@@ -1,12 +1,21 @@
-import { IZComponentAdornment, IZComponentStyle, ZLineItem, createStyleHook } from '@zthun/fashion-boutique';
+import {
+  IZComponentAdornment,
+  IZComponentStyle,
+  ZCaption,
+  ZImageSource,
+  ZLineItem,
+  ZStack,
+  createStyleHook
+} from '@zthun/fashion-boutique';
 import { ZSizeFixed } from '@zthun/fashion-tailor';
-import { cssJoinDefined, firstDefined } from '@zthun/helpful-fn';
-import { ZType } from '@zthun/pokedex';
+import { ZOrientation, cssJoinDefined, firstDefined } from '@zthun/helpful-fn';
+import { ZType, ZTypeBuilder } from '@zthun/pokedex';
 import { startCase } from 'lodash';
 import React, { useMemo } from 'react';
 import { IZPokemonThemeUtility } from '../theme/pokemon-theme';
 
 export interface IZTypeBadge extends IZComponentStyle, IZComponentAdornment {
+  compact?: boolean;
   type: ZType;
 }
 
@@ -29,13 +38,34 @@ const useTypeBadgeStyles = createStyleHook(({ theme, tailor }: IZPokemonThemeUti
 });
 
 export function ZTypeBadge(props: IZTypeBadge) {
-  const { type, className, prefix, suffix } = props;
+  const { type, className, compact, suffix } = props;
   const { classes } = useTypeBadgeStyles(props);
-  const name = useMemo(() => startCase(type), [type]);
+  const artwork = useMemo(() => new ZTypeBuilder().name(type).build().artwork, [type]);
+
+  const renderBody = () => {
+    const icon = (
+      <ZImageSource
+        className='ZTypeBadge-icon'
+        src={artwork}
+        name={type}
+        width={ZSizeFixed.ExtraSmall}
+        height={ZSizeFixed.ExtraSmall}
+      />
+    );
+
+    const body = compact ? null : <ZCaption className='ZTypeBadge-name'>{startCase(type)}</ZCaption>;
+
+    return (
+      <ZStack gap={ZSizeFixed.Small} orientation={ZOrientation.Horizontal} alignItems='center'>
+        {icon}
+        {body}
+      </ZStack>
+    );
+  };
 
   return (
     <div className={cssJoinDefined('ZTypeBadge-root', className, classes.root)} data-name={type}>
-      <ZLineItem prefix={prefix} body={name} suffix={suffix} />
+      <ZLineItem body={renderBody()} suffix={suffix} />
     </div>
   );
 }

@@ -3,9 +3,9 @@ import { ZFashionBuilder, black, white } from '@zthun/fashion-theme';
 export function createBugTypeFashion() {
   return new ZFashionBuilder()
     .name('Bug')
-    .main('linear-gradient(180deg, rgba(212,252,105,1) 0%, rgba(134,218,54,1) 100%)')
+    .main('linear-gradient(180deg, rgb(169 201 84) 0%, rgb(91 141 44) 100%)')
     .border('#e0f97a')
-    .contrast(black())
+    .contrast(white())
     .build();
 }
 
@@ -30,18 +30,18 @@ export function createDragonTypeFashion() {
 export function createElectricTypeFashion() {
   return new ZFashionBuilder()
     .name('Electric')
-    .main('linear-gradient(180deg, rgba(252,242,0,1) 0%, rgba(227,166,0,1) 100%)')
+    .main('linear-gradient(180deg, rgb(255 200 1) 0%, rgb(169 124 2) 100%)')
     .border('#e9bc00')
-    .contrast(black())
+    .contrast(white())
     .build();
 }
 
 export function createFairyTypeFashion() {
   return new ZFashionBuilder()
     .name('Fairy')
-    .main('linear-gradient(180deg, rgba(255,185,220,1) 0%, rgba(253,143,207,1) 100%)')
+    .main('linear-gradient(180deg, rgb(248 190 219) 0%, rgb(193 82 147) 100%)')
     .border('#feb1e1')
-    .contrast(black())
+    .contrast(white())
     .build();
 }
 
@@ -68,7 +68,7 @@ export function createFlyingTypeFashion() {
     .name('Flying')
     .main('linear-gradient(180deg, rgba(124,247,253,1) 0%, rgba(8,144,226,1) 100%)')
     .border('#44b3e4')
-    .contrast(black())
+    .contrast(white())
     .build();
 }
 
@@ -94,27 +94,27 @@ export function createGrassTypeFashion() {
 export function createGroundTypeFashion() {
   return new ZFashionBuilder()
     .name('Ground')
-    .main('linear-gradient(180deg, rgba(251,221,134,1) 0%, rgba(209,170,106,1) 100%)')
-    .border('#f0da9a')
-    .contrast(black())
+    .main('linear-gradient(180deg, rgb(213 163 18) 0%, rgb(120 71 17) 100%)')
+    .border('#a98e40')
+    .contrast(white())
     .build();
 }
 
 export function createIceTypeFashion() {
   return new ZFashionBuilder()
     .name('Ice')
-    .main('linear-gradient(180deg, rgba(230,255,255,1) 0%, rgba(190,254,255,1) 100%)')
+    .main('linear-gradient(180deg, rgb(106 232 232) 0%, rgb(0 164 168) 100%)')
     .border('#97e0ff')
-    .contrast(black())
+    .contrast(white())
     .build();
 }
 
 export function createNormalTypeFashion() {
   return new ZFashionBuilder()
     .name('Normal')
-    .main('linear-gradient(180deg, rgba(220,213,199,1) 0%, rgba(190,178,156,1) 100%)')
+    .main('linear-gradient(180deg, rgb(167 162 152) 0%, rgb(118 109 94) 100%)')
     .border('#dad4c8')
-    .contrast(black())
+    .contrast(white())
     .build();
 }
 
@@ -140,8 +140,8 @@ export function createPsychicTypeFashion() {
 export function createRockTypeFashion() {
   return new ZFashionBuilder()
     .name('Rock')
-    .main('linear-gradient(180deg, rgba(161,134,79,1) 0%, rgba(204,148,56,1) 100%)')
-    .border('#dfba66')
+    .main('linear-gradient(180deg, rgb(155 141 114) 0%, rgb(192 165 119) 100%)')
+    .border('#c9b995')
     .contrast(white())
     .build();
 }
@@ -149,9 +149,9 @@ export function createRockTypeFashion() {
 export function createSteelTypeFashion() {
   return new ZFashionBuilder()
     .name('Steel')
-    .main('linear-gradient(180deg, rgba(215,212,205,1) 0%, rgba(149,146,141,1) 100%)')
+    .main('linear-gradient(180deg, rgb(174 172 167) 0%, rgb(117 114 109) 100%)')
     .border('#cdcbc9')
-    .contrast(black())
+    .contrast(white())
     .build();
 }
 
@@ -169,7 +169,7 @@ export function createUnknownTypeFashion() {
     .name('Unknown')
     .main('linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(213,213,213,1) 100%)')
     .border(black())
-    .contrast(black())
+    .contrast(white())
     .build();
 }
 
