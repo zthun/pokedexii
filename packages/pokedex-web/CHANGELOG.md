@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.15.0](https://github.com/zthun/pokedexii/compare/v0.14.0...v0.15.0) (2023-08-07)
+
+
+### Features
+
+* darker theme colors ([aa9d429](https://github.com/zthun/pokedexii/commit/aa9d4290a9397ca17948a1fa88c482c94b094660))
+* root level navigation drawer ([d516c4a](https://github.com/zthun/pokedexii/commit/d516c4a8ad40ae4d329af6a3fec5a1bad46b7e98))
+* type badge list can display icons only ([922faf7](https://github.com/zthun/pokedexii/commit/922faf7741b4f1b25c9477aad1c5155fc20fe810))
+* type badges display icons ([90f3761](https://github.com/zthun/pokedexii/commit/90f37612b0db0be88ce7e869f85c54f5fd2cc105))
+* type icons ([1621626](https://github.com/zthun/pokedexii/commit/16216263d2deb81157dce55d8e74ef70cfd62b93))
+* type list page for showing type matchups ([dce4ee7](https://github.com/zthun/pokedexii/commit/dce4ee78ae7278759d5b078bfbdd6fa71cd2c5da))
+
+
+
 ## [0.14.0](https://github.com/zthun/pokedexii/compare/v0.13.1...v0.14.0) (2023-07-26)
 
 

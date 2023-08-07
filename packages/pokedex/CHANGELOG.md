@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.15.0](https://github.com/zthun/pokedexii/compare/v0.14.0...v0.15.0) (2023-08-07)
+
+
+### Features
+
+* do not return unknown or shadow in the type list ([a86647b](https://github.com/zthun/pokedexii/commit/a86647ba53baa6c58b1cf1207b9a343f9d6f5dd2))
+* types can now have artwork ([9601d09](https://github.com/zthun/pokedexii/commit/9601d09bc5a22c0d9ed7cb6f1730590db561e7e6))
+
+
+
 ## [0.14.0](https://github.com/zthun/pokedexii/compare/v0.13.1...v0.14.0) (2023-07-26)
 
 **Note:** Version bump only for package @zthun/pokedex
