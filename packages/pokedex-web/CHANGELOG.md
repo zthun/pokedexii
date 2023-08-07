@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.16.0](https://github.com/zthun/pokedexii/compare/v0.15.0...v0.16.0) (2023-08-07)
+
+
+### Features
+
+* attributes now render pokemon abilities ([a7b1e56](https://github.com/zthun/pokedexii/commit/a7b1e56f37cbfb9a943fd268cbc2cbe8b53efa51))
+
+
+
 ## [0.15.0](https://github.com/zthun/pokedexii/compare/v0.14.0...v0.15.0) (2023-08-07)
 
 
