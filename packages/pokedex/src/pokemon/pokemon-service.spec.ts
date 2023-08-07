@@ -19,7 +19,11 @@ describe('ZPokemonService', () => {
   const createTestTarget = () => createPokemonService(api);
 
   const createApiPokemon = (pokemon: IZPokemon): IPokeApiPokemon => ({
-    abilities: [],
+    abilities: pokemon.abilities.map((a, i) => ({
+      ability: { name: a.name, url: `http://pokeapi/ability/${a.name}` },
+      is_hidden: a.hidden,
+      slot: i
+    })),
     base_experience: 1,
     forms: [],
     game_indices: [],
@@ -150,6 +154,11 @@ describe('ZPokemonService', () => {
   it('should set the types', async () => {
     const actual = (await createTestTarget().get(charizard.name)).types;
     expect(actual).toEqual(charizard.types);
+  });
+
+  it('should set the abilities', async () => {
+    const actual = (await createTestTarget().get(charizard.name)).abilities;
+    expect(actual).toEqual(charizard.abilities);
   });
 
   it('should set the hp stat', async () => {

@@ -7,7 +7,7 @@ import { IPokeApiPokemon } from '../poke-api/poke-api-pokemon';
 import { IPokeApiRetrieval } from '../poke-api/poke-api-retrieval';
 import { IZResourceService, ZResourceService } from '../resource/resource-service';
 import { ZType } from '../type/type';
-import { IZPokemon, IZPokemonWeakness, ZPokemonBuilder } from './pokemon';
+import { IZPokemon, IZPokemonAbility, IZPokemonWeakness, ZPokemonBuilder } from './pokemon';
 
 type Converter = IPokeApiConverter<IPokeApiPokemon, IZPokemon>;
 type Retriever = IPokeApiRetrieval<IPokeApiPokemon>;
@@ -43,6 +43,11 @@ class ZPokemonService implements Converter, Retriever {
 
     const types = resource.types.map((t) => t.type.name as ZType);
 
+    const abilities: IZPokemonAbility[] = resource.abilities.map((a) => ({
+      name: a.ability.name,
+      hidden: a.is_hidden
+    }));
+
     const weaknesses = await this._calculateWeaknesses(types);
 
     const pokemon = new ZPokemonBuilder()
@@ -50,6 +55,7 @@ class ZPokemonService implements Converter, Retriever {
       .name(resource.name)
       .artwork(artwork)
       .types(types)
+      .abilities(abilities)
       .weaknesses(weaknesses)
       .hp(hp.base_stat, hp.effort)
       .attack(attack.base_stat, attack.effort)

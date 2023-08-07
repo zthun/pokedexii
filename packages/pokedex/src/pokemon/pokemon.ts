@@ -37,6 +37,20 @@ export interface IZPokemonWeakness {
 }
 
 /**
+ * An ability for a pokemon.
+ */
+export interface IZPokemonAbility {
+  /**
+   * The ability name.
+   */
+  name: string;
+  /**
+   * Whether or not the ability is hidden.
+   */
+  hidden: boolean;
+}
+
+/**
  * Represents information about a pokemon variant.
  */
 export interface IZPokemon extends IZResource {
@@ -76,6 +90,11 @@ export interface IZPokemon extends IZResource {
    * The types for this pokemon.
    */
   types: ZType[];
+
+  /**
+   * The abilities for this pokemon.
+   */
+  abilities: IZPokemonAbility[];
 }
 
 /**
@@ -107,7 +126,8 @@ export class ZPokemonBuilder {
         speed: { base: 0, effort: 0 }
       },
       types: [],
-      weaknesses: []
+      weaknesses: [],
+      abilities: []
     };
   }
 
@@ -228,6 +248,35 @@ export class ZPokemonBuilder {
    */
   public weakness(weakness: IZPokemonWeakness) {
     return this.weaknesses(this._pokemon.weaknesses.concat(weakness));
+  }
+
+  /**
+   * Sets the list of pokemon abilities.
+   *
+   * @param abilities -
+   *        The abilities to set.
+   *
+   * @returns
+   *        This object.
+   */
+  public abilities(abilities: IZPokemonAbility[]) {
+    this._pokemon.abilities = abilities;
+    return this;
+  }
+
+  /**
+   * Adds an ability.
+   *
+   * @param ability -
+   *        The name of the ability.
+   * @param hidden -
+   *        Whether or not the ability is hidden.
+   *
+   * @returns
+   *        This object.
+   */
+  public ability(ability: string, hidden = false) {
+    return this.abilities(this._pokemon.abilities.concat({ name: ability, hidden }));
   }
 
   /**
@@ -395,6 +444,8 @@ export class ZPokemonBuilder {
       .name('bulbasaur')
       .type(ZType.Grass)
       .type(ZType.Poison)
+      .ability('overgrow')
+      .ability('chlorophyll', true)
       .doubleDamageFrom(ZType.Fire)
       .doubleDamageFrom(ZType.Flying)
       .doubleDamageFrom(ZType.Ice)
@@ -423,6 +474,8 @@ export class ZPokemonBuilder {
     return this.id(4)
       .name('charmander')
       .type(ZType.Fire)
+      .ability('blaze')
+      .ability('solar-power', true)
       .doubleDamageFrom(ZType.Ground)
       .doubleDamageFrom(ZType.Rock)
       .doubleDamageFrom(ZType.Water)
@@ -441,6 +494,8 @@ export class ZPokemonBuilder {
       .name('charizard')
       .type(ZType.Fire)
       .type(ZType.Flying)
+      .ability('blaze')
+      .ability('solar-power', true)
       .doubleDamageFrom(ZType.Electric)
       .quadrupleDamageFrom(ZType.Rock)
       .doubleDamageFrom(ZType.Water)
@@ -468,6 +523,8 @@ export class ZPokemonBuilder {
     return this.id(7)
       .name('squirtle')
       .type(ZType.Water)
+      .ability('torrent')
+      .ability('rain-dish', true)
       .doubleDamageFrom(ZType.Electric)
       .doubleDamageFrom(ZType.Grass)
       .hp(44)
@@ -494,6 +551,8 @@ export class ZPokemonBuilder {
     return this.id(25)
       .name('pikachu')
       .type(ZType.Electric)
+      .ability('static')
+      .ability('lightning-rod', true)
       .doubleDamageFrom(ZType.Ground)
       .hp(35)
       .attack(55)
@@ -520,6 +579,9 @@ export class ZPokemonBuilder {
       .name('ralts')
       .type(ZType.Psychic)
       .type(ZType.Fairy)
+      .ability('synchronize')
+      .ability('trace')
+      .ability('telepathy', true)
       .doubleDamageFrom(ZType.Ghost)
       .doubleDamageFrom(ZType.Poison)
       .doubleDamageFrom(ZType.Steel)
@@ -548,6 +610,9 @@ export class ZPokemonBuilder {
       .name('kirlia')
       .type(ZType.Psychic)
       .type(ZType.Fairy)
+      .ability('synchronize')
+      .ability('trace')
+      .ability('telepathy', true)
       .doubleDamageFrom(ZType.Ghost)
       .doubleDamageFrom(ZType.Poison)
       .doubleDamageFrom(ZType.Steel)
@@ -576,6 +641,9 @@ export class ZPokemonBuilder {
       .name('gardevoir')
       .type(ZType.Psychic)
       .type(ZType.Fairy)
+      .ability('synchronize')
+      .ability('trace')
+      .ability('telepathy', true)
       .doubleDamageFrom(ZType.Ghost)
       .doubleDamageFrom(ZType.Poison)
       .doubleDamageFrom(ZType.Steel)
@@ -604,6 +672,9 @@ export class ZPokemonBuilder {
       .name('gallade')
       .type(ZType.Psychic)
       .type(ZType.Fighting)
+      .ability('steadfast')
+      .ability('sharpness')
+      .ability('justified', true)
       .doubleDamageFrom(ZType.Fairy)
       .doubleDamageFrom(ZType.Flying)
       .doubleDamageFrom(ZType.Ghost)
