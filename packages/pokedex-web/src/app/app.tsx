@@ -15,6 +15,7 @@ import React from 'react';
 import { ZSpeciesDetailsPage } from '../species/species-details-page';
 import { ZSpeciesListPage } from '../species/species-list-page';
 import { createPokemonTheme } from '../theme/pokemon-theme';
+import { ZTypeListPage } from '../type/type-list-page';
 
 const PokemonTheme = createPokemonTheme();
 
@@ -41,6 +42,7 @@ export function ZPokedexApp() {
           <ZRouteMap>
             <ZRoute path='/pokemon/:name' element={<ZSpeciesDetailsPage />} />
             <ZRoute path='/pokemon' element={<ZSpeciesListPage />} />
+            <ZRoute path='/types' element={<ZTypeListPage />} />
             <ZRoute path='' element={<ZNavigate to='/pokemon' />} />
             <ZRoute path='*' element={<ZNotFound />} />
           </ZRouteMap>
