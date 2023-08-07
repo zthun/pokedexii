@@ -33,7 +33,12 @@ export function ZTypeCard(props: IZTypeCard) {
   const renderType = ([type]: [IZType]) => (
     <ZStack gap={ZSizeFixed.Medium}>
       <ZStack justifyContent='center' alignItems='center'>
-        <ZBubble fashion={custom.types[type.name]} width={ZSizeFixed.Medium} padding={ZSizeFixed.Medium}>
+        <ZBubble
+          fashion={custom.types[type.name]}
+          width={ZSizeFixed.Medium}
+          padding={ZSizeFixed.Medium}
+          border={ZSizeFixed.ExtraLarge}
+        >
           <ZImageSource src={type.artwork} width={ZSizeVaried.Full} />
         </ZBubble>{' '}
         <ZH2>{startCase(type.name)}</ZH2>
