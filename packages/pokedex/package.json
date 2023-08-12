@@ -19,11 +19,12 @@
     "access": "public"
   },
   "dependencies": {
+    "@zthun/dalmart-db": "^0.1.0",
+    "@zthun/dalmart-forage": "^0.1.0",
     "@zthun/helpful-fn": "^0.20.1",
     "@zthun/helpful-query": "^0.20.1",
     "@zthun/webigail-http": "^0.1.0",
     "@zthun/webigail-url": "^0.1.0",
-    "localforage": "^1.10.0",
     "lodash": "^4.17.21"
   },
   "devDependencies": {

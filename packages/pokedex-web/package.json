@@ -18,7 +18,7 @@
   },
   "devDependencies": {
     "@cucumber/cucumber": "^9.3.0",
-    "@types/node": "^20.4.8",
+    "@types/node": "^20.4.10",
     "@zthun/cirque": "^4.3.1",
     "@zthun/cirque-du-react": "^4.3.1",
     "@zthun/cirque-du-selenium": "^4.3.1",
@@ -36,7 +36,7 @@
     "ts-node": "^10.9.1",
     "tsconfig-paths": "^4.2.0",
     "typescript": "^5.1.6",
-    "vite": "^4.4.8",
+    "vite": "^4.4.9",
     "vite-tsconfig-paths": "^4.2.0",
     "vitest": "^0.34.1",
     "vitest-mock-extended": "^1.2.0"

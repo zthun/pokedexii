@@ -11,6 +11,7 @@
     "charmander",
     "commitlint",
     "conventionalcommits",
+    "dalmart",
     "DOCKERHUB",
     "gallade",
     "gardevoir",
@@ -19,7 +20,6 @@
     "kalos",
     "kanto",
     "kirlia",
-    "localforage",
     "microbundle",
     "missingno",
     "npmrc",
@@ -39,10 +39,5 @@
     "zthun",
     "zthunworks"
   ],
-  "dictionaries": [
-    "typescript",
-    "node",
-    "npm",
-    "en_US"
-  ]
+  "dictionaries": ["typescript", "node", "npm", "en_US"]
 }

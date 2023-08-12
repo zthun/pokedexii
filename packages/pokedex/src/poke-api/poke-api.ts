@@ -1,8 +1,9 @@
 /* istanbul ignore file -- @preserve */
 
+import { ZDatabaseOptionsBuilder } from '@zthun/dalmart-db';
+import { ZDatabaseForage } from '@zthun/dalmart-forage';
 import { ZHttpRequestBuilder, ZHttpService } from '@zthun/webigail-http';
 import { ZUrlBuilder } from '@zthun/webigail-url';
-import localForage from 'localforage';
 import { IPokeApiEvolutionChain } from './poke-api-evolution-chain';
 import { IPokeApiPage } from './poke-api-page';
 import { IPokeApiPokemon } from './poke-api-pokemon';
@@ -24,11 +25,11 @@ export interface IPokeApi {
 export class ZPokeApi implements IPokeApi {
   private _flightMap = new Map<string, Promise<any>>();
   private _http = new ZHttpService();
+  private _forage = new ZDatabaseForage(new ZDatabaseOptionsBuilder().database(PokeApiUrl).build());
 
   private static _instance = new ZPokeApi();
 
   public static instance() {
-    localForage.config({ name: PokeApiUrl });
     return ZPokeApi._instance;
   }
 
@@ -43,7 +44,7 @@ export class ZPokeApi implements IPokeApi {
     const url = this._resourceUrl(resource, name);
     const request = new ZHttpRequestBuilder().url(url).get().timeout(10000).build();
 
-    const cached = await localForage.getItem<T>(url);
+    const cached = await this._forage.read<T>(url);
 
     if (cached == null) {
       if (!this._flightMap.has(url)) {
@@ -52,7 +53,7 @@ export class ZPokeApi implements IPokeApi {
 
       const response = await this._flightMap.get(url)!;
       const { data } = response;
-      await localForage.setItem<T>(url, data);
+      await this._forage.upsert<T>(url, data);
       this._flightMap.delete(url);
       return data;
     }
