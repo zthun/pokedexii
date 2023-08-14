@@ -22,6 +22,7 @@
     "kirlia",
     "microbundle",
     "missingno",
+    "nestjs",
     "npmrc",
     "overworld",
     "pikachu",
@@ -29,6 +30,7 @@
     "pokeball",
     "pokedex",
     "pokedexii",
+    "pokedexxi",
     "Pokemons",
     "ralts",
     "sinnoh",
@@ -39,5 +41,10 @@
     "zthun",
     "zthunworks"
   ],
-  "dictionaries": ["typescript", "node", "npm", "en_US"]
+  "dictionaries": [
+    "typescript",
+    "node",
+    "npm",
+    "en_US"
+  ]
 }
