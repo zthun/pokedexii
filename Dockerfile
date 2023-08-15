@@ -28,8 +28,13 @@ RUN --mount=type=secret,id=GIT_CREDENTIALS,dst=/root/.git-credentials npx lerna 
     git push --tags
 RUN --mount=type=secret,id=NPM_CREDENTIALS,dst=/root/.npmrc npx lerna publish from-package --yes
 
-FROM node:17.3.0-alpine as pokedex-web-install
+FROM node:lts-alpine as pokedex-web-install
 RUN npm install -g @zthun/pokedex-web
 
-FROM nginx:1.23.3-alpine as pokedex-web
+FROM nginx:stable-alpine as pokedex-web
 COPY --from=pokedex-web-install /usr/local/lib/node_modules/@zthun/pokedex-web/dist/. /usr/share/nginx/html/
+
+FROM node:lts-alpine as pokedex-api
+RUN npm install -g @zthun/pokedex-api
+EXPOSE 3000
+CMD ["pokedex-api"]
