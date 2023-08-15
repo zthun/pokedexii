@@ -1,7 +1,7 @@
 services:
   # Load Balancer (Entry Point)
   pokedexxi.local.zthunworks.com:
-    image: nginx:1.21.5-alpine
+    image: nginx:stable-alpine
     ports:
       - 80:80
       - 443:443
@@ -34,6 +34,8 @@ services:
       - pokedex-mongo-data:/data/db
   pokedex-mongo-express:
     image: mongo-express:0.54
+    ports:
+      - 8081:8081
     depends_on:
       - pokedex-mongo
     environment:
