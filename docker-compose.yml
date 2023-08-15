@@ -1,0 +1,42 @@
+services:
+  # Load Balancer (Entry Point)
+  pokedexxi.local.zthunworks.com:
+    image: nginx:1.21.5-alpine
+    ports:
+      - 80:80
+      - 443:443
+      - 8080:8080
+    volumes:
+      - ./packages/pokedex-proxy/conf.d:/etc/nginx/conf.d
+    depends_on:
+      - pokedex-services-api
+      - pokedex-services-web
+
+  # Node Ports
+  pokedex-services-web:
+    image: node:lts
+    volumes:
+      - .:/usr/dev
+    working_dir: /usr/dev
+    command: npm --workspace @zthun/pokedex-web run start
+  pokedex-services-api:
+    image: node:lts
+    ports:
+      - 9229:9229
+    volumes:
+      - .:/usr/dev
+    working_dir: /usr/dev
+    command: npm --workspace @zthun/pokedex-api run debug
+  # Databases
+  pokedex-mongo:
+    image: mongo:5.0
+    volumes:
+      - pokedex-mongo-data:/data/db
+  pokedex-mongo-express:
+    image: mongo-express:0.54
+    depends_on:
+      - pokedex-mongo
+    environment:
+      - ME_CONFIG_MONGODB_SERVER=pokedex-mongo
+volumes:
+  pokedex-mongo-data:
