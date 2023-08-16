@@ -1,6 +1,8 @@
 import { firstDefined } from '@zthun/helpful-fn';
 import { last, split, trim, trimEnd } from 'lodash';
 
+export const PokeApiUrl = 'https://pokeapi.co/api/v2';
+
 export interface IPokeApiResource {
   url: string;
   name?: string;

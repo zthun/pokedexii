@@ -1,10 +1,11 @@
-import { Inject, Injectable } from '@nestjs/common';
+import { Inject, Injectable, Logger } from '@nestjs/common';
 import { IZDatabaseDocument } from '@zthun/dalmart-db';
 import { sleep } from '@zthun/helpful-fn';
 import { IZHttpService, ZHttpRequestBuilder } from '@zthun/webigail-http';
 import { ZHttpServiceToken } from '@zthun/webigail-nest';
 import { ZUrlBuilder } from '@zthun/webigail-url';
 import { ZPokedexDatabaseToken } from '../database/pokedex-database';
+import { PokeApiUrl } from './resource';
 import { IPokeApiResourcePage } from './resource-page';
 
 export const ZPokedexResourceServiceToken = Symbol();
@@ -15,21 +16,29 @@ export interface IZPokedexResourceService {
 
 @Injectable()
 export class ZPokedexResourceService implements IZPokedexResourceService {
-  public static readonly PokeApiUrl = 'https://pokeapi.co/api/v2';
+  private readonly _logger = new Logger('ZPokedexResourceService');
 
   public constructor(
     @Inject(ZPokedexDatabaseToken) private _dal: IZDatabaseDocument,
     @Inject(ZHttpServiceToken) private _http: IZHttpService
   ) {}
 
-  public async populate<T>(collection: string) {
-    const size = 50;
-    const pageUrl = new ZUrlBuilder()
-      .parse(ZPokedexResourceService.PokeApiUrl)
-      .append(collection)
-      .param('limit', '10000')
-      .build();
+  public static pageEndpoint(collection: string) {
+    return new ZUrlBuilder().parse(PokeApiUrl).append(collection).param('limit', '10000').build();
+  }
+
+  public async _populate<T>(collection: string) {
+    const size = 200;
+    const pageUrl = ZPokedexResourceService.pageEndpoint(collection);
     const resourceListRequest = new ZHttpRequestBuilder().url(pageUrl).get().timeout(10000).build();
+
+    const currentCount = await this._dal.count(collection);
+
+    if (currentCount > 0) {
+      return;
+    }
+
+    this._logger.log(`Populating ${collection}`);
 
     const { data: page } = await this._http.request<IPokeApiResourcePage>(resourceListRequest);
     const { count, results: resourceList } = page;
@@ -46,9 +55,19 @@ export class ZPokedexResourceService implements IZPokedexResourceService {
         })
       );
       resources = resources.concat(results);
-      sleep(500);
+      sleep(1000);
     }
 
     await this._dal.create(collection, resources);
+
+    this._logger.log(`Population of ${collection} successful`);
+  }
+
+  public async populate(collection: string) {
+    try {
+      await this._populate(collection);
+    } catch (e) {
+      this._logger.error(e);
+    }
   }
 }
