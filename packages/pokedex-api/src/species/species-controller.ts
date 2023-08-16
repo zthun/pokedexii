@@ -1,4 +1,4 @@
-import { Controller, Get, Inject } from '@nestjs/common';
+import { Controller, Get, Inject, Param } from '@nestjs/common';
 import { IZSpecies } from '@zthun/pokedex';
 import { IZPokedexSpeciesService, ZPokedexSpeciesServiceToken } from './species-service';
 
@@ -9,5 +9,10 @@ export class ZPokedexSpeciesController {
   @Get()
   public list(): Promise<IZSpecies[]> {
     return this._service.list();
+  }
+
+  @Get(':idOrName')
+  public get(@Param('idOrName') idOrName: string): Promise<IZSpecies> {
+    return this._service.get(idOrName);
   }
 }

@@ -1,3 +1,4 @@
+import { IZSpecies } from '@zthun/pokedex';
 import { IPokeApiResource } from '../resource/resource';
 
 interface IPokeApiSpeciesGenus {
@@ -60,4 +61,36 @@ export interface IPokeApiSpecies {
   pokedex_numbers: IPokeApiSpeciesPokedexNumbers[];
   shape: IPokeApiResource;
   varieties: IPokeApiSpeciesVariety[];
+}
+
+export function createPokeApiSpeciesFrom(species: IZSpecies) {
+  return {
+    base_happiness: species.happiness,
+    capture_rate: species.capture,
+    color: { name: 'blue', url: '' },
+    egg_groups: [],
+    evolution_chain: { url: `https://pokeapi.co/evolution-chain/${species.evolution}` },
+    evolves_from_species: { name: '', url: '' },
+    flavor_text_entries: [],
+    form_descriptions: [],
+    forms_switchable: true,
+    gender_rate: 1,
+    genera: [],
+    generation: { name: '', url: '' },
+    growth_rate: { name: '', url: '' },
+    habitat: { name: '', url: '' },
+    has_gender_differences: false,
+    hatch_counter: 0,
+    id: species.id,
+    is_baby: false,
+    is_legendary: false,
+    is_mythical: false,
+    name: species.name,
+    names: [],
+    order: 0,
+    pal_park_encounters: [],
+    pokedex_numbers: [],
+    shape: { name: '', url: '' },
+    varieties: species.varieties.map((s) => ({ is_default: species.main === s, pokemon: { name: s, url: '' } }))
+  };
 }
