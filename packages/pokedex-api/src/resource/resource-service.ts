@@ -30,14 +30,14 @@ export class ZPokedexResourceService implements IZPokedexResourceService {
   private async _doWithRetry<T>(name: string, milliseconds: number, retries: number, fn: () => Promise<T>) {
     let error: any = null;
 
-    for (let attempts = 0; attempts < retries; ++attempts) {
+    for (let attempts = 1; attempts <= retries; ++attempts) {
       try {
         const result = await fn();
         return result;
       } catch (e) {
-        this._logger.error(`Attempt ${attempts} of retrieving ${name} failed.  Retrying...`);
+        this._logger.warn(`Attempt ${attempts} of retrieving ${name} failed.  Retrying...`);
         error = e;
-        await sleep(milliseconds * (attempts + 1));
+        await sleep(milliseconds * attempts);
       }
     }
 
@@ -87,9 +87,8 @@ export class ZPokedexResourceService implements IZPokedexResourceService {
         sleep(milliseconds);
       }
 
-      await this._dal.create(collection, resources);
-
-      this._logger.log(`Population of ${collection} successful`);
+      const items = await this._dal.create(collection, resources);
+      this._logger.log(`Populated ${collection} with ${items.length} items.`);
     } catch (e) {
       this._logger.error(e.message);
     }
