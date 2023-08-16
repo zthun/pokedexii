@@ -7,8 +7,8 @@ import { ZPokedexModule } from './app/pokedex-module';
   app.setGlobalPrefix('api');
 
   const config = new DocumentBuilder()
-    .setTitle('Pokedexxi API')
-    .setDescription('The API for Pokedexxi')
+    .setTitle('Pokedexii API')
+    .setDescription('The API for Pokedexii')
     .setVersion('1.0')
     .build();
 

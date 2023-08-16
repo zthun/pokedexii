@@ -1,7 +1,7 @@
 {
   "name": "@zthun/pokedex-api",
   "version": "0.16.0",
-  "description": "An API backend for pokedexxi that allows complex queries and faster load times.",
+  "description": "An API backend for pokedexii that allows complex queries and faster load times.",
   "author": "Anthony Bonta",
   "license": "MIT",
   "repository": {

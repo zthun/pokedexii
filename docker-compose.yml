@@ -1,6 +1,6 @@
 services:
   # Load Balancer (Entry Point)
-  pokedexxi.local.zthunworks.com:
+  pokedexii.local.zthunworks.com:
     image: nginx:stable-alpine
     ports:
       - 80:80
