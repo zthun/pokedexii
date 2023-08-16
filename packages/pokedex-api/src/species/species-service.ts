@@ -1,10 +1,9 @@
 import { Inject, Injectable, NotFoundException } from '@nestjs/common';
 import { IZDatabaseDocument } from '@zthun/dalmart-db';
 import { ZDataRequestBuilder, ZFilterBinaryBuilder, ZFilterLogicBuilder } from '@zthun/helpful-query';
-import { IZSpecies, ZSpeciesBuilder } from '@zthun/pokedex';
-import { findId } from 'src/resource/resource';
+import { IZSpecies } from '@zthun/pokedex';
 import { ZPokedexCollection, ZPokedexDatabaseToken } from '../database/pokedex-database';
-import { IPokeApiSpecies } from './species';
+import { IPokeApiSpecies, ZPokeApiSpeciesHelper } from './species';
 
 export const ZPokedexSpeciesServiceToken = Symbol();
 
@@ -17,27 +16,11 @@ export interface IZPokedexSpeciesService {
 export class ZPokedexSpeciesService {
   public constructor(@Inject(ZPokedexDatabaseToken) private _dal: IZDatabaseDocument) {}
 
-  private convert(apiSpecies: IPokeApiSpecies): IZSpecies {
-    const evolution = findId(apiSpecies.evolution_chain);
-
-    let species = new ZSpeciesBuilder()
-      .happiness(apiSpecies.base_happiness)
-      .id(apiSpecies.id)
-      .capture(apiSpecies.capture_rate)
-      .name(apiSpecies.name)
-      .evolution(evolution);
-
-    apiSpecies.varieties.forEach((v) => {
-      species = species.variety(v.pokemon.name!, v.is_default);
-    });
-
-    return species.build();
-  }
-
   public async list(): Promise<IZSpecies[]> {
+    const convert = new ZPokeApiSpeciesHelper();
     const request = new ZDataRequestBuilder().build();
     const _species = await this._dal.read<IPokeApiSpecies>(ZPokedexCollection.PokemonSpecies, request);
-    return _species.map(this.convert.bind(this));
+    return _species.map(convert.to.bind(convert));
   }
 
   public async get(idOrName: string | number): Promise<IZSpecies> {
@@ -52,6 +35,6 @@ export class ZPokedexSpeciesService {
       throw new NotFoundException(`Species, ${idOrName}, was not found.`);
     }
 
-    return this.convert(_species);
+    return new ZPokeApiSpeciesHelper().to(_species);
   }
 }

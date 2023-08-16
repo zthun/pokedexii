@@ -5,8 +5,14 @@ import { IZHttpService, ZHttpRequestBuilder } from '@zthun/webigail-http';
 import { ZHttpServiceToken } from '@zthun/webigail-nest';
 import { ZUrlBuilder } from '@zthun/webigail-url';
 import { ZPokedexDatabaseToken } from '../database/pokedex-database';
-import { PokeApiUrl } from './resource';
-import { IPokeApiResourcePage } from './resource-page';
+import { IPokeApiResource, PokeApiUrl } from './resource';
+
+interface IPokeApiResourcePage {
+  count: number;
+  next?: string | null;
+  previous?: string | null;
+  results: IPokeApiResource[];
+}
 
 export const ZPokedexResourceServiceToken = Symbol();
 

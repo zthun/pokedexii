@@ -7,7 +7,7 @@ import { ZHttpCodeClient, ZHttpCodeSuccess } from '@zthun/webigail-http';
 import request from 'supertest';
 import { afterAll, afterEach, beforeAll, beforeEach, describe, expect, it } from 'vitest';
 import { ZPokedexCollection, ZPokedexDatabaseToken } from '../database/pokedex-database';
-import { createPokeApiSpeciesFrom } from './species';
+import { ZPokeApiSpeciesHelper } from './species';
 import { ZPokedexSpeciesModule } from './species-module';
 
 describe('ZSpeciesApi', () => {
@@ -46,8 +46,10 @@ describe('ZSpeciesApi', () => {
     bulbasaur = new ZSpeciesBuilder().bulbasaur().build();
     species = [squirtle, charmander, bulbasaur];
 
+    const converter = new ZPokeApiSpeciesHelper();
+
     await dal.delete(ZPokedexCollection.PokemonSpecies);
-    await dal.create(ZPokedexCollection.PokemonSpecies, species.map(createPokeApiSpeciesFrom));
+    await dal.create(ZPokedexCollection.PokemonSpecies, species.map(converter.from.bind(converter)));
   });
 
   afterEach(async () => {
