@@ -1,7 +1,8 @@
+/* istanbul ignore file -- @preserve */
 import { Module } from '@nestjs/common';
-import { ZSpeciesController } from '../species/species-controller';
+import { ZPokedexSpeciesModule } from '../species/species-module';
 
 @Module({
-  controllers: [ZSpeciesController]
+  imports: [ZPokedexSpeciesModule]
 })
 export class ZPokedexModule {}
