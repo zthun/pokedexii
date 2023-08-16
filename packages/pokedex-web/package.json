@@ -40,5 +40,9 @@
     "vite-tsconfig-paths": "^4.2.0",
     "vitest": "^0.34.1",
     "vitest-mock-extended": "^1.2.0"
+  },
+  "dependencies": {
+    "@zthun/webigail-http": "^1.0.2",
+    "@zthun/webigail-url": "^1.0.2"
   }
 }
