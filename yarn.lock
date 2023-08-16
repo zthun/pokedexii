@@ -4459,22 +4459,22 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@zthun/fashion-boutique@npm:^0.10.2":
-  version: 0.10.2
-  resolution: "@zthun/fashion-boutique@npm:0.10.2"
+"@zthun/fashion-boutique@npm:^0.11.0":
+  version: 0.11.0
+  resolution: "@zthun/fashion-boutique@npm:0.11.0"
   dependencies:
     "@emotion/react": ^11.11.1
     "@emotion/styled": ^11.11.0
     "@mui/material": ^5.14.5
     "@mui/system": ^5.14.5
     "@zthun/cirque": ^4.3.1
-    "@zthun/fashion-tailor": ^0.10.1
-    "@zthun/fashion-theme": ^0.10.1
+    "@zthun/fashion-tailor": ^0.11.0
+    "@zthun/fashion-theme": ^0.11.0
     "@zthun/helpful-fn": ^2.0.0
     "@zthun/helpful-query": ^2.0.0
     "@zthun/helpful-react": ^2.0.0
-    "@zthun/webigail-http": ^0.2.0
-    "@zthun/webigail-url": ^0.2.0
+    "@zthun/webigail-http": ^1.0.2
+    "@zthun/webigail-url": ^1.0.2
     csstype: ^3.1.2
     history: ^5.3.0
     lodash: ^4.17.21
@@ -4483,26 +4483,26 @@ __metadata:
   peerDependencies:
     react: ^18.1.0
     react-dom: ^18.1.0
-  checksum: ceb76749fc0bf71313176f349c16115861feb93294d322561ce6e2f04a033cd35c7c3dfd75d5864983ab4c3275eb9f8727a8522055c5ef5fb5130be68ded881e
+  checksum: 87c22aed41d0f3ca88dd506b5178ca73794332bda5a80e5817564e3f2a343084d2d8b7603c137071b9aba29972c889d1976fcc9e4859a8259114498b80ad0bb6
   languageName: node
   linkType: hard
 
-"@zthun/fashion-tailor@npm:^0.10.1":
-  version: 0.10.1
-  resolution: "@zthun/fashion-tailor@npm:0.10.1"
+"@zthun/fashion-tailor@npm:^0.11.0":
+  version: 0.11.0
+  resolution: "@zthun/fashion-tailor@npm:0.11.0"
   dependencies:
     lodash: ^4.17.21
-  checksum: a9c54a631748467beee86f15fc3ef61fcc3a94dc160535f9b0953f69734e31218f24cc74b25f91636b8772a719a049ffb4131d177297a2fcccee7af4c66daedf
+  checksum: 4886b65b80fc7803df35d2a7dfd7083db8e24d9d1bb1f308c5fe6b70a2d501f6de766d2025a5dbf87756d2d8e15b75ce330b3f6cf4aee5391043fde4048b548f
   languageName: node
   linkType: hard
 
-"@zthun/fashion-theme@npm:^0.10.1":
-  version: 0.10.1
-  resolution: "@zthun/fashion-theme@npm:0.10.1"
+"@zthun/fashion-theme@npm:^0.11.0":
+  version: 0.11.0
+  resolution: "@zthun/fashion-theme@npm:0.11.0"
   dependencies:
     csstype: ^3.1.2
     lodash: ^4.17.21
-  checksum: 2b9fe5c5e4df414a4bdff9e1d68eea48c1d9bb3a95067e2285769e247ac87de580204ec154dda4b085f6f6a5e2fabf2f4ad40ccf5ca4c893e283324e1ea708bc
+  checksum: 37c924dc24ec30e78707bf8ccb6e222a5730b56f53ff50aae64fead9765519a10793d3390ac3a98c65112cd649be52e57a835750b93ddaa477cca6625cf60058
   languageName: node
   linkType: hard
 
@@ -4619,8 +4619,9 @@ __metadata:
     "@zthun/helpful-fn": ^2.0.0
     "@zthun/helpful-query": ^2.0.0
     "@zthun/pokedex": ^0.16.1
-    "@zthun/webigail-http": ^0.2.0
-    "@zthun/webigail-url": ^0.2.0
+    "@zthun/webigail-http": ^1.0.2
+    "@zthun/webigail-nest": ^1.0.2
+    "@zthun/webigail-url": ^1.0.2
     lodash: ^4.17.21
     nodemon: ^3.0.1
     reflect-metadata: ^0.1.13
@@ -4640,9 +4641,9 @@ __metadata:
     "@zthun/cirque": ^4.3.1
     "@zthun/cirque-du-react": ^4.3.1
     "@zthun/cirque-du-selenium": ^4.3.1
-    "@zthun/fashion-boutique": ^0.10.2
-    "@zthun/fashion-tailor": ^0.10.1
-    "@zthun/fashion-theme": ^0.10.1
+    "@zthun/fashion-boutique": ^0.11.0
+    "@zthun/fashion-tailor": ^0.11.0
+    "@zthun/fashion-theme": ^0.11.0
     "@zthun/helpful-fn": ^2.0.0
     "@zthun/helpful-query": ^2.0.0
     "@zthun/helpful-react": ^2.0.0
@@ -4669,8 +4670,8 @@ __metadata:
     "@zthun/dalmart-forage": ^1.0.1
     "@zthun/helpful-fn": ^2.0.0
     "@zthun/helpful-query": ^2.0.0
-    "@zthun/webigail-http": ^0.2.0
-    "@zthun/webigail-url": ^0.2.0
+    "@zthun/webigail-http": ^1.0.2
+    "@zthun/webigail-url": ^1.0.2
     lodash: ^4.17.21
     microbundle: ^0.15.1
     typescript: ^5.1.6
@@ -4727,22 +4728,36 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@zthun/webigail-http@npm:^0.2.0":
-  version: 0.2.0
-  resolution: "@zthun/webigail-http@npm:0.2.0"
+"@zthun/webigail-http@npm:^1.0.2":
+  version: 1.0.2
+  resolution: "@zthun/webigail-http@npm:1.0.2"
   dependencies:
     axios: ^1.4.0
-  checksum: 84a4a60ec14a02eedf9985b6ed61a189f4a7c782829bec89921c47acf97adbe41fb19459b1a27d447c4c7159ed4678196dc6367a4b9964698c2f3eb0013bc9c5
+  checksum: 5de7616f794cd11dd61a751536d3275e5c5cd0b5f925246dd8f23f7b3ae608c8fe568b3d414bd7f1fa368ccbd27a6235ef99f6a4d8d011ed33086fdce7620756
   languageName: node
   linkType: hard
 
-"@zthun/webigail-url@npm:^0.2.0":
-  version: 0.2.0
-  resolution: "@zthun/webigail-url@npm:0.2.0"
+"@zthun/webigail-nest@npm:^1.0.2":
+  version: 1.0.2
+  resolution: "@zthun/webigail-nest@npm:1.0.2"
+  dependencies:
+    "@zthun/webigail-http": ^1.0.2
+  peerDependencies:
+    "@nestjs/common": ^10.1.3
+    "@nestjs/core": ^10.1.3
+    reflect-metadata: ^0.1.13
+    rxjs: ^7.8.1
+  checksum: 1a0cd49315c655ad0bd1f746b2ca1a0e1bb5225cc8b9f2b8781948766f1f57c3b18bd8810507d578255cf08b41f1d522f2ddb64fa458f51c4b38fd50bf6593ba
+  languageName: node
+  linkType: hard
+
+"@zthun/webigail-url@npm:^1.0.2":
+  version: 1.0.2
+  resolution: "@zthun/webigail-url@npm:1.0.2"
   dependencies:
     lodash: ^4.17.21
     url-parse: ^1.5.10
-  checksum: 82aecb36ebe0d3644dc2eb51d5da0ed7a08c91878e1f595abd6606ab07a0039d7e890565f63963012c2696d6666b7f89deac6a49ee973e6ccc625a9df6a759e3
+  checksum: db81e120831693d18edf17b9bfa319a2f54a7ca6e495f8792856a0e551f6307cb6740ac133962a9fd4eb260ff97f51f65cca7f79005af34d24c9fb305f451a8f
   languageName: node
   linkType: hard
 
