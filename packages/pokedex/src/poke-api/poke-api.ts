@@ -8,7 +8,6 @@ import { IPokeApiEvolutionChain } from './poke-api-evolution-chain';
 import { IPokeApiPage } from './poke-api-page';
 import { IPokeApiPokemon } from './poke-api-pokemon';
 import { PokeApiUrl } from './poke-api-resource';
-import { IPokeApiSpecies } from './poke-api-species';
 import { IPokeApiType } from './poke-api-type';
 
 export interface IPokeApi {
@@ -16,8 +15,6 @@ export interface IPokeApi {
   pokemon(name: string): Promise<IPokeApiPokemon>;
   typeList(): Promise<IPokeApiPage>;
   type(name: string): Promise<IPokeApiType>;
-  speciesList(): Promise<IPokeApiPage>;
-  species(name: string): Promise<IPokeApiSpecies>;
   evolutionList(): Promise<IPokeApiPage>;
   evolution(name: string): Promise<IPokeApiEvolutionChain>;
 }
@@ -82,14 +79,6 @@ export class ZPokeApi implements IPokeApi {
 
   public type(name: string): Promise<IPokeApiType> {
     return this._resource('type', name);
-  }
-
-  public speciesList(): Promise<IPokeApiPage> {
-    return this._resource('pokemon-species');
-  }
-
-  public species(name: string): Promise<IPokeApiSpecies> {
-    return this._resource('pokemon-species', name);
   }
 
   public evolutionList(): Promise<IPokeApiPage> {
