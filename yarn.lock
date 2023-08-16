@@ -5368,59 +5368,59 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@zthun/dalmart-db@npm:^1.0.1":
-  version: 1.0.1
-  resolution: "@zthun/dalmart-db@npm:1.0.1"
+"@zthun/dalmart-db@npm:^1.0.2":
+  version: 1.0.2
+  resolution: "@zthun/dalmart-db@npm:1.0.2"
   dependencies:
     "@zthun/helpful-fn": ^2.0.0
     "@zthun/helpful-query": ^2.0.0
-  checksum: 390561099b68a6862603c524d1ab2b17b9ea3f86feadcf06e90715a2d79f44e7a3e0d9731464e969b3ee4c092d21d7a437bedb7c6077bae4457ea0471e12c3e9
+  checksum: 51f88c781dc2aa50ad02f5031d7c936a9cf8eb2d0410c4e99abd7c9075ff114e7a5343bffcbb73a27900e06a00133e985b4a384cbec51ae01c744e6adfdc82d3
   languageName: node
   linkType: hard
 
-"@zthun/dalmart-forage@npm:^1.0.1":
-  version: 1.0.1
-  resolution: "@zthun/dalmart-forage@npm:1.0.1"
+"@zthun/dalmart-forage@npm:^1.0.2":
+  version: 1.0.2
+  resolution: "@zthun/dalmart-forage@npm:1.0.2"
   dependencies:
-    "@zthun/dalmart-db": ^1.0.1
+    "@zthun/dalmart-db": ^1.0.2
     "@zthun/helpful-fn": ^2.0.0
     localforage: ^1.10.0
-  checksum: dcd1210037bcf4865b8c08438440f93d1b3a818ab4886cdbed32a7498ae0b79feb16d3d2cc50354d8c9243ece7514049ed4f0264fe6ccda43cedfcd9f777f979
+  checksum: c0e6cec7e893bc755851b20d0174353f1d117495bf67458b1e753d3b6d18214640c7c9ff2dd85e71bec5b44c9bb435e826951e2393eec45e510dcbd343a78305
   languageName: node
   linkType: hard
 
-"@zthun/dalmart-memory@npm:^1.0.1":
-  version: 1.0.1
-  resolution: "@zthun/dalmart-memory@npm:1.0.1"
+"@zthun/dalmart-memory@npm:^1.0.2":
+  version: 1.0.2
+  resolution: "@zthun/dalmart-memory@npm:1.0.2"
   dependencies:
-    "@zthun/dalmart-db": ^1.0.1
-    "@zthun/dalmart-mongo": ^1.0.1
-    "@zthun/dalmart-storage": ^1.0.1
+    "@zthun/dalmart-db": ^1.0.2
+    "@zthun/dalmart-mongo": ^1.0.2
+    "@zthun/dalmart-storage": ^1.0.2
     "@zthun/helpful-fn": ^2.0.0
     mongodb-memory-server: ^8.15.0
-  checksum: 2779649522f87b860141fb94b61ad05d857849d8290aba8d4a6930391242332f2efa35a86c327cfbd92a040c87ee0530fc15141b0320b310e073c464cfc71a86
+  checksum: 6797188e93a2f3cb12100b35ede41ec1393f03c412719a73393f038e2fa07928a542270ae2347e19a0a8fb9dd0edbc73eb4a30e9ba9dde58bc2be05177b4106d
   languageName: node
   linkType: hard
 
-"@zthun/dalmart-mongo@npm:^1.0.1":
-  version: 1.0.1
-  resolution: "@zthun/dalmart-mongo@npm:1.0.1"
+"@zthun/dalmart-mongo@npm:^1.0.2":
+  version: 1.0.2
+  resolution: "@zthun/dalmart-mongo@npm:1.0.2"
   dependencies:
-    "@zthun/dalmart-db": ^1.0.1
+    "@zthun/dalmart-db": ^1.0.2
     "@zthun/helpful-fn": ^2.0.0
     "@zthun/helpful-query": ^2.0.0
     mongodb: ^5.7.0
-  checksum: f7fe6b4f6535f648bc83fd00090b63976d38917a6396f2dffce2580942aebc5bdfc236ab54cf8b7a32d92af2584ef6add2671f975beb0bfc5a8f683258f8fc28
+  checksum: 86bcdd98d0b02b9fcdf2b0c75343430906b46b0edb1038cade952e61593cb33fc8393f24ade2fea137a5237c3498e8de4ff8f1c9193871a511b9f29a9d91599e
   languageName: node
   linkType: hard
 
-"@zthun/dalmart-storage@npm:^1.0.1":
-  version: 1.0.1
-  resolution: "@zthun/dalmart-storage@npm:1.0.1"
+"@zthun/dalmart-storage@npm:^1.0.2":
+  version: 1.0.2
+  resolution: "@zthun/dalmart-storage@npm:1.0.2"
   dependencies:
-    "@zthun/dalmart-db": ^1.0.1
+    "@zthun/dalmart-db": ^1.0.2
     "@zthun/helpful-fn": ^2.0.0
-  checksum: fff0593b9c49168b4eb82530bea0bc8e963fde2e312caec1656274f9387b671742ce1ec11967f624b881d5ad3d89be407550d8f57bc207271de7223d9775f0e8
+  checksum: 3995f75167ff0bcf2f9ada75f0478b39f0c1601bd0fe0a0e368c6080a5fb93a0ea08c8deaa53615a20258b1fa466470fec7352a66aae8c833962d312368f9e25
   languageName: node
   linkType: hard
 
@@ -5606,9 +5606,9 @@ __metadata:
     "@nestjs/platform-express": ^10.1.3
     "@nestjs/swagger": ^7.1.8
     "@nestjs/testing": ^10.1.3
-    "@zthun/dalmart-db": ^1.0.1
-    "@zthun/dalmart-memory": ^1.0.1
-    "@zthun/dalmart-mongo": ^1.0.1
+    "@zthun/dalmart-db": ^1.0.2
+    "@zthun/dalmart-memory": ^1.0.2
+    "@zthun/dalmart-mongo": ^1.0.2
     "@zthun/helpful-fn": ^2.0.0
     "@zthun/helpful-query": ^2.0.0
     "@zthun/pokedex": ^0.16.1
@@ -5660,8 +5660,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@zthun/pokedex@workspace:packages/pokedex"
   dependencies:
-    "@zthun/dalmart-db": ^1.0.1
-    "@zthun/dalmart-forage": ^1.0.1
+    "@zthun/dalmart-db": ^1.0.2
+    "@zthun/dalmart-forage": ^1.0.2
     "@zthun/helpful-fn": ^2.0.0
     "@zthun/helpful-query": ^2.0.0
     "@zthun/webigail-http": ^1.0.2
