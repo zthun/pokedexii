@@ -34,7 +34,7 @@ RUN npm install -g @zthun/pokedex-web
 FROM nginx:stable-alpine as pokedex-web
 COPY --from=pokedex-web-install /usr/local/lib/node_modules/@zthun/pokedex-web/dist/. /usr/share/nginx/html/
 
-FROM node:lts-alpine as pokedex-api
+FROM node:lts-bullseye-slim as pokedex-api
 RUN npm install -g @zthun/pokedex-api
 EXPOSE 3000
 CMD ["pokedex-api"]

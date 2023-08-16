@@ -14,13 +14,13 @@ services:
 
   # Node Ports
   pokedex-services-web:
-    image: node:lts
+    image: node:lts-bullseye
     volumes:
       - .:/usr/dev
     working_dir: /usr/dev
     command: npm --workspace @zthun/pokedex-web run start
   pokedex-services-api:
-    image: node:lts
+    image: node:lts-bullseye
     ports:
       - 9229:9229
     volumes:
