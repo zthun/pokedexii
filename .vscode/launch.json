@@ -3,5 +3,18 @@
   // Hover to view descriptions of existing attributes.
   // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
   "version": "0.2.0",
-  "configurations": []
+  "configurations": [
+    {
+      "type": "node",
+      "request": "attach",
+      "name": "Attach to @zthun/pokedex-api",
+      "port": 9229,
+      "address": "0.0.0.0",
+      "remoteRoot": "/usr/dev",
+      "localRoot": "${workspaceFolder}",
+      "sourceMapPathOverrides": {
+        "/usr/dev/*": "${workspaceRoot}/*"
+      }
+    }
+  ]
 }

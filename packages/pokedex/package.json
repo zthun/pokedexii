@@ -19,12 +19,12 @@
     "access": "public"
   },
   "dependencies": {
-    "@zthun/dalmart-db": "^0.1.0",
-    "@zthun/dalmart-forage": "^0.1.0",
-    "@zthun/helpful-fn": "^0.20.1",
-    "@zthun/helpful-query": "^0.20.1",
-    "@zthun/webigail-http": "^0.1.0",
-    "@zthun/webigail-url": "^0.1.0",
+    "@zthun/dalmart-db": "^1.0.1",
+    "@zthun/dalmart-forage": "^1.0.1",
+    "@zthun/helpful-fn": "^2.0.0",
+    "@zthun/helpful-query": "^2.0.0",
+    "@zthun/webigail-http": "^0.2.0",
+    "@zthun/webigail-url": "^0.2.0",
     "lodash": "^4.17.21"
   },
   "devDependencies": {
