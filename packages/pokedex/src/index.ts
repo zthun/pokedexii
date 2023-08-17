@@ -4,7 +4,6 @@ export * from './evolution/evolution-service';
 export * from './evolution/evolution-trigger';
 export * from './gender/gender';
 export * from './pokemon/pokemon';
-export * from './pokemon/pokemon-service';
 export * from './resource/resource';
 export * from './resource/resource-service';
 export * from './species/species';

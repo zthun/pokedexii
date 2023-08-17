@@ -6,13 +6,10 @@ import { ZHttpRequestBuilder, ZHttpService } from '@zthun/webigail-http';
 import { ZUrlBuilder } from '@zthun/webigail-url';
 import { IPokeApiEvolutionChain } from './poke-api-evolution-chain';
 import { IPokeApiPage } from './poke-api-page';
-import { IPokeApiPokemon } from './poke-api-pokemon';
 import { PokeApiUrl } from './poke-api-resource';
 import { IPokeApiType } from './poke-api-type';
 
 export interface IPokeApi {
-  pokemonList(): Promise<IPokeApiPage>;
-  pokemon(name: string): Promise<IPokeApiPokemon>;
   typeList(): Promise<IPokeApiPage>;
   type(name: string): Promise<IPokeApiType>;
   evolutionList(): Promise<IPokeApiPage>;
@@ -56,14 +53,6 @@ export class ZPokeApi implements IPokeApi {
     }
 
     return cached;
-  }
-
-  public pokemonList(): Promise<IPokeApiPage> {
-    return this._resource('pokemon');
-  }
-
-  public pokemon(name: string): Promise<IPokeApiPokemon> {
-    return this._resource('pokemon', name);
   }
 
   public async typeList(): Promise<IPokeApiPage> {
