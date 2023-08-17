@@ -8,26 +8,20 @@ import {
   ZDataSourceStaticOptionsBuilder,
   ZFilterBinaryBuilder
 } from '@zthun/helpful-query';
-import {
-  IZPokemon,
-  IZPokemonService,
-  IZSpecies,
-  IZSpeciesService,
-  ZPokemonBuilder,
-  ZSpeciesBuilder
-} from '@zthun/pokedex';
+import { IZPokemon, IZPokemonService, IZSpecies, ZPokemonBuilder, ZSpeciesBuilder } from '@zthun/pokedex';
 import { MemoryHistory, createMemoryHistory } from 'history';
 import React from 'react';
 import { Mocked, beforeEach, describe, expect, it } from 'vitest';
 import { mock } from 'vitest-mock-extended';
 import { ZPokemonServiceContext } from '../pokemon/pokemon-service';
+import { IZResourceService } from '../resource/resource-service';
 import { createPokemonTheme } from '../theme/pokemon-theme';
 import { ZSpeciesListPage } from './species-list-page';
 import { ZPokemonListPageComponentModel } from './species-list-page.cm';
 import { ZSpeciesServiceContext } from './species-service';
 
 describe('ZSpeciesListPage', () => {
-  let speciesService: Mocked<IZSpeciesService>;
+  let speciesService: Mocked<IZResourceService<IZSpecies>>;
   let pokemonService: Mocked<IZPokemonService>;
   let bulbasaur: IZSpecies;
   let charmander: IZSpecies;
@@ -75,7 +69,7 @@ describe('ZSpeciesListPage', () => {
       new ZDataSourceStaticOptionsBuilder<IZPokemon>().search(new ZDataSearchFields(['name'])).build()
     );
 
-    speciesService = mock<IZSpeciesService>();
+    speciesService = mock<IZResourceService<IZSpecies>>();
     speciesService.retrieve.mockImplementation((r) => source.retrieve(r));
     speciesService.count.mockImplementation((r) => source.count(r));
     speciesService.get.mockImplementation(async (s) => {
@@ -110,7 +104,6 @@ describe('ZSpeciesListPage', () => {
     expected.sort();
     // Act.
     const cards = await target.cards();
-    await Promise.all(cards.map((c) => c.load()));
     const actual = await Promise.all(cards.map((c) => c.name()));
     actual.sort();
     // Assert.
@@ -122,7 +115,6 @@ describe('ZSpeciesListPage', () => {
     const expected = new ZPokemonBuilder().charmander().build().types;
     const target = await createTestTarget();
     const card = await target.card(charmander.name);
-    await card!.load();
     // Act
     const types = await card!.types();
     const badges = await Promise.all(types);
@@ -154,35 +146,5 @@ describe('ZSpeciesListPage', () => {
     const actual = history.location.pathname;
     // Assert.
     expect(actual).toEqual(`/pokemon/${charmander.name}`);
-  });
-
-  it('should render errors on the cards that fail to load species data', async () => {
-    // Arrange.
-    const expected = new Error('Species not found');
-    speciesService.get.mockRejectedValue(expected);
-    const target = await createTestTarget();
-    const card = await target.card(charmander.name);
-    await card?.load();
-    // Act.
-    const error = await card?.error();
-    const message = await error?.message();
-    const actual = await message?.text();
-    // Assert.
-    expect(actual).toEqual(expected.message);
-  });
-
-  it('should render errors on the cards that fail to load pokemon data', async () => {
-    // Arrange.
-    const expected = new Error('Pokemon not found');
-    pokemonService.get.mockRejectedValue(expected);
-    const target = await createTestTarget();
-    const card = await target.card(charmander.name);
-    await card?.load();
-    // Act.
-    const error = await card?.error();
-    const message = await error?.message();
-    const actual = await message?.text();
-    // Assert.
-    expect(actual).toEqual(expected.message);
   });
 });

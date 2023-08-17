@@ -1,20 +1,10 @@
-import {
-  ZAlert,
-  ZCaption,
-  ZH3,
-  ZIconFontAwesome,
-  ZImageSource,
-  ZSuspenseProgress,
-  createStyleHook
-} from '@zthun/fashion-boutique';
+import { ZCaption, ZH3, ZImageSource, createStyleHook } from '@zthun/fashion-boutique';
 import { ZSizeFixed } from '@zthun/fashion-tailor';
 import { cssJoinDefined } from '@zthun/helpful-fn';
-import { asStateData, isStateErrored, isStateLoading } from '@zthun/helpful-react';
+import { IZSpecies } from '@zthun/pokedex';
 import { padStart, startCase } from 'lodash';
 import React, { MouseEventHandler } from 'react';
-import { usePokemon } from '../pokemon/pokemon-service';
 import { ZTypeBadges } from '../type/type-badges';
-import { useSpecies } from './species-service';
 
 /**
  * Props for a species card.
@@ -23,7 +13,7 @@ export interface IZSpeciesCard {
   /**
    * The species name.
    */
-  speciesName: string;
+  species: IZSpecies;
 
   /**
    * The optional handler for when the card is clicked.
@@ -63,56 +53,26 @@ const useSpeciesCardStyles = createStyleHook(({ theme, tailor }) => ({
  * A component that displays quick species information.
  */
 export function ZSpeciesCard(props: IZSpeciesCard) {
-  const { speciesName, onClick } = props;
-  const [species] = useSpecies(speciesName);
-  const [pokemon] = usePokemon(asStateData(species)?.main);
+  const { species, onClick } = props;
   const { classes } = useSpeciesCardStyles();
 
   const renderContent = () => {
-    const isLoading = isStateLoading(species) || isStateLoading(pokemon);
-
-    if (isLoading) {
-      return <ZSuspenseProgress />;
-    }
-
-    if (isStateErrored(species)) {
-      return (
-        <ZAlert
-          heading='Error Loading Species'
-          message={species.message}
-          avatar={<ZIconFontAwesome name='circle-exclamation' width={ZSizeFixed.Medium} />}
-          name='error'
-        />
-      );
-    }
-
-    if (isStateErrored(pokemon)) {
-      return (
-        <ZAlert
-          heading='Error Loading Pokemon'
-          message={pokemon.message}
-          avatar={<ZIconFontAwesome name='circle-exclamation' width={ZSizeFixed.Medium} />}
-          name='error'
-        />
-      );
-    }
-
     return (
       <>
         <div className={cssJoinDefined('ZSpeciesCard-media', classes.media)}>
-          <ZImageSource src={pokemon.artwork} width={ZSizeFixed.Large} name={pokemon.name} />
+          <ZImageSource src={species.artwork} width={ZSizeFixed.Large} name={species.name} />
         </div>
         <ZCaption className={cssJoinDefined('ZSpeciesCard-number')} compact>
           #{padStart(String(species.id), 4, '0')}
         </ZCaption>
         <ZH3 className={cssJoinDefined('ZSpeciesCard-title', classes.title)}>{startCase(species.name)}</ZH3>
-        <ZTypeBadges types={pokemon.types} />
+        <ZTypeBadges types={species.types} />
       </>
     );
   };
 
   return (
-    <div className={cssJoinDefined('ZSpeciesCard-root', classes.root)} onClick={onClick} data-name={speciesName}>
+    <div className={cssJoinDefined('ZSpeciesCard-root', classes.root)} onClick={onClick} data-name={species.name}>
       {renderContent()}
     </div>
   );
