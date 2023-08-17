@@ -91,6 +91,34 @@ export class ZTypeBuilder {
     return this;
   }
 
+  public electric() {
+    return this.id(13)
+      .name(ZType.Electric)
+      .doubleDamageFrom([ZType.Ground])
+      .doubleDamageTo([ZType.Flying, ZType.Water])
+      .halfDamageFrom([ZType.Flying, ZType.Steel, ZType.Electric])
+      .halfDamageTo([ZType.Grass, ZType.Electric])
+      .noDamageTo([ZType.Ground]);
+  }
+
+  public rock() {
+    return this.id(6)
+      .name(ZType.Rock)
+      .doubleDamageFrom([ZType.Fighting, ZType.Ground, ZType.Steel, ZType.Water, ZType.Grass])
+      .doubleDamageTo([ZType.Flying, ZType.Bug, ZType.Fire, ZType.Ice])
+      .halfDamageFrom([ZType.Normal, ZType.Flying, ZType.Poison, ZType.Fire])
+      .halfDamageTo([ZType.Fighting, ZType.Ground, ZType.Steel]);
+  }
+
+  public water() {
+    return this.id(11)
+      .name(ZType.Water)
+      .doubleDamageFrom([ZType.Grass, ZType.Electric])
+      .doubleDamageTo([ZType.Ground, ZType.Rock, ZType.Fire])
+      .halfDamageFrom([ZType.Steel, ZType.Fire, ZType.Water, ZType.Ice])
+      .halfDamageTo([ZType.Water, ZType.Grass, ZType.Dragon]);
+  }
+
   public ground() {
     return this.id(5)
       .name(ZType.Ground)
