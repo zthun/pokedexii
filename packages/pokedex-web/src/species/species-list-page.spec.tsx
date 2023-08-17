@@ -8,7 +8,7 @@ import {
   ZDataSourceStaticOptionsBuilder,
   ZFilterBinaryBuilder
 } from '@zthun/helpful-query';
-import { IZPokemon, IZPokemonService, IZSpecies, ZPokemonBuilder, ZSpeciesBuilder } from '@zthun/pokedex';
+import { IZPokemon, IZSpecies, ZPokemonBuilder, ZSpeciesBuilder } from '@zthun/pokedex';
 import { MemoryHistory, createMemoryHistory } from 'history';
 import React from 'react';
 import { Mocked, beforeEach, describe, expect, it } from 'vitest';
@@ -22,7 +22,7 @@ import { ZSpeciesServiceContext } from './species-service';
 
 describe('ZSpeciesListPage', () => {
   let speciesService: Mocked<IZResourceService<IZSpecies>>;
-  let pokemonService: Mocked<IZPokemonService>;
+  let pokemonService: Mocked<IZResourceService<IZPokemon>>;
   let bulbasaur: IZSpecies;
   let charmander: IZSpecies;
   let squirtle: IZSpecies;
@@ -79,7 +79,7 @@ describe('ZSpeciesListPage', () => {
       return result;
     });
 
-    pokemonService = mock<IZPokemonService>();
+    pokemonService = mock<IZResourceService<IZPokemon>>();
     pokemonService.get.mockImplementation(async (n) => {
       const filter = new ZFilterBinaryBuilder().subject('name').equal().value(n).build();
       const request = new ZDataRequestBuilder().filter(filter).size(1).build();

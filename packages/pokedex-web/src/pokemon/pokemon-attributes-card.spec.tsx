@@ -1,7 +1,7 @@
 import { ZCircusBy } from '@zthun/cirque';
 import { ZCircusSetupRenderer } from '@zthun/cirque-du-react';
 import { ZFashionThemeContext } from '@zthun/fashion-boutique';
-import { IZPokemon, IZPokemonService, ZPokemonBuilder, ZType } from '@zthun/pokedex';
+import { IZPokemon, IZResourceService, ZPokemonBuilder, ZType } from '@zthun/pokedex';
 import React from 'react';
 import { Mocked, beforeEach, describe, expect, it } from 'vitest';
 import { mock } from 'vitest-mock-extended';
@@ -11,7 +11,7 @@ import { ZPokemonAttributesCardComponentModel } from './pokemon-attributes-card.
 import { ZPokemonServiceContext } from './pokemon-service';
 
 describe('ZPokemonAttributesCard', () => {
-  let pokemonService: Mocked<IZPokemonService>;
+  let pokemonService: Mocked<IZResourceService<IZPokemon>>;
   let charizard: IZPokemon;
 
   const createTestTarget = async () => {
@@ -31,7 +31,7 @@ describe('ZPokemonAttributesCard', () => {
   beforeEach(() => {
     charizard = new ZPokemonBuilder().charizard().build();
 
-    pokemonService = mock<IZPokemonService>();
+    pokemonService = mock<IZResourceService<IZPokemon>>();
     pokemonService.get.mockResolvedValue(charizard);
   });
 

@@ -2,25 +2,20 @@ import { ZCircusBy } from '@zthun/cirque';
 import { ZCircusSetupRenderer } from '@zthun/cirque-du-react';
 import { ZFashionThemeContext } from '@zthun/fashion-boutique';
 import { ZDataRequestBuilder, ZDataSourceStatic, ZFilterBinaryBuilder } from '@zthun/helpful-query';
-import {
-  IZPokemon,
-  IZPokemonService,
-  IZSpecies,
-  IZSpeciesService,
-  ZPokemonBuilder,
-  ZSpeciesBuilder
-} from '@zthun/pokedex';
+import { IZPokemon, IZSpecies, ZPokemonBuilder, ZSpeciesBuilder } from '@zthun/pokedex';
 import React from 'react';
+import { ZPokemonServiceContext } from 'src/pokemon/pokemon-service';
 import { Mock, Mocked, beforeEach, describe, expect, it, vi } from 'vitest';
 import { mock } from 'vitest-mock-extended';
+import { IZResourceService } from '../resource/resource-service';
 import { createPokemonTheme } from '../theme/pokemon-theme';
 import { ZSpeciesServiceContext } from './species-service';
 import { ZSpeciesVarietiesCard } from './species-varieties-card';
 import { ZSpeciesVarietiesCardComponentModel } from './species-varieties-card.cm';
 
 describe('ZSpeciesVarietiesCard', () => {
-  let speciesService: Mocked<IZSpeciesService>;
-  let pokemonService: Mocked<IZPokemonService>;
+  let speciesService: Mocked<IZResourceService<IZSpecies>>;
+  let pokemonService: Mocked<IZResourceService<IZPokemon>>;
   let charizard$: IZSpecies;
   let charizard: IZPokemon;
   let charizardMegaX: IZPokemon;
@@ -33,7 +28,9 @@ describe('ZSpeciesVarietiesCard', () => {
     const element = (
       <ZFashionThemeContext.Provider value={createPokemonTheme()}>
         <ZSpeciesServiceContext.Provider value={speciesService}>
-          <ZSpeciesVarietiesCard speciesName={charizard$.name} value={value} onValueChange={onValueChange} />
+          <ZPokemonServiceContext.Provider value={pokemonService}>
+            <ZSpeciesVarietiesCard speciesName={charizard$.name} value={value} onValueChange={onValueChange} />
+          </ZPokemonServiceContext.Provider>
         </ZSpeciesServiceContext.Provider>
       </ZFashionThemeContext.Provider>
     );
@@ -54,12 +51,12 @@ describe('ZSpeciesVarietiesCard', () => {
     charizardMegaY = new ZPokemonBuilder().charizard().name('charizard-mega-y').id(10035).build();
     charizardGmax = new ZPokemonBuilder().charizard().name('charizard-gmax').id(10196).build();
 
-    speciesService = mock<IZSpeciesService>();
+    speciesService = mock<IZResourceService<IZSpecies>>();
     speciesService.get.mockResolvedValue(charizard$);
 
     const pokemon = new ZDataSourceStatic([charizard, charizardMegaX, charizardMegaY, charizardGmax]);
 
-    pokemonService = mock<IZPokemonService>();
+    pokemonService = mock<IZResourceService<IZPokemon>>();
     pokemonService.get.mockImplementation(async (n) => {
       const filter = new ZFilterBinaryBuilder().subject('name').equal().value(n).build();
       const request = new ZDataRequestBuilder().filter(filter).size(1).build();

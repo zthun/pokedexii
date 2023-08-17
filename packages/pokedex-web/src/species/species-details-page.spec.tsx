@@ -4,9 +4,7 @@ import { ZFashionThemeContext, ZRoute, ZRouteMap, ZTestRouter } from '@zthun/fas
 import {
   IZEvolutionService,
   IZPokemon,
-  IZPokemonService,
   IZSpecies,
-  IZSpeciesService,
   ZEvolutionBuilder,
   ZPokemonBuilder,
   ZSpeciesBuilder
@@ -17,6 +15,7 @@ import { Mocked, beforeEach, describe, expect, it } from 'vitest';
 import { mock } from 'vitest-mock-extended';
 import { ZEvolutionServiceContext } from '../evolution/evolution-service';
 import { ZPokemonServiceContext } from '../pokemon/pokemon-service';
+import { IZResourceService } from '../resource/resource-service';
 import { createPokemonTheme } from '../theme/pokemon-theme';
 import { ZSpeciesDetailsPage } from './species-details-page';
 import { ZSpeciesDetailsPageComponentModel } from './species-details-page.cm';
@@ -25,8 +24,8 @@ import { ZSpeciesServiceContext } from './species-service';
 describe('ZSpeciesDetailsPage', () => {
   let history: History;
   let evolutionService: Mocked<IZEvolutionService>;
-  let pokemonService: Mocked<IZPokemonService>;
-  let speciesService: Mocked<IZSpeciesService>;
+  let pokemonService: Mocked<IZResourceService<IZPokemon>>;
+  let speciesService: Mocked<IZResourceService<IZSpecies>>;
   let charizard$: IZSpecies;
   let charizard: IZPokemon;
 
@@ -61,10 +60,10 @@ describe('ZSpeciesDetailsPage', () => {
     evolutionService = mock<IZEvolutionService>();
     evolutionService.get.mockResolvedValue(new ZEvolutionBuilder().ralts().build());
 
-    pokemonService = mock<IZPokemonService>();
+    pokemonService = mock<IZResourceService<IZPokemon>>();
     pokemonService.get.mockResolvedValue(charizard);
 
-    speciesService = mock<IZSpeciesService>();
+    speciesService = mock<IZResourceService<IZSpecies>>();
     speciesService.get.mockResolvedValue(charizard$);
   });
 
