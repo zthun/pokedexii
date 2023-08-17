@@ -10,7 +10,7 @@ import { useSpeciesService } from './species-service';
 export function ZSpeciesListPage() {
   const service = useSpeciesService();
   const navigate = useNavigate();
-  const [template, setTemplate] = useState(new ZDataRequestBuilder().size(240).build());
+  const [template, setTemplate] = useState(new ZDataRequestBuilder().size(60).build());
 
   function renderSpecies(species: IZSpecies) {
     const handleClick = () => navigate(`/pokemon/${species.name}`);
