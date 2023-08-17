@@ -1,4 +1,6 @@
+import { IZPokemon, ZPokemonBuilder } from '../pokemon/pokemon';
 import { IZResource } from '../resource/resource';
+import { ZType } from '../type/type';
 
 /**
  * Represents a species of pokemon.
@@ -30,6 +32,14 @@ export interface IZSpecies extends IZResource {
    * The default variety of pokemon that represents the species.
    */
   main: string;
+  /**
+   * The artwork for the species from the main type.
+   */
+  artwork?: string;
+  /**
+   * The types of the main variant of the species.
+   */
+  types: ZType[];
 }
 
 export class ZSpeciesBuilder {
@@ -43,7 +53,8 @@ export class ZSpeciesBuilder {
       capture: 0,
       evolution: 0,
       varieties: [],
-      main: 'missingno'
+      main: 'missingno',
+      types: []
     };
   }
 
@@ -82,8 +93,19 @@ export class ZSpeciesBuilder {
     return main ? species.main(variety) : species;
   }
 
-  public main(variety: string) {
+  public main(pokemon: string | IZPokemon) {
+    const variety = typeof pokemon === 'string' ? pokemon : pokemon.name;
     this._species.main = variety;
+    return typeof pokemon === 'object' ? this.artwork(pokemon.artwork).types(pokemon.types) : this;
+  }
+
+  public artwork(artwork?: string) {
+    this._species.artwork = artwork;
+    return this;
+  }
+
+  public types(types: ZType[]) {
+    this._species.types = types;
     return this;
   }
 
@@ -93,18 +115,31 @@ export class ZSpeciesBuilder {
       .happiness(50)
       .capture(3)
       .evolution(470)
-      .variety('urshifu-single-strike', true)
+      .variety('urshifu-single-strike')
       .variety('urshifu-rapid-strike')
       .variety('urshifu-single-strike-gmax')
-      .variety('urshifu-rapid-strike-gmax');
+      .variety('urshifu-rapid-strike-gmax')
+      .main(new ZPokemonBuilder().urshifu().build());
   }
 
   public bulbasaur() {
-    return this.name('bulbasaur').id(1).happiness(50).capture(45).evolution(1).variety('bulbasaur', true);
+    return this.name('bulbasaur')
+      .id(1)
+      .happiness(50)
+      .capture(45)
+      .evolution(1)
+      .variety('bulbasaur')
+      .main(new ZPokemonBuilder().bulbasaur().build());
   }
 
   public charmander() {
-    return this.name('charmander').id(4).happiness(50).capture(45).evolution(2).variety('charmander', true);
+    return this.name('charmander')
+      .id(4)
+      .happiness(50)
+      .capture(45)
+      .evolution(2)
+      .variety('charmander')
+      .main(new ZPokemonBuilder().charmander().build());
   }
 
   public charizard() {
@@ -113,14 +148,21 @@ export class ZSpeciesBuilder {
       .happiness(50)
       .capture(45)
       .evolution(2)
-      .variety('charizard', true)
+      .variety('charizard')
       .variety('charizard-mega-x')
       .variety('charizard-mega-y')
-      .variety('charizard-gmax');
+      .variety('charizard-gmax')
+      .main(new ZPokemonBuilder().charizard().build());
   }
 
   public squirtle() {
-    return this.name('squirtle').id(7).happiness(50).capture(45).evolution(3).variety('squirtle', true);
+    return this.name('squirtle')
+      .id(7)
+      .happiness(50)
+      .capture(45)
+      .evolution(3)
+      .variety('squirtle')
+      .main(new ZPokemonBuilder().squirtle().build());
   }
 
   public pikachu() {
@@ -129,7 +171,7 @@ export class ZSpeciesBuilder {
       .happiness(50)
       .capture(190)
       .evolution(10)
-      .variety('pikachu', true)
+      .variety('pikachu')
       .variety('pikachu-rock-star')
       .variety('pikachu-belle')
       .variety('pikachu-pop-star')
@@ -146,15 +188,28 @@ export class ZSpeciesBuilder {
       .variety('pikachu-partner-cap')
       .variety('pikachu-starter')
       .variety('pikachu-world-cap')
-      .variety('pikachu-gmax');
+      .variety('pikachu-gmax')
+      .main(new ZPokemonBuilder().pikachu().build());
   }
 
   public ralts() {
-    return this.name('ralts').id(280).happiness(35).capture(235).evolution(140).variety('ralts', true);
+    return this.name('ralts')
+      .id(280)
+      .happiness(35)
+      .capture(235)
+      .evolution(140)
+      .variety('ralts')
+      .main(new ZPokemonBuilder().ralts().build());
   }
 
   public kirlia() {
-    return this.name('kirlia').id(281).happiness(35).capture(120).evolution(140).variety('kirlia', true);
+    return this.name('kirlia')
+      .id(281)
+      .happiness(35)
+      .capture(120)
+      .evolution(140)
+      .variety('kirlia')
+      .main(new ZPokemonBuilder().kirlia().build());
   }
 
   public gardevoir() {
@@ -163,8 +218,9 @@ export class ZSpeciesBuilder {
       .happiness(35)
       .capture(45)
       .evolution(140)
-      .variety('gardevoir', true)
-      .variety('gardevoir-mega');
+      .variety('gardevoir')
+      .variety('gardevoir-mega')
+      .main(new ZPokemonBuilder().gardevoir().build());
   }
 
   public gallade() {
@@ -173,8 +229,14 @@ export class ZSpeciesBuilder {
       .happiness(35)
       .capture(45)
       .evolution(140)
-      .variety('gallade', true)
-      .variety('gallade-mega');
+      .variety('gallade')
+      .variety('gallade-mega')
+      .main(new ZPokemonBuilder().gallade().build());
+  }
+
+  public copy(other: IZSpecies) {
+    this._species = structuredClone(other);
+    return this;
   }
 
   public build() {
