@@ -1,4 +1,5 @@
-import { Controller, Get, Inject, Param } from '@nestjs/common';
+import { Controller, Get, Inject, Param, Query } from '@nestjs/common';
+import { IZPage, ZDataRequestBuilder } from '@zthun/helpful-query';
 import { IZSpecies } from '@zthun/pokedex';
 import { IZPokedexSpeciesService, ZPokedexSpeciesServiceToken } from './species-service';
 
@@ -7,8 +8,9 @@ export class ZPokedexSpeciesController {
   public constructor(@Inject(ZPokedexSpeciesServiceToken) private _service: IZPokedexSpeciesService) {}
 
   @Get()
-  public list(): Promise<IZSpecies[]> {
-    return this._service.list();
+  public list(@Query() query: any): Promise<IZPage<IZSpecies>> {
+    const request = new ZDataRequestBuilder().search(query.search).page(+query.page).size(+query.size).build();
+    return this._service.list(request);
   }
 
   @Get(':idOrName')

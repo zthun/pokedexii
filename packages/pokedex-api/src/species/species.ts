@@ -1,6 +1,6 @@
 import { IZSpecies, ZSpeciesBuilder } from '@zthun/pokedex';
-import { ZPokedexCollection } from 'src/database/pokedex-database';
-import { IPokeApiResource, ZPokeApiResourceHelper } from '../resource/resource';
+import { ZPokedexCollection } from '../database/pokedex-database';
+import { IPokeApiResource, ZPokeApiResource } from '../resource/resource';
 
 interface IPokeApiSpeciesGenus {
   genus: string;
@@ -64,59 +64,50 @@ export interface IPokeApiSpecies {
   varieties: IPokeApiSpeciesVariety[];
 }
 
-export class ZPokeApiSpeciesHelper {
-  public from(species: IZSpecies): IPokeApiSpecies {
-    const helper = new ZPokeApiResourceHelper();
+export class ZPokeApiSpeciesBuilder {
+  private _species: IPokeApiSpecies;
 
-    return {
-      base_happiness: species.happiness,
-      capture_rate: species.capture,
-      color: helper.empty(),
+  public constructor() {
+    this.from(new ZSpeciesBuilder().build());
+  }
+
+  public from(other: IZSpecies) {
+    this._species = {
+      base_happiness: other.happiness,
+      capture_rate: other.capture,
+      color: ZPokeApiResource.empty(),
       egg_groups: [],
-      evolution_chain: helper.toResource(ZPokedexCollection.EvolutionChain, species.evolution),
-      evolves_from_species: helper.empty(),
+      evolution_chain: ZPokeApiResource.toResource(ZPokedexCollection.EvolutionChain, other.evolution),
+      evolves_from_species: ZPokeApiResource.empty(),
       flavor_text_entries: [],
       form_descriptions: [],
       forms_switchable: true,
       gender_rate: 1,
       genera: [],
-      generation: helper.empty(),
-      growth_rate: helper.empty(),
-      habitat: helper.empty(),
+      generation: ZPokeApiResource.empty(),
+      growth_rate: ZPokeApiResource.empty(),
+      habitat: ZPokeApiResource.empty(),
       has_gender_differences: false,
       hatch_counter: 0,
-      id: species.id,
+      id: other.id,
       is_baby: false,
       is_legendary: false,
       is_mythical: false,
-      name: species.name,
+      name: other.name,
       names: [],
       order: 0,
       pal_park_encounters: [],
       pokedex_numbers: [],
-      shape: helper.empty(),
-      varieties: species.varieties.map((s) => ({
-        is_default: species.main === s,
-        pokemon: helper.toResource(ZPokedexCollection.Pokemon, s)
+      shape: ZPokeApiResource.empty(),
+      varieties: other.varieties.map((s) => ({
+        is_default: other.main === s,
+        pokemon: ZPokeApiResource.toResource(ZPokedexCollection.Pokemon, s)
       }))
     };
+    return this;
   }
 
-  public to(apiSpecies: IPokeApiSpecies): IZSpecies {
-    const helper = new ZPokeApiResourceHelper();
-    const evolution = helper.findId(apiSpecies.evolution_chain);
-
-    let species = new ZSpeciesBuilder()
-      .happiness(apiSpecies.base_happiness)
-      .id(apiSpecies.id)
-      .capture(apiSpecies.capture_rate)
-      .name(apiSpecies.name)
-      .evolution(evolution);
-
-    apiSpecies.varieties.forEach((v) => {
-      species = species.variety(v.pokemon.name!, v.is_default);
-    });
-
-    return species.build();
+  public build() {
+    return { ...this._species };
   }
 }
