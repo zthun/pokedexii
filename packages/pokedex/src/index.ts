@@ -8,6 +8,5 @@ export * from './pokemon/pokemon-service';
 export * from './resource/resource';
 export * from './resource/resource-service';
 export * from './species/species';
-export * from './species/species-service';
 export * from './type/type';
 export * from './type/type-service';
