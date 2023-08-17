@@ -16,14 +16,14 @@ export interface IPokeApiResourcePage {
   results: IPokeApiResource[];
 }
 
-export class ZPokeApiResourceHelper {
-  public findId(resource: IPokeApiResource): number {
+export abstract class ZPokeApiResource {
+  public static findId(resource: IPokeApiResource): number {
     let { url } = resource;
     url = trim(trimEnd(url, '/'));
     return +firstDefined('0', last(split(url, '/')));
   }
 
-  public toPage(resources: IPokeApiResource[]) {
+  public static toPage(resources: IPokeApiResource[]) {
     return {
       count: resources.length,
       next: null,
@@ -32,11 +32,15 @@ export class ZPokeApiResourceHelper {
     };
   }
 
-  public toResource(collection: ZPokedexCollection, id: number | string, name?: string): Required<IPokeApiResource> {
+  public static toResource(
+    collection: ZPokedexCollection,
+    id: number | string,
+    name?: string
+  ): Required<IPokeApiResource> {
     return { url: `${PokeApiUrl}/${collection}/${id}`, name: name || String(id) };
   }
 
-  public empty(): IPokeApiResource {
+  public static empty(): IPokeApiResource {
     return { url: '' };
   }
 }
