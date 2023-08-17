@@ -688,25 +688,6 @@ export class ZPokemonBuilder {
       .weight(520);
   }
 
-  public urshifu() {
-    return this.id(892)
-      .name('urshifu-single-strike')
-      .type(ZType.Fighting)
-      .type(ZType.Dark)
-      .ability('unseen-fist')
-      .quadrupleDamageFrom(ZType.Fairy)
-      .doubleDamageFrom(ZType.Fighting)
-      .doubleDamageFrom(ZType.Flying)
-      .hp(100)
-      .attack(130)
-      .defense(100)
-      .specialAttack(63)
-      .specialDefense(60)
-      .speed(97)
-      .height(19)
-      .weight(1050);
-  }
-
   /**
    * Returns a deep copy of the built pokemon.
    *

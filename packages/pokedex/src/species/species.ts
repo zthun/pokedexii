@@ -109,19 +109,6 @@ export class ZSpeciesBuilder {
     return this;
   }
 
-  public urshifu() {
-    return this.name('urshifu')
-      .id(892)
-      .happiness(50)
-      .capture(3)
-      .evolution(470)
-      .variety('urshifu-single-strike')
-      .variety('urshifu-rapid-strike')
-      .variety('urshifu-single-strike-gmax')
-      .variety('urshifu-rapid-strike-gmax')
-      .main(new ZPokemonBuilder().urshifu().build());
-  }
-
   public bulbasaur() {
     return this.name('bulbasaur')
       .id(1)

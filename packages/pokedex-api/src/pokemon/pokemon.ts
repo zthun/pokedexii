@@ -149,8 +149,8 @@ export class ZPokeApiPokemonBuilder {
           effort: other.stats.speed.effort
         }
       ],
-      types: (other.types || []).map((t, i) => ({
-        slot: i,
+      types: other.types.map((t, i) => ({
+        slot: i + 1,
         type: ZPokeApiResource.toResource(ZPokedexCollection.Type, t)
       })),
       weight: other.weight
