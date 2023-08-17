@@ -6,8 +6,8 @@ import { ZHttpCodeServer, ZHttpMethod, ZHttpResultBuilder, ZHttpServiceMock } fr
 import { ZHttpServiceToken } from '@zthun/webigail-nest';
 import { beforeAll, beforeEach, describe, expect, it, vi } from 'vitest';
 import { ZPokedexCollection, ZPokedexDatabaseToken } from '../database/pokedex-database';
-import { IPokeApiSpecies, ZPokeApiSpeciesHelper } from '../species/species';
-import { ZPokeApiResourceHelper } from './resource';
+import { IPokeApiSpecies, ZPokeApiSpeciesBuilder } from '../species/species';
+import { ZPokeApiResource } from './resource';
 import { ZPokedexResourceModule } from './resource-module';
 import { ZPokedexResourceService } from './resource-service';
 
@@ -36,14 +36,13 @@ describe('ZResourceSeeder', () => {
   beforeEach(() => {
     http = new ZHttpServiceMock();
 
-    const helper = new ZPokeApiResourceHelper();
     const collections = Object.values(ZPokedexCollection);
 
     collections.forEach(async (c) => {
       http.set(
         ZPokedexResourceService.pageEndpoint(c),
         ZHttpMethod.Get,
-        new ZHttpResultBuilder(helper.toPage([])).build()
+        new ZHttpResultBuilder(ZPokeApiResource.toPage([])).build()
       );
 
       await dal.delete(c);
@@ -89,23 +88,22 @@ describe('ZResourceSeeder', () => {
     let species: IPokeApiSpecies[];
 
     beforeEach(() => {
-      const resourceHelper = new ZPokeApiResourceHelper();
-      const speciesHelper = new ZPokeApiSpeciesHelper();
-
-      squirtle = speciesHelper.from(new ZSpeciesBuilder().squirtle().build());
-      charmander = speciesHelper.from(new ZSpeciesBuilder().charmander().build());
-      charizard = speciesHelper.from(new ZSpeciesBuilder().charizard().build());
-      bulbasaur = speciesHelper.from(new ZSpeciesBuilder().bulbasaur().build());
-      pikachu = speciesHelper.from(new ZSpeciesBuilder().pikachu().build());
+      squirtle = new ZPokeApiSpeciesBuilder().from(new ZSpeciesBuilder().squirtle().build()).build();
+      charmander = new ZPokeApiSpeciesBuilder().from(new ZSpeciesBuilder().charmander().build()).build();
+      charizard = new ZPokeApiSpeciesBuilder().from(new ZSpeciesBuilder().charizard().build()).build();
+      bulbasaur = new ZPokeApiSpeciesBuilder().from(new ZSpeciesBuilder().bulbasaur().build()).build();
+      pikachu = new ZPokeApiSpeciesBuilder().from(new ZSpeciesBuilder().pikachu().build()).build();
 
       species = [squirtle, charmander, charizard, bulbasaur, pikachu];
 
-      const resources = species.map((s) => resourceHelper.toResource(ZPokedexCollection.PokemonSpecies, s.id, s.name));
+      const resources = species.map((s) =>
+        ZPokeApiResource.toResource(ZPokedexCollection.PokemonSpecies, s.id, s.name)
+      );
 
       http.set(
         ZPokedexResourceService.pageEndpoint(ZPokedexCollection.PokemonSpecies),
         ZHttpMethod.Get,
-        new ZHttpResultBuilder(resourceHelper.toPage(resources)).build()
+        new ZHttpResultBuilder(ZPokeApiResource.toPage(resources)).build()
       );
 
       resources.map((r, i) => {
@@ -115,13 +113,12 @@ describe('ZResourceSeeder', () => {
 
     it('should populate the equivalent collection database with the list returned from the pokeapi', async () => {
       // Arrange.
-      const helper = new ZPokeApiSpeciesHelper();
       const target = await createTestTarget();
-      const expected = species.map((s) => helper.to(s));
+      const expected = species.map((s) => ({ id: s.id, name: s.name }));
       // Act.
       await target.populate(ZPokedexCollection.PokemonSpecies, 2, 0);
       const _species = await dal.read<IPokeApiSpecies>(ZPokedexCollection.PokemonSpecies);
-      const actual = _species.map((s) => helper.to(s));
+      const actual = _species.map((s) => ({ id: s.id, name: s.name }));
       // Assert.
       expect(actual).toEqual(expected);
     });
@@ -143,8 +140,7 @@ describe('ZResourceSeeder', () => {
 
     it('should retry each failed resource', async () => {
       // Arrange.
-      const helper = new ZPokeApiResourceHelper();
-      const { url } = helper.toResource(ZPokedexCollection.PokemonSpecies, squirtle.id, squirtle.name);
+      const { url } = ZPokeApiResource.toResource(ZPokedexCollection.PokemonSpecies, squirtle.id, squirtle.name);
       const target = await createTestTarget();
       let actual = 0;
       const expected = 3;
