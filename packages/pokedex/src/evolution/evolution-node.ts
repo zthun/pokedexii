@@ -1,4 +1,4 @@
-import { IZEvolutionTrigger, ZEvolutionTriggerBuilder } from './evolution-trigger';
+import { IZEvolutionTrigger, ZEvolutionTrigger, ZEvolutionTriggerBuilder } from './evolution-trigger';
 
 /**
  * Represents a node in an evolution chain.
@@ -133,6 +133,29 @@ export class ZEvolutionNodeBuilder {
    */
   public gallade() {
     return this.species('gallade').trigger(new ZEvolutionTriggerBuilder().male().item('dawn-stone').build());
+  }
+
+  /**
+   * Constructs the evolution chain for Feebas.
+   *
+   * @returns
+   *        This object.
+   */
+  public feebas() {
+    return this.species('feebas').option(new ZEvolutionNodeBuilder().milotic().build());
+  }
+
+  /**
+   * Constructs the evolution chain for Milotic.
+   *
+   * @returns
+   *        This object.
+   */
+  public milotic() {
+    return this.species('milotic')
+      .trigger(new ZEvolutionTriggerBuilder().name(ZEvolutionTrigger.LevelUp).beauty(171).build())
+      .trigger(new ZEvolutionTriggerBuilder().name(ZEvolutionTrigger.Trade).held('prism-scale').build())
+      .trigger(new ZEvolutionTriggerBuilder().name(ZEvolutionTrigger.LevelUp).beauty(170).build());
   }
 
   /**

@@ -62,6 +62,13 @@ export class ZEvolutionBuilder {
   }
 
   /**
+   * Sets the evolution chain that starts with feebas.
+   */
+  public feebas() {
+    return this.id(178).head(new ZEvolutionNodeBuilder().feebas().build());
+  }
+
+  /**
    * Builds the evolution object.
    *
    * @returns
