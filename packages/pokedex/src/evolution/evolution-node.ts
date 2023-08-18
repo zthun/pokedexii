@@ -1,5 +1,10 @@
 import { ZType } from '../type/type';
-import { IZEvolutionTrigger, ZEvolutionTrigger, ZEvolutionTriggerBuilder } from './evolution-trigger';
+import {
+  IZEvolutionTrigger,
+  ZEvolutionTrigger,
+  ZEvolutionTriggerBuilder,
+  ZStatRelationship
+} from './evolution-trigger';
 
 /**
  * Represents a node in an evolution chain.
@@ -322,6 +327,111 @@ export class ZEvolutionNodeBuilder {
   public mantine() {
     return this.species('mantine').trigger(
       new ZEvolutionTriggerBuilder().name(ZEvolutionTrigger.LevelUp).partySpecies('remoraid').build()
+    );
+  }
+
+  /**
+   * Constructs the evolution chain for Pancham.
+   *
+   * @returns
+   *        This object.
+   */
+  public pancham() {
+    return this.species('pancham').option(new ZEvolutionNodeBuilder().pangoro().build());
+  }
+
+  /**
+   * Constructs the evolution chain for Pangoro.
+   *
+   * @returns
+   *        This object.
+   */
+  public pangoro() {
+    return this.species('pangoro').trigger(
+      new ZEvolutionTriggerBuilder().name(ZEvolutionTrigger.LevelUp).partyType(ZType.Dark).build()
+    );
+  }
+
+  /**
+   * Constructs the evolution chain for Shelmet.
+   *
+   * @returns
+   *        This object.
+   */
+  public shelmet() {
+    return this.species('shelmet').option(new ZEvolutionNodeBuilder().accelgor().build());
+  }
+
+  /**
+   * Constructs the evolution chain for Accelgor.
+   *
+   * @returns
+   *        This object.
+   */
+  public accelgor() {
+    return this.species('accelgor').trigger(
+      new ZEvolutionTriggerBuilder().name(ZEvolutionTrigger.Trade).trade('karrablast').build()
+    );
+  }
+
+  /**
+   * Constructs the evolution chain for Tyrogue.
+   *
+   * @returns
+   *        This object.
+   */
+  public tyrogue() {
+    return this.species('tyrogue')
+      .option(new ZEvolutionNodeBuilder().hitmonlee().build())
+      .option(new ZEvolutionNodeBuilder().hitmonchan().build())
+      .option(new ZEvolutionNodeBuilder().hitmontop().build());
+  }
+
+  /**
+   * Constructs the evolution chain for Hitmonlee.
+   *
+   * @returns
+   *        This object.
+   */
+  public hitmonlee() {
+    return this.species('hitmonlee').trigger(
+      new ZEvolutionTriggerBuilder()
+        .name(ZEvolutionTrigger.LevelUp)
+        .level(20)
+        .stats(ZStatRelationship.AttackGreaterThanDefense)
+        .build()
+    );
+  }
+
+  /**
+   * Constructs the evolution chain for Hitmonchan.
+   *
+   * @returns
+   *        This object.
+   */
+  public hitmonchan() {
+    return this.species('hitmonchan').trigger(
+      new ZEvolutionTriggerBuilder()
+        .name(ZEvolutionTrigger.LevelUp)
+        .level(20)
+        .stats(ZStatRelationship.AttackLessThanDefense)
+        .build()
+    );
+  }
+
+  /**
+   * Constructs the evolution chain for Hitmontop.
+   *
+   * @returns
+   *        This object.
+   */
+  public hitmontop() {
+    return this.species('hitmontop').trigger(
+      new ZEvolutionTriggerBuilder()
+        .name(ZEvolutionTrigger.LevelUp)
+        .level(20)
+        .stats(ZStatRelationship.AttackEqualToDefense)
+        .build()
     );
   }
 

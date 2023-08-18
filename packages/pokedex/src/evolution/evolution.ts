@@ -101,6 +101,36 @@ export class ZEvolutionBuilder {
   }
 
   /**
+   * Sets the evolution chain that starts with pancham.
+   *
+   * @returns
+   *        This object.
+   */
+  public pancham() {
+    return this.id(346).head(new ZEvolutionNodeBuilder().pancham().build());
+  }
+
+  /**
+   * Sets the evolution chain that starts with shelmet.
+   *
+   * @returns
+   *        This object.
+   */
+  public shelmet() {
+    return this.id(312).head(new ZEvolutionNodeBuilder().shelmet().build());
+  }
+
+  /**
+   * Sets the evolution chain that starts with tyrogue.
+   *
+   * @returns
+   *        This object.
+   */
+  public tyrogue() {
+    return this.id(47).head(new ZEvolutionNodeBuilder().tyrogue().build());
+  }
+
+  /**
    * Builds the evolution object.
    *
    * @returns

@@ -18,6 +18,12 @@ export enum ZEvolutionTrigger {
   UseItem = 'use-item'
 }
 
+export enum ZStatRelationship {
+  AttackEqualToDefense = 0,
+  AttackGreaterThanDefense = 1,
+  AttackLessThanDefense = -1
+}
+
 export interface IZEvolutionTrigger extends IZResource<ZEvolutionTrigger> {
   affection?: number;
   beauty?: number;
@@ -28,11 +34,11 @@ export interface IZEvolutionTrigger extends IZResource<ZEvolutionTrigger> {
   level?: number;
   location?: string;
   move?: string;
-  moveType?: string;
+  moveType?: ZType;
   partySpecies?: string;
-  partyType?: string;
+  partyType?: ZType;
   rain: boolean;
-  stats?: string[];
+  stats?: ZStatRelationship;
   time?: string;
   trade?: string;
   turnUpsideDown: boolean;
@@ -265,7 +271,7 @@ export class ZEvolutionTriggerBuilder {
    * @returns
    *        This object.
    */
-  public partyType(type: string) {
+  public partyType(type: ZType) {
     this._trigger.partyType = type;
     return this;
   }
@@ -285,7 +291,10 @@ export class ZEvolutionTriggerBuilder {
   }
 
   /**
-   * Sets the physical stats requirement.
+   * Sets the physical stats relationship.
+   *
+   * This is the relationship between attack and
+   * defense.
    *
    * @param stats -
    *        The required stats.
@@ -293,22 +302,9 @@ export class ZEvolutionTriggerBuilder {
    * @returns
    *        This object.
    */
-  public stats(stats: string[]) {
+  public stats(stats: ZStatRelationship) {
     this._trigger.stats = stats;
     return this;
-  }
-
-  /**
-   * Adds a physical stats requirement.
-   *
-   * @param stat -
-   *        The stat to add.
-   *
-   * @returns
-   *        This object.
-   */
-  public stat(stat: string) {
-    return this.stats((this._trigger.stats || []).concat([stat]));
   }
 
   /**
