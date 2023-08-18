@@ -1,17 +1,17 @@
 import { Module } from '@nestjs/common';
 import { ZHttpModule } from '@zthun/webigail-nest';
 import { ZPokedexDatabaseModule } from '../database/pokedex-database-module';
-import { ZPokedexResourceService, ZPokedexResourceServiceToken } from './resource-service';
+import { ZResourceSeedService, ZResourceSeedServiceToken } from './resource-seed-service';
 
 @Module({
   imports: [ZHttpModule, ZPokedexDatabaseModule],
   providers: [
     {
-      provide: ZPokedexResourceServiceToken,
-      useClass: ZPokedexResourceService
+      provide: ZResourceSeedServiceToken,
+      useClass: ZResourceSeedService
     },
-    ZPokedexResourceService
+    ZResourceSeedService
   ],
-  exports: [ZPokedexResourceServiceToken, ZPokedexResourceService]
+  exports: [ZResourceSeedServiceToken, ZResourceSeedService]
 })
-export class ZPokedexResourceModule {}
+export class ZResourceModule {}

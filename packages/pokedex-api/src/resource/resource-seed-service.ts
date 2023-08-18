@@ -7,16 +7,16 @@ import { ZUrlBuilder } from '@zthun/webigail-url';
 import { ZPokedexCollection, ZPokedexDatabaseToken } from '../database/pokedex-database';
 import { IPokeApiResource, IPokeApiResourcePage, PokeApiUrl } from './resource';
 
-export const ZPokedexResourceServiceToken = Symbol();
+export const ZResourceSeedServiceToken = Symbol();
 
-export interface IZPokedexResourceService {
+export interface IZResourceSeedService {
   populate(collection: string): Promise<void>;
   seed(): Promise<void>;
 }
 
 @Injectable()
-export class ZPokedexResourceService implements IZPokedexResourceService {
-  private readonly _logger = new Logger(ZPokedexResourceService.name);
+export class ZResourceSeedService implements IZResourceSeedService {
+  private readonly _logger = new Logger(ZResourceSeedService.name);
 
   public constructor(
     @Inject(ZPokedexDatabaseToken) private _dal: IZDatabaseDocument,
@@ -46,7 +46,7 @@ export class ZPokedexResourceService implements IZPokedexResourceService {
   }
 
   private async _readAvailableResources(collection: string, milliseconds: number, retries: number) {
-    const url = ZPokedexResourceService.pageEndpoint(collection);
+    const url = ZResourceSeedService.pageEndpoint(collection);
 
     return this._doWithRetry(url, milliseconds, retries, async () => {
       const resourceListRequest = new ZHttpRequestBuilder().url(url).get().timeout(10000).build();

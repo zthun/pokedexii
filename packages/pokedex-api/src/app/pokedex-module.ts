@@ -1,15 +1,15 @@
 /* istanbul ignore file -- @preserve */
 import { Inject, Module } from '@nestjs/common';
 import { ZPokedexPokemonModule } from '../pokemon/pokemon-module';
-import { ZPokedexResourceModule } from '../resource/resource-module';
-import { IZPokedexResourceService, ZPokedexResourceServiceToken } from '../resource/resource-service';
+import { ZResourceModule } from '../resource/resource-module';
+import { IZResourceSeedService, ZResourceSeedServiceToken } from '../resource/resource-seed-service';
 import { ZPokedexSpeciesModule } from '../species/species-module';
 
 @Module({
-  imports: [ZPokedexSpeciesModule, ZPokedexPokemonModule, ZPokedexResourceModule]
+  imports: [ZPokedexSpeciesModule, ZPokedexPokemonModule, ZResourceModule]
 })
 export class ZPokedexModule {
-  public constructor(@Inject(ZPokedexResourceServiceToken) private _resource: IZPokedexResourceService) {}
+  public constructor(@Inject(ZResourceSeedServiceToken) private _resource: IZResourceSeedService) {}
 
   public onModuleInit() {
     return this._resource.seed();
