@@ -63,6 +63,8 @@ export class ZEvolutionBuilder {
 
   /**
    * Sets the evolution chain that starts with feebas.
+   * @returns
+   *        This object.
    */
   public feebas() {
     return this.id(178).head(new ZEvolutionNodeBuilder().feebas().build());
@@ -70,9 +72,22 @@ export class ZEvolutionBuilder {
 
   /**
    * Sets the evolution chain that starts with eevee.
+   *
+   * @returns
+   *        This object.
    */
   public eevee() {
     return this.id(67).head(new ZEvolutionNodeBuilder().eevee().build());
+  }
+
+  /**
+   * Sets the evolution chain that starts with tangela.
+   *
+   * @returns
+   *        This object.
+   */
+  public tangela() {
+    return this.id(52).head(new ZEvolutionNodeBuilder().tangela().build());
   }
 
   /**

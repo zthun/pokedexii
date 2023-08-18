@@ -1,5 +1,6 @@
 import { ZGender } from '../gender/gender';
 import { IZResource } from '../resource/resource';
+import { ZType } from '../type/type';
 
 export enum ZEvolutionTrigger {
   AgileStyleMove = 'agile-style-move',
@@ -208,7 +209,7 @@ export class ZEvolutionTriggerBuilder {
    * @returns
    *        This object.
    */
-  public moveType(type: string) {
+  public moveType(type: ZType) {
     this._trigger.moveType = type;
     return this;
   }

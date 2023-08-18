@@ -282,6 +282,28 @@ export class ZEvolutionNodeBuilder {
   }
 
   /**
+   * Constructs the evolution chain for Tangela.
+   *
+   * @returns
+   *        This object.
+   */
+  public tangela() {
+    return this.species('tangela').option(new ZEvolutionNodeBuilder().tangrowth().build());
+  }
+
+  /**
+   * Constructs the evolution chain for Tangrowth.
+   *
+   * @returns
+   *        This object.
+   */
+  public tangrowth() {
+    return this.species('tangrowth').trigger(
+      new ZEvolutionTriggerBuilder().name(ZEvolutionTrigger.LevelUp).move('ancient-power').build()
+    );
+  }
+
+  /**
    * Adds a trigger mechanism for evolution.
    *
    * @param trigger -
