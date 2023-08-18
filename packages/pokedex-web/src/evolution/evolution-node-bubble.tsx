@@ -12,7 +12,6 @@ import { asStateData, isStateErrored, isStateLoaded, isStateLoading } from '@zth
 import { IZEvolutionNode, ZSpeciesBuilder } from '@zthun/pokedex';
 import { startCase } from 'lodash';
 import React from 'react';
-import { usePokemon } from '../pokemon/pokemon-service';
 import { useSpecies } from '../species/species-service';
 import { usePokemonTheme } from '../theme/pokemon-theme';
 
@@ -33,30 +32,29 @@ export function ZEvolutionNodeBubble(props: IZEvolutionNodeBubble) {
   const { node } = props;
   const navigate = useNavigate();
   const [species] = useSpecies(node.species);
-  const [pokemon] = usePokemon(asStateData(species)?.main);
   const { classes } = useEvolutionBubbleStyles();
   const { custom } = usePokemonTheme();
 
   const handleClick = isStateLoaded(species) ? navigate.bind(null, `/pokemon/${species.name}`) : undefined;
 
   const renderAvatar = () => {
-    if (isStateLoading(species) || isStateLoading(pokemon)) {
+    if (isStateLoading(species)) {
       return <ZSuspenseRotate width={ZSizeFixed.Medium} />;
     }
 
-    if (isStateErrored(species) || isStateErrored(pokemon)) {
+    if (isStateErrored(species)) {
       return <ZIconFontAwesome name='question' width={ZSizeFixed.Medium} />;
     }
 
-    return <ZImageSource width={ZSizeVaried.Full} src={pokemon.artwork} />;
+    return <ZImageSource width={ZSizeVaried.Full} src={species.artwork} />;
   };
 
   const renderName = () => {
-    if (isStateLoading(species) || isStateLoading(pokemon)) {
+    if (isStateLoading(species)) {
       return 'Loading...';
     }
 
-    if (isStateErrored(species) || isStateErrored(pokemon)) {
+    if (isStateErrored(species)) {
       return startCase(new ZSpeciesBuilder().build().name);
     }
 
