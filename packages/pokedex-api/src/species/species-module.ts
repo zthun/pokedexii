@@ -1,18 +1,32 @@
 import { Module } from '@nestjs/common';
+import { ZConverterIdOrNameSearch } from 'src/convert/converter-id-or-name-search';
 import { ZPokedexDatabaseModule } from '../database/pokedex-database-module';
-import { ZPokedexResourceModule } from '../resource/resource-module';
-import { ZPokedexSpeciesController } from './species-controller';
-import { ZPokedexSpeciesService, ZPokedexSpeciesServiceToken } from './species-service';
+import { ZConvertToken, ZGetToken, ZListToken, ZSearchToken } from '../resource/resource-tokens';
+import { ZSpeciesController } from './species-controller';
+import { ZSpeciesConverter } from './species-convert';
+import { ZSpeciesGetService } from './species-get-service';
+import { ZSpeciesListService } from './species-list-service';
 
 @Module({
-  imports: [ZPokedexDatabaseModule, ZPokedexResourceModule],
-  controllers: [ZPokedexSpeciesController],
+  imports: [ZPokedexDatabaseModule],
+  controllers: [ZSpeciesController],
   providers: [
-    ZPokedexSpeciesService,
     {
-      provide: ZPokedexSpeciesServiceToken,
-      useClass: ZPokedexSpeciesService
+      provide: ZListToken,
+      useClass: ZSpeciesListService
+    },
+    {
+      provide: ZGetToken,
+      useClass: ZSpeciesGetService
+    },
+    {
+      provide: ZSearchToken,
+      useValue: new ZConverterIdOrNameSearch()
+    },
+    {
+      provide: ZConvertToken,
+      useClass: ZSpeciesConverter
     }
   ]
 })
-export class ZPokedexSpeciesModule {}
+export class ZSpeciesModule {}

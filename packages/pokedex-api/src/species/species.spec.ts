@@ -6,10 +6,10 @@ import { IZSpecies, ZPokemonBuilder, ZSpeciesBuilder } from '@zthun/pokedex';
 import { ZHttpCodeClient, ZHttpCodeSuccess } from '@zthun/webigail-http';
 import request from 'supertest';
 import { afterAll, afterEach, beforeAll, beforeEach, describe, expect, it } from 'vitest';
-import { ZPokedexCollection, ZPokedexDatabaseToken } from '../database/pokedex-database';
+import { ZDatabaseToken, ZPokedexCollection } from '../database/pokedex-database';
 import { ZPokeApiPokemonBuilder } from '../pokemon/pokemon';
 import { ZPokeApiSpeciesBuilder } from './species';
-import { ZPokedexSpeciesModule } from './species-module';
+import { ZSpeciesModule } from './species-module';
 
 describe('ZSpeciesApi', () => {
   let server: IZDatabaseServer<IZDatabaseDocument>;
@@ -21,8 +21,8 @@ describe('ZSpeciesApi', () => {
   let _target: INestApplication<any>;
 
   const createTestTarget = async () => {
-    const module = await Test.createTestingModule({ imports: [ZPokedexSpeciesModule] })
-      .overrideProvider(ZPokedexDatabaseToken)
+    const module = await Test.createTestingModule({ imports: [ZSpeciesModule] })
+      .overrideProvider(ZDatabaseToken)
       .useValue(dal)
       .compile();
 
