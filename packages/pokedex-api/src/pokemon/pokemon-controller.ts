@@ -1,13 +1,14 @@
 import { Controller, Get, Inject, Param } from '@nestjs/common';
 import { IZPokemon } from '@zthun/pokedex';
-import { IZPokedexPokemonService, ZPokedexPokemonServiceToken } from './pokemon-service';
+import { IZResourceGetService } from '../resource/resource-service';
+import { ZGetToken } from '../resource/resource-tokens';
 
 @Controller('pokemon')
 export class ZPokedexPokemonController {
-  public constructor(@Inject(ZPokedexPokemonServiceToken) private _service: IZPokedexPokemonService) {}
+  public constructor(@Inject(ZGetToken) private _getService: IZResourceGetService<IZPokemon>) {}
 
   @Get(':idOrName')
   public get(@Param('idOrName') idOrName: string): Promise<IZPokemon> {
-    return this._service.get(idOrName);
+    return this._getService.get(idOrName);
   }
 }

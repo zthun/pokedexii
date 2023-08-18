@@ -1,15 +1,21 @@
 import { Module } from '@nestjs/common';
 import { ZPokedexDatabaseModule } from '../database/pokedex-database-module';
+import { ZConvertToken, ZGetToken } from '../resource/resource-tokens';
 import { ZPokedexPokemonController } from './pokemon-controller';
-import { ZPokedexPokemonService, ZPokedexPokemonServiceToken } from './pokemon-service';
+import { ZPokemonConvert } from './pokemon-convert';
+import { ZPokemonGetService } from './pokemon-get-service';
 
 @Module({
   imports: [ZPokedexDatabaseModule],
   controllers: [ZPokedexPokemonController],
   providers: [
     {
-      provide: ZPokedexPokemonServiceToken,
-      useClass: ZPokedexPokemonService
+      provide: ZGetToken,
+      useClass: ZPokemonGetService
+    },
+    {
+      provide: ZConvertToken,
+      useClass: ZPokemonConvert
     }
   ]
 })
