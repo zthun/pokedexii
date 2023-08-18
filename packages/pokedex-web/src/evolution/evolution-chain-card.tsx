@@ -37,7 +37,7 @@ export function ZEvolutionChainCard(props: IZEvolutionResourceCard) {
       className={cssJoinDefined('ZEvolutionChainCard-root')}
       CardProps={{
         heading: 'Evolution',
-        subHeading: 'Growth Path',
+        subHeading: `Growth Path ${evolutionName}`,
         avatar: <ZIconFontAwesome name='globe' width={ZSizeFixed.Small} />
       }}
       resource={evolution}
