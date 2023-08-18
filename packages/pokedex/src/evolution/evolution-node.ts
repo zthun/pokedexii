@@ -1,3 +1,4 @@
+import { ZType } from '../type/type';
 import { IZEvolutionTrigger, ZEvolutionTrigger, ZEvolutionTriggerBuilder } from './evolution-trigger';
 
 /**
@@ -156,6 +157,128 @@ export class ZEvolutionNodeBuilder {
       .trigger(new ZEvolutionTriggerBuilder().name(ZEvolutionTrigger.LevelUp).beauty(171).build())
       .trigger(new ZEvolutionTriggerBuilder().name(ZEvolutionTrigger.Trade).held('prism-scale').build())
       .trigger(new ZEvolutionTriggerBuilder().name(ZEvolutionTrigger.LevelUp).beauty(170).build());
+  }
+
+  /**
+   * Constructs the evolution chain for Eevee.
+   *
+   * @returns
+   *        This object.
+   */
+  public eevee() {
+    return this.species('eevee')
+      .option(new ZEvolutionNodeBuilder().vaporeon().build())
+      .option(new ZEvolutionNodeBuilder().jolteon().build())
+      .option(new ZEvolutionNodeBuilder().flareon().build())
+      .option(new ZEvolutionNodeBuilder().espeon().build())
+      .option(new ZEvolutionNodeBuilder().umbreon().build())
+      .option(new ZEvolutionNodeBuilder().leafeon().build())
+      .option(new ZEvolutionNodeBuilder().glaceon().build())
+      .option(new ZEvolutionNodeBuilder().sylveon().build());
+  }
+
+  /**
+   * Constructs the evolution chain for Vaporeon.
+   *
+   * @returns
+   *        This object.
+   */
+  public vaporeon() {
+    return this.species('vaporeon').trigger(
+      new ZEvolutionTriggerBuilder().name(ZEvolutionTrigger.UseItem).item('water-stone').build()
+    );
+  }
+
+  /**
+   * Constructs the evolution chain for Jolteon.
+   *
+   * @returns
+   *        This object.
+   */
+  public jolteon() {
+    return this.species('jolteon').trigger(
+      new ZEvolutionTriggerBuilder().name(ZEvolutionTrigger.UseItem).item('thunder-stone').build()
+    );
+  }
+
+  /**
+   * Constructs the evolution chain for Flareon.
+   *
+   * @returns
+   *        This object.
+   */
+  public flareon() {
+    return this.species('flareon').trigger(
+      new ZEvolutionTriggerBuilder().name(ZEvolutionTrigger.UseItem).item('fire-stone').build()
+    );
+  }
+
+  /**
+   * Constructs the evolution chain for Espeon.
+   *
+   * @returns
+   *        This object.
+   */
+  public espeon() {
+    return this.species('espeon').trigger(
+      new ZEvolutionTriggerBuilder().name(ZEvolutionTrigger.LevelUp).happiness(160).time('day').build()
+    );
+  }
+
+  /**
+   * Constructs the evolution chain for Umbreon.
+   *
+   * @returns
+   *        This object.
+   */
+  public umbreon() {
+    return this.species('umbreon').trigger(
+      new ZEvolutionTriggerBuilder().name(ZEvolutionTrigger.LevelUp).happiness(160).time('night').build()
+    );
+  }
+
+  /**
+   * Constructs the evolution chain for Leafeon.
+   *
+   * @returns
+   *        This object.
+   */
+  public leafeon() {
+    return this.species('leafeon')
+      .trigger(new ZEvolutionTriggerBuilder().name(ZEvolutionTrigger.LevelUp).location('eterna-forest').build())
+      .trigger(new ZEvolutionTriggerBuilder().name(ZEvolutionTrigger.LevelUp).location('pinwheel-forest').build())
+      .trigger(new ZEvolutionTriggerBuilder().name(ZEvolutionTrigger.LevelUp).location('kalos-route-20').build())
+      .trigger(new ZEvolutionTriggerBuilder().name(ZEvolutionTrigger.UseItem).item('leaf-stone').build());
+  }
+
+  /**
+   * Constructs the evolution chain for Glaceon.
+   *
+   * @returns
+   *        This object.
+   */
+  public glaceon() {
+    return this.species('glaceon')
+      .trigger(new ZEvolutionTriggerBuilder().name(ZEvolutionTrigger.LevelUp).location('sinnoh-route-217').build())
+      .trigger(new ZEvolutionTriggerBuilder().name(ZEvolutionTrigger.LevelUp).location('twist-mountain').build())
+      .trigger(new ZEvolutionTriggerBuilder().name(ZEvolutionTrigger.LevelUp).location('frost-cavern').build())
+      .trigger(new ZEvolutionTriggerBuilder().name(ZEvolutionTrigger.UseItem).item('ice-stone').build());
+  }
+
+  /**
+   * Constructs the evolution chain for Glaceon.
+   *
+   * @returns
+   *        This object.
+   */
+  public sylveon() {
+    return this.species('sylveon')
+      .trigger(
+        new ZEvolutionTriggerBuilder().name(ZEvolutionTrigger.LevelUp).affection(2).moveType(ZType.Fairy).build()
+      )
+      .trigger(
+        new ZEvolutionTriggerBuilder().name(ZEvolutionTrigger.LevelUp).happiness(160).moveType(ZType.Fairy).build()
+      );
   }
 
   /**

@@ -69,6 +69,13 @@ export class ZEvolutionBuilder {
   }
 
   /**
+   * Sets the evolution chain that starts with eevee.
+   */
+  public eevee() {
+    return this.id(67).head(new ZEvolutionNodeBuilder().eevee().build());
+  }
+
+  /**
    * Builds the evolution object.
    *
    * @returns
