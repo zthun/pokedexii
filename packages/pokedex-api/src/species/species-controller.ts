@@ -1,8 +1,8 @@
 import { Controller, Get, Inject, Param, Query } from '@nestjs/common';
 import { IZDataRequestQuery, IZPage, ZDataRequestBuilder } from '@zthun/helpful-query';
 import { IZSpecies } from '@zthun/pokedex';
-import { IZResourceGetService, IZResourceListService } from 'src/resource/resource-service';
-import { ZGetToken, ZListToken } from 'src/resource/resource-tokens';
+import { IZResourceGetService, IZResourceListService } from '../resource/resource-service';
+import { ZGetToken, ZListToken } from '../resource/resource-tokens';
 
 @Controller('species')
 export class ZSpeciesController {

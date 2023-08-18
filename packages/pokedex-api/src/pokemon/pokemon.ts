@@ -1,5 +1,5 @@
 import { IZPokemon, ZPokemonBuilder } from '@zthun/pokedex';
-import { ZPokedexCollection } from 'src/database/pokedex-database';
+import { ZPokedexCollection } from '../database/pokedex-database';
 import { IPokeApiResource, ZPokeApiResource } from '../resource/resource';
 
 interface IPokeApiPokemonAbility {

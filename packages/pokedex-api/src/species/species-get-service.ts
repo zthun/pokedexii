@@ -2,10 +2,10 @@ import { Inject, Injectable, NotFoundException } from '@nestjs/common';
 import { IZDatabaseDocument } from '@zthun/dalmart-db';
 import { ZDataRequestBuilder, ZFilterBinaryBuilder, ZFilterLogicBuilder } from '@zthun/helpful-query';
 import { IZSpecies } from '@zthun/pokedex';
-import { ZConvertToken } from 'src/resource/resource-tokens';
 import { IZConverter } from '../convert/converter';
 import { ZDatabaseToken, ZPokedexCollection } from '../database/pokedex-database';
 import { IZResourceGetService } from '../resource/resource-service';
+import { ZConvertToken } from '../resource/resource-tokens';
 import { IPokeApiSpecies } from './species';
 
 @Injectable()
