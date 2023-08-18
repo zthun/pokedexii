@@ -2,10 +2,11 @@ import { ZCircusBy } from '@zthun/cirque';
 import { ZCircusSetupRenderer } from '@zthun/cirque-du-react';
 import { ZFashionThemeContext } from '@zthun/fashion-boutique';
 import { ZDataRequestBuilder, ZDataSourceStatic, ZFilterBinaryBuilder } from '@zthun/helpful-query';
-import { IZType, IZTypeService, ZType, ZTypeBuilder } from '@zthun/pokedex';
+import { IZType, ZType, ZTypeBuilder } from '@zthun/pokedex';
 import React from 'react';
 import { Mocked, beforeEach, describe, expect, it } from 'vitest';
 import { mock } from 'vitest-mock-extended';
+import { IZResourceService } from '../resource/resource-service';
 import { createPokemonTheme } from '../theme/pokemon-theme';
 import { ZTypeListPage } from './type-list-page';
 import { ZTypeListPageComponentModel } from './type-list-page.cm';
@@ -17,7 +18,7 @@ describe('ZTypeListPage', () => {
   let ground: IZType;
   let types: IZType[];
 
-  let typeService: Mocked<IZTypeService>;
+  let typeService: Mocked<IZResourceService<IZType>>;
 
   const createTestTarget = async () => {
     const element = (

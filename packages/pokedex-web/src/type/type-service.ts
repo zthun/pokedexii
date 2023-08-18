@@ -1,6 +1,12 @@
 import { useAsyncState } from '@zthun/helpful-react';
-import { ZType, createTypeService } from '@zthun/pokedex';
+import { IZType, ZType } from '@zthun/pokedex';
+import { ZHttpService } from '@zthun/webigail-http';
 import { createContext, useContext } from 'react';
+import { IZResourceService, ZResourceService } from '../resource/resource-service';
+
+function createTypeService(): IZResourceService<IZType> {
+  return new ZResourceService(new ZHttpService(), 'types');
+}
 
 export const ZTypeServiceContext = createContext(createTypeService());
 
