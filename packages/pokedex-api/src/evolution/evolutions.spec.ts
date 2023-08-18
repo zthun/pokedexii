@@ -19,6 +19,10 @@ describe('ZEvolutionsApi', () => {
   let feebas: IZEvolution;
   let eevee: IZEvolution;
   let tangela: IZEvolution;
+  let mantyke: IZEvolution;
+  let pancham: IZEvolution;
+  let shelmet: IZEvolution;
+  let tyrogue: IZEvolution;
   let evolutions: IZEvolution[];
   let _target: INestApplication<any>;
 
@@ -48,8 +52,12 @@ describe('ZEvolutionsApi', () => {
     feebas = new ZEvolutionBuilder().feebas().build();
     eevee = new ZEvolutionBuilder().eevee().build();
     tangela = new ZEvolutionBuilder().tangela().build();
+    mantyke = new ZEvolutionBuilder().mantyke().build();
+    pancham = new ZEvolutionBuilder().pancham().build();
+    shelmet = new ZEvolutionBuilder().shelmet().build();
+    tyrogue = new ZEvolutionBuilder().tyrogue().build();
 
-    evolutions = [ralts, feebas, eevee, tangela];
+    evolutions = [ralts, feebas, eevee, tangela, mantyke, pancham, shelmet, tyrogue];
 
     const _evolutions = evolutions.map((p) => new ZPokeApiEvolutionChainBuilder().from(p).build());
 
