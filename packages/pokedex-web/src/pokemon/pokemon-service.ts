@@ -1,8 +1,8 @@
 import { useAsyncState } from '@zthun/helpful-react';
-import { IZPokemon, IZResourceService, ZPokemonBuilder } from '@zthun/pokedex';
+import { IZPokemon, ZPokemonBuilder } from '@zthun/pokedex';
 import { ZHttpService } from '@zthun/webigail-http';
 import { createContext, useContext } from 'react';
-import { ZResourceService } from '../resource/resource-service';
+import { IZResourceService, ZResourceService } from '../resource/resource-service';
 
 function createPokemonService(): IZResourceService<IZPokemon> {
   return new ZResourceService<IZPokemon>(new ZHttpService(), 'pokemon');
