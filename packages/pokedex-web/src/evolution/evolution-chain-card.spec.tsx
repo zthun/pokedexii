@@ -2,13 +2,12 @@ import { ZCircusBy } from '@zthun/cirque';
 import { ZCircusSetupRenderer } from '@zthun/cirque-du-react';
 import { ZFashionThemeContext, ZTestRouter } from '@zthun/fashion-boutique';
 import { ZDataRequestBuilder, ZDataSourceStatic, ZFilterBinaryBuilder } from '@zthun/helpful-query';
-import { IZEvolution, IZPokemon, IZSpecies, ZEvolutionBuilder, ZPokemonBuilder, ZSpeciesBuilder } from '@zthun/pokedex';
+import { IZEvolution, IZSpecies, ZEvolutionBuilder, ZSpeciesBuilder } from '@zthun/pokedex';
 import { MemoryHistory, createMemoryHistory } from 'history';
 import { last } from 'lodash';
 import React from 'react';
 import { Mocked, beforeEach, describe, expect, it } from 'vitest';
 import { mock } from 'vitest-mock-extended';
-import { ZPokemonServiceContext } from '../pokemon/pokemon-service';
 import { IZResourceService } from '../resource/resource-service';
 import { ZSpeciesServiceContext } from '../species/species-service';
 import { createPokemonTheme } from '../theme/pokemon-theme';
@@ -22,27 +21,20 @@ describe('ZEvolutionChainCard', () => {
   let kirlia$: IZSpecies;
   let gardevoir$: IZSpecies;
   let gallade$: IZSpecies;
-  let ralts: IZPokemon;
-  let kirlia: IZPokemon;
-  let gardevoir: IZPokemon;
-  let gallade: IZPokemon;
   let history: MemoryHistory;
 
   let speciesService: Mocked<IZResourceService<IZSpecies>>;
-  let pokemonService: Mocked<IZResourceService<IZPokemon>>;
   let evolutionService: Mocked<IZResourceService<IZEvolution>>;
 
   const createTestTarget = async () => {
     const element = (
       <ZFashionThemeContext.Provider value={createPokemonTheme()}>
         <ZSpeciesServiceContext.Provider value={speciesService}>
-          <ZPokemonServiceContext.Provider value={pokemonService}>
-            <ZEvolutionServiceContext.Provider value={evolutionService}>
-              <ZTestRouter navigator={history} location={history.location}>
-                <ZEvolutionChainCard evolutionName={evolution.name}></ZEvolutionChainCard>;
-              </ZTestRouter>
-            </ZEvolutionServiceContext.Provider>
-          </ZPokemonServiceContext.Provider>
+          <ZEvolutionServiceContext.Provider value={evolutionService}>
+            <ZTestRouter navigator={history} location={history.location}>
+              <ZEvolutionChainCard evolutionName={evolution.name}></ZEvolutionChainCard>;
+            </ZTestRouter>
+          </ZEvolutionServiceContext.Provider>
         </ZSpeciesServiceContext.Provider>
       </ZFashionThemeContext.Provider>
     );
@@ -62,11 +54,6 @@ describe('ZEvolutionChainCard', () => {
     gardevoir$ = new ZSpeciesBuilder().gardevoir().build();
     gallade$ = new ZSpeciesBuilder().gallade().build();
 
-    ralts = new ZPokemonBuilder().ralts().build();
-    kirlia = new ZPokemonBuilder().kirlia().build();
-    gardevoir = new ZPokemonBuilder().gardevoir().build();
-    gallade = new ZPokemonBuilder().gallade().build();
-
     evolutionService = mock<IZResourceService<IZEvolution>>();
     evolutionService.get.mockResolvedValue(evolution);
 
@@ -76,15 +63,6 @@ describe('ZEvolutionChainCard', () => {
       const filter = new ZFilterBinaryBuilder().subject('name').equal().value(name).build();
       const request = new ZDataRequestBuilder().filter(filter).size(1).build();
       const [result] = await species.retrieve(request);
-      return result;
-    });
-
-    const pokemon = new ZDataSourceStatic([ralts, kirlia, gardevoir, gallade]);
-    pokemonService = mock<IZResourceService<IZPokemon>>();
-    pokemonService.get.mockImplementation(async (name) => {
-      const filter = new ZFilterBinaryBuilder().subject('name').equal().value(name).build();
-      const request = new ZDataRequestBuilder().filter(filter).size(1).build();
-      const [result] = await pokemon.retrieve(request);
       return result;
     });
   });
@@ -109,7 +87,7 @@ describe('ZEvolutionChainCard', () => {
       await current.load();
       const actual = await current.species();
       // Assert
-      expect(actual).toEqual(gardevoir.name);
+      expect(actual).toEqual(gardevoir$.name);
     });
 
     it('should navigate between evolution options', async () => {
@@ -124,7 +102,7 @@ describe('ZEvolutionChainCard', () => {
       await current.load();
       const actual = await current.species();
       // Assert.
-      expect(actual).toEqual(gallade.name);
+      expect(actual).toEqual(gallade$.name);
     });
   });
 });
