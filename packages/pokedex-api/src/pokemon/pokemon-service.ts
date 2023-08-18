@@ -4,7 +4,7 @@ import { firstDefined } from '@zthun/helpful-fn';
 import { ZDataRequestBuilder, ZFilterBinaryBuilder, ZFilterLogicBuilder } from '@zthun/helpful-query';
 import { IZPokemon, IZPokemonAbility, IZPokemonWeakness, ZPokemonBuilder, ZType } from '@zthun/pokedex';
 import { keyBy, mapValues } from 'lodash';
-import { ZPokedexCollection, ZPokedexDatabaseToken } from '../database/pokedex-database';
+import { ZDatabaseToken, ZPokedexCollection } from '../database/pokedex-database';
 import { IPokeApiPokemon } from '../pokemon/pokemon';
 import { IPokeApiType } from '../type/type';
 
@@ -18,7 +18,7 @@ export interface IZPokedexPokemonService {
 export class ZPokedexPokemonService {
   private readonly logger = new Logger(ZPokedexPokemonService.name);
 
-  public constructor(@Inject(ZPokedexDatabaseToken) private _dal: IZDatabaseDocument) {}
+  public constructor(@Inject(ZDatabaseToken) private _dal: IZDatabaseDocument) {}
 
   private async _convert(resource: IPokeApiPokemon): Promise<IZPokemon> {
     const official = resource.sprites?.other['official-artwork'];

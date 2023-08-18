@@ -6,7 +6,7 @@ import { IZPokemon, ZPokemonBuilder, ZTypeBuilder } from '@zthun/pokedex';
 import { ZHttpCodeClient, ZHttpCodeSuccess } from '@zthun/webigail-http';
 import request from 'supertest';
 import { afterAll, afterEach, beforeAll, beforeEach, describe, expect, it } from 'vitest';
-import { ZPokedexCollection, ZPokedexDatabaseToken } from '../database/pokedex-database';
+import { ZDatabaseToken, ZPokedexCollection } from '../database/pokedex-database';
 import { ZPokeApiTypeBuilder } from '../type/type';
 import { ZPokeApiPokemonBuilder } from './pokemon';
 import { ZPokedexPokemonModule } from './pokemon-module';
@@ -20,7 +20,7 @@ describe('ZPokemonApi', () => {
 
   const createTestTarget = async () => {
     const module = await Test.createTestingModule({ imports: [ZPokedexPokemonModule] })
-      .overrideProvider(ZPokedexDatabaseToken)
+      .overrideProvider(ZDatabaseToken)
       .useValue(dal)
       .compile();
 
