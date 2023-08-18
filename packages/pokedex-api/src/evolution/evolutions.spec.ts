@@ -16,6 +16,8 @@ describe('ZEvolutionsApi', () => {
   let server: IZDatabaseServer<IZDatabaseDocument>;
   let dal: IZDatabaseDocument;
   let ralts: IZEvolution;
+  let feebas: IZEvolution;
+  let eevee: IZEvolution;
   let evolutions: IZEvolution[];
   let _target: INestApplication<any>;
 
@@ -42,8 +44,10 @@ describe('ZEvolutionsApi', () => {
 
   beforeEach(async () => {
     ralts = new ZEvolutionBuilder().ralts().build();
+    feebas = new ZEvolutionBuilder().feebas().build();
+    eevee = new ZEvolutionBuilder().eevee().build();
 
-    evolutions = [ralts];
+    evolutions = [ralts, feebas, eevee];
 
     const _evolutions = evolutions.map((p) => new ZPokeApiEvolutionChainBuilder().from(p).build());
 
