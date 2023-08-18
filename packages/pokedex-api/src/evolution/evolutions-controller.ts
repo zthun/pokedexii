@@ -4,7 +4,7 @@ import { IZEvolution } from '@zthun/pokedex';
 import { IZResourceGetService, IZResourceListService } from '../resource/resource-service';
 import { ZGetToken, ZListToken } from '../resource/resource-tokens';
 
-@Controller('pokemon')
+@Controller('evolutions')
 export class ZEvolutionsController {
   public constructor(
     @Inject(ZListToken) private _listService: IZResourceListService<IZEvolution>,
