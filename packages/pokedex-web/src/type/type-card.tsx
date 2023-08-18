@@ -6,15 +6,13 @@ import React from 'react';
 import { ZResourceCard } from '../resource/resource-card';
 import { usePokemonTheme } from '../theme/pokemon-theme';
 import { ZTypeBadges } from './type-badges';
-import { useType } from './type-service';
 
 export interface IZTypeCard {
-  typeName: ZType;
+  type: IZType;
 }
 
 export function ZTypeCard(props: IZTypeCard) {
-  const { typeName } = props;
-  const [_type] = useType(typeName);
+  const { type } = props;
   const { custom } = usePokemonTheme();
 
   const renderBadges = (header: string, types: ZType[]) => {
@@ -53,7 +51,7 @@ export function ZTypeCard(props: IZTypeCard) {
   );
 
   return (
-    <ZResourceCard className='ZTypeCard-root' resource={_type} name={typeName}>
+    <ZResourceCard className='ZTypeCard-root' resource={type} name={type.name}>
       {renderType}
     </ZResourceCard>
   );
