@@ -8,4 +8,3 @@ export * from './resource/resource';
 export * from './resource/resource-service';
 export * from './species/species';
 export * from './type/type';
-export * from './type/type-service';
