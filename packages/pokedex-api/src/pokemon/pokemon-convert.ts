@@ -13,7 +13,8 @@ export class ZPokemonConvert implements IZConverter<IPokeApiPokemon[], IZPokemon
   public constructor(@Inject(ZDatabaseToken) private readonly _dal: IZDatabaseDocument) {}
 
   public async convert(resources: IPokeApiPokemon[]): Promise<IZPokemon[]> {
-    const _types = await this._dal.read<IPokeApiType>(ZPokedexCollection.Type);
+    const $types = await this._dal.read<IPokeApiType>(ZPokedexCollection.Type);
+    const $typeLookup = keyBy($types, (t) => t.name);
 
     return resources.map((resource) => {
       const official = resource.sprites?.other['official-artwork'];
@@ -45,15 +46,16 @@ export class ZPokemonConvert implements IZConverter<IPokeApiPokemon[], IZPokemon
       // Double damage from is a 2x multiplier, half damage from is a 0.5x multiplier, and no damage from is
       // a 0x multiplier.
 
-      const lookup = mapValues(keyBy(Object.values(ZType)), () => 1);
+      const damageMap = mapValues(keyBy(Object.values(ZType)), () => 1);
+      const _types = types.map((t) => $typeLookup[t]);
 
       _types.forEach((type) => {
-        type.damage_relations.double_damage_from.map((dd) => dd.name!).forEach((dd) => (lookup[dd] *= 2));
-        type.damage_relations.half_damage_from.map((dd) => dd.name!).forEach((dd) => (lookup[dd] *= 0.5));
-        type.damage_relations.no_damage_from.map((dd) => dd.name!).forEach((dd) => (lookup[dd] *= 0));
+        type.damage_relations.double_damage_from.map((dd) => dd.name!).forEach((dd) => (damageMap[dd] *= 2));
+        type.damage_relations.half_damage_from.map((hd) => hd.name!).forEach((hd) => (damageMap[hd] *= 0.5));
+        type.damage_relations.no_damage_from.map((nd) => nd.name!).forEach((nd) => (damageMap[nd] *= 0));
       });
 
-      const results = Object.keys(lookup).map((type: ZType) => ({ type, damage: lookup[type] }));
+      const results = Object.keys(damageMap).map((type: ZType) => ({ type, damage: damageMap[type] }));
       const weaknesses = results.filter((r) => r.damage > 1).map((r) => r as IZPokemonWeakness);
 
       return new ZPokemonBuilder()

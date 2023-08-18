@@ -13,9 +13,13 @@ import { ZPokedexPokemonModule } from './pokemon-module';
 
 describe('ZPokemonApi', () => {
   const endpoint = 'pokemon';
+
   let server: IZDatabaseServer<IZDatabaseDocument>;
   let dal: IZDatabaseDocument;
+  let charmander: IZPokemon;
+  let squirtle: IZPokemon;
   let charizard: IZPokemon;
+  let pokemon: IZPokemon[];
   let _target: INestApplication<any>;
 
   const createTestTarget = async () => {
@@ -40,22 +44,90 @@ describe('ZPokemonApi', () => {
   });
 
   beforeEach(async () => {
+    squirtle = new ZPokemonBuilder().squirtle().build();
+    charmander = new ZPokemonBuilder().charmander().build();
     charizard = new ZPokemonBuilder().charizard().build();
 
-    await dal.delete(ZPokedexCollection.Pokemon);
-    await dal.delete(ZPokedexCollection.Type);
-    await dal.create(ZPokedexCollection.Pokemon, [new ZPokeApiPokemonBuilder().from(charizard).build()]);
-    await dal.create(ZPokedexCollection.Type, [
+    pokemon = [squirtle, charmander, charizard];
+
+    const _pokemon = pokemon.map((p) => new ZPokeApiPokemonBuilder().from(p).build());
+    const _types = [
       new ZPokeApiTypeBuilder().from(new ZTypeBuilder().electric().build()).build(),
       new ZPokeApiTypeBuilder().from(new ZTypeBuilder().fire().build()).build(),
       new ZPokeApiTypeBuilder().from(new ZTypeBuilder().flying().build()).build(),
       new ZPokeApiTypeBuilder().from(new ZTypeBuilder().rock().build()).build(),
       new ZPokeApiTypeBuilder().from(new ZTypeBuilder().water().build()).build()
-    ]);
+    ];
+
+    await dal.delete(ZPokedexCollection.Pokemon);
+    await dal.delete(ZPokedexCollection.Type);
+    await dal.create(ZPokedexCollection.Pokemon, _pokemon);
+    await dal.create(ZPokedexCollection.Type, _types);
   });
 
   afterEach(async () => {
     await _target?.close();
+  });
+
+  describe('List', () => {
+    it('should list all pokemon', async () => {
+      // Arrange.
+      const target = await createTestTarget();
+      // Act.
+      const actual = await request(target.getHttpServer()).get(`/${endpoint}`);
+      // Assert.
+      expect(actual.status).toEqual(ZHttpCodeSuccess.OK);
+      expect(actual.body.data).toEqual(pokemon);
+    });
+
+    it('should return the specific count', async () => {
+      // Arrange.
+      const target = await createTestTarget();
+      // Act.
+      const actual = await request(target.getHttpServer()).get(`/${endpoint}?size=1`);
+      // Assert
+      expect(actual.body.count).toEqual(pokemon.length);
+    });
+
+    it('should return the specific page size', async () => {
+      // Arrange.
+      const target = await createTestTarget();
+      // Act.
+      const actual = await request(target.getHttpServer()).get(`/${endpoint}?size=2`);
+      // Assert.
+      expect(actual.status).toEqual(ZHttpCodeSuccess.OK);
+      expect(actual.body.data).toEqual(pokemon.slice(0, 2));
+    });
+
+    it('should return the correct page number', async () => {
+      // Arrange.
+      const target = await createTestTarget();
+      // Act.
+      const actual = await request(target.getHttpServer()).get(`/${endpoint}?page=2&size=2`);
+      // Assert.
+      expect(actual.status).toEqual(ZHttpCodeSuccess.OK);
+      expect(actual.body.data).toEqual(pokemon.slice(2, 4));
+    });
+
+    it('should return species that match the id', async () => {
+      // Arrange.
+      const target = await createTestTarget();
+      // Act.
+      const actual = await request(target.getHttpServer()).get(`/${endpoint}?search=${squirtle.id}`);
+      // Assert.
+      expect(actual.status).toEqual(ZHttpCodeSuccess.OK);
+      expect(actual.body.data).toEqual([squirtle]);
+    });
+
+    it('should return species that match the name', async () => {
+      // Arrange.
+      const target = await createTestTarget();
+      // Act.
+      const actual = await request(target.getHttpServer()).get(`/${endpoint}?search=cHar`);
+      // Assert.
+      expect(actual.status).toEqual(ZHttpCodeSuccess.OK);
+      expect(actual.body.data).toEqual([charmander, charizard]);
+    });
   });
 
   describe('Get', () => {
