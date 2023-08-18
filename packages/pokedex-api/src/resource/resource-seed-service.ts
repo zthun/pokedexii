@@ -4,7 +4,7 @@ import { sleep } from '@zthun/helpful-fn';
 import { IZHttpService, ZHttpRequestBuilder } from '@zthun/webigail-http';
 import { ZHttpServiceToken } from '@zthun/webigail-nest';
 import { ZUrlBuilder } from '@zthun/webigail-url';
-import { ZPokedexCollection, ZPokedexDatabaseToken } from '../database/pokedex-database';
+import { ZDatabaseToken, ZPokedexCollection } from '../database/pokedex-database';
 import { IPokeApiResource, IPokeApiResourcePage, PokeApiUrl } from './resource';
 
 export const ZResourceSeedServiceToken = Symbol();
@@ -19,7 +19,7 @@ export class ZResourceSeedService implements IZResourceSeedService {
   private readonly _logger = new Logger(ZResourceSeedService.name);
 
   public constructor(
-    @Inject(ZPokedexDatabaseToken) private _dal: IZDatabaseDocument,
+    @Inject(ZDatabaseToken) private _dal: IZDatabaseDocument,
     @Inject(ZHttpServiceToken) private _http: IZHttpService
   ) {}
 
