@@ -11,7 +11,7 @@ import { ZEvolutionsModule } from './evolutions-module';
 import { ZPokeApiEvolutionChainBuilder } from './poke-api-evolution-chain';
 
 describe('ZEvolutionsApi', () => {
-  const endpoint = 'pokemon';
+  const endpoint = 'evolutions';
 
   let server: IZDatabaseServer<IZDatabaseDocument>;
   let dal: IZDatabaseDocument;
