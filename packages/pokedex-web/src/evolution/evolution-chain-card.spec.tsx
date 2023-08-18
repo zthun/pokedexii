@@ -2,23 +2,14 @@ import { ZCircusBy } from '@zthun/cirque';
 import { ZCircusSetupRenderer } from '@zthun/cirque-du-react';
 import { ZFashionThemeContext, ZTestRouter } from '@zthun/fashion-boutique';
 import { ZDataRequestBuilder, ZDataSourceStatic, ZFilterBinaryBuilder } from '@zthun/helpful-query';
-import {
-  IZEvolution,
-  IZEvolutionService,
-  IZPokemon,
-  IZPokemonService,
-  IZSpecies,
-  IZSpeciesService,
-  ZEvolutionBuilder,
-  ZPokemonBuilder,
-  ZSpeciesBuilder
-} from '@zthun/pokedex';
+import { IZEvolution, IZPokemon, IZSpecies, ZEvolutionBuilder, ZPokemonBuilder, ZSpeciesBuilder } from '@zthun/pokedex';
 import { MemoryHistory, createMemoryHistory } from 'history';
 import { last } from 'lodash';
 import React from 'react';
 import { Mocked, beforeEach, describe, expect, it } from 'vitest';
 import { mock } from 'vitest-mock-extended';
 import { ZPokemonServiceContext } from '../pokemon/pokemon-service';
+import { IZResourceService } from '../resource/resource-service';
 import { ZSpeciesServiceContext } from '../species/species-service';
 import { createPokemonTheme } from '../theme/pokemon-theme';
 import { ZEvolutionChainCard } from './evolution-chain-card';
@@ -37,9 +28,9 @@ describe('ZEvolutionChainCard', () => {
   let gallade: IZPokemon;
   let history: MemoryHistory;
 
-  let speciesService: Mocked<IZSpeciesService>;
-  let pokemonService: Mocked<IZPokemonService>;
-  let evolutionService: Mocked<IZEvolutionService>;
+  let speciesService: Mocked<IZResourceService<IZSpecies>>;
+  let pokemonService: Mocked<IZResourceService<IZPokemon>>;
+  let evolutionService: Mocked<IZResourceService<IZEvolution>>;
 
   const createTestTarget = async () => {
     const element = (
@@ -76,11 +67,11 @@ describe('ZEvolutionChainCard', () => {
     gardevoir = new ZPokemonBuilder().gardevoir().build();
     gallade = new ZPokemonBuilder().gallade().build();
 
-    evolutionService = mock<IZEvolutionService>();
+    evolutionService = mock<IZResourceService<IZEvolution>>();
     evolutionService.get.mockResolvedValue(evolution);
 
     const species = new ZDataSourceStatic([ralts$, kirlia$, gardevoir$, gallade$]);
-    speciesService = mock<IZSpeciesService>();
+    speciesService = mock<IZResourceService<IZSpecies>>();
     speciesService.get.mockImplementation(async (name) => {
       const filter = new ZFilterBinaryBuilder().subject('name').equal().value(name).build();
       const request = new ZDataRequestBuilder().filter(filter).size(1).build();
@@ -89,7 +80,7 @@ describe('ZEvolutionChainCard', () => {
     });
 
     const pokemon = new ZDataSourceStatic([ralts, kirlia, gardevoir, gallade]);
-    pokemonService = mock<IZPokemonService>();
+    pokemonService = mock<IZResourceService<IZPokemon>>();
     pokemonService.get.mockImplementation(async (name) => {
       const filter = new ZFilterBinaryBuilder().subject('name').equal().value(name).build();
       const request = new ZDataRequestBuilder().filter(filter).size(1).build();

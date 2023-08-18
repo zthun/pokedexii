@@ -1,14 +1,7 @@
 import { ZCircusBy } from '@zthun/cirque';
 import { ZCircusSetupRenderer } from '@zthun/cirque-du-react';
 import { ZFashionThemeContext, ZRoute, ZRouteMap, ZTestRouter } from '@zthun/fashion-boutique';
-import {
-  IZEvolutionService,
-  IZPokemon,
-  IZSpecies,
-  ZEvolutionBuilder,
-  ZPokemonBuilder,
-  ZSpeciesBuilder
-} from '@zthun/pokedex';
+import { IZEvolution, IZPokemon, IZSpecies, ZEvolutionBuilder, ZPokemonBuilder, ZSpeciesBuilder } from '@zthun/pokedex';
 import { History, createMemoryHistory } from 'history';
 import React from 'react';
 import { Mocked, beforeEach, describe, expect, it } from 'vitest';
@@ -23,7 +16,7 @@ import { ZSpeciesServiceContext } from './species-service';
 
 describe('ZSpeciesDetailsPage', () => {
   let history: History;
-  let evolutionService: Mocked<IZEvolutionService>;
+  let evolutionService: Mocked<IZResourceService<IZEvolution>>;
   let pokemonService: Mocked<IZResourceService<IZPokemon>>;
   let speciesService: Mocked<IZResourceService<IZSpecies>>;
   let charizard$: IZSpecies;
@@ -57,7 +50,7 @@ describe('ZSpeciesDetailsPage', () => {
     charizard = new ZPokemonBuilder().charizard().build();
     history = createMemoryHistory({ initialEntries: [`/pokemon/${charizard$.name}`] });
 
-    evolutionService = mock<IZEvolutionService>();
+    evolutionService = mock<IZResourceService<IZEvolution>>();
     evolutionService.get.mockResolvedValue(new ZEvolutionBuilder().ralts().build());
 
     pokemonService = mock<IZResourceService<IZPokemon>>();
