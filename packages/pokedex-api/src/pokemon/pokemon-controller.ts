@@ -5,7 +5,7 @@ import { IZResourceGetService, IZResourceListService } from '../resource/resourc
 import { ZGetToken, ZListToken } from '../resource/resource-tokens';
 
 @Controller('pokemon')
-export class ZPokedexPokemonController {
+export class ZPokemonController {
   public constructor(
     @Inject(ZListToken) private _listService: IZResourceListService<IZPokemon>,
     @Inject(ZGetToken) private _getService: IZResourceGetService<IZPokemon>

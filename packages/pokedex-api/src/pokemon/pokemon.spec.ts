@@ -9,7 +9,7 @@ import { afterAll, afterEach, beforeAll, beforeEach, describe, expect, it } from
 import { ZDatabaseToken, ZPokedexCollection } from '../database/pokedex-database';
 import { ZPokeApiTypeBuilder } from '../type/type';
 import { ZPokeApiPokemonBuilder } from './pokemon';
-import { ZPokedexPokemonModule } from './pokemon-module';
+import { ZPokemonModule } from './pokemon-module';
 
 describe('ZPokemonApi', () => {
   const endpoint = 'pokemon';
@@ -23,7 +23,7 @@ describe('ZPokemonApi', () => {
   let _target: INestApplication<any>;
 
   const createTestTarget = async () => {
-    const module = await Test.createTestingModule({ imports: [ZPokedexPokemonModule] })
+    const module = await Test.createTestingModule({ imports: [ZPokemonModule] })
       .overrideProvider(ZDatabaseToken)
       .useValue(dal)
       .compile();
