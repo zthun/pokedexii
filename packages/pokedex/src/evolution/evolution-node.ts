@@ -304,6 +304,28 @@ export class ZEvolutionNodeBuilder {
   }
 
   /**
+   * Constructs the evolution chain for Mantyke.
+   *
+   * @returns
+   *        This object.
+   */
+  public mantyke() {
+    return this.species('mantyke').option(new ZEvolutionNodeBuilder().mantine().build());
+  }
+
+  /**
+   * Constructs the evolution chain for Mantine.
+   *
+   * @returns
+   *        This object.
+   */
+  public mantine() {
+    return this.species('mantine').trigger(
+      new ZEvolutionTriggerBuilder().name(ZEvolutionTrigger.LevelUp).partySpecies('remoraid').build()
+    );
+  }
+
+  /**
    * Adds a trigger mechanism for evolution.
    *
    * @param trigger -

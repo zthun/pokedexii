@@ -91,6 +91,16 @@ export class ZEvolutionBuilder {
   }
 
   /**
+   * Sets the evolution chain that starts with mantyke.
+   *
+   * @returns
+   *        This object.
+   */
+  public mantyke() {
+    return this.id(116).head(new ZEvolutionNodeBuilder().mantyke().build());
+  }
+
+  /**
    * Builds the evolution object.
    *
    * @returns
