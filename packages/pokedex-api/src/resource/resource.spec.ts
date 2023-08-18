@@ -5,7 +5,7 @@ import { ZSpeciesBuilder } from '@zthun/pokedex';
 import { ZHttpCodeServer, ZHttpMethod, ZHttpResultBuilder, ZHttpServiceMock } from '@zthun/webigail-http';
 import { ZHttpServiceToken } from '@zthun/webigail-nest';
 import { afterAll, beforeAll, beforeEach, describe, expect, it, vi } from 'vitest';
-import { ZPokedexCollection, ZPokedexDatabaseToken } from '../database/pokedex-database';
+import { ZDatabaseToken, ZPokedexCollection } from '../database/pokedex-database';
 import { IPokeApiSpecies, ZPokeApiSpeciesBuilder } from '../species/species';
 import { ZPokeApiResource } from './resource';
 import { ZResourceModule } from './resource-module';
@@ -32,7 +32,7 @@ describe('ZResourceApi', () => {
       const target = await Test.createTestingModule({ imports: [ZResourceModule] })
         .overrideProvider(ZHttpServiceToken)
         .useValue(http)
-        .overrideProvider(ZPokedexDatabaseToken)
+        .overrideProvider(ZDatabaseToken)
         .useValue(dal)
         .compile();
 
