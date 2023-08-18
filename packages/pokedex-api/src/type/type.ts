@@ -63,7 +63,7 @@ export class ZPokeApiTypeBuilder {
       },
       game_indices: [],
       generation: { name: '', url: '' },
-      id: 0,
+      id: type.id,
       move_damage_class: { name: '', url: '' },
       moves: [],
       name: type.name,
