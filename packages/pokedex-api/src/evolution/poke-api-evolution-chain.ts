@@ -16,7 +16,7 @@ export interface IPokeApiEvolutionChainDetails {
   needs_overworld_rain: boolean;
   party_species: IPokeApiResource | null;
   party_type: IPokeApiResource | null;
-  relative_physical_stats: IPokeApiResource[] | null;
+  relative_physical_stats: number | null;
   time_of_day: string;
   trade_species: IPokeApiResource | null;
   trigger: IPokeApiResource;
@@ -64,9 +64,7 @@ export class ZPokeApiEvolutionChainBuilder {
         ? ZPokeApiResource.toResource(ZPokedexCollection.PokemonSpecies, node.partySpecies)
         : null;
       const party_type = node.partyType ? ZPokeApiResource.toResource(ZPokedexCollection.Type, node.partyType) : null;
-      const relative_physical_stats = node.stats
-        ? node.stats.map((s) => ZPokeApiResource.toResource(ZPokedexCollection.Stat, s))
-        : null;
+      const relative_physical_stats: number | null = node.stats ?? null;
       const time_of_day = node.time || '';
       const trade_species = node.trade
         ? ZPokeApiResource.toResource(ZPokedexCollection.PokemonSpecies, node.trade)
