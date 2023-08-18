@@ -1,5 +1,4 @@
-export const ZPokedexDatabaseToken = Symbol();
-export const ZPokedexDatabaseName = 'pokedex';
+export const ZDatabaseToken = Symbol();
 
 export enum ZPokedexCollection {
   Ability = 'ability',
