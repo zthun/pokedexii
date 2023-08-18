@@ -44,7 +44,7 @@ export function ZEvolutionNodeList(props: IZEvolutionNodeList) {
     />
   );
 
-  const renderTrigger = (trigger: IZEvolutionTrigger) => {
+  const renderTrigger = (trigger: IZEvolutionTrigger, index: number) => {
     const requirements: ReactNode[] = [];
 
     const addRequirement = (value: any, name: string) => {
@@ -79,7 +79,7 @@ export function ZEvolutionNodeList(props: IZEvolutionNodeList) {
     addRequirement(trigger.turnUpsideDown, 'Turn Upside Down');
 
     return (
-      <div className='ZEvolution-trigger' key={trigger.name}>
+      <div className='ZEvolution-trigger' key={`${trigger.name}-${index}`}>
         {requirements}
       </div>
     );
