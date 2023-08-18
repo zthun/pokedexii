@@ -1,5 +1,5 @@
 import { Module } from '@nestjs/common';
-import { ZConverterIdOrNameSearch } from 'src/convert/converter-id-or-name-search';
+import { ZConverterIdOrNameSearch } from '../convert/converter-id-or-name-search';
 import { ZPokedexDatabaseModule } from '../database/pokedex-database-module';
 import { ZConvertToken, ZGetToken, ZListToken, ZSearchToken } from '../resource/resource-tokens';
 import { ZPokemonController } from './pokemon-controller';
