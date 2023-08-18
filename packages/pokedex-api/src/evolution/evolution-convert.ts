@@ -4,7 +4,8 @@ import {
   ZEvolutionNodeBuilder,
   ZEvolutionTrigger,
   ZEvolutionTriggerBuilder,
-  ZGender
+  ZGender,
+  ZType
 } from '@zthun/pokedex';
 import { IZConverter } from '../convert/converter';
 import { ZPokeApiResource } from '../resource/resource';
@@ -36,7 +37,7 @@ export class ZEvolutionConvert implements IZConverter<IPokeApiEvolutionChain, IZ
       trigger = details.min_level != null ? trigger.level(details.min_level) : trigger;
       trigger = details.location != null ? trigger.location(details.location.name!) : trigger;
       trigger = details.known_move != null ? trigger.move(details.known_move.name!) : trigger;
-      trigger = details.known_move_type != null ? trigger.moveType(details.known_move_type.name!) : trigger;
+      trigger = details.known_move_type != null ? trigger.moveType(details.known_move_type.name! as ZType) : trigger;
       trigger = details.party_species != null ? trigger.partySpecies(details.party_species.name!) : trigger;
       trigger = details.party_type != null ? trigger.partyType(details.party_type.name!) : trigger;
       trigger = details.time_of_day ? trigger.time(details.time_of_day) : trigger;

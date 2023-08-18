@@ -18,6 +18,7 @@ describe('ZEvolutionsApi', () => {
   let ralts: IZEvolution;
   let feebas: IZEvolution;
   let eevee: IZEvolution;
+  let tangela: IZEvolution;
   let evolutions: IZEvolution[];
   let _target: INestApplication<any>;
 
@@ -46,8 +47,9 @@ describe('ZEvolutionsApi', () => {
     ralts = new ZEvolutionBuilder().ralts().build();
     feebas = new ZEvolutionBuilder().feebas().build();
     eevee = new ZEvolutionBuilder().eevee().build();
+    tangela = new ZEvolutionBuilder().tangela().build();
 
-    evolutions = [ralts, feebas, eevee];
+    evolutions = [ralts, feebas, eevee, tangela];
 
     const _evolutions = evolutions.map((p) => new ZPokeApiEvolutionChainBuilder().from(p).build());
 
