@@ -61,7 +61,7 @@ describe('ZSpeciesApi', () => {
   });
 
   afterEach(async () => {
-    _target?.close();
+    await _target?.close();
   });
 
   describe('List', () => {
