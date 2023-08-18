@@ -94,13 +94,13 @@ export class ZResourceSeedService implements IZResourceSeedService {
     }
   }
 
-  public async seed(): Promise<void> {
+  public async seed(milliseconds = 1000): Promise<void> {
     const values = Object.values(ZPokedexCollection);
     this._logger.log('Seeding Pokedex Database');
 
     for (let i = 0; i < values.length; ++i) {
       const resource = values[i];
-      await this.populate(resource);
+      await this.populate(resource, undefined, milliseconds, undefined);
     }
 
     this._logger.log('Seeding Completed');

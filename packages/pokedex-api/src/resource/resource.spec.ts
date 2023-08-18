@@ -78,7 +78,7 @@ describe('ZResourceApi', () => {
         const target = await createTestTarget();
         vi.spyOn(dal, 'create');
         // Act.
-        await target.seed();
+        await target.seed(1);
         // Assert.
         expect(dal.create).toHaveBeenCalledTimes(Object.values(ZPokedexCollection).length - 1);
         expect(dal.create).not.toHaveBeenCalledWith(ZPokedexCollection.BerryFlavor, expect.anything());
