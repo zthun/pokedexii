@@ -18,7 +18,7 @@ export class ZSpeciesController {
     return this._listService.list(new ZDataRequestBuilder().query(query).build());
   }
 
-  @ApiParam({ type: 'string', name: 'identification' })
+  @ApiParam({ type: 'string', name: 'identification', description: 'The id or name of the species' })
   @Get(':identification')
   public get(@Param('identification') identification: string): Promise<IZSpecies> {
     return this._getService.get(identification);

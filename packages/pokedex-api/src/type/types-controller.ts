@@ -18,7 +18,7 @@ export class ZTypesController {
     return this._listService.list(new ZDataRequestBuilder().query(query).build());
   }
 
-  @ApiParam({ type: 'string', name: 'identification' })
+  @ApiParam({ type: 'string', name: 'identification', description: 'The id or name of the type' })
   @Get(':identification')
   public get(@Param('identification') identification: string): Promise<IZType> {
     return this._getService.get(identification);

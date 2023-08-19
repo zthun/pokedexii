@@ -18,7 +18,7 @@ export class ZEvolutionsController {
     return this._listService.list(new ZDataRequestBuilder().query(query).build());
   }
 
-  @ApiParam({ type: 'number', name: 'identification' })
+  @ApiParam({ type: 'number', name: 'identification', description: 'The id of the evolution' })
   @Get(':identification')
   public get(@Param('identification') identification: string): Promise<IZEvolution> {
     return this._getService.get(identification);
