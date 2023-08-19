@@ -13,44 +13,26 @@ export class ZResourceService<T extends IZResource> implements IZResourceService
     private _name: string
   ) {}
 
+  public api() {
+    return new ZUrlBuilder().api(location).append(this._name);
+  }
+
   public async count(): Promise<number> {
-    const url = new ZUrlBuilder()
-      .api(location)
-      .append(this._name)
-      .param('page', String(1))
-      .param('size', String(1))
-      .build();
+    const url = this.api().page(1).size(1).build();
     const request = new ZHttpRequestBuilder().url(url).get().build();
-    const {
-      data: { count }
-    } = await this._http.request<IZPage<T>>(request);
-    return count;
+    const { data: page } = await this._http.request<IZPage<T>>(request);
+    return page.count;
   }
 
   public async retrieve(req: IZDataRequest): Promise<T[]> {
-    let url = new ZUrlBuilder().api(location).append(this._name);
-
-    if (req.page) {
-      url = url.param('page', String(req.page));
-    }
-
-    if (req.size) {
-      url = url.param('size', String(req.size));
-    }
-
-    if (req.search) {
-      url = url.param('search', String(req.search));
-    }
-
-    const request = new ZHttpRequestBuilder().url(url.build()).get().build();
-    const {
-      data: { data }
-    } = await this._http.request<IZPage<T>>(request);
-    return data;
+    const url = this.api().page(req.page).size(req.size).search(req.search).build();
+    const request = new ZHttpRequestBuilder().url(url).get().build();
+    const { data: page } = await this._http.request<IZPage<T>>(request);
+    return page.data;
   }
 
-  public async get(idOrName: number | string): Promise<T> {
-    const url = new ZUrlBuilder().api(location).append(this._name).append(String(idOrName)).build();
+  public async get(identification: number | string): Promise<T> {
+    const url = this.api().append(String(identification)).build();
     const request = new ZHttpRequestBuilder().url(url).get().timeout(30000).build();
     const { data } = await this._http.request<T>(request);
     return data;
