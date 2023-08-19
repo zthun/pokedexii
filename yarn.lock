@@ -5378,6 +5378,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@zthun/helpful-fn@npm:^2.2.1":
+  version: 2.2.1
+  resolution: "@zthun/helpful-fn@npm:2.2.1"
+  dependencies:
+    uuid: ^9.0.0
+  checksum: 9889f02fc9614bf904a5e20be7c749ed36470ba4e6d59aae535f28a064ac50f8edd852ca5fc22eb639de6492dafe787ade629a757922d1f0242feb95ab4ebc6d
+  languageName: node
+  linkType: hard
+
 "@zthun/helpful-query@npm:^2.1.0":
   version: 2.1.0
   resolution: "@zthun/helpful-query@npm:2.1.0"
@@ -5385,6 +5394,16 @@ __metadata:
     "@zthun/helpful-fn": ^2.1.0
     lodash: ^4.17.21
   checksum: 259e549a600962acf1c27e24e1c0e5666849417dc4ce910cef9a88e2df1f5143991a963a1030f70ced2f7d93e26dd056df75460d6519023b9d1c9da523241b70
+  languageName: node
+  linkType: hard
+
+"@zthun/helpful-query@npm:^2.2.1":
+  version: 2.2.1
+  resolution: "@zthun/helpful-query@npm:2.2.1"
+  dependencies:
+    "@zthun/helpful-fn": ^2.2.1
+    lodash: ^4.17.21
+  checksum: 31cf87ecfd35ed6c56876c8c31bd51343bcc681fc32488f7b3861d2d651a22445d248d46ad5fbb78d2c6031df6e1164315d083965f089d1be22a3378d106a9b6
   languageName: node
   linkType: hard
 
@@ -5404,6 +5423,25 @@ __metadata:
     rxjs:
       optional: true
   checksum: 5c6569ce2de1162e362f8d72d07581446f1ff825a43d00188f37d79c00c19dbddec7cde09897b2b73463215ca7faf9457af833bebf95561deeb1bd4708f217d8
+  languageName: node
+  linkType: hard
+
+"@zthun/helpful-react@npm:^2.2.1":
+  version: 2.2.1
+  resolution: "@zthun/helpful-react@npm:2.2.1"
+  dependencies:
+    "@zthun/helpful-fn": ^2.2.1
+    "@zthun/helpful-query": ^2.2.1
+    lodash: ^4.17.21
+    rxjs: ^7.8.1
+  peerDependencies:
+    react: ^18.1.0
+    react-dom: ^18.1.0
+    rxjs: ^7.8.1
+  peerDependenciesMeta:
+    rxjs:
+      optional: true
+  checksum: 3662c72e5a0d790c70401d145fb1aa864540c6fd6c3fc4b54461dee64baeacf8d18289d17e6292bcbc766c9b5164845aad6e22e638728203d6311a1230506c5e
   languageName: node
   linkType: hard
 
@@ -5482,8 +5520,8 @@ __metadata:
     "@zthun/dalmart-db": ^1.0.3
     "@zthun/dalmart-memory": ^1.0.3
     "@zthun/dalmart-mongo": ^1.0.3
-    "@zthun/helpful-fn": ^2.1.0
-    "@zthun/helpful-query": ^2.1.0
+    "@zthun/helpful-fn": ^2.2.1
+    "@zthun/helpful-query": ^2.2.1
     "@zthun/pokedex": ^0.16.1
     "@zthun/webigail-http": ^1.1.0
     "@zthun/webigail-nest": ^1.1.0
@@ -5512,9 +5550,9 @@ __metadata:
     "@zthun/fashion-boutique": ^0.11.1
     "@zthun/fashion-tailor": ^0.11.0
     "@zthun/fashion-theme": ^0.11.0
-    "@zthun/helpful-fn": ^2.1.0
-    "@zthun/helpful-query": ^2.1.0
-    "@zthun/helpful-react": ^2.1.0
+    "@zthun/helpful-fn": ^2.2.1
+    "@zthun/helpful-query": ^2.2.1
+    "@zthun/helpful-react": ^2.2.1
     "@zthun/pokedex": ^0.16.1
     "@zthun/webigail-http": ^1.1.0
     "@zthun/webigail-url": ^1.1.0
@@ -5538,8 +5576,8 @@ __metadata:
   dependencies:
     "@zthun/dalmart-db": ^1.0.3
     "@zthun/dalmart-forage": ^1.0.3
-    "@zthun/helpful-fn": ^2.1.0
-    "@zthun/helpful-query": ^2.1.0
+    "@zthun/helpful-fn": ^2.2.1
+    "@zthun/helpful-query": ^2.2.1
     "@zthun/webigail-http": ^1.1.0
     "@zthun/webigail-url": ^1.1.0
     lodash: ^4.17.21
