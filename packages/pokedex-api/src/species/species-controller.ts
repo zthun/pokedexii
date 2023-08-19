@@ -1,5 +1,5 @@
 import { Controller, Get, Inject, Param, Query } from '@nestjs/common';
-import { ApiTags } from '@nestjs/swagger';
+import { ApiParam, ApiTags } from '@nestjs/swagger';
 import { IZDataRequestQuery, IZPage, ZDataRequestBuilder } from '@zthun/helpful-query';
 import { IZSpecies } from '@zthun/pokedex';
 import { IZResourceGetService, IZResourceListService } from '../resource/resource-service';
@@ -18,6 +18,7 @@ export class ZSpeciesController {
     return this._listService.list(new ZDataRequestBuilder().query(query).build());
   }
 
+  @ApiParam({ type: 'string', name: 'identification' })
   @Get(':identification')
   public get(@Param('identification') identification: string): Promise<IZSpecies> {
     return this._getService.get(identification);
