@@ -18,7 +18,7 @@
   },
   "devDependencies": {
     "@cucumber/cucumber": "^9.4.0",
-    "@types/node": "^20.5.0",
+    "@types/node": "^20.5.1",
     "@zthun/cirque": "^4.3.1",
     "@zthun/cirque-du-react": "^4.3.1",
     "@zthun/cirque-du-selenium": "^4.3.1",
@@ -38,11 +38,11 @@
     "typescript": "^5.1.6",
     "vite": "^4.4.9",
     "vite-tsconfig-paths": "^4.2.0",
-    "vitest": "^0.34.1",
+    "vitest": "^0.34.2",
     "vitest-mock-extended": "^1.2.0"
   },
   "dependencies": {
-    "@zthun/webigail-http": "^1.0.2",
-    "@zthun/webigail-url": "^1.0.2"
+    "@zthun/webigail-http": "^1.1.0",
+    "@zthun/webigail-url": "^1.1.0"
   }
 }
