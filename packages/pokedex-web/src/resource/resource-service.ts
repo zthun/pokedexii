@@ -4,7 +4,7 @@ import { IZHttpService, ZHttpRequestBuilder } from '@zthun/webigail-http';
 import { ZUrlBuilder } from '@zthun/webigail-url';
 
 export interface IZResourceService<T extends IZResource> extends IZDataSource<T> {
-  get(idOrName: number | string): Promise<T>;
+  get(identification: number | string): Promise<T>;
 }
 
 export class ZResourceService<T extends IZResource> implements IZResourceService<T> {

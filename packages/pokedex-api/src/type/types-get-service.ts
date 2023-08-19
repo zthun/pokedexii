@@ -15,16 +15,16 @@ export class ZTypesGetService implements IZResourceGetService<IZType> {
     @Inject(ZConvertToken) private _converter: IZConverter<IPokeApiType[], IZType[]>
   ) {}
 
-  public async get(idOrName: string | number): Promise<IZType> {
-    const nameFilter = new ZFilterBinaryBuilder().subject('name').equal().value(idOrName).build();
-    const idFilter = new ZFilterBinaryBuilder().subject('id').equal().value(+idOrName).build();
+  public async get(identification: string | number): Promise<IZType> {
+    const nameFilter = new ZFilterBinaryBuilder().subject('name').equal().value(identification).build();
+    const idFilter = new ZFilterBinaryBuilder().subject('id').equal().value(+identification).build();
     const filter = new ZFilterLogicBuilder().or().clause(idFilter).clause(nameFilter).build();
     const request = new ZDataRequestBuilder().filter(filter).build();
 
     const [type] = await this._dal.read<IPokeApiType>(ZPokedexCollection.Type, request);
 
     if (type == null) {
-      throw new NotFoundException(`Type, ${idOrName}, was not found.`);
+      throw new NotFoundException(`Type, ${identification}, was not found.`);
     }
 
     const [result] = await this._converter.convert([type]);

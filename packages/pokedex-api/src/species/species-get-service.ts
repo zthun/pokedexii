@@ -15,16 +15,16 @@ export class ZSpeciesGetService implements IZResourceGetService<IZSpecies> {
     @Inject(ZConvertToken) private _converter: IZConverter<IPokeApiSpecies[], IZSpecies[]>
   ) {}
 
-  public async get(idOrName: string | number): Promise<IZSpecies> {
-    const nameFilter = new ZFilterBinaryBuilder().subject('name').equal().value(idOrName).build();
-    const idFilter = new ZFilterBinaryBuilder().subject('id').equal().value(+idOrName).build();
+  public async get(identification: string | number): Promise<IZSpecies> {
+    const nameFilter = new ZFilterBinaryBuilder().subject('name').equal().value(identification).build();
+    const idFilter = new ZFilterBinaryBuilder().subject('id').equal().value(+identification).build();
     const filter = new ZFilterLogicBuilder().or().clause(idFilter).clause(nameFilter).build();
     const request = new ZDataRequestBuilder().filter(filter).build();
 
     const [species] = await this._dal.read<IPokeApiSpecies>(ZPokedexCollection.PokemonSpecies, request);
 
     if (species == null) {
-      throw new NotFoundException(`Species, ${idOrName}, was not found.`);
+      throw new NotFoundException(`Species, ${identification}, was not found.`);
     }
 
     const [result] = await this._converter.convert([species]);

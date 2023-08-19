@@ -1,9 +1,11 @@
 import { Controller, Get, Inject, Param, Query } from '@nestjs/common';
+import { ApiParam, ApiTags } from '@nestjs/swagger';
 import { IZDataRequestQuery, IZPage, ZDataRequestBuilder } from '@zthun/helpful-query';
 import { IZEvolution } from '@zthun/pokedex';
 import { IZResourceGetService, IZResourceListService } from '../resource/resource-service';
 import { ZGetToken, ZListToken } from '../resource/resource-tokens';
 
+@ApiTags('Evolutions')
 @Controller('evolutions')
 export class ZEvolutionsController {
   public constructor(
@@ -16,8 +18,9 @@ export class ZEvolutionsController {
     return this._listService.list(new ZDataRequestBuilder().query(query).build());
   }
 
-  @Get(':idOrName')
-  public get(@Param('idOrName') idOrName: string): Promise<IZEvolution> {
-    return this._getService.get(idOrName);
+  @ApiParam({ type: 'number', name: 'identification' })
+  @Get(':identification')
+  public get(@Param('identification') identification: string): Promise<IZEvolution> {
+    return this._getService.get(identification);
   }
 }
