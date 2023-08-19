@@ -141,6 +141,16 @@ export class ZEvolutionBuilder {
   }
 
   /**
+   * Sets the evolution chain that starts with goomy.
+   *
+   * @returns
+   *        This object.
+   */
+  public goomy() {
+    return this.id(362).head(new ZEvolutionNodeBuilder().goomy().build());
+  }
+
+  /**
    * Builds the evolution object.
    *
    * @returns

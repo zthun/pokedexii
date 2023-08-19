@@ -458,6 +458,40 @@ export class ZEvolutionNodeBuilder {
   }
 
   /**
+   * Constructs the evolution chain for Goomy.
+   *
+   * @returns
+   *        This object.
+   */
+  public goomy() {
+    return this.species('goomy').option(new ZEvolutionNodeBuilder().sliggoo().build());
+  }
+
+  /**
+   * Constructs the evolution chain for Sliggoo.
+   *
+   * @returns
+   *        This object.
+   */
+  public sliggoo() {
+    return this.species('sliggoo')
+      .option(new ZEvolutionNodeBuilder().goodra().build())
+      .trigger(new ZEvolutionTriggerBuilder().name(ZEvolutionTrigger.LevelUp).level(40).build());
+  }
+
+  /**
+   * Constructs the evolution chain for Goodra.
+   *
+   * @returns
+   *        This object.
+   */
+  public goodra() {
+    return this.species('goodra').trigger(
+      new ZEvolutionTriggerBuilder().name(ZEvolutionTrigger.LevelUp).level(50).rain().build()
+    );
+  }
+
+  /**
    * Adds a trigger mechanism for evolution.
    *
    * @param trigger -
