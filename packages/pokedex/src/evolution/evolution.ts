@@ -131,6 +131,16 @@ export class ZEvolutionBuilder {
   }
 
   /**
+   * Sets the evolution chain that starts with inkay.
+   *
+   * @returns
+   *        This object.
+   */
+  public inkay() {
+    return this.id(352).head(new ZEvolutionNodeBuilder().inkay().build());
+  }
+
+  /**
    * Builds the evolution object.
    *
    * @returns

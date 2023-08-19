@@ -436,6 +436,28 @@ export class ZEvolutionNodeBuilder {
   }
 
   /**
+   * Constructs the evolution chain for Inkay.
+   *
+   * @returns
+   *        This object.
+   */
+  public inkay() {
+    return this.species('inkay').option(new ZEvolutionNodeBuilder().malamar().build());
+  }
+
+  /**
+   * Constructs the evolution chain for Malamar.
+   *
+   * @returns
+   *        This object.
+   */
+  public malamar() {
+    return this.species('malamar').trigger(
+      new ZEvolutionTriggerBuilder().name(ZEvolutionTrigger.LevelUp).level(30).turnUpsideDown().build()
+    );
+  }
+
+  /**
    * Adds a trigger mechanism for evolution.
    *
    * @param trigger -
