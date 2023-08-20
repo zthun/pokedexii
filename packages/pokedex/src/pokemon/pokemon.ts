@@ -489,6 +489,16 @@ export class ZPokemonBuilder {
       .weight(85);
   }
 
+  /**
+   * Sets Charizard's information.
+   *
+   * It's better to retrieve this from something like the pokeapi,
+   * but this just sets limited information which is good for
+   * testing and demos.
+   *
+   * @returns
+   *        A reference to this object.
+   */
   public charizard() {
     return this.id(6)
       .name('charizard')
@@ -507,6 +517,94 @@ export class ZPokemonBuilder {
       .speed(100)
       .height(17)
       .weight(905);
+  }
+
+  /**
+   * Sets Charizard's Mega X variant information.
+   *
+   * It's better to retrieve this from something like the pokeapi,
+   * but this just sets limited information which is good for
+   * testing and demos.
+   *
+   * @returns
+   *        A reference to this object.
+   */
+  public charizardMegaX() {
+    return this.id(10034)
+      .name('charizard-mega-x')
+      .type(ZType.Fire)
+      .type(ZType.Dragon)
+      .ability('tough-claws')
+      .doubleDamageFrom(ZType.Dragon)
+      .doubleDamageFrom(ZType.Ground)
+      .doubleDamageFrom(ZType.Rock)
+      .hp(78)
+      .attack(130)
+      .defense(111)
+      .specialAttack(130)
+      .specialDefense(85)
+      .speed(100)
+      .height(17)
+      .weight(1105);
+  }
+
+  /**
+   * Sets Charizard's Mega X variant information.
+   *
+   * It's better to retrieve this from something like the pokeapi,
+   * but this just sets limited information which is good for
+   * testing and demos.
+   *
+   * @returns
+   *        A reference to this object.
+   */
+  public charizardMegaY() {
+    return this.id(10035)
+      .name('charizard-mega-y')
+      .type(ZType.Fire)
+      .type(ZType.Flying)
+      .ability('drought')
+      .doubleDamageFrom(ZType.Electric)
+      .quadrupleDamageFrom(ZType.Rock)
+      .doubleDamageFrom(ZType.Water)
+      .hp(78)
+      .attack(104)
+      .defense(78)
+      .specialAttack(159)
+      .specialDefense(115)
+      .speed(100)
+      .height(17)
+      .weight(1005);
+  }
+
+  /**
+   * Sets Charizard's Mega X variant information.
+   *
+   * It's better to retrieve this from something like the pokeapi,
+   * but this just sets limited information which is good for
+   * testing and demos.
+   *
+   * @returns
+   *        A reference to this object.
+   */
+  public charizardGMax() {
+    return this.id(10035)
+      .name('charizard-mega-y')
+      .type(ZType.Fire)
+      .type(ZType.Flying)
+      .ability('blaze')
+      .ability('solar-power', true)
+      .doubleDamageFrom(ZType.Electric)
+      .quadrupleDamageFrom(ZType.Rock)
+      .doubleDamageFrom(ZType.Water)
+      .hp(78)
+      .attack(84)
+      .defense(78)
+      .specialAttack(109)
+      .specialDefense(85)
+      .speed(100)
+      .height(280)
+      .weight(10000);
   }
 
   /**
