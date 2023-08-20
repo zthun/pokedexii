@@ -5240,59 +5240,48 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@zthun/dalmart-db@npm:^1.0.3":
-  version: 1.0.3
-  resolution: "@zthun/dalmart-db@npm:1.0.3"
+"@zthun/dalmart-db@npm:^1.1.0":
+  version: 1.1.0
+  resolution: "@zthun/dalmart-db@npm:1.1.0"
   dependencies:
     "@zthun/helpful-fn": ^2.1.0
     "@zthun/helpful-query": ^2.1.0
-  checksum: 968a87b093842c3ced74dec47afad009c21bd7951f9013eeded1b64c3c79a68486efcf62bd4efa5fc20f4f4ba81f9dbb8d5306188cfb16be2858cbb61cb894e8
+  checksum: 21edde367be8b1a4aa1b2acbab43f959543342b719c4f4a4587d14b14f7a9da038be92c34a3f919972dd44dc5c91d600afa3ab02b7bfe501beb24bc462382028
   languageName: node
   linkType: hard
 
-"@zthun/dalmart-forage@npm:^1.0.3":
-  version: 1.0.3
-  resolution: "@zthun/dalmart-forage@npm:1.0.3"
+"@zthun/dalmart-memory@npm:^1.1.0":
+  version: 1.1.0
+  resolution: "@zthun/dalmart-memory@npm:1.1.0"
   dependencies:
-    "@zthun/dalmart-db": ^1.0.3
-    "@zthun/helpful-fn": ^2.1.0
-    localforage: ^1.10.0
-  checksum: cc7c2836a418798222d3da85d7e674f7f2a7d7f98a3234a56e2c985e2af4a48f6449ceab426ecdcaa73f2ee22114df1045b559c31a76d9ad446ca7eb6ed51a3f
-  languageName: node
-  linkType: hard
-
-"@zthun/dalmart-memory@npm:^1.0.3":
-  version: 1.0.3
-  resolution: "@zthun/dalmart-memory@npm:1.0.3"
-  dependencies:
-    "@zthun/dalmart-db": ^1.0.3
-    "@zthun/dalmart-mongo": ^1.0.3
-    "@zthun/dalmart-storage": ^1.0.3
+    "@zthun/dalmart-db": ^1.1.0
+    "@zthun/dalmart-mongo": ^1.1.0
+    "@zthun/dalmart-storage": ^1.1.0
     "@zthun/helpful-fn": ^2.1.0
     mongodb-memory-server: ^8.15.0
-  checksum: 37e8dd410408de3b287aec5c760581ebb9b0bcc1fef5020f0ded4777c9a76ea530a8fd3eb7480e10326354bc3515c045fad98479e306f235337dc05b679e70c8
+  checksum: fc0bd8642c081a13243241472d895dac1b87713f1a63d0a06492e0bd1320c0aaf1d2cc89fc4bd297720cac16401278d0e30c348a8f586e59889932d3e9693b55
   languageName: node
   linkType: hard
 
-"@zthun/dalmart-mongo@npm:^1.0.3":
-  version: 1.0.3
-  resolution: "@zthun/dalmart-mongo@npm:1.0.3"
+"@zthun/dalmart-mongo@npm:^1.1.0":
+  version: 1.1.0
+  resolution: "@zthun/dalmart-mongo@npm:1.1.0"
   dependencies:
-    "@zthun/dalmart-db": ^1.0.3
+    "@zthun/dalmart-db": ^1.1.0
     "@zthun/helpful-fn": ^2.1.0
     "@zthun/helpful-query": ^2.1.0
     mongodb: ^5.7.0
-  checksum: 98829b0a49b95cf8db559af64426321dd71ba736b88766a5715324cd9bcea9132f7741d2896cd785c3965121bf01dc4b9a61be4e80d337d853384f3372aa1f27
+  checksum: 4709ad2d49337edb351071c6e5f6d1dd49d806ee99e28e8330c33a70b32572af51c22df2158a8559d671ab978b532edeca55da054714b30a322b4c3730a8efaa
   languageName: node
   linkType: hard
 
-"@zthun/dalmart-storage@npm:^1.0.3":
-  version: 1.0.3
-  resolution: "@zthun/dalmart-storage@npm:1.0.3"
+"@zthun/dalmart-storage@npm:^1.1.0":
+  version: 1.1.0
+  resolution: "@zthun/dalmart-storage@npm:1.1.0"
   dependencies:
-    "@zthun/dalmart-db": ^1.0.3
+    "@zthun/dalmart-db": ^1.1.0
     "@zthun/helpful-fn": ^2.1.0
-  checksum: 788448f2c559ae58a0ad0d619fe6613d7c1a1cd8b25b11105e0820c230de8a7ce1d8a6b565d9b7df56ccb37651bdb93351d254e0abea3dbb6fa6ace6cde0d7c1
+  checksum: 3fc30432ee82d919cd97f25c27563921afd2d214c0eb2ad6184c7e728d93b87e18f7c96fdcea88ed15ff830d4c17bda3737d92e7d1cf8c3f6cf52ee06df95f4b
   languageName: node
   linkType: hard
 
@@ -5517,9 +5506,9 @@ __metadata:
     "@nestjs/swagger": ^7.1.8
     "@nestjs/testing": ^10.1.3
     "@nestjs/throttler": ^4.2.1
-    "@zthun/dalmart-db": ^1.0.3
-    "@zthun/dalmart-memory": ^1.0.3
-    "@zthun/dalmart-mongo": ^1.0.3
+    "@zthun/dalmart-db": ^1.1.0
+    "@zthun/dalmart-memory": ^1.1.0
+    "@zthun/dalmart-mongo": ^1.1.0
     "@zthun/helpful-fn": ^2.2.1
     "@zthun/helpful-query": ^2.2.1
     "@zthun/pokedex": ^0.16.1
@@ -5574,8 +5563,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@zthun/pokedex@workspace:packages/pokedex"
   dependencies:
-    "@zthun/dalmart-db": ^1.0.3
-    "@zthun/dalmart-forage": ^1.0.3
+    "@zthun/dalmart-db": ^1.1.0
     "@zthun/helpful-fn": ^2.2.1
     "@zthun/helpful-query": ^2.2.1
     "@zthun/webigail-http": ^1.1.0
@@ -10999,15 +10987,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lie@npm:3.1.1":
-  version: 3.1.1
-  resolution: "lie@npm:3.1.1"
-  dependencies:
-    immediate: ~3.0.5
-  checksum: 6da9f2121d2dbd15f1eca44c0c7e211e66a99c7b326ec8312645f3648935bc3a658cf0e9fa7b5f10144d9e2641500b4f55bd32754607c3de945b5f443e50ddd1
-  languageName: node
-  linkType: hard
-
 "lie@npm:~3.3.0":
   version: 3.3.0
   resolution: "lie@npm:3.3.0"
@@ -11082,15 +11061,6 @@ __metadata:
   version: 0.4.3
   resolution: "local-pkg@npm:0.4.3"
   checksum: 7825aca531dd6afa3a3712a0208697aa4a5cd009065f32e3fb732aafcc42ed11f277b5ac67229222e96f4def55197171cdf3d5522d0381b489d2e5547b407d55
-  languageName: node
-  linkType: hard
-
-"localforage@npm:^1.10.0":
-  version: 1.10.0
-  resolution: "localforage@npm:1.10.0"
-  dependencies:
-    lie: 3.1.1
-  checksum: f2978b434dafff9bcb0d9498de57d97eba165402419939c944412e179cab1854782830b5ec196212560b22712d1dd03918939f59cf1d4fc1d756fca7950086cf
   languageName: node
   linkType: hard
 
