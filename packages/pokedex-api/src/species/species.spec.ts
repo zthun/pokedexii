@@ -131,6 +131,16 @@ describe('ZSpeciesApi', () => {
       expect(actual.status).toEqual(ZHttpCodeSuccess.OK);
       expect(actual.body.data).toEqual([$charmander, $charizard]);
     });
+
+    it('should return species that match the type', async () => {
+      // Arrange.
+      const target = await createTestTarget();
+      // Act.
+      const actual = await request(target.getHttpServer()).get(`/${endpoint}?search=fire`);
+      // Assert.
+      expect(actual.status).toEqual(ZHttpCodeSuccess.OK);
+      expect(actual.body.data).toEqual([$charmander, $charizard]);
+    });
   });
 
   describe('Get', () => {

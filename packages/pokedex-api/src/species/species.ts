@@ -1,5 +1,6 @@
 import { IZSpecies, ZSpeciesBuilder } from '@zthun/pokedex';
 import { ZPokedexCollection } from '../database/pokedex-database';
+import { IPokeApiPokemon } from '../pokemon/pokemon';
 import { IPokeApiResource, ZPokeApiResource } from '../resource/resource';
 
 interface IPokeApiSpeciesGenus {
@@ -62,6 +63,9 @@ export interface IPokeApiSpecies {
   pokedex_numbers: IPokeApiSpeciesPokedexNumbers[];
   shape: IPokeApiResource;
   varieties: IPokeApiSpeciesVariety[];
+
+  // Joins
+  pokemon?: IPokeApiPokemon[];
 }
 
 export class ZPokeApiSpeciesBuilder {
@@ -94,7 +98,12 @@ export class ZPokeApiSpeciesBuilder {
       is_legendary: false,
       is_mythical: false,
       name: other.name,
-      names: [],
+      names: [
+        {
+          language: ZPokeApiResource.toResource(ZPokedexCollection.Language, 'en'),
+          name: other.name
+        }
+      ],
       order: 0,
       pal_park_encounters: [],
       pokedex_numbers: [],
