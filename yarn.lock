@@ -5524,6 +5524,8 @@ __metadata:
     typescript: ^5.1.6
     vitest: ^0.34.2
     vitest-mock-extended: ^1.2.0
+  bin:
+    pokedex-api: ./bin/main.js
   languageName: unknown
   linkType: soft
 
