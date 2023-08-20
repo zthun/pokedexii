@@ -1,5 +1,5 @@
 import { Inject, Injectable } from '@nestjs/common';
-import { IZDatabaseDocument } from '@zthun/dalmart-db';
+import { IZDatabaseDocument, ZDatabaseDocumentCollectionBuilder } from '@zthun/dalmart-db';
 import { IZDataRequest, IZFilter, IZPage, ZDataRequestBuilder, ZPageBuilder } from '@zthun/helpful-query';
 import { IZSpecies } from '@zthun/pokedex';
 import { IZConverter } from '../convert/converter';
@@ -19,8 +19,11 @@ export class ZSpeciesListService implements IZResourceListService<IZSpecies> {
   public async list(request: IZDataRequest): Promise<IZPage<IZSpecies>> {
     const search = await this._search.convert(request.search);
     const req = new ZDataRequestBuilder().copy(request).filter(search).build();
-    const count = await this._dal.count(ZPokedexCollection.PokemonSpecies, req.filter);
-    const species = await this._dal.read<IPokeApiSpecies>(ZPokedexCollection.PokemonSpecies, req);
+    const collection = new ZDatabaseDocumentCollectionBuilder(ZPokedexCollection.PokemonSpecies)
+      .join(ZPokedexCollection.Pokemon, 'varieties.pokemon.name', 'name', 'pokemon')
+      .build();
+    const count = await this._dal.count(collection, req.filter);
+    const species = await this._dal.read<IPokeApiSpecies>(collection, req);
     const data = await this._converter.convert(species);
     return new ZPageBuilder<IZSpecies>().data(data).count(count).build();
   }

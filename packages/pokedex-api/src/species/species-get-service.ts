@@ -1,5 +1,5 @@
 import { Inject, Injectable, NotFoundException } from '@nestjs/common';
-import { IZDatabaseDocument } from '@zthun/dalmart-db';
+import { IZDatabaseDocument, ZDatabaseDocumentCollectionBuilder } from '@zthun/dalmart-db';
 import { ZDataRequestBuilder, ZFilterBinaryBuilder, ZFilterLogicBuilder } from '@zthun/helpful-query';
 import { IZSpecies } from '@zthun/pokedex';
 import { IZConverter } from '../convert/converter';
@@ -21,7 +21,11 @@ export class ZSpeciesGetService implements IZResourceGetService<IZSpecies> {
     const filter = new ZFilterLogicBuilder().or().clause(idFilter).clause(nameFilter).build();
     const request = new ZDataRequestBuilder().filter(filter).build();
 
-    const [species] = await this._dal.read<IPokeApiSpecies>(ZPokedexCollection.PokemonSpecies, request);
+    const collection = new ZDatabaseDocumentCollectionBuilder(ZPokedexCollection.PokemonSpecies)
+      .join(ZPokedexCollection.Pokemon, 'varieties.pokemon.name', 'name', 'pokemon')
+      .build();
+
+    const [species] = await this._dal.read<IPokeApiSpecies>(collection, request);
 
     if (species == null) {
       throw new NotFoundException(`Species, ${identification}, was not found.`);

@@ -1,11 +1,12 @@
 import { Module } from '@nestjs/common';
-import { ZConverterIdOrNameSearch } from '../convert/converter-id-or-name-search';
+import { ZConverterList } from '../convert/converter-list';
 import { ZPokedexDatabaseModule } from '../database/pokedex-database-module';
 import { ZConvertToken, ZGetToken, ZListToken, ZSearchToken } from '../resource/resource-tokens';
 import { ZSpeciesController } from './species-controller';
 import { ZSpeciesConverter } from './species-convert';
 import { ZSpeciesGetService } from './species-get-service';
 import { ZSpeciesListService } from './species-list-service';
+import { ZSpeciesSearch } from './species-search';
 
 @Module({
   imports: [ZPokedexDatabaseModule],
@@ -21,11 +22,11 @@ import { ZSpeciesListService } from './species-list-service';
     },
     {
       provide: ZSearchToken,
-      useValue: new ZConverterIdOrNameSearch()
+      useClass: ZSpeciesSearch
     },
     {
       provide: ZConvertToken,
-      useClass: ZSpeciesConverter
+      useValue: new ZConverterList(new ZSpeciesConverter())
     }
   ]
 })
