@@ -15,6 +15,9 @@
     "debug": "nodemon",
     "start": "node ./dist/main.js"
   },
+  "bin": {
+    "pokedex-api": "./bin/main.js"
+  },
   "publishConfig": {
     "access": "public"
   },
