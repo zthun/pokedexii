@@ -3,6 +3,38 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.17.0](https://github.com/zthun/pokedexii/compare/v0.16.1...v0.17.0) (2023-08-20)
+
+
+### ⚠ BREAKING CHANGES
+
+* type service moved to api
+* pokemon service moved to api
+* species service moved to pokedex-api
+
+### Features
+
+* evolution builder can now build eevee ([0d1e839](https://github.com/zthun/pokedexii/commit/0d1e839770caf520bd63952edb6c56c086d068ef))
+* evolution builder can now build goomy ([02aa75e](https://github.com/zthun/pokedexii/commit/02aa75e8741319198ddaeda761f50f295c8f0536))
+* evolution builder can now build mantyke ([038a782](https://github.com/zthun/pokedexii/commit/038a7823b025c2cf46f99d01c17267e21be32e9c))
+* evolution builder can now build pancham, shelmet, and tyrogue ([d85956d](https://github.com/zthun/pokedexii/commit/d85956d2e804ba6b1b95274200d2809274faac73))
+* evolution builder can now build tangela ([d464ebe](https://github.com/zthun/pokedexii/commit/d464ebe72d53d1dc6ef9dda151b0bebd36e2459c))
+* evolution builder can now construct feebas ([9c914cd](https://github.com/zthun/pokedexii/commit/9c914cd6ef99d21f9b7ed0f9770c5b88d3953ab2))
+* evolution builder can now construct inkay ([8ff7915](https://github.com/zthun/pokedexii/commit/8ff79153298e4a960c221db2af44083ef978c029))
+* pokemon builder can now construct charizard variants ([09ba179](https://github.com/zthun/pokedexii/commit/09ba17925833dc022c97b5c82ff70fe2bce04b14))
+* species can now have directed artwork and types ([46a73a3](https://github.com/zthun/pokedexii/commit/46a73a393cf0041f98fbceb75e61a439dbe6a7a1))
+* support for urshifu main variant in tests ([026ff4f](https://github.com/zthun/pokedexii/commit/026ff4f5895941e2825a4e8b09f68fc0079a023c))
+* type builder an now construct electric, water, and rock for testing ([2528d67](https://github.com/zthun/pokedexii/commit/2528d6769c20684fc16941392b8234c0c7a9f57b))
+
+
+### Code Refactoring
+
+* pokemon service moved to api ([335f214](https://github.com/zthun/pokedexii/commit/335f214428072c25b41c60cbccd3b7fa00994b33))
+* species service moved to pokedex-api ([54aaac1](https://github.com/zthun/pokedexii/commit/54aaac14937fec961f21a192f9cdc2dfb9fe712d))
+* type service moved to api ([c357bfc](https://github.com/zthun/pokedexii/commit/c357bfcfe1af34814d05dfd0e571fccadbc1a046))
+
+
+
 ## [0.16.1](https://github.com/zthun/pokedexii/compare/v0.16.0...v0.16.1) (2023-08-12)
 
 **Note:** Version bump only for package @zthun/pokedex

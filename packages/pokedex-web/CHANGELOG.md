@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.17.0](https://github.com/zthun/pokedexii/compare/v0.16.1...v0.17.0) (2023-08-20)
+
+
+### Features
+
+* evolution card now show identification of the evolution ([37fd070](https://github.com/zthun/pokedexii/commit/37fd07027b635e215e7f7e5d42bb9e90501d9161))
+
+
+### Bug Fixes
+
+* red console warnings about duplicate keys should no longer happen on the species details page ([436499b](https://github.com/zthun/pokedexii/commit/436499b021f49e7e9901c7c52d8e160c4b21ccd0))
+
+
+
 ## [0.16.1](https://github.com/zthun/pokedexii/compare/v0.16.0...v0.16.1) (2023-08-12)
 
 **Note:** Version bump only for package @zthun/pokedex-web
