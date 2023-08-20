@@ -221,11 +221,6 @@ export class ZSpeciesBuilder {
       .main(new ZPokemonBuilder().gallade().build());
   }
 
-  public copy(other: IZSpecies) {
-    this._species = structuredClone(other);
-    return this;
-  }
-
   public build() {
     return structuredClone(this._species);
   }
