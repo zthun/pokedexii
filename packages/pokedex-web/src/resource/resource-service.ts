@@ -18,7 +18,7 @@ export class ZResourceService<T extends IZResource> implements IZResourceService
   }
 
   public request(url: string) {
-    return new ZHttpRequestBuilder().url(url).get().timeout(5000);
+    return new ZHttpRequestBuilder().url(url).get().timeout(60000);
   }
 
   public async count(): Promise<number> {
