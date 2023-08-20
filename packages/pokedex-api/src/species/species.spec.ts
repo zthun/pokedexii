@@ -12,10 +12,13 @@ import { ZPokeApiSpeciesBuilder } from './species';
 import { ZSpeciesModule } from './species-module';
 
 describe('ZSpeciesApi', () => {
+  const endpoint = 'species';
+
   let server: IZDatabaseServer<IZDatabaseDocument>;
   let dal: IZDatabaseDocument;
   let $squirtle: IZSpecies;
   let $charmander: IZSpecies;
+  let $charizard: IZSpecies;
   let $bulbasaur: IZSpecies;
   let species: IZSpecies[];
   let _target: INestApplication<any>;
@@ -32,7 +35,7 @@ describe('ZSpeciesApi', () => {
   };
 
   beforeAll(async () => {
-    const options = new ZDatabaseOptionsBuilder().database('pokemon-species-test-database').timeout(30000).build();
+    const options = new ZDatabaseOptionsBuilder().database('species-test-database').timeout(30000).build();
     server = new ZDatabaseServerDocument();
     dal = await server.start(options);
   });
@@ -44,8 +47,9 @@ describe('ZSpeciesApi', () => {
   beforeEach(async () => {
     $squirtle = new ZSpeciesBuilder().squirtle().build();
     $charmander = new ZSpeciesBuilder().charmander().build();
+    $charizard = new ZSpeciesBuilder().charizard().build();
     $bulbasaur = new ZSpeciesBuilder().bulbasaur().build();
-    species = [$squirtle, $charmander, $bulbasaur];
+    species = [$squirtle, $charmander, $charizard, $bulbasaur];
 
     await dal.delete(ZPokedexCollection.PokemonSpecies);
     await dal.delete(ZPokedexCollection.Pokemon);
@@ -56,7 +60,11 @@ describe('ZSpeciesApi', () => {
     await dal.create(ZPokedexCollection.Pokemon, [
       new ZPokeApiPokemonBuilder().from(new ZPokemonBuilder().squirtle().build()).build(),
       new ZPokeApiPokemonBuilder().from(new ZPokemonBuilder().charmander().build()).build(),
-      new ZPokeApiPokemonBuilder().from(new ZPokemonBuilder().bulbasaur().build()).build()
+      new ZPokeApiPokemonBuilder().from(new ZPokemonBuilder().bulbasaur().build()).build(),
+      new ZPokeApiPokemonBuilder().from(new ZPokemonBuilder().charizard().build()).build(),
+      new ZPokeApiPokemonBuilder().from(new ZPokemonBuilder().charizardMegaX().build()).build(),
+      new ZPokeApiPokemonBuilder().from(new ZPokemonBuilder().charizardMegaY().build()).build(),
+      new ZPokeApiPokemonBuilder().from(new ZPokemonBuilder().charizardGMax().build()).build()
     ]);
   });
 
@@ -69,7 +77,7 @@ describe('ZSpeciesApi', () => {
       // Arrange.
       const target = await createTestTarget();
       // Act.
-      const actual = await request(target.getHttpServer()).get('/species');
+      const actual = await request(target.getHttpServer()).get(`/${endpoint}`);
       // Assert.
       expect(actual.status).toEqual(ZHttpCodeSuccess.OK);
       expect(actual.body.data).toEqual(species);
@@ -79,7 +87,7 @@ describe('ZSpeciesApi', () => {
       // Arrange.
       const target = await createTestTarget();
       // Act.
-      const actual = await request(target.getHttpServer()).get('/species?size=1');
+      const actual = await request(target.getHttpServer()).get(`/${endpoint}?size=1`);
       // Assert
       expect(actual.body.count).toEqual(species.length);
     });
@@ -88,7 +96,7 @@ describe('ZSpeciesApi', () => {
       // Arrange.
       const target = await createTestTarget();
       // Act.
-      const actual = await request(target.getHttpServer()).get('/species?size=2');
+      const actual = await request(target.getHttpServer()).get(`/${endpoint}?size=2`);
       // Assert.
       expect(actual.status).toEqual(ZHttpCodeSuccess.OK);
       expect(actual.body.data).toEqual(species.slice(0, 2));
@@ -98,7 +106,7 @@ describe('ZSpeciesApi', () => {
       // Arrange.
       const target = await createTestTarget();
       // Act.
-      const actual = await request(target.getHttpServer()).get('/species?page=2&size=2');
+      const actual = await request(target.getHttpServer()).get(`/${endpoint}?page=2&size=2`);
       // Assert.
       expect(actual.status).toEqual(ZHttpCodeSuccess.OK);
       expect(actual.body.data).toEqual(species.slice(2));
@@ -108,7 +116,7 @@ describe('ZSpeciesApi', () => {
       // Arrange.
       const target = await createTestTarget();
       // Act.
-      const actual = await request(target.getHttpServer()).get(`/species?search=${$charmander.id}`);
+      const actual = await request(target.getHttpServer()).get(`/${endpoint}?search=${$charmander.id}`);
       // Assert.
       expect(actual.status).toEqual(ZHttpCodeSuccess.OK);
       expect(actual.body.data).toEqual([$charmander]);
@@ -118,10 +126,10 @@ describe('ZSpeciesApi', () => {
       // Arrange.
       const target = await createTestTarget();
       // Act.
-      const actual = await request(target.getHttpServer()).get('/species?search=cHar');
+      const actual = await request(target.getHttpServer()).get(`/${endpoint}?search=cHar`);
       // Assert.
       expect(actual.status).toEqual(ZHttpCodeSuccess.OK);
-      expect(actual.body.data).toEqual([$charmander]);
+      expect(actual.body.data).toEqual([$charmander, $charizard]);
     });
   });
 
@@ -130,7 +138,7 @@ describe('ZSpeciesApi', () => {
       // Arrange.
       const target = await createTestTarget();
       // Act.
-      const actual = await request(target.getHttpServer()).get(`/species/${$bulbasaur.name}`);
+      const actual = await request(target.getHttpServer()).get(`/${endpoint}/${$bulbasaur.name}`);
       // Assert.
       expect(actual.status).toEqual(ZHttpCodeSuccess.OK);
       expect(actual.body).toEqual($bulbasaur);
@@ -140,7 +148,7 @@ describe('ZSpeciesApi', () => {
       // Arrange.
       const target = await createTestTarget();
       // Act.
-      const actual = await request(target.getHttpServer()).get(`/species/${$bulbasaur.id}`);
+      const actual = await request(target.getHttpServer()).get(`/${endpoint}/${$bulbasaur.id}`);
       // Assert.
       expect(actual.status).toEqual(ZHttpCodeSuccess.OK);
       expect(actual.body).toEqual($bulbasaur);
@@ -151,7 +159,7 @@ describe('ZSpeciesApi', () => {
       const target = await createTestTarget();
       const { id } = new ZSpeciesBuilder().pikachu().build();
       // Act.
-      const actual = await request(target.getHttpServer()).get(`/species/${id}`);
+      const actual = await request(target.getHttpServer()).get(`/${endpoint}/${id}`);
       // Assert.
       expect(actual.status).toEqual(ZHttpCodeClient.NotFound);
       expect(actual.body.message).toBeTruthy();
