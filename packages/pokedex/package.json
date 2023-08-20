@@ -19,7 +19,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@zthun/dalmart-db": "^1.1.0",
+    "@zthun/dalmart-db": "^1.1.1",
     "@zthun/helpful-fn": "^2.2.1",
     "@zthun/helpful-query": "^2.2.1",
     "@zthun/webigail-http": "^1.1.0",
