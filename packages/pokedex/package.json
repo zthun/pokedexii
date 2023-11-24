@@ -20,8 +20,8 @@
   },
   "dependencies": {
     "@zthun/dalmart-db": "^1.1.1",
-    "@zthun/helpful-fn": "^2.2.1",
-    "@zthun/helpful-query": "^2.2.1",
+    "@zthun/helpful-fn": "^3.0.0",
+    "@zthun/helpful-query": "^3.0.0",
     "@zthun/webigail-http": "^1.1.0",
     "@zthun/webigail-url": "^1.1.0",
     "lodash": "^4.17.21"
