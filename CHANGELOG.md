@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.18.0](https://github.com/zthun/pokedexii/compare/v0.17.1...v0.18.0) (2023-11-24)
+
+
+### Features
+
+* added favicon ([f9b689e](https://github.com/zthun/pokedexii/commit/f9b689e13b0676b571b45cd75344f0d53f9360b9))
+
+
+### Bug Fixes
+
+* resource counts now respect the search filter ([94a154f](https://github.com/zthun/pokedexii/commit/94a154f463f4a52feb2b9d2fd20f70a870d034ba))
+* the more button should no longer show up when the full list is displayed ([0005b28](https://github.com/zthun/pokedexii/commit/0005b28d3e6eb781d348342e1f7ee7e9be99fc80))
+
+
+
 ## [0.17.1](https://github.com/zthun/pokedexii/compare/v0.17.0...v0.17.1) (2023-08-20)
 
 **Note:** Version bump only for package @zthun/pokedexii
