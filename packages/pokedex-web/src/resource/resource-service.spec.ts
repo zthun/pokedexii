@@ -48,7 +48,7 @@ describe('ZResourceService', () => {
       const expected = new ZPageBuilder<IZType>().data([fire]).count(types.length).build();
       http.set(target.api().page(1).size(1).build(), ZHttpMethod.Get, new ZHttpResultBuilder(expected).build());
       // Act.
-      const actual = await target.count();
+      const actual = await target.count(new ZDataRequestBuilder().build());
       // Assert.
       expect(actual).toEqual(expected.count);
     });

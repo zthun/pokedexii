@@ -21,8 +21,8 @@ export class ZResourceService<T extends IZResource> implements IZResourceService
     return new ZHttpRequestBuilder().url(url).get().timeout(60000);
   }
 
-  public async count(): Promise<number> {
-    const url = this.api().page(1).size(1).build();
+  public async count(req: IZDataRequest): Promise<number> {
+    const url = this.api().page(1).size(1).search(req.search).build();
     const { data: page } = await this._http.request<IZPage<T>>(this.request(url).build());
     return page.count;
   }
