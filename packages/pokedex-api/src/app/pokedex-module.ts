@@ -16,7 +16,7 @@ import { ZTypesModule } from '../type/types-module';
     ZResourceModule,
     ZTypesModule,
     ZEvolutionsModule,
-    ThrottlerModule.forRoot({ ttl: 10, limit: 100 })
+    ThrottlerModule.forRoot({ throttlers: [{ ttl: 10, limit: 100 }] })
   ],
   providers: [{ provide: APP_GUARD, useClass: ThrottlerGuard }]
 })
