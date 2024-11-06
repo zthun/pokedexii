@@ -5,7 +5,7 @@ import { ZDataRequestBuilder } from '@zthun/helpful-query';
 import { IZSpecies } from '@zthun/pokedex';
 import React, { useState } from 'react';
 import { ZSpeciesCard } from './species-card';
-import { useSpeciesService } from './species-service';
+import { useSpeciesService } from './species-service.mjs';
 
 export function ZSpeciesListPage() {
   const service = useSpeciesService();

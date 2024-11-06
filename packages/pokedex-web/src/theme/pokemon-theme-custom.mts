@@ -7,7 +7,7 @@ import {
   createSpecialAttackStatFashion,
   createSpecialDefenseStatFashion,
   createSpeedStatFashion
-} from './pokemon-theme-custom-stats';
+} from './pokemon-theme-custom-stats.mjs';
 import {
   createBugTypeFashion,
   createDarkTypeFashion,
@@ -29,7 +29,7 @@ import {
   createSteelTypeFashion,
   createUnknownTypeFashion,
   createWaterTypeFashion
-} from './pokemon-theme-custom-types';
+} from './pokemon-theme-custom-types.mjs';
 
 export interface IZPokemonThemeCustom {
   stats: {

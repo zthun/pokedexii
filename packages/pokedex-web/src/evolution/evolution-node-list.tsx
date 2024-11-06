@@ -11,7 +11,7 @@ import {
 import { ZSizeFixed } from '@zthun/fashion-tailor';
 import { cssJoinDefined } from '@zthun/helpful-fn';
 import { IZEvolutionNode, IZEvolutionTrigger } from '@zthun/pokedex';
-import { startCase } from 'lodash';
+import { startCase } from 'lodash-es';
 import React, { ReactNode, useState } from 'react';
 import { ZEvolutionNodeBubble } from './evolution-node-bubble';
 

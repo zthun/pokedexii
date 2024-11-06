@@ -10,9 +10,9 @@ import {
 import { ZSizeFixed } from '@zthun/fashion-tailor';
 import { ZOrientation, cssJoinDefined, firstDefined } from '@zthun/helpful-fn';
 import { ZType, ZTypeBuilder } from '@zthun/pokedex';
-import { startCase } from 'lodash';
+import { startCase } from 'lodash-es';
 import React, { useMemo } from 'react';
-import { IZPokemonThemeUtility } from '../theme/pokemon-theme';
+import { IZPokemonThemeUtility } from '../theme/pokemon-theme.mjs';
 
 export interface IZTypeBadge extends IZComponentStyle, IZComponentAdornment {
   compact?: boolean;

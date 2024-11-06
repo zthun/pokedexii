@@ -3,13 +3,13 @@ import { ZCircusSetupRenderer } from '@zthun/cirque-du-react';
 import { ZFashionThemeContext, ZTestRouter } from '@zthun/fashion-boutique';
 import { IZEvolutionNode, IZSpecies, ZEvolutionNodeBuilder, ZSpeciesBuilder } from '@zthun/pokedex';
 import { MemoryHistory, createMemoryHistory } from 'history';
-import { startCase } from 'lodash';
+import { startCase } from 'lodash-es';
 import React from 'react';
 import { Mocked, beforeEach, describe, expect, it } from 'vitest';
 import { mock } from 'vitest-mock-extended';
-import { IZResourceService } from '../resource/resource-service';
-import { ZSpeciesServiceContext } from '../species/species-service';
-import { createPokemonTheme } from '../theme/pokemon-theme';
+import { IZResourceService } from '../resource/resource-service.mjs';
+import { ZSpeciesServiceContext } from '../species/species-service.mjs';
+import { createPokemonTheme } from '../theme/pokemon-theme.mjs';
 import { ZEvolutionNodeBubble } from './evolution-node-bubble';
 import { ZEvolutionNodeBubbleComponentModel } from './evolution-node-bubble.cm';
 

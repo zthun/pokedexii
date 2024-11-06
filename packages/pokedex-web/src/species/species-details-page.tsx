@@ -14,7 +14,7 @@ import React, { useEffect, useState } from 'react';
 import { ZEvolutionChainCard } from '../evolution/evolution-chain-card';
 import { ZPokemonAttributesCard } from '../pokemon/pokemon-attributes-card';
 import { ZPokemonStatsCard } from '../pokemon/pokemon-stats-card';
-import { useSpecies } from './species-service';
+import { useSpecies } from './species-service.mjs';
 import { ZSpeciesVarietiesCard } from './species-varieties-card';
 
 /**

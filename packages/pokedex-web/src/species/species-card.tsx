@@ -2,7 +2,7 @@ import { ZCaption, ZH3, ZImageSource, createStyleHook } from '@zthun/fashion-bou
 import { ZSizeFixed } from '@zthun/fashion-tailor';
 import { cssJoinDefined } from '@zthun/helpful-fn';
 import { IZSpecies } from '@zthun/pokedex';
-import { padStart, startCase } from 'lodash';
+import { padStart, startCase } from 'lodash-es';
 import React, { MouseEventHandler } from 'react';
 import { ZTypeBadges } from '../type/type-badges';
 

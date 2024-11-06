@@ -1,10 +1,10 @@
 import { ZBubble, ZH2, ZH3, ZImageSource, ZStack } from '@zthun/fashion-boutique';
 import { ZSizeFixed, ZSizeVaried } from '@zthun/fashion-tailor';
 import { IZType, ZType } from '@zthun/pokedex';
-import { startCase } from 'lodash';
+import { startCase } from 'lodash-es';
 import React from 'react';
 import { ZResourceCard } from '../resource/resource-card';
-import { usePokemonTheme } from '../theme/pokemon-theme';
+import { usePokemonTheme } from '../theme/pokemon-theme.mjs';
 import { ZTypeBadges } from './type-badges';
 
 export interface IZTypeCard {

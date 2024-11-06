@@ -13,12 +13,12 @@ import { MemoryHistory, createMemoryHistory } from 'history';
 import React from 'react';
 import { Mocked, beforeEach, describe, expect, it } from 'vitest';
 import { mock } from 'vitest-mock-extended';
-import { ZPokemonServiceContext } from '../pokemon/pokemon-service';
-import { IZResourceService } from '../resource/resource-service';
-import { createPokemonTheme } from '../theme/pokemon-theme';
+import { ZPokemonServiceContext } from '../pokemon/pokemon-service.mjs';
+import { IZResourceService } from '../resource/resource-service.mjs';
+import { createPokemonTheme } from '../theme/pokemon-theme.mjs';
 import { ZSpeciesListPage } from './species-list-page';
-import { ZPokemonListPageComponentModel } from './species-list-page.cm';
-import { ZSpeciesServiceContext } from './species-service';
+import { ZPokemonListPageComponentModel } from './species-list-page.cm.mjs';
+import { ZSpeciesServiceContext } from './species-service.mjs';
 
 describe('ZSpeciesListPage', () => {
   let speciesService: Mocked<IZResourceService<IZSpecies>>;

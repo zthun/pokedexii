@@ -6,11 +6,11 @@ import { IZType, ZType, ZTypeBuilder } from '@zthun/pokedex';
 import React from 'react';
 import { Mocked, beforeEach, describe, expect, it } from 'vitest';
 import { mock } from 'vitest-mock-extended';
-import { IZResourceService } from '../resource/resource-service';
-import { createPokemonTheme } from '../theme/pokemon-theme';
+import { IZResourceService } from '../resource/resource-service.mjs';
+import { createPokemonTheme } from '../theme/pokemon-theme.mjs';
 import { ZTypeListPage } from './type-list-page';
-import { ZTypeListPageComponentModel } from './type-list-page.cm';
-import { ZTypeServiceContext } from './type-service';
+import { ZTypeListPageComponentModel } from './type-list-page.cm.mjs';
+import { ZTypeServiceContext } from './type-service.mjs';
 
 describe('ZTypeListPage', () => {
   let fire: IZType;

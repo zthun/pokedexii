@@ -19,7 +19,7 @@ import { ZHorizontalAnchor } from '@zthun/helpful-fn';
 import React, { useState } from 'react';
 import { ZSpeciesDetailsPage } from '../species/species-details-page';
 import { ZSpeciesListPage } from '../species/species-list-page';
-import { createPokemonTheme } from '../theme/pokemon-theme';
+import { createPokemonTheme } from '../theme/pokemon-theme.mjs';
 import { ZTypeListPage } from '../type/type-list-page';
 
 const PokemonTheme = createPokemonTheme();

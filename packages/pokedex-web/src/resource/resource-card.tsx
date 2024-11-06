@@ -2,9 +2,9 @@ import { IZCard, IZComponentName, IZComponentStyle, ZAlert, ZCard, ZIconFontAwes
 import { ZSizeFixed } from '@zthun/fashion-tailor';
 import { cssJoinDefined } from '@zthun/helpful-fn';
 import { ZAsyncDataState, isStateErrored, isStateLoading } from '@zthun/helpful-react';
-import { castArray, find } from 'lodash';
+import { castArray, find } from 'lodash-es';
 import React, { ReactNode } from 'react';
-import { usePokemonTheme } from '../theme/pokemon-theme';
+import { usePokemonTheme } from '../theme/pokemon-theme.mjs';
 
 export interface IZResourceCard<T> extends IZComponentName, IZComponentStyle {
   CardProps?: Omit<IZCard, 'children' | 'loading' | 'name' | 'className'>;

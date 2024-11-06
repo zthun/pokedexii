@@ -1,8 +1,8 @@
 import { IZCircusDriver, ZCircusBy, ZCircusComponentModel } from '@zthun/cirque';
 import { ZType } from '@zthun/pokedex';
-import { kebabCase } from 'lodash';
-import { ZResourceCardComponentModel } from '../resource/resource-card.cm';
-import { ZTypeBadgeComponentModel } from '../type/type-badge.cm';
+import { kebabCase } from 'lodash-es';
+import { ZResourceCardComponentModel } from '../resource/resource-card.cm.mjs';
+import { ZTypeBadgeComponentModel } from '../type/type-badge.cm.mjs';
 
 /**
  * Represents the component model for the pokemon details page.

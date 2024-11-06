@@ -1,6 +1,6 @@
 import { IZThemeUtility, useFashionTheme } from '@zthun/fashion-boutique';
 import { IZFashionTheme, ZFashionThemeBuilder, createDarkTheme } from '@zthun/fashion-theme';
-import { IZPokemonThemeCustom, createPokemonThemeCustom } from './pokemon-theme-custom';
+import { IZPokemonThemeCustom, createPokemonThemeCustom } from './pokemon-theme-custom.mjs';
 
 export interface IZPokemonTheme extends IZFashionTheme<IZPokemonThemeCustom> {}
 export interface IZPokemonThemeUtility extends IZThemeUtility<IZPokemonThemeCustom> {}

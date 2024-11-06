@@ -2,13 +2,13 @@ import { IZComponentValue, ZBox, ZButton, ZIconFontAwesome, ZImageSource } from 
 import { ZSizeFixed, ZSizeVaried } from '@zthun/fashion-tailor';
 import { asStateData, useAmbassadorState } from '@zthun/helpful-react';
 import { IZPokemon, IZSpecies } from '@zthun/pokedex';
-import { padStart, startCase } from 'lodash';
+import { padStart, startCase } from 'lodash-es';
 import React, { useMemo } from 'react';
-import { usePokemon } from '../pokemon/pokemon-service';
+import { usePokemon } from '../pokemon/pokemon-service.mjs';
 import { ZResourceCard } from '../resource/resource-card';
-import { usePokemonTheme } from '../theme/pokemon-theme';
-import { IZSpeciesResourceCard } from './species-resource-card';
-import { useSpecies } from './species-service';
+import { usePokemonTheme } from '../theme/pokemon-theme.mjs';
+import { IZSpeciesResourceCard } from './species-resource-card.mjs';
+import { useSpecies } from './species-service.mjs';
 
 export interface IZSpeciesVarietiesCard extends IZSpeciesResourceCard, IZComponentValue<number> {}
 

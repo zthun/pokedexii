@@ -2,7 +2,7 @@ import { ZDataRequestBuilder, ZPageBuilder } from '@zthun/helpful-query';
 import { IZType, ZTypeBuilder } from '@zthun/pokedex';
 import { ZHttpMethod, ZHttpResultBuilder, ZHttpServiceMock } from '@zthun/webigail-http';
 import { beforeEach, describe, expect, it } from 'vitest';
-import { ZResourceService } from './resource-service';
+import { ZResourceService } from './resource-service.mjs';
 
 describe('ZResourceService', () => {
   let http: ZHttpServiceMock;

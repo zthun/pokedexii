@@ -2,13 +2,13 @@ import { ZBox, ZCaption, ZIconFontAwesome, ZLabeled, ZTextColor } from '@zthun/f
 import { ZSizeFixed } from '@zthun/fashion-tailor';
 import { cssJoinDefined } from '@zthun/helpful-fn';
 import { IZPokemon, IZPokemonAbility } from '@zthun/pokedex';
-import { startCase } from 'lodash';
+import { startCase } from 'lodash-es';
 import React, { ReactNode } from 'react';
 import { ZResourceCard } from '../resource/resource-card';
-import { usePokemonTheme } from '../theme/pokemon-theme';
+import { usePokemonTheme } from '../theme/pokemon-theme.mjs';
 import { ZTypeBadges } from '../type/type-badges';
-import { IZPokemonResourceCard } from './pokemon-resource-card';
-import { usePokemon } from './pokemon-service';
+import { IZPokemonResourceCard } from './pokemon-resource-card.mjs';
+import { usePokemon } from './pokemon-service.mjs';
 
 export function ZPokemonAttributesCard(props: IZPokemonResourceCard) {
   const { pokemonName } = props;

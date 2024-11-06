@@ -5,10 +5,10 @@ import { IZPokemon, IZResourceService, ZPokemonBuilder, ZType } from '@zthun/pok
 import React from 'react';
 import { Mocked, beforeEach, describe, expect, it } from 'vitest';
 import { mock } from 'vitest-mock-extended';
-import { createPokemonTheme } from '../theme/pokemon-theme';
+import { createPokemonTheme } from '../theme/pokemon-theme.mjs';
 import { ZPokemonAttributesCard } from './pokemon-attributes-card';
-import { ZPokemonAttributesCardComponentModel } from './pokemon-attributes-card.cm';
-import { ZPokemonServiceContext } from './pokemon-service';
+import { ZPokemonAttributesCardComponentModel } from './pokemon-attributes-card.cm.mjs';
+import { ZPokemonServiceContext } from './pokemon-service.mjs';
 
 describe('ZPokemonAttributesCard', () => {
   let pokemonService: Mocked<IZResourceService<IZPokemon>>;

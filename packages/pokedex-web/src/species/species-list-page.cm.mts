@@ -1,6 +1,6 @@
 import { ZCircusBy, ZCircusComponentModel } from '@zthun/cirque';
 import { ZGridViewComponentModel } from '@zthun/fashion-boutique';
-import { ZSpeciesCardComponentModel } from './species-card.cm';
+import { ZSpeciesCardComponentModel } from './species-card.cm.mjs';
 
 /**
  * Represents the component model for the pokedex list page.

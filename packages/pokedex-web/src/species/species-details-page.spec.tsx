@@ -6,13 +6,13 @@ import { History, createMemoryHistory } from 'history';
 import React from 'react';
 import { Mocked, beforeEach, describe, expect, it } from 'vitest';
 import { mock } from 'vitest-mock-extended';
-import { ZEvolutionServiceContext } from '../evolution/evolution-service';
-import { ZPokemonServiceContext } from '../pokemon/pokemon-service';
-import { IZResourceService } from '../resource/resource-service';
-import { createPokemonTheme } from '../theme/pokemon-theme';
+import { ZEvolutionServiceContext } from '../evolution/evolution-service.mjs';
+import { ZPokemonServiceContext } from '../pokemon/pokemon-service.mjs';
+import { IZResourceService } from '../resource/resource-service.mjs';
+import { createPokemonTheme } from '../theme/pokemon-theme.mjs';
 import { ZSpeciesDetailsPage } from './species-details-page';
-import { ZSpeciesDetailsPageComponentModel } from './species-details-page.cm';
-import { ZSpeciesServiceContext } from './species-service';
+import { ZSpeciesDetailsPageComponentModel } from './species-details-page.cm.mjs';
+import { ZSpeciesServiceContext } from './species-service.mjs';
 
 describe('ZSpeciesDetailsPage', () => {
   let history: History;

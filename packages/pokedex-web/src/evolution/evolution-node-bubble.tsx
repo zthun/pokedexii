@@ -10,10 +10,10 @@ import { ZSizeFixed, ZSizeVaried } from '@zthun/fashion-tailor';
 import { cssJoinDefined } from '@zthun/helpful-fn';
 import { asStateData, isStateErrored, isStateLoaded, isStateLoading } from '@zthun/helpful-react';
 import { IZEvolutionNode, ZSpeciesBuilder } from '@zthun/pokedex';
-import { startCase } from 'lodash';
+import { startCase } from 'lodash-es';
 import React from 'react';
-import { useSpecies } from '../species/species-service';
-import { usePokemonTheme } from '../theme/pokemon-theme';
+import { useSpecies } from '../species/species-service.mjs';
+import { usePokemonTheme } from '../theme/pokemon-theme.mjs';
 
 export interface IZEvolutionNodeBubble {
   node: IZEvolutionNode;

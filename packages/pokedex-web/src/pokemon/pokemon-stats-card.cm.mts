@@ -1,6 +1,6 @@
 import { ZCircusBy, ZCircusComponentModel } from '@zthun/cirque';
 import { ZChartComponentModel } from '@zthun/fashion-boutique';
-import { ZResourceCardComponentModel } from '../resource/resource-card.cm';
+import { ZResourceCardComponentModel } from '../resource/resource-card.cm.mjs';
 
 export class ZPokemonStatsCardComponentModel extends ZCircusComponentModel {
   public static readonly Selector = '.ZPokemonStatsCard-root';

@@ -4,9 +4,9 @@ import { cssJoinDefined } from '@zthun/helpful-fn';
 import { IZPokemon, ZPokemonMaxBaseStat } from '@zthun/pokedex';
 import React from 'react';
 import { ZResourceCard } from '../resource/resource-card';
-import { usePokemonTheme } from '../theme/pokemon-theme';
-import { IZPokemonResourceCard } from './pokemon-resource-card';
-import { usePokemon } from './pokemon-service';
+import { usePokemonTheme } from '../theme/pokemon-theme.mjs';
+import { IZPokemonResourceCard } from './pokemon-resource-card.mjs';
+import { usePokemon } from './pokemon-service.mjs';
 
 export function ZPokemonStatsCard(props: IZPokemonResourceCard) {
   const { pokemonName } = props;

@@ -4,7 +4,7 @@ import { ZDataRequestBuilder, ZSortBuilder } from '@zthun/helpful-query';
 import { IZType } from '@zthun/pokedex';
 import React, { useState } from 'react';
 import { ZTypeCard } from './type-card';
-import { useTypeService } from './type-service';
+import { useTypeService } from './type-service.mjs';
 
 const DefaultRequest = new ZDataRequestBuilder().sort(new ZSortBuilder().ascending('name').build()).build();
 

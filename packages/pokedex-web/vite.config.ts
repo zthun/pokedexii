@@ -1,9 +1,2 @@
-import { defineConfig } from 'vite';
-import tsConfigPaths from 'vite-tsconfig-paths';
-
-export default defineConfig({
-  plugins: [tsConfigPaths()],
-  server: {
-    host: '0.0.0.0'
-  }
-});
+import { defineWeb } from '../../.config/vite-web';
+export default defineWeb(__dirname);

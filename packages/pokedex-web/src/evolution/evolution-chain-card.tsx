@@ -6,7 +6,7 @@ import React from 'react';
 import { ZResourceCard } from '../resource/resource-card';
 import { ZEvolutionNodeList } from './evolution-node-list';
 import { IZEvolutionResourceCard } from './evolution-resource-card';
-import { useEvolution } from './evolution-service';
+import { useEvolution } from './evolution-service.mjs';
 
 const useEvolutionChainCardStyles = createStyleHook(({ tailor, device }) => ({
   chain: {

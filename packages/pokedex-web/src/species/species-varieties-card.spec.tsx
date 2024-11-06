@@ -6,12 +6,12 @@ import { IZPokemon, IZSpecies, ZPokemonBuilder, ZSpeciesBuilder } from '@zthun/p
 import React from 'react';
 import { Mock, Mocked, beforeEach, describe, expect, it, vi } from 'vitest';
 import { mock } from 'vitest-mock-extended';
-import { ZPokemonServiceContext } from '../pokemon/pokemon-service';
-import { IZResourceService } from '../resource/resource-service';
-import { createPokemonTheme } from '../theme/pokemon-theme';
-import { ZSpeciesServiceContext } from './species-service';
+import { ZPokemonServiceContext } from '../pokemon/pokemon-service.mjs';
+import { IZResourceService } from '../resource/resource-service.mjs';
+import { createPokemonTheme } from '../theme/pokemon-theme.mjs';
+import { ZSpeciesServiceContext } from './species-service.mjs';
 import { ZSpeciesVarietiesCard } from './species-varieties-card';
-import { ZSpeciesVarietiesCardComponentModel } from './species-varieties-card.cm';
+import { ZSpeciesVarietiesCardComponentModel } from './species-varieties-card.cm.mjs';
 
 describe('ZSpeciesVarietiesCard', () => {
   let speciesService: Mocked<IZResourceService<IZSpecies>>;
