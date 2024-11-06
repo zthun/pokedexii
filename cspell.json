@@ -30,6 +30,7 @@
     "hitmonlee",
     "hitmontop",
     "hoenn",
+    "htmlhint",
     "inkay",
     "jolteon",
     "kalos",
@@ -72,5 +73,10 @@
     "zthun",
     "zthunworks"
   ],
-  "dictionaries": ["typescript", "node", "npm", "en_US"]
+  "dictionaries": [
+    "typescript",
+    "node",
+    "npm",
+    "en_US"
+  ]
 }

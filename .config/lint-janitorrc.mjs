@@ -25,7 +25,7 @@ const yamlFilesExclude = generated;
 const prettyFilesExclude = generated.concat(partialGenerated);
 const spellingFilesExclude = generated.concat(partialGenerated);
 
-module.exports = {
+export default {
   esFiles,
   esFilesExclude,
   htmlFiles,
