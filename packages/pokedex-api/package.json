@@ -4,6 +4,7 @@
   "description": "An API backend for pokedexii that allows complex queries and faster load times.",
   "author": "Anthony Bonta",
   "license": "MIT",
+  "type": "module",
   "repository": {
     "type": "git",
     "url": "https://github.com/zthun/pokedexii",
@@ -12,7 +13,7 @@
   "main": "./dist/main.js",
   "scripts": {
     "build": "tsc -p tsconfig.prod.json",
-    "debug": "nodemon",
+    "debug": "tsx watch ./src/main.ts",
     "start": "node ./dist/main.js"
   },
   "bin": "./bin/main.js",
@@ -41,8 +42,8 @@
   "devDependencies": {
     "@nestjs/testing": "^10.2.10",
     "@zthun/dalmart-memory": "^1.1.1",
-    "nodemon": "^3.0.1",
     "supertest": "^6.3.3",
+    "tsx": "^4.19.2",
     "typescript": "^5.6.3",
     "vitest": "^2.1.4",
     "vitest-mock-extended": "^2.0.2"

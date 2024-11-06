@@ -6,10 +6,10 @@ import { IZPokemon, ZPokemonBuilder, ZTypeBuilder } from '@zthun/pokedex';
 import { ZHttpCodeClient, ZHttpCodeSuccess } from '@zthun/webigail-http';
 import request from 'supertest';
 import { afterAll, afterEach, beforeAll, beforeEach, describe, expect, it } from 'vitest';
-import { ZDatabaseToken, ZPokedexCollection } from '../database/pokedex-database';
-import { ZPokeApiTypeBuilder } from '../type/type';
-import { ZPokeApiPokemonBuilder } from './pokemon';
-import { ZPokemonModule } from './pokemon-module';
+import { ZDatabaseToken, ZPokedexCollection } from '../database/pokedex-database.mjs';
+import { ZPokeApiTypeBuilder } from '../type/type.mjs';
+import { ZPokemonModule } from './pokemon-module.mjs';
+import { ZPokeApiPokemonBuilder } from './pokemon.mjs';
 
 describe('ZPokemonApi', () => {
   const endpoint = 'pokemon';

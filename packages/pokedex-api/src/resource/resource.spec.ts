@@ -5,11 +5,11 @@ import { ZSpeciesBuilder } from '@zthun/pokedex';
 import { ZHttpCodeServer, ZHttpMethod, ZHttpResultBuilder, ZHttpServiceMock } from '@zthun/webigail-http';
 import { ZHttpServiceToken } from '@zthun/webigail-nest';
 import { afterAll, beforeAll, beforeEach, describe, expect, it, vi } from 'vitest';
-import { ZDatabaseToken, ZPokedexCollection } from '../database/pokedex-database';
-import { IPokeApiSpecies, ZPokeApiSpeciesBuilder } from '../species/species';
-import { ZPokeApiResource } from './resource';
-import { ZResourceModule } from './resource-module';
-import { ZResourceSeedService } from './resource-seed-service';
+import { ZDatabaseToken, ZPokedexCollection } from '../database/pokedex-database.mjs';
+import { IPokeApiSpecies, ZPokeApiSpeciesBuilder } from '../species/species.mjs';
+import { ZResourceModule } from './resource-module.mjs';
+import { ZResourceSeedService } from './resource-seed-service.mjs';
+import { ZPokeApiResource } from './resource.mjs';
 
 describe('ZResourceApi', () => {
   let server: IZDatabaseServer<IZDatabaseDocument>;

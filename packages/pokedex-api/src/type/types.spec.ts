@@ -6,9 +6,9 @@ import { IZType, ZTypeBuilder } from '@zthun/pokedex';
 import { ZHttpCodeClient, ZHttpCodeSuccess } from '@zthun/webigail-http';
 import request from 'supertest';
 import { afterAll, afterEach, beforeAll, beforeEach, describe, expect, it } from 'vitest';
-import { ZDatabaseToken, ZPokedexCollection } from '../database/pokedex-database';
-import { ZPokeApiTypeBuilder } from './type';
-import { ZTypesModule } from './types-module';
+import { ZDatabaseToken, ZPokedexCollection } from '../database/pokedex-database.mjs';
+import { ZPokeApiTypeBuilder } from './type.mjs';
+import { ZTypesModule } from './types-module.mjs';
 
 describe('ZTypeApi', () => {
   const endpoint = 'types';

@@ -6,9 +6,9 @@ import { IZEvolution, ZEvolutionBuilder } from '@zthun/pokedex';
 import { ZHttpCodeClient, ZHttpCodeSuccess } from '@zthun/webigail-http';
 import request from 'supertest';
 import { afterAll, afterEach, beforeAll, beforeEach, describe, expect, it } from 'vitest';
-import { ZDatabaseToken, ZPokedexCollection } from '../database/pokedex-database';
-import { ZEvolutionsModule } from './evolutions-module';
-import { ZPokeApiEvolutionChainBuilder } from './poke-api-evolution-chain';
+import { ZDatabaseToken, ZPokedexCollection } from '../database/pokedex-database.mjs';
+import { ZEvolutionsModule } from './evolutions-module.mjs';
+import { ZPokeApiEvolutionChainBuilder } from './poke-api-evolution-chain.mjs';
 
 describe('ZEvolutionsApi', () => {
   const endpoint = 'evolutions';
