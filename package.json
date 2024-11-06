@@ -14,11 +14,12 @@
   ],
   "scripts": {
     "clean": "rimraf --glob 'dist' 'reports' '*.tgz' '*.log' 'packages/**/dist' 'packages/**/docs' 'packages/**/*.tgz' 'packages/**/*.log'",
+    "check": "tsc --noEmit",
     "test": "vitest --run --coverage",
     "lint": "lint-janitor",
     "pretty": "prettier packages --fix -w",
     "build": "lerna run build",
-    "make": "yarn clean && yarn lint && yarn test && yarn build",
+    "make": "yarn clean && yarn check && yarn lint && yarn test && yarn build",
     "prepare": "husky"
   },
   "devDependencies": {
