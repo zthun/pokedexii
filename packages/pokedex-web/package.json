@@ -18,10 +18,10 @@
     "access": "public"
   },
   "devDependencies": {
-    "@types/node": "^20.10.0",
-    "@zthun/cirque": "^4.3.2",
-    "@zthun/cirque-du-react": "^4.3.2",
-    "@zthun/cirque-du-selenium": "^4.3.2",
+    "@types/node": "^22.9.0",
+    "@zthun/cirque": "^7.0.5",
+    "@zthun/cirque-du-react": "^7.0.5",
+    "@zthun/cirque-du-selenium": "^7.0.5",
     "@zthun/fashion-boutique": "^2.3.0",
     "@zthun/fashion-tailor": "^2.0.0",
     "@zthun/fashion-theme": "^2.0.0",
@@ -33,7 +33,6 @@
     "lodash-es": "^4.17.21",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "ts-node": "^10.9.1",
     "tsconfig-paths": "^4.2.0",
     "typescript": "^5.6.3",
     "vite": "^5.4.10",
