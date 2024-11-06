@@ -1,6 +1,6 @@
-import { ZGender } from '../gender/gender';
-import { IZResource } from '../resource/resource';
-import { ZType } from '../type/type';
+import { ZGender } from '../gender/gender.mjs';
+import { IZResource } from '../resource/resource.mjs';
+import { ZType } from '../type/type.mjs';
 
 export enum ZEvolutionTrigger {
   AgileStyleMove = 'agile-style-move',

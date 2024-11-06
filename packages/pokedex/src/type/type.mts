@@ -1,4 +1,4 @@
-import { IZResource } from '../resource/resource';
+import { IZResource } from '../resource/resource.mjs';
 
 export enum ZType {
   Bug = 'bug',

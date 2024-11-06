@@ -1,6 +1,6 @@
 import { ZUrlBuilder } from '@zthun/webigail-url';
-import { IZResource } from '../resource/resource';
-import { ZType } from '../type/type';
+import { IZResource } from '../resource/resource.mjs';
+import { ZType } from '../type/type.mjs';
 
 /**
  * The maximum base stat a pokemon can have.

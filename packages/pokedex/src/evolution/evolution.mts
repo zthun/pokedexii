@@ -1,5 +1,5 @@
-import { IZResource } from '../resource/resource';
-import { IZEvolutionNode, ZEvolutionNodeBuilder } from './evolution-node';
+import { IZResource } from '../resource/resource.mjs';
+import { IZEvolutionNode, ZEvolutionNodeBuilder } from './evolution-node.mjs';
 
 /**
  * Represents an evolution chain.

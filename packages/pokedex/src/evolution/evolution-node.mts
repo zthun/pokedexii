@@ -1,10 +1,10 @@
-import { ZType } from '../type/type';
+import { ZType } from '../type/type.mjs';
 import {
   IZEvolutionTrigger,
   ZEvolutionTrigger,
   ZEvolutionTriggerBuilder,
   ZStatRelationship
-} from './evolution-trigger';
+} from './evolution-trigger.mjs';
 
 /**
  * Represents a node in an evolution chain.

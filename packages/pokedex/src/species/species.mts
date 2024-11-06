@@ -1,6 +1,6 @@
-import { IZPokemon, ZPokemonBuilder } from '../pokemon/pokemon';
-import { IZResource } from '../resource/resource';
-import { ZType } from '../type/type';
+import { IZPokemon, ZPokemonBuilder } from '../pokemon/pokemon.mjs';
+import { IZResource } from '../resource/resource.mjs';
+import { ZType } from '../type/type.mjs';
 
 /**
  * Represents a species of pokemon.
