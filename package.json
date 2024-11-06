@@ -20,7 +20,6 @@
     "postinstall": "husky install"
   },
   "devDependencies": {
-    "@babel/core": "^7.23.3",
     "@commitlint/cli": "^18.4.3",
     "@commitlint/config-conventional": "^18.4.3",
     "@types/jsdom": "^21.1.6",
