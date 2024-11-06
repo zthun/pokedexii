@@ -9,6 +9,17 @@
       "@zthun/pokedex-web": ["pokedex-web/src/index"]
     }
   },
-  "include": ["**/*.ts", "**/*.tsx"],
+  "include": [
+    "**/*.ts",
+    "**/*.tsx",
+    "packages/pokedex/src/type/type.mts",
+    "packages/pokedex/src/species/species.mts",
+    "packages/pokedex/src/resource/resource.mts",
+    "packages/pokedex/src/pokemon/pokemon.mts",
+    "packages/pokedex/src/gender/gender.mts",
+    "packages/pokedex/src/evolution/evolution-node.mts",
+    "packages/pokedex/src/evolution/evolution-trigger.mts",
+    "packages/pokedex/src/evolution/evolution.mts"
+  ],
   "exclude": ["**/node_modules/**"]
 }
