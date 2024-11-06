@@ -1,26 +1,26 @@
-import { IZResource } from '../resource/resource.mjs';
+import { IZResource } from "../resource/resource.mjs";
 
 export enum ZType {
-  Bug = 'bug',
-  Dark = 'dark',
-  Dragon = 'dragon',
-  Electric = 'electric',
-  Fairy = 'fairy',
-  Fighting = 'fighting',
-  Fire = 'fire',
-  Flying = 'flying',
-  Ghost = 'ghost',
-  Grass = 'grass',
-  Ground = 'ground',
-  Ice = 'ice',
-  Normal = 'normal',
-  Poison = 'poison',
-  Psychic = 'psychic',
-  Rock = 'rock',
-  Shadow = 'shadow',
-  Steel = 'steel',
-  Unknown = 'unknown',
-  Water = 'water'
+  Bug = "bug",
+  Dark = "dark",
+  Dragon = "dragon",
+  Electric = "electric",
+  Fairy = "fairy",
+  Fighting = "fighting",
+  Fire = "fire",
+  Flying = "flying",
+  Ghost = "ghost",
+  Grass = "grass",
+  Ground = "ground",
+  Ice = "ice",
+  Normal = "normal",
+  Poison = "poison",
+  Psychic = "psychic",
+  Rock = "rock",
+  Shadow = "shadow",
+  Steel = "steel",
+  Unknown = "unknown",
+  Water = "water",
 }
 
 export interface IZType extends IZResource<ZType> {
@@ -46,7 +46,7 @@ export class ZTypeBuilder {
       halfDamageTo: [],
       noDamageFrom: [],
       noDamageTo: [],
-      artwork: '/svg/normal.svg'
+      artwork: "/svg/normal.svg",
     };
   }
 
@@ -104,7 +104,13 @@ export class ZTypeBuilder {
   public rock() {
     return this.id(6)
       .name(ZType.Rock)
-      .doubleDamageFrom([ZType.Fighting, ZType.Ground, ZType.Steel, ZType.Water, ZType.Grass])
+      .doubleDamageFrom([
+        ZType.Fighting,
+        ZType.Ground,
+        ZType.Steel,
+        ZType.Water,
+        ZType.Grass,
+      ])
       .doubleDamageTo([ZType.Flying, ZType.Bug, ZType.Fire, ZType.Ice])
       .halfDamageFrom([ZType.Normal, ZType.Flying, ZType.Poison, ZType.Fire])
       .halfDamageTo([ZType.Fighting, ZType.Ground, ZType.Steel]);
@@ -123,7 +129,13 @@ export class ZTypeBuilder {
     return this.id(5)
       .name(ZType.Ground)
       .doubleDamageFrom([ZType.Water, ZType.Grass, ZType.Ice])
-      .doubleDamageTo([ZType.Poison, ZType.Rock, ZType.Steel, ZType.Fire, ZType.Electric])
+      .doubleDamageTo([
+        ZType.Poison,
+        ZType.Rock,
+        ZType.Steel,
+        ZType.Fire,
+        ZType.Electric,
+      ])
       .halfDamageFrom([ZType.Poison, ZType.Rock])
       .halfDamageTo([ZType.Bug, ZType.Grass])
       .noDamageFrom([ZType.Electric])
@@ -135,7 +147,14 @@ export class ZTypeBuilder {
       .name(ZType.Fire)
       .doubleDamageFrom([ZType.Ground, ZType.Rock, ZType.Water])
       .doubleDamageTo([ZType.Bug, ZType.Steel, ZType.Grass, ZType.Ice])
-      .halfDamageFrom([ZType.Bug, ZType.Steel, ZType.Fire, ZType.Grass, ZType.Ice, ZType.Fairy])
+      .halfDamageFrom([
+        ZType.Bug,
+        ZType.Steel,
+        ZType.Fire,
+        ZType.Grass,
+        ZType.Ice,
+        ZType.Fairy,
+      ])
       .halfDamageTo([ZType.Rock, ZType.Fire, ZType.Water, ZType.Dragon]);
   }
 

@@ -1,12 +1,12 @@
-import { ZCircusBy, ZCircusComponentModel } from '@zthun/cirque';
-import { ZGridViewComponentModel } from '@zthun/fashion-boutique';
-import { ZSpeciesCardComponentModel } from './species-card.cm.mjs';
+import { ZCircusBy, ZCircusComponentModel } from "@zthun/cirque";
+import { ZGridViewComponentModel } from "@zthun/fashion-boutique";
+import { ZSpeciesCardComponentModel } from "./species-card.cm.mjs";
 
 /**
  * Represents the component model for the pokedex list page.
  */
 export class ZPokemonListPageComponentModel extends ZCircusComponentModel {
-  public static readonly Selector = '.ZSpeciesListPage-root';
+  public static readonly Selector = ".ZSpeciesListPage-root";
 
   /**
    * Returns the root grid that contains the search and pagination.

@@ -6,14 +6,14 @@ import {
   ZIconFontAwesome,
   ZLabel,
   ZStack,
-  createStyleHook
-} from '@zthun/fashion-boutique';
-import { ZSizeFixed } from '@zthun/fashion-tailor';
-import { cssJoinDefined } from '@zthun/helpful-fn';
-import { IZEvolutionNode, IZEvolutionTrigger } from '@zthun/pokedex';
-import { startCase } from 'lodash-es';
-import React, { ReactNode, useState } from 'react';
-import { ZEvolutionNodeBubble } from './evolution-node-bubble';
+  createStyleHook,
+} from "@zthun/fashion-boutique";
+import { ZSizeFixed } from "@zthun/fashion-tailor";
+import { cssJoinDefined } from "@zthun/helpful-fn";
+import { IZEvolutionNode, IZEvolutionTrigger } from "@zthun/pokedex";
+import { startCase } from "lodash-es";
+import React, { ReactNode, useState } from "react";
+import { ZEvolutionNodeBubble } from "./evolution-node-bubble";
 
 export interface IZEvolutionNodeList extends IZComponentName {
   nodes: IZEvolutionNode[];
@@ -23,9 +23,9 @@ const useEvolutionNodeListStyles = createStyleHook(({ device }) => {
   return {
     next: {
       [device.break(ZSizeFixed.Medium)]: {
-        rotate: '90deg'
-      }
-    }
+        rotate: "90deg",
+      },
+    },
   };
 });
 
@@ -36,7 +36,7 @@ export function ZEvolutionNodeList(props: IZEvolutionNodeList) {
 
   const renderNodeCarousel = () => (
     <ZCarousel
-      className={cssJoinDefined('ZEvolutionNodeList-root')}
+      className={cssJoinDefined("ZEvolutionNodeList-root")}
       count={nodes.length}
       value={index}
       onValueChange={setIndex}
@@ -53,33 +53,35 @@ export function ZEvolutionNodeList(props: IZEvolutionNodeList) {
         requirements.push(
           <ZCaption key={name} compact>
             {text}
-          </ZCaption>
+          </ZCaption>,
         );
       }
     };
 
-    requirements.push(<ZLabel key={trigger.name}>{startCase(trigger.name)}</ZLabel>);
+    requirements.push(
+      <ZLabel key={trigger.name}>{startCase(trigger.name)}</ZLabel>,
+    );
 
-    addRequirement(trigger.affection, 'Affection');
-    addRequirement(trigger.beauty, 'Beauty');
-    addRequirement(trigger.gender, 'Gender');
-    addRequirement(trigger.happiness, 'Happiness');
-    addRequirement(trigger.held, 'Hold');
-    addRequirement(trigger.item, 'Item');
-    addRequirement(trigger.level, 'Level');
-    addRequirement(trigger.location, 'Location');
-    addRequirement(trigger.move, 'Move');
-    addRequirement(trigger.moveType, 'Move Type');
-    addRequirement(trigger.partySpecies, 'Party Species');
-    addRequirement(trigger.partyType, 'Party Type');
-    addRequirement(trigger.rain, 'Rain');
-    addRequirement(trigger.stats, 'Stats');
-    addRequirement(trigger.time, 'Time');
-    addRequirement(trigger.trade, 'Trade');
-    addRequirement(trigger.turnUpsideDown, 'Turn Upside Down');
+    addRequirement(trigger.affection, "Affection");
+    addRequirement(trigger.beauty, "Beauty");
+    addRequirement(trigger.gender, "Gender");
+    addRequirement(trigger.happiness, "Happiness");
+    addRequirement(trigger.held, "Hold");
+    addRequirement(trigger.item, "Item");
+    addRequirement(trigger.level, "Level");
+    addRequirement(trigger.location, "Location");
+    addRequirement(trigger.move, "Move");
+    addRequirement(trigger.moveType, "Move Type");
+    addRequirement(trigger.partySpecies, "Party Species");
+    addRequirement(trigger.partyType, "Party Type");
+    addRequirement(trigger.rain, "Rain");
+    addRequirement(trigger.stats, "Stats");
+    addRequirement(trigger.time, "Time");
+    addRequirement(trigger.trade, "Trade");
+    addRequirement(trigger.turnUpsideDown, "Turn Upside Down");
 
     return (
-      <div className='ZEvolution-trigger' key={`${trigger.name}-${index}`}>
+      <div className="ZEvolution-trigger" key={`${trigger.name}-${index}`}>
         {requirements}
       </div>
     );
@@ -93,15 +95,19 @@ export function ZEvolutionNodeList(props: IZEvolutionNodeList) {
     }
 
     return (
-      <ZStack className='ZEvolutionNodeList-triggers' alignItems='center' justifyContent='center'>
+      <ZStack
+        className="ZEvolutionNodeList-triggers"
+        alignItems="center"
+        justifyContent="center"
+      >
         <ZBox margin={{ bottom: ZSizeFixed.ExtraSmall }}>
           <ZIconFontAwesome
-            className={cssJoinDefined('ZEvolutionNodeList-next', classes.next)}
-            name='right-long'
+            className={cssJoinDefined("ZEvolutionNodeList-next", classes.next)}
+            name="right-long"
             width={ZSizeFixed.Small}
           />
         </ZBox>
-        <ZStack alignItems='start' gap={ZSizeFixed.ExtraSmall}>
+        <ZStack alignItems="start" gap={ZSizeFixed.ExtraSmall}>
           {triggers.map(renderTrigger)}
         </ZStack>
       </ZStack>

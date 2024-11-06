@@ -1,6 +1,6 @@
-import { IZType, ZTypeBuilder } from '@zthun/pokedex';
-import { ZPokedexCollection } from '../database/pokedex-database.mjs';
-import { IPokeApiResource, ZPokeApiResource } from '../resource/resource.mjs';
+import { IZType, ZTypeBuilder } from "@zthun/pokedex";
+import { ZPokedexCollection } from "../database/pokedex-database.mjs";
+import { IPokeApiResource, ZPokeApiResource } from "../resource/resource.mjs";
 
 interface IPokeApiTypeName {
   language: IPokeApiResource;
@@ -54,22 +54,34 @@ export class ZPokeApiTypeBuilder {
   public from(type: IZType): this {
     this._type = {
       damage_relations: {
-        double_damage_from: type.doubleDamageFrom.map((d) => ZPokeApiResource.toResource(ZPokedexCollection.Type, d)),
-        double_damage_to: type.doubleDamageTo.map((d) => ZPokeApiResource.toResource(ZPokedexCollection.Type, d)),
-        half_damage_from: type.halfDamageFrom.map((d) => ZPokeApiResource.toResource(ZPokedexCollection.Type, d)),
-        half_damage_to: type.halfDamageTo.map((d) => ZPokeApiResource.toResource(ZPokedexCollection.Type, d)),
-        no_damage_from: type.noDamageFrom.map((d) => ZPokeApiResource.toResource(ZPokedexCollection.Type, d)),
-        no_damage_to: type.noDamageTo.map((d) => ZPokeApiResource.toResource(ZPokedexCollection.Type, d))
+        double_damage_from: type.doubleDamageFrom.map((d) =>
+          ZPokeApiResource.toResource(ZPokedexCollection.Type, d),
+        ),
+        double_damage_to: type.doubleDamageTo.map((d) =>
+          ZPokeApiResource.toResource(ZPokedexCollection.Type, d),
+        ),
+        half_damage_from: type.halfDamageFrom.map((d) =>
+          ZPokeApiResource.toResource(ZPokedexCollection.Type, d),
+        ),
+        half_damage_to: type.halfDamageTo.map((d) =>
+          ZPokeApiResource.toResource(ZPokedexCollection.Type, d),
+        ),
+        no_damage_from: type.noDamageFrom.map((d) =>
+          ZPokeApiResource.toResource(ZPokedexCollection.Type, d),
+        ),
+        no_damage_to: type.noDamageTo.map((d) =>
+          ZPokeApiResource.toResource(ZPokedexCollection.Type, d),
+        ),
       },
       game_indices: [],
-      generation: { name: '', url: '' },
+      generation: { name: "", url: "" },
       id: type.id,
-      move_damage_class: { name: '', url: '' },
+      move_damage_class: { name: "", url: "" },
       moves: [],
       name: type.name,
       names: [],
       past_damage_relations: [],
-      pokemon: []
+      pokemon: [],
     };
     return this;
   }

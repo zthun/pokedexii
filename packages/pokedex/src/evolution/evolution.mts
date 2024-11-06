@@ -1,5 +1,5 @@
-import { IZResource } from '../resource/resource.mjs';
-import { IZEvolutionNode, ZEvolutionNodeBuilder } from './evolution-node.mjs';
+import { IZResource } from "../resource/resource.mjs";
+import { IZEvolutionNode, ZEvolutionNodeBuilder } from "./evolution-node.mjs";
 
 /**
  * Represents an evolution chain.
@@ -17,8 +17,8 @@ export class ZEvolutionBuilder {
   public constructor() {
     this._evolution = {
       id: 0,
-      name: '0',
-      head: new ZEvolutionNodeBuilder().build()
+      name: "0",
+      head: new ZEvolutionNodeBuilder().build(),
     };
   }
 

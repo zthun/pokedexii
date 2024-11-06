@@ -1,16 +1,16 @@
-import { ZCircusBy, ZCircusComponentModel } from '@zthun/cirque';
-import { ZButtonComponentModel } from '@zthun/fashion-boutique';
-import { ZResourceCardComponentModel } from '../resource/resource-card.cm.mjs';
+import { ZCircusBy, ZCircusComponentModel } from "@zthun/cirque";
+import { ZButtonComponentModel } from "@zthun/fashion-boutique";
+import { ZResourceCardComponentModel } from "../resource/resource-card.cm.mjs";
 
 export class ZSpeciesVarietiesCardComponentModel extends ZCircusComponentModel {
-  public static readonly Selector = '.ZSpeciesVarietiesCard-root';
+  public static readonly Selector = ".ZSpeciesVarietiesCard-root";
 
   public species(): Promise<string> {
-    return this.driver.attribute('data-name', 'missingno');
+    return this.driver.attribute("data-name", "missingno");
   }
 
   public variety(): Promise<string> {
-    return this.driver.attribute('data-variety', 'missingno');
+    return this.driver.attribute("data-variety", "missingno");
   }
 
   public asResourceCard(): ZResourceCardComponentModel {
@@ -18,10 +18,10 @@ export class ZSpeciesVarietiesCardComponentModel extends ZCircusComponentModel {
   }
 
   public next(): Promise<ZButtonComponentModel> {
-    return ZCircusBy.first(this.driver, ZButtonComponentModel, 'next');
+    return ZCircusBy.first(this.driver, ZButtonComponentModel, "next");
   }
 
   public previous(): Promise<ZButtonComponentModel> {
-    return ZCircusBy.first(this.driver, ZButtonComponentModel, 'previous');
+    return ZCircusBy.first(this.driver, ZButtonComponentModel, "previous");
   }
 }

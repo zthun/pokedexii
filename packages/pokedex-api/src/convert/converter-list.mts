@@ -1,4 +1,4 @@
-import { IZConverter } from './converter.mjs';
+import { IZConverter } from "./converter.mjs";
 
 export class ZConverterList<TFrom, TTo> implements IZConverter<TFrom[], TTo[]> {
   public constructor(private _converter: IZConverter<TFrom, TTo>) {}

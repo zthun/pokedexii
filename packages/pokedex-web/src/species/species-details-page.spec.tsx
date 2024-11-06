@@ -1,20 +1,32 @@
-import { ZCircusBy } from '@zthun/cirque';
-import { ZCircusSetupRenderer } from '@zthun/cirque-du-react';
-import { ZFashionThemeContext, ZRoute, ZRouteMap, ZTestRouter } from '@zthun/fashion-boutique';
-import { IZEvolution, IZPokemon, IZSpecies, ZEvolutionBuilder, ZPokemonBuilder, ZSpeciesBuilder } from '@zthun/pokedex';
-import { History, createMemoryHistory } from 'history';
-import React from 'react';
-import { Mocked, beforeEach, describe, expect, it } from 'vitest';
-import { mock } from 'vitest-mock-extended';
-import { ZEvolutionServiceContext } from '../evolution/evolution-service.mjs';
-import { ZPokemonServiceContext } from '../pokemon/pokemon-service.mjs';
-import { IZResourceService } from '../resource/resource-service.mjs';
-import { createPokemonTheme } from '../theme/pokemon-theme.mjs';
-import { ZSpeciesDetailsPage } from './species-details-page';
-import { ZSpeciesDetailsPageComponentModel } from './species-details-page.cm.mjs';
-import { ZSpeciesServiceContext } from './species-service.mjs';
+import { ZCircusBy } from "@zthun/cirque";
+import { ZCircusSetupRenderer } from "@zthun/cirque-du-react";
+import {
+  ZFashionThemeContext,
+  ZRoute,
+  ZRouteMap,
+  ZTestRouter,
+} from "@zthun/fashion-boutique";
+import {
+  IZEvolution,
+  IZPokemon,
+  IZSpecies,
+  ZEvolutionBuilder,
+  ZPokemonBuilder,
+  ZSpeciesBuilder,
+} from "@zthun/pokedex";
+import { History, createMemoryHistory } from "history";
+import React from "react";
+import { Mocked, beforeEach, describe, expect, it } from "vitest";
+import { mock } from "vitest-mock-extended";
+import { ZEvolutionServiceContext } from "../evolution/evolution-service.mjs";
+import { ZPokemonServiceContext } from "../pokemon/pokemon-service.mjs";
+import { IZResourceService } from "../resource/resource-service.mjs";
+import { createPokemonTheme } from "../theme/pokemon-theme.mjs";
+import { ZSpeciesDetailsPage } from "./species-details-page";
+import { ZSpeciesDetailsPageComponentModel } from "./species-details-page.cm.mjs";
+import { ZSpeciesServiceContext } from "./species-service.mjs";
 
-describe('ZSpeciesDetailsPage', () => {
+describe("ZSpeciesDetailsPage", () => {
   let history: History;
   let evolutionService: Mocked<IZResourceService<IZEvolution>>;
   let pokemonService: Mocked<IZResourceService<IZPokemon>>;
@@ -30,8 +42,14 @@ describe('ZSpeciesDetailsPage', () => {
             <ZEvolutionServiceContext.Provider value={evolutionService}>
               <ZTestRouter navigator={history} location={history.location}>
                 <ZRouteMap>
-                  <ZRoute path='/pokemon/:name' element={<ZSpeciesDetailsPage />} />
-                  <ZRoute path='/not-pokemon' element={<ZSpeciesDetailsPage />} />
+                  <ZRoute
+                    path="/pokemon/:name"
+                    element={<ZSpeciesDetailsPage />}
+                  />
+                  <ZRoute
+                    path="/not-pokemon"
+                    element={<ZSpeciesDetailsPage />}
+                  />
                 </ZRouteMap>
               </ZTestRouter>
             </ZEvolutionServiceContext.Provider>
@@ -40,7 +58,10 @@ describe('ZSpeciesDetailsPage', () => {
       </ZFashionThemeContext.Provider>
     );
     const driver = await new ZCircusSetupRenderer(element).setup();
-    const target = await ZCircusBy.first(driver, ZSpeciesDetailsPageComponentModel);
+    const target = await ZCircusBy.first(
+      driver,
+      ZSpeciesDetailsPageComponentModel,
+    );
     await target.load();
     return target;
   };
@@ -48,10 +69,14 @@ describe('ZSpeciesDetailsPage', () => {
   beforeEach(() => {
     charizard$ = new ZSpeciesBuilder().charizard().build();
     charizard = new ZPokemonBuilder().charizard().build();
-    history = createMemoryHistory({ initialEntries: [`/pokemon/${charizard$.name}`] });
+    history = createMemoryHistory({
+      initialEntries: [`/pokemon/${charizard$.name}`],
+    });
 
     evolutionService = mock<IZResourceService<IZEvolution>>();
-    evolutionService.get.mockResolvedValue(new ZEvolutionBuilder().ralts().build());
+    evolutionService.get.mockResolvedValue(
+      new ZEvolutionBuilder().ralts().build(),
+    );
 
     pokemonService = mock<IZResourceService<IZPokemon>>();
     pokemonService.get.mockResolvedValue(charizard);
@@ -60,7 +85,7 @@ describe('ZSpeciesDetailsPage', () => {
     speciesService.get.mockResolvedValue(charizard$);
   });
 
-  it('should render the correct species', async () => {
+  it("should render the correct species", async () => {
     // Arrange.
     const target = await createTestTarget();
     // Act.
@@ -69,10 +94,10 @@ describe('ZSpeciesDetailsPage', () => {
     expect(actual).toEqual(charizard$.name);
   });
 
-  describe('Error', () => {
-    it('should render a NotFound if the species cannot be found', async () => {
+  describe("Error", () => {
+    it("should render a NotFound if the species cannot be found", async () => {
       // Arrange.
-      speciesService.get.mockRejectedValue(new Error('Game Over!'));
+      speciesService.get.mockRejectedValue(new Error("Game Over!"));
       const target = await createTestTarget();
       // Act.
       const actual = await target.notFound();
@@ -80,7 +105,7 @@ describe('ZSpeciesDetailsPage', () => {
       expect(actual).toBeTruthy();
     });
 
-    it('should render NotFound if the name cannot be parsed from the path', async () => {
+    it("should render NotFound if the name cannot be parsed from the path", async () => {
       // Arrange.
       history = createMemoryHistory({ initialEntries: [`/not-pokemon`] });
       const target = await createTestTarget();
@@ -91,8 +116,8 @@ describe('ZSpeciesDetailsPage', () => {
     });
   });
 
-  describe('Varieties', () => {
-    it('should render the varieties card', async () => {
+  describe("Varieties", () => {
+    it("should render the varieties card", async () => {
       // Arrange.
       const target = await createTestTarget();
       // Act.
@@ -102,8 +127,8 @@ describe('ZSpeciesDetailsPage', () => {
     });
   });
 
-  describe('Evolution', () => {
-    it('should render the evolution chain of the pokemon', async () => {
+  describe("Evolution", () => {
+    it("should render the evolution chain of the pokemon", async () => {
       // Arrange.
       const target = await createTestTarget();
       // Act.
@@ -113,8 +138,8 @@ describe('ZSpeciesDetailsPage', () => {
     });
   });
 
-  describe('Attributes', () => {
-    it('should render the attributes of the pokemon', async () => {
+  describe("Attributes", () => {
+    it("should render the attributes of the pokemon", async () => {
       // Arrange.
       const target = await createTestTarget();
       // Act.
@@ -123,7 +148,7 @@ describe('ZSpeciesDetailsPage', () => {
       expect(actual).toBeTruthy();
     });
 
-    it('should render the attributes card with the main pokemon if there are no varieties', async () => {
+    it("should render the attributes card with the main pokemon if there are no varieties", async () => {
       // Arrange.
       const expected = new ZSpeciesBuilder().build();
       speciesService.get.mockResolvedValue(expected);
@@ -135,8 +160,8 @@ describe('ZSpeciesDetailsPage', () => {
     });
   });
 
-  describe('Stats', () => {
-    it('should render the stats of the pokemon', async () => {
+  describe("Stats", () => {
+    it("should render the stats of the pokemon", async () => {
       // Arrange.
       const target = await createTestTarget();
       // Act.
@@ -145,7 +170,7 @@ describe('ZSpeciesDetailsPage', () => {
       expect(actual).toBeTruthy();
     });
 
-    it('should render the stats card with the main pokemon if there are no varieties', async () => {
+    it("should render the stats card with the main pokemon if there are no varieties", async () => {
       // Arrange.
       const expected = new ZSpeciesBuilder().build();
       speciesService.get.mockResolvedValue(expected);

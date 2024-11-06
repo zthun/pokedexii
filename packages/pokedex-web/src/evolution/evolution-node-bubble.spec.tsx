@@ -1,19 +1,24 @@
-import { ZCircusBy } from '@zthun/cirque';
-import { ZCircusSetupRenderer } from '@zthun/cirque-du-react';
-import { ZFashionThemeContext, ZTestRouter } from '@zthun/fashion-boutique';
-import { IZEvolutionNode, IZSpecies, ZEvolutionNodeBuilder, ZSpeciesBuilder } from '@zthun/pokedex';
-import { MemoryHistory, createMemoryHistory } from 'history';
-import { startCase } from 'lodash-es';
-import React from 'react';
-import { Mocked, beforeEach, describe, expect, it } from 'vitest';
-import { mock } from 'vitest-mock-extended';
-import { IZResourceService } from '../resource/resource-service.mjs';
-import { ZSpeciesServiceContext } from '../species/species-service.mjs';
-import { createPokemonTheme } from '../theme/pokemon-theme.mjs';
-import { ZEvolutionNodeBubble } from './evolution-node-bubble';
-import { ZEvolutionNodeBubbleComponentModel } from './evolution-node-bubble.cm';
+import { ZCircusBy } from "@zthun/cirque";
+import { ZCircusSetupRenderer } from "@zthun/cirque-du-react";
+import { ZFashionThemeContext, ZTestRouter } from "@zthun/fashion-boutique";
+import {
+  IZEvolutionNode,
+  IZSpecies,
+  ZEvolutionNodeBuilder,
+  ZSpeciesBuilder,
+} from "@zthun/pokedex";
+import { MemoryHistory, createMemoryHistory } from "history";
+import { startCase } from "lodash-es";
+import React from "react";
+import { Mocked, beforeEach, describe, expect, it } from "vitest";
+import { mock } from "vitest-mock-extended";
+import { IZResourceService } from "../resource/resource-service.mjs";
+import { ZSpeciesServiceContext } from "../species/species-service.mjs";
+import { createPokemonTheme } from "../theme/pokemon-theme.mjs";
+import { ZEvolutionNodeBubble } from "./evolution-node-bubble";
+import { ZEvolutionNodeBubbleComponentModel } from "./evolution-node-bubble.cm";
 
-describe('ZEvolutionNodeBubble', () => {
+describe("ZEvolutionNodeBubble", () => {
   let node: IZEvolutionNode;
   let gardevoir$: IZSpecies;
   let history: MemoryHistory;
@@ -31,7 +36,10 @@ describe('ZEvolutionNodeBubble', () => {
       </ZFashionThemeContext.Provider>
     );
     const driver = await new ZCircusSetupRenderer(element).setup();
-    const target = await ZCircusBy.first(driver, ZEvolutionNodeBubbleComponentModel);
+    const target = await ZCircusBy.first(
+      driver,
+      ZEvolutionNodeBubbleComponentModel,
+    );
     await target.load();
     return target;
   };
@@ -47,10 +55,10 @@ describe('ZEvolutionNodeBubble', () => {
     speciesService.get.mockResolvedValue(gardevoir$);
   });
 
-  describe('Error', () => {
-    it('should render the error pokemon name if the species fails to load.', async () => {
+  describe("Error", () => {
+    it("should render the error pokemon name if the species fails to load.", async () => {
       // Arrange.
-      speciesService.get.mockRejectedValue(new Error('Game Over'));
+      speciesService.get.mockRejectedValue(new Error("Game Over"));
       const target = await createTestTarget();
       const expected = startCase(new ZSpeciesBuilder().build().name);
       // Act.
@@ -60,8 +68,8 @@ describe('ZEvolutionNodeBubble', () => {
     });
   });
 
-  describe('Success', () => {
-    it('should render the species name', async () => {
+  describe("Success", () => {
+    it("should render the species name", async () => {
       // Arrange.
       const target = await createTestTarget();
       // Act.
@@ -70,7 +78,7 @@ describe('ZEvolutionNodeBubble', () => {
       expect(actual).toEqual(startCase(gardevoir$.name));
     });
 
-    it('click should navigate you to the selected species', async () => {
+    it("click should navigate you to the selected species", async () => {
       // Arrange.
       const expected = `/pokemon/${gardevoir$.name}`;
       const target = await createTestTarget();

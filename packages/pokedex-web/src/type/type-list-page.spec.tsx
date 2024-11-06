@@ -1,18 +1,22 @@
-import { ZCircusBy } from '@zthun/cirque';
-import { ZCircusSetupRenderer } from '@zthun/cirque-du-react';
-import { ZFashionThemeContext } from '@zthun/fashion-boutique';
-import { ZDataRequestBuilder, ZDataSourceStatic, ZFilterBinaryBuilder } from '@zthun/helpful-query';
-import { IZType, ZType, ZTypeBuilder } from '@zthun/pokedex';
-import React from 'react';
-import { Mocked, beforeEach, describe, expect, it } from 'vitest';
-import { mock } from 'vitest-mock-extended';
-import { IZResourceService } from '../resource/resource-service.mjs';
-import { createPokemonTheme } from '../theme/pokemon-theme.mjs';
-import { ZTypeListPage } from './type-list-page';
-import { ZTypeListPageComponentModel } from './type-list-page.cm.mjs';
-import { ZTypeServiceContext } from './type-service.mjs';
+import { ZCircusBy } from "@zthun/cirque";
+import { ZCircusSetupRenderer } from "@zthun/cirque-du-react";
+import { ZFashionThemeContext } from "@zthun/fashion-boutique";
+import {
+  ZDataRequestBuilder,
+  ZDataSourceStatic,
+  ZFilterBinaryBuilder,
+} from "@zthun/helpful-query";
+import { IZType, ZType, ZTypeBuilder } from "@zthun/pokedex";
+import React from "react";
+import { Mocked, beforeEach, describe, expect, it } from "vitest";
+import { mock } from "vitest-mock-extended";
+import { IZResourceService } from "../resource/resource-service.mjs";
+import { createPokemonTheme } from "../theme/pokemon-theme.mjs";
+import { ZTypeListPage } from "./type-list-page";
+import { ZTypeListPageComponentModel } from "./type-list-page.cm.mjs";
+import { ZTypeServiceContext } from "./type-service.mjs";
 
-describe('ZTypeListPage', () => {
+describe("ZTypeListPage", () => {
   let fire: IZType;
   let flying: IZType;
   let ground: IZType;
@@ -47,14 +51,18 @@ describe('ZTypeListPage', () => {
     typeService.retrieve.mockImplementation((r) => source.retrieve(r));
     typeService.count.mockImplementation((r) => source.count(r));
     typeService.get.mockImplementation(async (t) => {
-      const filter = new ZFilterBinaryBuilder().subject('name').equal().value(t).build();
+      const filter = new ZFilterBinaryBuilder()
+        .subject("name")
+        .equal()
+        .value(t)
+        .build();
       const request = new ZDataRequestBuilder().filter(filter).size(1).build();
       const [result] = await source.retrieve(request);
       return result;
     });
   });
 
-  it('should render all types', async () => {
+  it("should render all types", async () => {
     // Arrange.
     const target = await createTestTarget();
     // Act.

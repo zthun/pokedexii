@@ -1,16 +1,21 @@
-import { ZCircusBy } from '@zthun/cirque';
-import { ZCircusSetupRenderer } from '@zthun/cirque-du-react';
-import { ZFashionThemeContext } from '@zthun/fashion-boutique';
-import { IZPokemon, IZResourceService, ZPokemonBuilder, ZType } from '@zthun/pokedex';
-import React from 'react';
-import { Mocked, beforeEach, describe, expect, it } from 'vitest';
-import { mock } from 'vitest-mock-extended';
-import { createPokemonTheme } from '../theme/pokemon-theme.mjs';
-import { ZPokemonAttributesCard } from './pokemon-attributes-card';
-import { ZPokemonAttributesCardComponentModel } from './pokemon-attributes-card.cm.mjs';
-import { ZPokemonServiceContext } from './pokemon-service.mjs';
+import { ZCircusBy } from "@zthun/cirque";
+import { ZCircusSetupRenderer } from "@zthun/cirque-du-react";
+import { ZFashionThemeContext } from "@zthun/fashion-boutique";
+import {
+  IZPokemon,
+  IZResourceService,
+  ZPokemonBuilder,
+  ZType,
+} from "@zthun/pokedex";
+import React from "react";
+import { Mocked, beforeEach, describe, expect, it } from "vitest";
+import { mock } from "vitest-mock-extended";
+import { createPokemonTheme } from "../theme/pokemon-theme.mjs";
+import { ZPokemonAttributesCard } from "./pokemon-attributes-card";
+import { ZPokemonAttributesCardComponentModel } from "./pokemon-attributes-card.cm.mjs";
+import { ZPokemonServiceContext } from "./pokemon-service.mjs";
 
-describe('ZPokemonAttributesCard', () => {
+describe("ZPokemonAttributesCard", () => {
   let pokemonService: Mocked<IZResourceService<IZPokemon>>;
   let charizard: IZPokemon;
 
@@ -23,7 +28,10 @@ describe('ZPokemonAttributesCard', () => {
       </ZFashionThemeContext.Provider>
     );
     const driver = await new ZCircusSetupRenderer(element).setup();
-    const target = await ZCircusBy.first(driver, ZPokemonAttributesCardComponentModel);
+    const target = await ZCircusBy.first(
+      driver,
+      ZPokemonAttributesCardComponentModel,
+    );
     await target.asResourceCard().load();
     return target;
   };
@@ -35,7 +43,7 @@ describe('ZPokemonAttributesCard', () => {
     pokemonService.get.mockResolvedValue(charizard);
   });
 
-  it('loads the correct pokemon', async () => {
+  it("loads the correct pokemon", async () => {
     // Arrange.
     const target = await createTestTarget();
     // Act.
@@ -44,8 +52,8 @@ describe('ZPokemonAttributesCard', () => {
     expect(actual).toEqual(charizard.name);
   });
 
-  describe('Attributes', () => {
-    it('should render the pokemon height in feet and inches', async () => {
+  describe("Attributes", () => {
+    it("should render the pokemon height in feet and inches", async () => {
       // Arrange.
       const target = await createTestTarget();
       const expected = `5' 7"`;
@@ -55,7 +63,7 @@ describe('ZPokemonAttributesCard', () => {
       expect(actual).toEqual(expected);
     });
 
-    it('should render the pokemon weight in lbs', async () => {
+    it("should render the pokemon weight in lbs", async () => {
       // Arrange.
       const target = await createTestTarget();
       const expected = `199.51 lbs`;
@@ -65,7 +73,7 @@ describe('ZPokemonAttributesCard', () => {
       expect(actual).toEqual(expected);
     });
 
-    it('should render the pokemon types', async () => {
+    it("should render the pokemon types", async () => {
       // Arrange.
       const target = await createTestTarget();
       // Act.
@@ -75,7 +83,7 @@ describe('ZPokemonAttributesCard', () => {
       expect(actual).toEqual(charizard.types);
     });
 
-    it('should render the pokemon abilities', async () => {
+    it("should render the pokemon abilities", async () => {
       // Arrange.
       const target = await createTestTarget();
       const expected = charizard.abilities.map((a) => a.name);
@@ -85,7 +93,7 @@ describe('ZPokemonAttributesCard', () => {
       expect(actual).toEqual(expected);
     });
 
-    it('should render the pokemon weaknesses', async () => {
+    it("should render the pokemon weaknesses", async () => {
       // Arrange.
       const target = await createTestTarget();
       const expected = charizard.weaknesses.map((w) => w.type);
@@ -96,7 +104,7 @@ describe('ZPokemonAttributesCard', () => {
       expect(actual).toEqual(expected);
     });
 
-    it('should not render weaknesses for which there are none', async () => {
+    it("should not render weaknesses for which there are none", async () => {
       // Arrange.
       const target = await createTestTarget();
       // Act.
@@ -105,7 +113,7 @@ describe('ZPokemonAttributesCard', () => {
       expect(actual).toBeFalsy();
     });
 
-    it('should not render any damage multiplier if the damage is less than 4x', async () => {
+    it("should not render any damage multiplier if the damage is less than 4x", async () => {
       // Arrange.
       const target = await createTestTarget();
       // Act.
@@ -114,7 +122,7 @@ describe('ZPokemonAttributesCard', () => {
       expect(actual).toBeFalsy();
     });
 
-    it('should render weakness and notify when there is 4x the damage', async () => {
+    it("should render weakness and notify when there is 4x the damage", async () => {
       // Arrange.
       const target = await createTestTarget();
       // Act.

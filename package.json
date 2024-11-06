@@ -16,6 +16,7 @@
     "clean": "rimraf --glob 'dist' 'reports' '*.tgz' '*.log' 'packages/**/dist' 'packages/**/docs' 'packages/**/*.tgz' 'packages/**/*.log'",
     "test": "vitest --run --coverage",
     "lint": "lint-janitor",
+    "pretty": "prettier packages --fix -w",
     "build": "lerna run build",
     "make": "yarn clean && yarn lint && yarn test && yarn build",
     "prepare": "husky"
@@ -43,5 +44,8 @@
     "vite-tsconfig-paths": "^5.1.0",
     "vitest": "^2.1.4"
   },
-  "packageManager": "yarn@4.5.1"
+  "packageManager": "yarn@4.5.1",
+  "dependencies": {
+    "prettier": "^3.3.3"
+  }
 }

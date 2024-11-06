@@ -4,16 +4,21 @@ import {
   ZImageSource,
   ZSuspenseRotate,
   createStyleHook,
-  useNavigate
-} from '@zthun/fashion-boutique';
-import { ZSizeFixed, ZSizeVaried } from '@zthun/fashion-tailor';
-import { cssJoinDefined } from '@zthun/helpful-fn';
-import { asStateData, isStateErrored, isStateLoaded, isStateLoading } from '@zthun/helpful-react';
-import { IZEvolutionNode, ZSpeciesBuilder } from '@zthun/pokedex';
-import { startCase } from 'lodash-es';
-import React from 'react';
-import { useSpecies } from '../species/species-service.mjs';
-import { usePokemonTheme } from '../theme/pokemon-theme.mjs';
+  useNavigate,
+} from "@zthun/fashion-boutique";
+import { ZSizeFixed, ZSizeVaried } from "@zthun/fashion-tailor";
+import { cssJoinDefined } from "@zthun/helpful-fn";
+import {
+  asStateData,
+  isStateErrored,
+  isStateLoaded,
+  isStateLoading,
+} from "@zthun/helpful-react";
+import { IZEvolutionNode, ZSpeciesBuilder } from "@zthun/pokedex";
+import { startCase } from "lodash-es";
+import React from "react";
+import { useSpecies } from "../species/species-service.mjs";
+import { usePokemonTheme } from "../theme/pokemon-theme.mjs";
 
 export interface IZEvolutionNodeBubble {
   node: IZEvolutionNode;
@@ -22,9 +27,9 @@ export interface IZEvolutionNodeBubble {
 const useEvolutionBubbleStyles = createStyleHook(({ tailor }) => {
   return {
     name: {
-      textAlign: 'center',
-      marginTop: tailor.gap(ZSizeFixed.ExtraSmall)
-    }
+      textAlign: "center",
+      marginTop: tailor.gap(ZSizeFixed.ExtraSmall),
+    },
   };
 });
 
@@ -35,7 +40,9 @@ export function ZEvolutionNodeBubble(props: IZEvolutionNodeBubble) {
   const { classes } = useEvolutionBubbleStyles();
   const { custom } = usePokemonTheme();
 
-  const handleClick = isStateLoaded(species) ? navigate.bind(null, `/pokemon/${species.name}`) : undefined;
+  const handleClick = isStateLoaded(species)
+    ? navigate.bind(null, `/pokemon/${species.name}`)
+    : undefined;
 
   const renderAvatar = () => {
     if (isStateLoading(species)) {
@@ -43,7 +50,7 @@ export function ZEvolutionNodeBubble(props: IZEvolutionNodeBubble) {
     }
 
     if (isStateErrored(species)) {
-      return <ZIconFontAwesome name='question' width={ZSizeFixed.Medium} />;
+      return <ZIconFontAwesome name="question" width={ZSizeFixed.Medium} />;
     }
 
     return <ZImageSource width={ZSizeVaried.Full} src={species.artwork} />;
@@ -51,7 +58,7 @@ export function ZEvolutionNodeBubble(props: IZEvolutionNodeBubble) {
 
   const renderName = () => {
     if (isStateLoading(species)) {
-      return 'Loading...';
+      return "Loading...";
     }
 
     if (isStateErrored(species)) {
@@ -62,9 +69,12 @@ export function ZEvolutionNodeBubble(props: IZEvolutionNodeBubble) {
   };
 
   return (
-    <div className='ZEvolutionNodeBubble-root' data-species={asStateData(species)?.name}>
+    <div
+      className="ZEvolutionNodeBubble-root"
+      data-species={asStateData(species)?.name}
+    >
       <ZBubble
-        className={cssJoinDefined('ZEvolutionNodeBubble-avatar')}
+        className={cssJoinDefined("ZEvolutionNodeBubble-avatar")}
         width={ZSizeFixed.Large}
         padding={ZSizeFixed.ExtraSmall}
         border={ZSizeFixed.ExtraLarge}
@@ -73,7 +83,11 @@ export function ZEvolutionNodeBubble(props: IZEvolutionNodeBubble) {
       >
         {renderAvatar()}
       </ZBubble>
-      <div className={cssJoinDefined('ZEvolutionNodeBubble-name', classes.name)}>{renderName()}</div>
+      <div
+        className={cssJoinDefined("ZEvolutionNodeBubble-name", classes.name)}
+      >
+        {renderName()}
+      </div>
     </div>
   );
 }

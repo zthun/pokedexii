@@ -1,10 +1,10 @@
-import { ZCircusBy, ZCircusComponentModel } from '@zthun/cirque';
-import { ZGridViewComponentModel } from '@zthun/fashion-boutique';
-import { ZType } from '@zthun/pokedex';
-import { ZTypeCardComponentModel } from './type-card.cm';
+import { ZCircusBy, ZCircusComponentModel } from "@zthun/cirque";
+import { ZGridViewComponentModel } from "@zthun/fashion-boutique";
+import { ZType } from "@zthun/pokedex";
+import { ZTypeCardComponentModel } from "./type-card.cm";
 
 export class ZTypeListPageComponentModel extends ZCircusComponentModel {
-  public static readonly Selector = '.ZTypeListPage-root';
+  public static readonly Selector = ".ZTypeListPage-root";
 
   public grid(): Promise<ZGridViewComponentModel> {
     return Promise.resolve(new ZGridViewComponentModel(this.driver));

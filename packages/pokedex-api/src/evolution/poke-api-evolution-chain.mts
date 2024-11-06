@@ -1,6 +1,12 @@
-import { IZEvolution, IZEvolutionNode, IZEvolutionTrigger, ZEvolutionBuilder, ZGender } from '@zthun/pokedex';
-import { ZPokedexCollection } from '../database/pokedex-database.mjs';
-import { IPokeApiResource, ZPokeApiResource } from '../resource/resource.mjs';
+import {
+  IZEvolution,
+  IZEvolutionNode,
+  IZEvolutionTrigger,
+  ZEvolutionBuilder,
+  ZGender,
+} from "@zthun/pokedex";
+import { ZPokedexCollection } from "../database/pokedex-database.mjs";
+import { IPokeApiResource, ZPokeApiResource } from "../resource/resource.mjs";
 
 export interface IPokeApiEvolutionChainDetails {
   gender: number | null;
@@ -46,30 +52,55 @@ export class ZPokeApiEvolutionChainBuilder {
   public from(other: IZEvolution): this {
     const genders = Object.values(ZGender);
 
-    const createApiEvolutionDetails = (node: IZEvolutionTrigger): IPokeApiEvolutionChainDetails => {
+    const createApiEvolutionDetails = (
+      node: IZEvolutionTrigger,
+    ): IPokeApiEvolutionChainDetails => {
       const gender = node.gender ? genders.indexOf(node.gender) + 1 : null;
-      const held_item = node.held ? ZPokeApiResource.toResource(ZPokedexCollection.Item, node.held) : null;
-      const item = node.item ? ZPokeApiResource.toResource(ZPokedexCollection.Item, node.item) : null;
-      const known_move = node.move ? ZPokeApiResource.toResource(ZPokedexCollection.Move, node.move) : null;
+      const held_item = node.held
+        ? ZPokeApiResource.toResource(ZPokedexCollection.Item, node.held)
+        : null;
+      const item = node.item
+        ? ZPokeApiResource.toResource(ZPokedexCollection.Item, node.item)
+        : null;
+      const known_move = node.move
+        ? ZPokeApiResource.toResource(ZPokedexCollection.Move, node.move)
+        : null;
       const known_move_type = node.moveType
         ? ZPokeApiResource.toResource(ZPokedexCollection.Type, node.moveType)
         : null;
-      const location = node.location ? ZPokeApiResource.toResource(ZPokedexCollection.Location, node.location) : null;
+      const location = node.location
+        ? ZPokeApiResource.toResource(
+            ZPokedexCollection.Location,
+            node.location,
+          )
+        : null;
       const min_affection = node.affection ?? null;
       const min_beauty = node.beauty ?? null;
       const min_happiness = node.happiness ?? null;
       const min_level = node.level ?? null;
       const needs_overworld_rain = node.rain;
       const party_species = node.partySpecies
-        ? ZPokeApiResource.toResource(ZPokedexCollection.PokemonSpecies, node.partySpecies)
+        ? ZPokeApiResource.toResource(
+            ZPokedexCollection.PokemonSpecies,
+            node.partySpecies,
+          )
         : null;
-      const party_type = node.partyType ? ZPokeApiResource.toResource(ZPokedexCollection.Type, node.partyType) : null;
+      const party_type = node.partyType
+        ? ZPokeApiResource.toResource(ZPokedexCollection.Type, node.partyType)
+        : null;
       const relative_physical_stats: number | null = node.stats ?? null;
-      const time_of_day = node.time || '';
+      const time_of_day = node.time || "";
       const trade_species = node.trade
-        ? ZPokeApiResource.toResource(ZPokedexCollection.PokemonSpecies, node.trade)
+        ? ZPokeApiResource.toResource(
+            ZPokedexCollection.PokemonSpecies,
+            node.trade,
+          )
         : null;
-      const trigger = ZPokeApiResource.toResource(ZPokedexCollection.EvolutionTrigger, node.id, node.name);
+      const trigger = ZPokeApiResource.toResource(
+        ZPokedexCollection.EvolutionTrigger,
+        node.id,
+        node.name,
+      );
       const turn_upside_down = node.turnUpsideDown;
 
       return {
@@ -90,21 +121,26 @@ export class ZPokeApiEvolutionChainBuilder {
         time_of_day,
         trade_species,
         trigger,
-        turn_upside_down
+        turn_upside_down,
       };
     };
 
-    const createApiEvolutionChain = (node: IZEvolutionNode): IPokeApiEvolutionChainLink => ({
+    const createApiEvolutionChain = (
+      node: IZEvolutionNode,
+    ): IPokeApiEvolutionChainLink => ({
       evolution_details: node.triggers.map(createApiEvolutionDetails),
       evolves_to: node.next.map(createApiEvolutionChain),
       is_baby: false,
-      species: ZPokeApiResource.toResource(ZPokedexCollection.PokemonSpecies, node.species)
+      species: ZPokeApiResource.toResource(
+        ZPokedexCollection.PokemonSpecies,
+        node.species,
+      ),
     });
 
     this._evolution = {
       baby_trigger_item: null,
       chain: createApiEvolutionChain(other.head),
-      id: other.id
+      id: other.id,
     };
 
     return this;

@@ -1,7 +1,7 @@
-import { IZSpecies, ZSpeciesBuilder } from '@zthun/pokedex';
-import { ZPokedexCollection } from '../database/pokedex-database.mjs';
-import { IPokeApiPokemon } from '../pokemon/pokemon.mjs';
-import { IPokeApiResource, ZPokeApiResource } from '../resource/resource.mjs';
+import { IZSpecies, ZSpeciesBuilder } from "@zthun/pokedex";
+import { ZPokedexCollection } from "../database/pokedex-database.mjs";
+import { IPokeApiPokemon } from "../pokemon/pokemon.mjs";
+import { IPokeApiResource, ZPokeApiResource } from "../resource/resource.mjs";
 
 interface IPokeApiSpeciesGenus {
   genus: string;
@@ -81,7 +81,10 @@ export class ZPokeApiSpeciesBuilder {
       capture_rate: other.capture,
       color: ZPokeApiResource.empty(),
       egg_groups: [],
-      evolution_chain: ZPokeApiResource.toResource(ZPokedexCollection.EvolutionChain, other.evolution),
+      evolution_chain: ZPokeApiResource.toResource(
+        ZPokedexCollection.EvolutionChain,
+        other.evolution,
+      ),
       evolves_from_species: ZPokeApiResource.empty(),
       flavor_text_entries: [],
       form_descriptions: [],
@@ -100,9 +103,12 @@ export class ZPokeApiSpeciesBuilder {
       name: other.name,
       names: [
         {
-          language: ZPokeApiResource.toResource(ZPokedexCollection.Language, 'en'),
-          name: other.name
-        }
+          language: ZPokeApiResource.toResource(
+            ZPokedexCollection.Language,
+            "en",
+          ),
+          name: other.name,
+        },
       ],
       order: 0,
       pal_park_encounters: [],
@@ -110,8 +116,8 @@ export class ZPokeApiSpeciesBuilder {
       shape: ZPokeApiResource.empty(),
       varieties: other.varieties.map((s) => ({
         is_default: other.main === s,
-        pokemon: ZPokeApiResource.toResource(ZPokedexCollection.Pokemon, s)
-      }))
+        pokemon: ZPokeApiResource.toResource(ZPokedexCollection.Pokemon, s),
+      })),
     };
     return this;
   }

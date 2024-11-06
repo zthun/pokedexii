@@ -1,2 +1,2 @@
-import { defineTest } from '../../.config/vitest-project';
-export default defineTest('node');
+import { defineTest } from "../../.config/vitest-project";
+export default defineTest("node");

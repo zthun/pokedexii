@@ -1,11 +1,15 @@
-import { ZCircusActBuilder, ZCircusBy, ZCircusComponentModel } from '@zthun/cirque';
-import { ZTypeBadgeComponentModel } from '../type/type-badge.cm.mjs';
+import {
+  ZCircusActBuilder,
+  ZCircusBy,
+  ZCircusComponentModel,
+} from "@zthun/cirque";
+import { ZTypeBadgeComponentModel } from "../type/type-badge.cm.mjs";
 
 /**
  * Represents the component model for a Pokemon card.
  */
 export class ZSpeciesCardComponentModel extends ZCircusComponentModel {
-  public static readonly Selector = '.ZSpeciesCard-root';
+  public static readonly Selector = ".ZSpeciesCard-root";
 
   /**
    * Gets the name of the pokemon.
@@ -14,7 +18,7 @@ export class ZSpeciesCardComponentModel extends ZCircusComponentModel {
    *        The name of the pokemon.
    */
   public async name(): Promise<string> {
-    return await this.driver.attribute('data-name', 'missing_no');
+    return await this.driver.attribute("data-name", "missing_no");
   }
 
   /**

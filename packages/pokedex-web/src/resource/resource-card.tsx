@@ -1,13 +1,24 @@
-import { IZCard, IZComponentName, IZComponentStyle, ZAlert, ZCard, ZIconFontAwesome } from '@zthun/fashion-boutique';
-import { ZSizeFixed } from '@zthun/fashion-tailor';
-import { cssJoinDefined } from '@zthun/helpful-fn';
-import { ZAsyncDataState, isStateErrored, isStateLoading } from '@zthun/helpful-react';
-import { castArray, find } from 'lodash-es';
-import React, { ReactNode } from 'react';
-import { usePokemonTheme } from '../theme/pokemon-theme.mjs';
+import {
+  IZCard,
+  IZComponentName,
+  IZComponentStyle,
+  ZAlert,
+  ZCard,
+  ZIconFontAwesome,
+} from "@zthun/fashion-boutique";
+import { ZSizeFixed } from "@zthun/fashion-tailor";
+import { cssJoinDefined } from "@zthun/helpful-fn";
+import {
+  ZAsyncDataState,
+  isStateErrored,
+  isStateLoading,
+} from "@zthun/helpful-react";
+import { castArray, find } from "lodash-es";
+import React, { ReactNode } from "react";
+import { usePokemonTheme } from "../theme/pokemon-theme.mjs";
 
 export interface IZResourceCard<T> extends IZComponentName, IZComponentStyle {
-  CardProps?: Omit<IZCard, 'children' | 'loading' | 'name' | 'className'>;
+  CardProps?: Omit<IZCard, "children" | "loading" | "name" | "className">;
 
   resource: ZAsyncDataState<T> | ZAsyncDataState<T>[];
   children: (resource: T[]) => ReactNode | ReactNode[];
@@ -26,16 +37,23 @@ export function ZResourceCard<T>(props: IZResourceCard<T>) {
 
     const resource$$ = resource$ as (Error | T)[];
 
-    const _error = find(resource$$, (r) => isStateErrored(r)) as Error | undefined;
+    const _error = find(resource$$, (r) => isStateErrored(r)) as
+      | Error
+      | undefined;
 
     if (_error) {
       return (
         <ZAlert
           message={_error.message}
-          heading='Error'
+          heading="Error"
           fashion={error}
-          avatar={<ZIconFontAwesome name='circle-exclamation' width={ZSizeFixed.Medium} />}
-          name='resource-load-error'
+          avatar={
+            <ZIconFontAwesome
+              name="circle-exclamation"
+              width={ZSizeFixed.Medium}
+            />
+          }
+          name="resource-load-error"
         />
       );
     }
@@ -45,7 +63,12 @@ export function ZResourceCard<T>(props: IZResourceCard<T>) {
   };
 
   return (
-    <ZCard {...CardProps} className={cssJoinDefined('ZResourceCard-root', className)} loading={_loading} name={name}>
+    <ZCard
+      {...CardProps}
+      className={cssJoinDefined("ZResourceCard-root", className)}
+      loading={_loading}
+      name={name}
+    >
       {renderContent()}
     </ZCard>
   );

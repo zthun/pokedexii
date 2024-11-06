@@ -1,17 +1,20 @@
-import { ZCircusBy } from '@zthun/cirque';
-import { ZCircusSetupRenderer } from '@zthun/cirque-du-react';
-import { ZChartComponentModel, ZFashionThemeContext } from '@zthun/fashion-boutique';
-import { IZPokemon, ZPokemonBuilder } from '@zthun/pokedex';
-import React from 'react';
-import { Mocked, beforeEach, describe, expect, it } from 'vitest';
-import { mock } from 'vitest-mock-extended';
-import { IZResourceService } from '../resource/resource-service.mjs';
-import { createPokemonTheme } from '../theme/pokemon-theme.mjs';
-import { ZPokemonServiceContext } from './pokemon-service.mjs';
-import { ZPokemonStatsCard } from './pokemon-stats-card';
-import { ZPokemonStatsCardComponentModel } from './pokemon-stats-card.cm.mjs';
+import { ZCircusBy } from "@zthun/cirque";
+import { ZCircusSetupRenderer } from "@zthun/cirque-du-react";
+import {
+  ZChartComponentModel,
+  ZFashionThemeContext,
+} from "@zthun/fashion-boutique";
+import { IZPokemon, ZPokemonBuilder } from "@zthun/pokedex";
+import React from "react";
+import { Mocked, beforeEach, describe, expect, it } from "vitest";
+import { mock } from "vitest-mock-extended";
+import { IZResourceService } from "../resource/resource-service.mjs";
+import { createPokemonTheme } from "../theme/pokemon-theme.mjs";
+import { ZPokemonServiceContext } from "./pokemon-service.mjs";
+import { ZPokemonStatsCard } from "./pokemon-stats-card";
+import { ZPokemonStatsCardComponentModel } from "./pokemon-stats-card.cm.mjs";
 
-describe('ZPokemonStatsCard', () => {
+describe("ZPokemonStatsCard", () => {
   let pokemonService: Mocked<IZResourceService<IZPokemon>>;
   let charizard: IZPokemon;
 
@@ -25,7 +28,10 @@ describe('ZPokemonStatsCard', () => {
     );
 
     const driver = await new ZCircusSetupRenderer(element).setup();
-    const target = await ZCircusBy.first(driver, ZPokemonStatsCardComponentModel);
+    const target = await ZCircusBy.first(
+      driver,
+      ZPokemonStatsCardComponentModel,
+    );
     await target.asResourceCard().load();
     return target;
   };
@@ -37,7 +43,7 @@ describe('ZPokemonStatsCard', () => {
     pokemonService.get.mockResolvedValue(charizard);
   });
 
-  it('loads the correct pokemon', async () => {
+  it("loads the correct pokemon", async () => {
     // Arrange.
     const target = await createTestTarget();
     // Act.
@@ -46,10 +52,12 @@ describe('ZPokemonStatsCard', () => {
     expect(actual).toEqual(charizard.name);
   });
 
-  describe('Stats', () => {
+  describe("Stats", () => {
     const shouldRenderStat = async (
       expected: number,
-      chart: (target: ZPokemonStatsCardComponentModel) => Promise<ZChartComponentModel>
+      chart: (
+        target: ZPokemonStatsCardComponentModel,
+      ) => Promise<ZChartComponentModel>,
     ) => {
       // Arrange.
       const target = await createTestTarget();
@@ -61,27 +69,31 @@ describe('ZPokemonStatsCard', () => {
       expect(actual).toEqual(expected);
     };
 
-    it('should render hp', async () => {
+    it("should render hp", async () => {
       await shouldRenderStat(charizard.stats.hp.base, (t) => t.hp());
     });
 
-    it('should render attack', async () => {
+    it("should render attack", async () => {
       await shouldRenderStat(charizard.stats.attack.base, (t) => t.attack());
     });
 
-    it('should render defense', async () => {
+    it("should render defense", async () => {
       await shouldRenderStat(charizard.stats.defense.base, (t) => t.defense());
     });
 
-    it('should render special attack', async () => {
-      await shouldRenderStat(charizard.stats.specialAttack.base, (t) => t.specialAttack());
+    it("should render special attack", async () => {
+      await shouldRenderStat(charizard.stats.specialAttack.base, (t) =>
+        t.specialAttack(),
+      );
     });
 
-    it('should render special defense', async () => {
-      await shouldRenderStat(charizard.stats.specialDefense.base, (t) => t.specialDefense());
+    it("should render special defense", async () => {
+      await shouldRenderStat(charizard.stats.specialDefense.base, (t) =>
+        t.specialDefense(),
+      );
     });
 
-    it('should render speed', async () => {
+    it("should render speed", async () => {
       await shouldRenderStat(charizard.stats.speed.base, (t) => t.speed());
     });
   });

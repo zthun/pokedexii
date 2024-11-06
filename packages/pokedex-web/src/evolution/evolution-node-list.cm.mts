@@ -1,9 +1,9 @@
-import { ZCircusBy, ZCircusComponentModel } from '@zthun/cirque';
-import { ZCarouselComponentModel } from '@zthun/fashion-boutique';
-import { ZEvolutionNodeBubbleComponentModel } from './evolution-node-bubble.cm';
+import { ZCircusBy, ZCircusComponentModel } from "@zthun/cirque";
+import { ZCarouselComponentModel } from "@zthun/fashion-boutique";
+import { ZEvolutionNodeBubbleComponentModel } from "./evolution-node-bubble.cm";
 
 export class ZEvolutionNodeListComponentModel extends ZCircusComponentModel {
-  public static readonly Selector = '.ZEvolutionNodeList-root';
+  public static readonly Selector = ".ZEvolutionNodeList-root";
 
   public carousel(): Promise<ZCarouselComponentModel> {
     return Promise.resolve(new ZCarouselComponentModel(this.driver));

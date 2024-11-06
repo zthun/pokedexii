@@ -1,10 +1,10 @@
-import { ZType } from '../type/type.mjs';
+import { ZType } from "../type/type.mjs";
 import {
   IZEvolutionTrigger,
   ZEvolutionTrigger,
   ZEvolutionTriggerBuilder,
-  ZStatRelationship
-} from './evolution-trigger.mjs';
+  ZStatRelationship,
+} from "./evolution-trigger.mjs";
 
 /**
  * Represents a node in an evolution chain.
@@ -39,7 +39,7 @@ export class ZEvolutionNodeBuilder {
     this._node = {
       next: [],
       triggers: [],
-      species: 'missingno'
+      species: "missingno",
     };
   }
 
@@ -105,7 +105,9 @@ export class ZEvolutionNodeBuilder {
    *        This object.
    */
   public ralts() {
-    return this.species('ralts').option(new ZEvolutionNodeBuilder().kirlia().build());
+    return this.species("ralts").option(
+      new ZEvolutionNodeBuilder().kirlia().build(),
+    );
   }
 
   /**
@@ -115,7 +117,7 @@ export class ZEvolutionNodeBuilder {
    *        This object.
    */
   public kirlia() {
-    return this.species('kirlia')
+    return this.species("kirlia")
       .option(new ZEvolutionNodeBuilder().gardevoir().build())
       .option(new ZEvolutionNodeBuilder().gallade().build())
       .trigger(new ZEvolutionTriggerBuilder().level(20).build());
@@ -128,7 +130,9 @@ export class ZEvolutionNodeBuilder {
    *        This object.
    */
   public gardevoir() {
-    return this.species('gardevoir').trigger(new ZEvolutionTriggerBuilder().level(30).build());
+    return this.species("gardevoir").trigger(
+      new ZEvolutionTriggerBuilder().level(30).build(),
+    );
   }
 
   /**
@@ -138,7 +142,9 @@ export class ZEvolutionNodeBuilder {
    *        This object.
    */
   public gallade() {
-    return this.species('gallade').trigger(new ZEvolutionTriggerBuilder().male().item('dawn-stone').build());
+    return this.species("gallade").trigger(
+      new ZEvolutionTriggerBuilder().male().item("dawn-stone").build(),
+    );
   }
 
   /**
@@ -148,7 +154,9 @@ export class ZEvolutionNodeBuilder {
    *        This object.
    */
   public feebas() {
-    return this.species('feebas').option(new ZEvolutionNodeBuilder().milotic().build());
+    return this.species("feebas").option(
+      new ZEvolutionNodeBuilder().milotic().build(),
+    );
   }
 
   /**
@@ -158,10 +166,25 @@ export class ZEvolutionNodeBuilder {
    *        This object.
    */
   public milotic() {
-    return this.species('milotic')
-      .trigger(new ZEvolutionTriggerBuilder().name(ZEvolutionTrigger.LevelUp).beauty(171).build())
-      .trigger(new ZEvolutionTriggerBuilder().name(ZEvolutionTrigger.Trade).held('prism-scale').build())
-      .trigger(new ZEvolutionTriggerBuilder().name(ZEvolutionTrigger.LevelUp).beauty(170).build());
+    return this.species("milotic")
+      .trigger(
+        new ZEvolutionTriggerBuilder()
+          .name(ZEvolutionTrigger.LevelUp)
+          .beauty(171)
+          .build(),
+      )
+      .trigger(
+        new ZEvolutionTriggerBuilder()
+          .name(ZEvolutionTrigger.Trade)
+          .held("prism-scale")
+          .build(),
+      )
+      .trigger(
+        new ZEvolutionTriggerBuilder()
+          .name(ZEvolutionTrigger.LevelUp)
+          .beauty(170)
+          .build(),
+      );
   }
 
   /**
@@ -171,7 +194,7 @@ export class ZEvolutionNodeBuilder {
    *        This object.
    */
   public eevee() {
-    return this.species('eevee')
+    return this.species("eevee")
       .option(new ZEvolutionNodeBuilder().vaporeon().build())
       .option(new ZEvolutionNodeBuilder().jolteon().build())
       .option(new ZEvolutionNodeBuilder().flareon().build())
@@ -189,8 +212,11 @@ export class ZEvolutionNodeBuilder {
    *        This object.
    */
   public vaporeon() {
-    return this.species('vaporeon').trigger(
-      new ZEvolutionTriggerBuilder().name(ZEvolutionTrigger.UseItem).item('water-stone').build()
+    return this.species("vaporeon").trigger(
+      new ZEvolutionTriggerBuilder()
+        .name(ZEvolutionTrigger.UseItem)
+        .item("water-stone")
+        .build(),
     );
   }
 
@@ -201,8 +227,11 @@ export class ZEvolutionNodeBuilder {
    *        This object.
    */
   public jolteon() {
-    return this.species('jolteon').trigger(
-      new ZEvolutionTriggerBuilder().name(ZEvolutionTrigger.UseItem).item('thunder-stone').build()
+    return this.species("jolteon").trigger(
+      new ZEvolutionTriggerBuilder()
+        .name(ZEvolutionTrigger.UseItem)
+        .item("thunder-stone")
+        .build(),
     );
   }
 
@@ -213,8 +242,11 @@ export class ZEvolutionNodeBuilder {
    *        This object.
    */
   public flareon() {
-    return this.species('flareon').trigger(
-      new ZEvolutionTriggerBuilder().name(ZEvolutionTrigger.UseItem).item('fire-stone').build()
+    return this.species("flareon").trigger(
+      new ZEvolutionTriggerBuilder()
+        .name(ZEvolutionTrigger.UseItem)
+        .item("fire-stone")
+        .build(),
     );
   }
 
@@ -225,8 +257,12 @@ export class ZEvolutionNodeBuilder {
    *        This object.
    */
   public espeon() {
-    return this.species('espeon').trigger(
-      new ZEvolutionTriggerBuilder().name(ZEvolutionTrigger.LevelUp).happiness(160).time('day').build()
+    return this.species("espeon").trigger(
+      new ZEvolutionTriggerBuilder()
+        .name(ZEvolutionTrigger.LevelUp)
+        .happiness(160)
+        .time("day")
+        .build(),
     );
   }
 
@@ -237,8 +273,12 @@ export class ZEvolutionNodeBuilder {
    *        This object.
    */
   public umbreon() {
-    return this.species('umbreon').trigger(
-      new ZEvolutionTriggerBuilder().name(ZEvolutionTrigger.LevelUp).happiness(160).time('night').build()
+    return this.species("umbreon").trigger(
+      new ZEvolutionTriggerBuilder()
+        .name(ZEvolutionTrigger.LevelUp)
+        .happiness(160)
+        .time("night")
+        .build(),
     );
   }
 
@@ -249,11 +289,31 @@ export class ZEvolutionNodeBuilder {
    *        This object.
    */
   public leafeon() {
-    return this.species('leafeon')
-      .trigger(new ZEvolutionTriggerBuilder().name(ZEvolutionTrigger.LevelUp).location('eterna-forest').build())
-      .trigger(new ZEvolutionTriggerBuilder().name(ZEvolutionTrigger.LevelUp).location('pinwheel-forest').build())
-      .trigger(new ZEvolutionTriggerBuilder().name(ZEvolutionTrigger.LevelUp).location('kalos-route-20').build())
-      .trigger(new ZEvolutionTriggerBuilder().name(ZEvolutionTrigger.UseItem).item('leaf-stone').build());
+    return this.species("leafeon")
+      .trigger(
+        new ZEvolutionTriggerBuilder()
+          .name(ZEvolutionTrigger.LevelUp)
+          .location("eterna-forest")
+          .build(),
+      )
+      .trigger(
+        new ZEvolutionTriggerBuilder()
+          .name(ZEvolutionTrigger.LevelUp)
+          .location("pinwheel-forest")
+          .build(),
+      )
+      .trigger(
+        new ZEvolutionTriggerBuilder()
+          .name(ZEvolutionTrigger.LevelUp)
+          .location("kalos-route-20")
+          .build(),
+      )
+      .trigger(
+        new ZEvolutionTriggerBuilder()
+          .name(ZEvolutionTrigger.UseItem)
+          .item("leaf-stone")
+          .build(),
+      );
   }
 
   /**
@@ -263,11 +323,31 @@ export class ZEvolutionNodeBuilder {
    *        This object.
    */
   public glaceon() {
-    return this.species('glaceon')
-      .trigger(new ZEvolutionTriggerBuilder().name(ZEvolutionTrigger.LevelUp).location('sinnoh-route-217').build())
-      .trigger(new ZEvolutionTriggerBuilder().name(ZEvolutionTrigger.LevelUp).location('twist-mountain').build())
-      .trigger(new ZEvolutionTriggerBuilder().name(ZEvolutionTrigger.LevelUp).location('frost-cavern').build())
-      .trigger(new ZEvolutionTriggerBuilder().name(ZEvolutionTrigger.UseItem).item('ice-stone').build());
+    return this.species("glaceon")
+      .trigger(
+        new ZEvolutionTriggerBuilder()
+          .name(ZEvolutionTrigger.LevelUp)
+          .location("sinnoh-route-217")
+          .build(),
+      )
+      .trigger(
+        new ZEvolutionTriggerBuilder()
+          .name(ZEvolutionTrigger.LevelUp)
+          .location("twist-mountain")
+          .build(),
+      )
+      .trigger(
+        new ZEvolutionTriggerBuilder()
+          .name(ZEvolutionTrigger.LevelUp)
+          .location("frost-cavern")
+          .build(),
+      )
+      .trigger(
+        new ZEvolutionTriggerBuilder()
+          .name(ZEvolutionTrigger.UseItem)
+          .item("ice-stone")
+          .build(),
+      );
   }
 
   /**
@@ -277,12 +357,20 @@ export class ZEvolutionNodeBuilder {
    *        This object.
    */
   public sylveon() {
-    return this.species('sylveon')
+    return this.species("sylveon")
       .trigger(
-        new ZEvolutionTriggerBuilder().name(ZEvolutionTrigger.LevelUp).affection(2).moveType(ZType.Fairy).build()
+        new ZEvolutionTriggerBuilder()
+          .name(ZEvolutionTrigger.LevelUp)
+          .affection(2)
+          .moveType(ZType.Fairy)
+          .build(),
       )
       .trigger(
-        new ZEvolutionTriggerBuilder().name(ZEvolutionTrigger.LevelUp).happiness(160).moveType(ZType.Fairy).build()
+        new ZEvolutionTriggerBuilder()
+          .name(ZEvolutionTrigger.LevelUp)
+          .happiness(160)
+          .moveType(ZType.Fairy)
+          .build(),
       );
   }
 
@@ -293,7 +381,9 @@ export class ZEvolutionNodeBuilder {
    *        This object.
    */
   public tangela() {
-    return this.species('tangela').option(new ZEvolutionNodeBuilder().tangrowth().build());
+    return this.species("tangela").option(
+      new ZEvolutionNodeBuilder().tangrowth().build(),
+    );
   }
 
   /**
@@ -303,8 +393,11 @@ export class ZEvolutionNodeBuilder {
    *        This object.
    */
   public tangrowth() {
-    return this.species('tangrowth').trigger(
-      new ZEvolutionTriggerBuilder().name(ZEvolutionTrigger.LevelUp).move('ancient-power').build()
+    return this.species("tangrowth").trigger(
+      new ZEvolutionTriggerBuilder()
+        .name(ZEvolutionTrigger.LevelUp)
+        .move("ancient-power")
+        .build(),
     );
   }
 
@@ -315,7 +408,9 @@ export class ZEvolutionNodeBuilder {
    *        This object.
    */
   public mantyke() {
-    return this.species('mantyke').option(new ZEvolutionNodeBuilder().mantine().build());
+    return this.species("mantyke").option(
+      new ZEvolutionNodeBuilder().mantine().build(),
+    );
   }
 
   /**
@@ -325,8 +420,11 @@ export class ZEvolutionNodeBuilder {
    *        This object.
    */
   public mantine() {
-    return this.species('mantine').trigger(
-      new ZEvolutionTriggerBuilder().name(ZEvolutionTrigger.LevelUp).partySpecies('remoraid').build()
+    return this.species("mantine").trigger(
+      new ZEvolutionTriggerBuilder()
+        .name(ZEvolutionTrigger.LevelUp)
+        .partySpecies("remoraid")
+        .build(),
     );
   }
 
@@ -337,7 +435,9 @@ export class ZEvolutionNodeBuilder {
    *        This object.
    */
   public pancham() {
-    return this.species('pancham').option(new ZEvolutionNodeBuilder().pangoro().build());
+    return this.species("pancham").option(
+      new ZEvolutionNodeBuilder().pangoro().build(),
+    );
   }
 
   /**
@@ -347,8 +447,11 @@ export class ZEvolutionNodeBuilder {
    *        This object.
    */
   public pangoro() {
-    return this.species('pangoro').trigger(
-      new ZEvolutionTriggerBuilder().name(ZEvolutionTrigger.LevelUp).partyType(ZType.Dark).build()
+    return this.species("pangoro").trigger(
+      new ZEvolutionTriggerBuilder()
+        .name(ZEvolutionTrigger.LevelUp)
+        .partyType(ZType.Dark)
+        .build(),
     );
   }
 
@@ -359,7 +462,9 @@ export class ZEvolutionNodeBuilder {
    *        This object.
    */
   public shelmet() {
-    return this.species('shelmet').option(new ZEvolutionNodeBuilder().accelgor().build());
+    return this.species("shelmet").option(
+      new ZEvolutionNodeBuilder().accelgor().build(),
+    );
   }
 
   /**
@@ -369,8 +474,11 @@ export class ZEvolutionNodeBuilder {
    *        This object.
    */
   public accelgor() {
-    return this.species('accelgor').trigger(
-      new ZEvolutionTriggerBuilder().name(ZEvolutionTrigger.Trade).trade('karrablast').build()
+    return this.species("accelgor").trigger(
+      new ZEvolutionTriggerBuilder()
+        .name(ZEvolutionTrigger.Trade)
+        .trade("karrablast")
+        .build(),
     );
   }
 
@@ -381,7 +489,7 @@ export class ZEvolutionNodeBuilder {
    *        This object.
    */
   public tyrogue() {
-    return this.species('tyrogue')
+    return this.species("tyrogue")
       .option(new ZEvolutionNodeBuilder().hitmonlee().build())
       .option(new ZEvolutionNodeBuilder().hitmonchan().build())
       .option(new ZEvolutionNodeBuilder().hitmontop().build());
@@ -394,12 +502,12 @@ export class ZEvolutionNodeBuilder {
    *        This object.
    */
   public hitmonlee() {
-    return this.species('hitmonlee').trigger(
+    return this.species("hitmonlee").trigger(
       new ZEvolutionTriggerBuilder()
         .name(ZEvolutionTrigger.LevelUp)
         .level(20)
         .stats(ZStatRelationship.AttackGreaterThanDefense)
-        .build()
+        .build(),
     );
   }
 
@@ -410,12 +518,12 @@ export class ZEvolutionNodeBuilder {
    *        This object.
    */
   public hitmonchan() {
-    return this.species('hitmonchan').trigger(
+    return this.species("hitmonchan").trigger(
       new ZEvolutionTriggerBuilder()
         .name(ZEvolutionTrigger.LevelUp)
         .level(20)
         .stats(ZStatRelationship.AttackLessThanDefense)
-        .build()
+        .build(),
     );
   }
 
@@ -426,12 +534,12 @@ export class ZEvolutionNodeBuilder {
    *        This object.
    */
   public hitmontop() {
-    return this.species('hitmontop').trigger(
+    return this.species("hitmontop").trigger(
       new ZEvolutionTriggerBuilder()
         .name(ZEvolutionTrigger.LevelUp)
         .level(20)
         .stats(ZStatRelationship.AttackEqualToDefense)
-        .build()
+        .build(),
     );
   }
 
@@ -442,7 +550,9 @@ export class ZEvolutionNodeBuilder {
    *        This object.
    */
   public inkay() {
-    return this.species('inkay').option(new ZEvolutionNodeBuilder().malamar().build());
+    return this.species("inkay").option(
+      new ZEvolutionNodeBuilder().malamar().build(),
+    );
   }
 
   /**
@@ -452,8 +562,12 @@ export class ZEvolutionNodeBuilder {
    *        This object.
    */
   public malamar() {
-    return this.species('malamar').trigger(
-      new ZEvolutionTriggerBuilder().name(ZEvolutionTrigger.LevelUp).level(30).turnUpsideDown().build()
+    return this.species("malamar").trigger(
+      new ZEvolutionTriggerBuilder()
+        .name(ZEvolutionTrigger.LevelUp)
+        .level(30)
+        .turnUpsideDown()
+        .build(),
     );
   }
 
@@ -464,7 +578,9 @@ export class ZEvolutionNodeBuilder {
    *        This object.
    */
   public goomy() {
-    return this.species('goomy').option(new ZEvolutionNodeBuilder().sliggoo().build());
+    return this.species("goomy").option(
+      new ZEvolutionNodeBuilder().sliggoo().build(),
+    );
   }
 
   /**
@@ -474,9 +590,14 @@ export class ZEvolutionNodeBuilder {
    *        This object.
    */
   public sliggoo() {
-    return this.species('sliggoo')
+    return this.species("sliggoo")
       .option(new ZEvolutionNodeBuilder().goodra().build())
-      .trigger(new ZEvolutionTriggerBuilder().name(ZEvolutionTrigger.LevelUp).level(40).build());
+      .trigger(
+        new ZEvolutionTriggerBuilder()
+          .name(ZEvolutionTrigger.LevelUp)
+          .level(40)
+          .build(),
+      );
   }
 
   /**
@@ -486,8 +607,12 @@ export class ZEvolutionNodeBuilder {
    *        This object.
    */
   public goodra() {
-    return this.species('goodra').trigger(
-      new ZEvolutionTriggerBuilder().name(ZEvolutionTrigger.LevelUp).level(50).rain().build()
+    return this.species("goodra").trigger(
+      new ZEvolutionTriggerBuilder()
+        .name(ZEvolutionTrigger.LevelUp)
+        .level(50)
+        .rain()
+        .build(),
     );
   }
 

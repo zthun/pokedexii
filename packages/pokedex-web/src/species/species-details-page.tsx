@@ -6,16 +6,16 @@ import {
   ZNotFound,
   ZSuspenseRotate,
   useLocation,
-  useParams
-} from '@zthun/fashion-boutique';
-import { ZSizeFixed } from '@zthun/fashion-tailor';
-import { isStateErrored, isStateLoading } from '@zthun/helpful-react';
-import React, { useEffect, useState } from 'react';
-import { ZEvolutionChainCard } from '../evolution/evolution-chain-card';
-import { ZPokemonAttributesCard } from '../pokemon/pokemon-attributes-card';
-import { ZPokemonStatsCard } from '../pokemon/pokemon-stats-card';
-import { useSpecies } from './species-service.mjs';
-import { ZSpeciesVarietiesCard } from './species-varieties-card';
+  useParams,
+} from "@zthun/fashion-boutique";
+import { ZSizeFixed } from "@zthun/fashion-tailor";
+import { isStateErrored, isStateLoading } from "@zthun/helpful-react";
+import React, { useEffect, useState } from "react";
+import { ZEvolutionChainCard } from "../evolution/evolution-chain-card";
+import { ZPokemonAttributesCard } from "../pokemon/pokemon-attributes-card";
+import { ZPokemonStatsCard } from "../pokemon/pokemon-stats-card";
+import { useSpecies } from "./species-service.mjs";
+import { ZSpeciesVarietiesCard } from "./species-varieties-card";
 
 /**
  * Represents the page for pokemon details.
@@ -50,11 +50,26 @@ export function ZSpeciesDetailsPage() {
     const pokemon = species.varieties[variety] || species.main;
 
     return (
-      <ZGrid justifyContent='center' columns='auto auto 1fr' columnsMd='1fr 1fr' columnsSm='1fr' gap={ZSizeFixed.Small}>
-        <ZSpeciesVarietiesCard speciesName={name} value={variety} onValueChange={setVariety} />
+      <ZGrid
+        justifyContent="center"
+        columns="auto auto 1fr"
+        columnsMd="1fr 1fr"
+        columnsSm="1fr"
+        gap={ZSizeFixed.Small}
+      >
+        <ZSpeciesVarietiesCard
+          speciesName={name}
+          value={variety}
+          onValueChange={setVariety}
+        />
         <ZPokemonAttributesCard pokemonName={pokemon} />
         <ZPokemonStatsCard pokemonName={pokemon} />
-        <ZGridSpan columnStart={1} columnEnd={4} columnStartMd='unset' columnEndMd='unset'>
+        <ZGridSpan
+          columnStart={1}
+          columnEnd={4}
+          columnStartMd="unset"
+          columnEndMd="unset"
+        >
           <ZEvolutionChainCard evolutionName={String(species.evolution)} />
         </ZGridSpan>
       </ZGrid>
@@ -62,7 +77,7 @@ export function ZSpeciesDetailsPage() {
   };
 
   return (
-    <div className='ZSpeciesDetailsPage-root' data-name={name}>
+    <div className="ZSpeciesDetailsPage-root" data-name={name}>
       <ZBreadcrumbsOutlet />
       {renderPage()}
     </div>

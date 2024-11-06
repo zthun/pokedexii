@@ -1,10 +1,16 @@
-import { IZFilter, ZFilterBinaryBuilder, ZFilterLogicBuilder } from '@zthun/helpful-query';
-import { IZConverter } from './converter.mjs';
+import {
+  IZFilter,
+  ZFilterBinaryBuilder,
+  ZFilterLogicBuilder,
+} from "@zthun/helpful-query";
+import { IZConverter } from "./converter.mjs";
 
-export class ZConverterIdOrNameSearch implements IZConverter<string | undefined | null, IZFilter | undefined> {
+export class ZConverterIdOrNameSearch
+  implements IZConverter<string | undefined | null, IZFilter | undefined>
+{
   public constructor(
-    private readonly _subjectId = 'id',
-    private readonly _subjectName = 'name'
+    private readonly _subjectId = "id",
+    private readonly _subjectName = "name",
   ) {}
 
   convert(search: string): Promise<IZFilter | undefined> {
@@ -12,8 +18,22 @@ export class ZConverterIdOrNameSearch implements IZConverter<string | undefined 
       return Promise.resolve(undefined);
     }
 
-    const idFilter = new ZFilterBinaryBuilder().subject(this._subjectId).equal().value(+search).build();
-    const nameFilter = new ZFilterBinaryBuilder().subject(this._subjectName).like().value(`.*${search}.*`).build();
-    return Promise.resolve(new ZFilterLogicBuilder().or().clause(idFilter).clause(nameFilter).build());
+    const idFilter = new ZFilterBinaryBuilder()
+      .subject(this._subjectId)
+      .equal()
+      .value(+search)
+      .build();
+    const nameFilter = new ZFilterBinaryBuilder()
+      .subject(this._subjectName)
+      .like()
+      .value(`.*${search}.*`)
+      .build();
+    return Promise.resolve(
+      new ZFilterLogicBuilder()
+        .or()
+        .clause(idFilter)
+        .clause(nameFilter)
+        .build(),
+    );
   }
 }

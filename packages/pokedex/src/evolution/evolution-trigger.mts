@@ -1,27 +1,27 @@
-import { ZGender } from '../gender/gender.mjs';
-import { IZResource } from '../resource/resource.mjs';
-import { ZType } from '../type/type.mjs';
+import { ZGender } from "../gender/gender.mjs";
+import { IZResource } from "../resource/resource.mjs";
+import { ZType } from "../type/type.mjs";
 
 export enum ZEvolutionTrigger {
-  AgileStyleMove = 'agile-style-move',
-  LevelUp = 'level-up',
-  Other = 'other',
-  RecoilDamage = 'recoil-damage',
-  Shed = 'shed',
-  Spin = 'spin',
-  StrongStyleMove = 'strong-style-move',
-  TakeDamage = 'take-damage',
-  ThreeCriticalHits = 'three-critical-hits',
-  TowerOfDarkness = 'tower-of-darkness',
-  TowerOfWaters = 'tower-of-waters',
-  Trade = 'trade',
-  UseItem = 'use-item'
+  AgileStyleMove = "agile-style-move",
+  LevelUp = "level-up",
+  Other = "other",
+  RecoilDamage = "recoil-damage",
+  Shed = "shed",
+  Spin = "spin",
+  StrongStyleMove = "strong-style-move",
+  TakeDamage = "take-damage",
+  ThreeCriticalHits = "three-critical-hits",
+  TowerOfDarkness = "tower-of-darkness",
+  TowerOfWaters = "tower-of-waters",
+  Trade = "trade",
+  UseItem = "use-item",
 }
 
 export enum ZStatRelationship {
   AttackEqualToDefense = 0,
   AttackGreaterThanDefense = 1,
-  AttackLessThanDefense = -1
+  AttackLessThanDefense = -1,
 }
 
 export interface IZEvolutionTrigger extends IZResource<ZEvolutionTrigger> {
@@ -52,7 +52,7 @@ export class ZEvolutionTriggerBuilder {
       id: 0,
       name: ZEvolutionTrigger.Other,
       rain: false,
-      turnUpsideDown: false
+      turnUpsideDown: false,
     };
   }
 

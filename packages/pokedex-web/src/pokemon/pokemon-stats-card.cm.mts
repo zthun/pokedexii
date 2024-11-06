@@ -1,12 +1,12 @@
-import { ZCircusBy, ZCircusComponentModel } from '@zthun/cirque';
-import { ZChartComponentModel } from '@zthun/fashion-boutique';
-import { ZResourceCardComponentModel } from '../resource/resource-card.cm.mjs';
+import { ZCircusBy, ZCircusComponentModel } from "@zthun/cirque";
+import { ZChartComponentModel } from "@zthun/fashion-boutique";
+import { ZResourceCardComponentModel } from "../resource/resource-card.cm.mjs";
 
 export class ZPokemonStatsCardComponentModel extends ZCircusComponentModel {
-  public static readonly Selector = '.ZPokemonStatsCard-root';
+  public static readonly Selector = ".ZPokemonStatsCard-root";
 
   public pokemon(): Promise<string> {
-    return this.driver.attribute('data-name', 'missingno');
+    return this.driver.attribute("data-name", "missingno");
   }
 
   public asResourceCard() {
@@ -14,26 +14,30 @@ export class ZPokemonStatsCardComponentModel extends ZCircusComponentModel {
   }
 
   public async hp(): Promise<ZChartComponentModel> {
-    return ZCircusBy.first(this.driver, ZChartComponentModel, 'hp');
+    return ZCircusBy.first(this.driver, ZChartComponentModel, "hp");
   }
 
   public async attack(): Promise<ZChartComponentModel> {
-    return ZCircusBy.first(this.driver, ZChartComponentModel, 'attack');
+    return ZCircusBy.first(this.driver, ZChartComponentModel, "attack");
   }
 
   public async defense(): Promise<ZChartComponentModel> {
-    return ZCircusBy.first(this.driver, ZChartComponentModel, 'defense');
+    return ZCircusBy.first(this.driver, ZChartComponentModel, "defense");
   }
 
   public async specialAttack(): Promise<ZChartComponentModel> {
-    return ZCircusBy.first(this.driver, ZChartComponentModel, 'special-attack');
+    return ZCircusBy.first(this.driver, ZChartComponentModel, "special-attack");
   }
 
   public async specialDefense(): Promise<ZChartComponentModel> {
-    return ZCircusBy.first(this.driver, ZChartComponentModel, 'special-defense');
+    return ZCircusBy.first(
+      this.driver,
+      ZChartComponentModel,
+      "special-defense",
+    );
   }
 
   public async speed(): Promise<ZChartComponentModel> {
-    return ZCircusBy.first(this.driver, ZChartComponentModel, 'speed');
+    return ZCircusBy.first(this.driver, ZChartComponentModel, "speed");
   }
 }

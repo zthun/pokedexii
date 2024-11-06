@@ -1,11 +1,14 @@
-import { useAsyncState } from '@zthun/helpful-react';
-import { IZEvolution } from '@zthun/pokedex';
-import { ZHttpService } from '@zthun/webigail-http';
-import { createContext, useContext } from 'react';
-import { IZResourceService, ZResourceService } from '../resource/resource-service.mjs';
+import { useAsyncState } from "@zthun/helpful-react";
+import { IZEvolution } from "@zthun/pokedex";
+import { ZHttpService } from "@zthun/webigail-http";
+import { createContext, useContext } from "react";
+import {
+  IZResourceService,
+  ZResourceService,
+} from "../resource/resource-service.mjs";
 
 function createEvolutionService(): IZResourceService<IZEvolution> {
-  return new ZResourceService<IZEvolution>(new ZHttpService(), 'evolutions');
+  return new ZResourceService<IZEvolution>(new ZHttpService(), "evolutions");
 }
 
 export const ZEvolutionServiceContext = createContext(createEvolutionService());

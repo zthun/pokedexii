@@ -1,9 +1,9 @@
-import { ZCircusBy, ZCircusComponentModel } from '@zthun/cirque';
-import { ZResourceCardComponentModel } from '../resource/resource-card.cm.mjs';
-import { ZEvolutionNodeListComponentModel } from './evolution-node-list.cm.mjs';
+import { ZCircusBy, ZCircusComponentModel } from "@zthun/cirque";
+import { ZResourceCardComponentModel } from "../resource/resource-card.cm.mjs";
+import { ZEvolutionNodeListComponentModel } from "./evolution-node-list.cm.mjs";
 
 export class ZEvolutionChainCardComponentModel extends ZCircusComponentModel {
-  public static readonly Selector = '.ZEvolutionChainCard-root';
+  public static readonly Selector = ".ZEvolutionChainCard-root";
 
   public asResourceCard(): ZResourceCardComponentModel {
     return new ZResourceCardComponentModel(this.driver);

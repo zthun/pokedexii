@@ -1,4 +1,4 @@
-import { IZDataRequest, IZPage } from '@zthun/helpful-query';
+import { IZDataRequest, IZPage } from "@zthun/helpful-query";
 
 export interface IZResourceListService<TProjection> {
   list(request: IZDataRequest): Promise<IZPage<TProjection>>;

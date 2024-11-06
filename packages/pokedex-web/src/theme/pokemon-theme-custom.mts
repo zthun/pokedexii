@@ -1,13 +1,19 @@
-import { IZFashion, ZFashionBuilder, fromRgb, rgb, white } from '@zthun/fashion-theme';
-import { ZType } from '@zthun/pokedex';
+import {
+  IZFashion,
+  ZFashionBuilder,
+  fromRgb,
+  rgb,
+  white,
+} from "@zthun/fashion-theme";
+import { ZType } from "@zthun/pokedex";
 import {
   createAttackStatFashion,
   createDefenseStatFashion,
   createHpStatFashion,
   createSpecialAttackStatFashion,
   createSpecialDefenseStatFashion,
-  createSpeedStatFashion
-} from './pokemon-theme-custom-stats.mjs';
+  createSpeedStatFashion,
+} from "./pokemon-theme-custom-stats.mjs";
 import {
   createBugTypeFashion,
   createDarkTypeFashion,
@@ -28,8 +34,8 @@ import {
   createShadowTypeFashion,
   createSteelTypeFashion,
   createUnknownTypeFashion,
-  createWaterTypeFashion
-} from './pokemon-theme-custom-types.mjs';
+  createWaterTypeFashion,
+} from "./pokemon-theme-custom-types.mjs";
 
 export interface IZPokemonThemeCustom {
   stats: {
@@ -46,11 +52,11 @@ export interface IZPokemonThemeCustom {
 
 function createEvolutionFashion() {
   return new ZFashionBuilder()
-    .name('Evolution')
+    .name("Evolution")
     .spectrum(fromRgb(90, 90, 90))
     .border(white())
     .focus({
-      border: rgb(144, 202, 249)
+      border: rgb(144, 202, 249),
     })
     .contrast(white())
     .build();
@@ -64,7 +70,7 @@ export function createPokemonThemeCustom(): IZPokemonThemeCustom {
       defense: createDefenseStatFashion(),
       specialAttack: createSpecialAttackStatFashion(),
       specialDefense: createSpecialDefenseStatFashion(),
-      speed: createSpeedStatFashion()
+      speed: createSpeedStatFashion(),
     },
     types: {
       [ZType.Unknown]: createUnknownTypeFashion(),
@@ -86,8 +92,8 @@ export function createPokemonThemeCustom(): IZPokemonThemeCustom {
       [ZType.Dragon]: createDragonTypeFashion(),
       [ZType.Dark]: createDarkTypeFashion(),
       [ZType.Fairy]: createFairyTypeFashion(),
-      [ZType.Shadow]: createShadowTypeFashion()
+      [ZType.Shadow]: createShadowTypeFashion(),
     },
-    evolution: createEvolutionFashion()
+    evolution: createEvolutionFashion(),
   };
 }

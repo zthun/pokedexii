@@ -1,44 +1,57 @@
-import { Inject, Injectable } from '@nestjs/common';
-import { IZDatabaseDocument } from '@zthun/dalmart-db';
-import { firstDefined } from '@zthun/helpful-fn';
-import { IZPokemon, IZPokemonAbility, IZPokemonWeakness, ZPokemonBuilder, ZType } from '@zthun/pokedex';
-import { keyBy, mapValues } from 'lodash-es';
-import { IZConverter } from '../convert/converter.mjs';
-import { ZDatabaseToken, ZPokedexCollection } from '../database/pokedex-database.mjs';
-import { IPokeApiType } from '../type/type.mjs';
-import { IPokeApiPokemon } from './pokemon.mjs';
+import { Inject, Injectable } from "@nestjs/common";
+import { IZDatabaseDocument } from "@zthun/dalmart-db";
+import { firstDefined } from "@zthun/helpful-fn";
+import {
+  IZPokemon,
+  IZPokemonAbility,
+  IZPokemonWeakness,
+  ZPokemonBuilder,
+  ZType,
+} from "@zthun/pokedex";
+import { keyBy, mapValues } from "lodash-es";
+import { IZConverter } from "../convert/converter.mjs";
+import {
+  ZDatabaseToken,
+  ZPokedexCollection,
+} from "../database/pokedex-database.mjs";
+import { IPokeApiType } from "../type/type.mjs";
+import { IPokeApiPokemon } from "./pokemon.mjs";
 
 @Injectable()
-export class ZPokemonConvert implements IZConverter<IPokeApiPokemon[], IZPokemon[]> {
-  public constructor(@Inject(ZDatabaseToken) private readonly _dal: IZDatabaseDocument) {}
+export class ZPokemonConvert
+  implements IZConverter<IPokeApiPokemon[], IZPokemon[]>
+{
+  public constructor(
+    @Inject(ZDatabaseToken) private readonly _dal: IZDatabaseDocument,
+  ) {}
 
   public async convert(resources: IPokeApiPokemon[]): Promise<IZPokemon[]> {
     const $types = await this._dal.read<IPokeApiType>(ZPokedexCollection.Type);
     const $typeLookup = keyBy($types, (t) => t.name);
 
     return resources.map((resource) => {
-      const official = resource.sprites?.other['official-artwork'];
+      const official = resource.sprites?.other["official-artwork"];
       const artwork = firstDefined(
-        '',
+        "",
         official?.front_default,
         official?.front_female,
         official?.front_shiny,
-        official?.front_shiny_female
+        official?.front_shiny_female,
       );
 
       const stats = keyBy(resource.stats, (s) => s.stat.name!);
-      const hp = stats['hp'];
-      const attack = stats['attack'];
-      const defense = stats['defense'];
-      const specialAttack = stats['special-attack'];
-      const specialDefense = stats['special-defense'];
-      const speed = stats['speed'];
+      const hp = stats["hp"];
+      const attack = stats["attack"];
+      const defense = stats["defense"];
+      const specialAttack = stats["special-attack"];
+      const specialDefense = stats["special-defense"];
+      const speed = stats["speed"];
 
       const types = resource.types.map((t) => t.type.name as ZType);
 
       const abilities: IZPokemonAbility[] = resource.abilities.map((a) => ({
         name: a.ability.name!,
-        hidden: a.is_hidden
+        hidden: a.is_hidden,
       }));
 
       // Calculating the weaknesses of the pokemon is done through the number of types that they take double
@@ -50,13 +63,24 @@ export class ZPokemonConvert implements IZConverter<IPokeApiPokemon[], IZPokemon
       const _types = types.map((t) => $typeLookup[t]);
 
       _types.forEach((type) => {
-        type.damage_relations.double_damage_from.map((dd) => dd.name!).forEach((dd) => (damageMap[dd] *= 2));
-        type.damage_relations.half_damage_from.map((hd) => hd.name!).forEach((hd) => (damageMap[hd] *= 0.5));
-        type.damage_relations.no_damage_from.map((nd) => nd.name!).forEach((nd) => (damageMap[nd] *= 0));
+        type.damage_relations.double_damage_from
+          .map((dd) => dd.name!)
+          .forEach((dd) => (damageMap[dd] *= 2));
+        type.damage_relations.half_damage_from
+          .map((hd) => hd.name!)
+          .forEach((hd) => (damageMap[hd] *= 0.5));
+        type.damage_relations.no_damage_from
+          .map((nd) => nd.name!)
+          .forEach((nd) => (damageMap[nd] *= 0));
       });
 
-      const results = Object.keys(damageMap).map((type: ZType) => ({ type, damage: damageMap[type] }));
-      const weaknesses = results.filter((r) => r.damage > 1).map((r) => r as IZPokemonWeakness);
+      const results = Object.keys(damageMap).map((type: ZType) => ({
+        type,
+        damage: damageMap[type],
+      }));
+      const weaknesses = results
+        .filter((r) => r.damage > 1)
+        .map((r) => r as IZPokemonWeakness);
 
       return new ZPokemonBuilder()
         .id(resource.id)

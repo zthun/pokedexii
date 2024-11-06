@@ -1,6 +1,6 @@
-import { IZPokemon, ZPokemonBuilder } from '@zthun/pokedex';
-import { ZPokedexCollection } from '../database/pokedex-database.mjs';
-import { IPokeApiResource, ZPokeApiResource } from '../resource/resource.mjs';
+import { IZPokemon, ZPokemonBuilder } from "@zthun/pokedex";
+import { ZPokedexCollection } from "../database/pokedex-database.mjs";
+import { IPokeApiResource, ZPokeApiResource } from "../resource/resource.mjs";
 
 interface IPokeApiPokemonAbility {
   is_hidden: boolean;
@@ -46,9 +46,9 @@ interface IPokeApiPokemonSpriteFrames {
 
 interface IPokeApiPokemonSprites extends IPokeApiPokemonSpriteFrames {
   other: {
-    'dream_world'?: IPokeApiPokemonSpriteFrames;
-    'home'?: IPokeApiPokemonSpriteFrames;
-    'official-artwork'?: IPokeApiPokemonSpriteFrames;
+    dream_world?: IPokeApiPokemonSpriteFrames;
+    home?: IPokeApiPokemonSpriteFrames;
+    "official-artwork"?: IPokeApiPokemonSpriteFrames;
   };
   // TODO:  The version stuff here is nuts.  I'm leaving that off for the time being.
 }
@@ -94,9 +94,13 @@ export class ZPokeApiPokemonBuilder {
   public from(other: IZPokemon) {
     this._pokemon = {
       abilities: other.abilities.map((a, i) => ({
-        ability: ZPokeApiResource.toResource(ZPokedexCollection.Pokemon, a.name, a.name),
+        ability: ZPokeApiResource.toResource(
+          ZPokedexCollection.Pokemon,
+          a.name,
+          a.name,
+        ),
         is_hidden: a.hidden,
-        slot: i
+        slot: i,
       })),
       base_experience: 1,
       forms: [],
@@ -105,55 +109,64 @@ export class ZPokeApiPokemonBuilder {
       held_items: [],
       id: other.id,
       is_default: true,
-      location_area_encounters: '',
+      location_area_encounters: "",
       moves: [],
       name: other.name,
       order: 1,
-      species: ZPokeApiResource.toResource(ZPokedexCollection.PokemonSpecies, other.name),
+      species: ZPokeApiResource.toResource(
+        ZPokedexCollection.PokemonSpecies,
+        other.name,
+      ),
       sprites: {
         other: {
-          'official-artwork': {
-            front_default: other.artwork
-          }
-        }
+          "official-artwork": {
+            front_default: other.artwork,
+          },
+        },
       },
       stats: [
         {
-          stat: ZPokeApiResource.toResource(ZPokedexCollection.Stat, 'hp'),
+          stat: ZPokeApiResource.toResource(ZPokedexCollection.Stat, "hp"),
           base_stat: other.stats.hp.base,
-          effort: other.stats.hp.effort
+          effort: other.stats.hp.effort,
         },
         {
-          stat: ZPokeApiResource.toResource(ZPokedexCollection.Stat, 'attack'),
+          stat: ZPokeApiResource.toResource(ZPokedexCollection.Stat, "attack"),
           base_stat: other.stats.attack.base,
-          effort: other.stats.attack.effort
+          effort: other.stats.attack.effort,
         },
         {
-          stat: ZPokeApiResource.toResource(ZPokedexCollection.Stat, 'defense'),
+          stat: ZPokeApiResource.toResource(ZPokedexCollection.Stat, "defense"),
           base_stat: other.stats.defense.base,
-          effort: other.stats.defense.effort
+          effort: other.stats.defense.effort,
         },
         {
-          stat: ZPokeApiResource.toResource(ZPokedexCollection.Stat, 'special-attack'),
+          stat: ZPokeApiResource.toResource(
+            ZPokedexCollection.Stat,
+            "special-attack",
+          ),
           base_stat: other.stats.specialAttack.base,
-          effort: other.stats.specialAttack.effort
+          effort: other.stats.specialAttack.effort,
         },
         {
-          stat: ZPokeApiResource.toResource(ZPokedexCollection.Stat, 'special-defense'),
+          stat: ZPokeApiResource.toResource(
+            ZPokedexCollection.Stat,
+            "special-defense",
+          ),
           base_stat: other.stats.specialDefense.base,
-          effort: other.stats.specialDefense.effort
+          effort: other.stats.specialDefense.effort,
         },
         {
-          stat: ZPokeApiResource.toResource(ZPokedexCollection.Stat, 'speed'),
+          stat: ZPokeApiResource.toResource(ZPokedexCollection.Stat, "speed"),
           base_stat: other.stats.speed.base,
-          effort: other.stats.speed.effort
-        }
+          effort: other.stats.speed.effort,
+        },
       ],
       types: other.types.map((t, i) => ({
         slot: i + 1,
-        type: ZPokeApiResource.toResource(ZPokedexCollection.Type, t)
+        type: ZPokeApiResource.toResource(ZPokedexCollection.Type, t),
       })),
-      weight: other.weight
+      weight: other.weight,
     };
     return this;
   }

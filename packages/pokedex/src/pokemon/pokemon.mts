@@ -1,6 +1,6 @@
-import { ZUrlBuilder } from '@zthun/webigail-url';
-import { IZResource } from '../resource/resource.mjs';
-import { ZType } from '../type/type.mjs';
+import { ZUrlBuilder } from "@zthun/webigail-url";
+import { IZResource } from "../resource/resource.mjs";
+import { ZType } from "../type/type.mjs";
 
 /**
  * The maximum base stat a pokemon can have.
@@ -114,7 +114,7 @@ export class ZPokemonBuilder {
   public constructor() {
     this._pokemon = {
       id: 0,
-      name: 'missingno',
+      name: "missingno",
       height: 0,
       weight: 0,
       stats: {
@@ -123,11 +123,11 @@ export class ZPokemonBuilder {
         defense: { base: 0, effort: 0 },
         specialAttack: { base: 0, effort: 0 },
         specialDefense: { base: 0, effort: 0 },
-        speed: { base: 0, effort: 0 }
+        speed: { base: 0, effort: 0 },
       },
       types: [],
       weaknesses: [],
-      abilities: []
+      abilities: [],
     };
   }
 
@@ -182,14 +182,14 @@ export class ZPokemonBuilder {
    *        This object.
    */
   public art(id: number): this {
-    const url = new ZUrlBuilder('https', 'raw.githubusercontent.com')
-      .append('PokeAPI')
-      .append('sprites')
-      .append('master')
-      .append('sprites')
-      .append('pokemon')
-      .append('other')
-      .append('official-artwork')
+    const url = new ZUrlBuilder("https", "raw.githubusercontent.com")
+      .append("PokeAPI")
+      .append("sprites")
+      .append("master")
+      .append("sprites")
+      .append("pokemon")
+      .append("other")
+      .append("official-artwork")
       .append(`${id}.png`)
       .build();
 
@@ -276,7 +276,9 @@ export class ZPokemonBuilder {
    *        This object.
    */
   public ability(ability: string, hidden = false) {
-    return this.abilities(this._pokemon.abilities.concat({ name: ability, hidden }));
+    return this.abilities(
+      this._pokemon.abilities.concat({ name: ability, hidden }),
+    );
   }
 
   /**
@@ -441,11 +443,11 @@ export class ZPokemonBuilder {
    */
   public bulbasaur() {
     return this.id(1)
-      .name('bulbasaur')
+      .name("bulbasaur")
       .type(ZType.Grass)
       .type(ZType.Poison)
-      .ability('overgrow')
-      .ability('chlorophyll', true)
+      .ability("overgrow")
+      .ability("chlorophyll", true)
       .doubleDamageFrom(ZType.Fire)
       .doubleDamageFrom(ZType.Flying)
       .doubleDamageFrom(ZType.Ice)
@@ -472,10 +474,10 @@ export class ZPokemonBuilder {
    */
   public charmander() {
     return this.id(4)
-      .name('charmander')
+      .name("charmander")
       .type(ZType.Fire)
-      .ability('blaze')
-      .ability('solar-power', true)
+      .ability("blaze")
+      .ability("solar-power", true)
       .doubleDamageFrom(ZType.Ground)
       .doubleDamageFrom(ZType.Rock)
       .doubleDamageFrom(ZType.Water)
@@ -501,11 +503,11 @@ export class ZPokemonBuilder {
    */
   public charizard() {
     return this.id(6)
-      .name('charizard')
+      .name("charizard")
       .type(ZType.Fire)
       .type(ZType.Flying)
-      .ability('blaze')
-      .ability('solar-power', true)
+      .ability("blaze")
+      .ability("solar-power", true)
       .doubleDamageFrom(ZType.Electric)
       .quadrupleDamageFrom(ZType.Rock)
       .doubleDamageFrom(ZType.Water)
@@ -531,10 +533,10 @@ export class ZPokemonBuilder {
    */
   public charizardMegaX() {
     return this.id(10034)
-      .name('charizard-mega-x')
+      .name("charizard-mega-x")
       .type(ZType.Fire)
       .type(ZType.Dragon)
-      .ability('tough-claws')
+      .ability("tough-claws")
       .doubleDamageFrom(ZType.Dragon)
       .doubleDamageFrom(ZType.Ground)
       .doubleDamageFrom(ZType.Rock)
@@ -560,10 +562,10 @@ export class ZPokemonBuilder {
    */
   public charizardMegaY() {
     return this.id(10035)
-      .name('charizard-mega-y')
+      .name("charizard-mega-y")
       .type(ZType.Fire)
       .type(ZType.Flying)
-      .ability('drought')
+      .ability("drought")
       .doubleDamageFrom(ZType.Electric)
       .quadrupleDamageFrom(ZType.Rock)
       .doubleDamageFrom(ZType.Water)
@@ -589,11 +591,11 @@ export class ZPokemonBuilder {
    */
   public charizardGMax() {
     return this.id(10035)
-      .name('charizard-mega-y')
+      .name("charizard-mega-y")
       .type(ZType.Fire)
       .type(ZType.Flying)
-      .ability('blaze')
-      .ability('solar-power', true)
+      .ability("blaze")
+      .ability("solar-power", true)
       .doubleDamageFrom(ZType.Electric)
       .quadrupleDamageFrom(ZType.Rock)
       .doubleDamageFrom(ZType.Water)
@@ -619,10 +621,10 @@ export class ZPokemonBuilder {
    */
   public squirtle() {
     return this.id(7)
-      .name('squirtle')
+      .name("squirtle")
       .type(ZType.Water)
-      .ability('torrent')
-      .ability('rain-dish', true)
+      .ability("torrent")
+      .ability("rain-dish", true)
       .doubleDamageFrom(ZType.Electric)
       .doubleDamageFrom(ZType.Grass)
       .hp(44)
@@ -647,10 +649,10 @@ export class ZPokemonBuilder {
    */
   public pikachu() {
     return this.id(25)
-      .name('pikachu')
+      .name("pikachu")
       .type(ZType.Electric)
-      .ability('static')
-      .ability('lightning-rod', true)
+      .ability("static")
+      .ability("lightning-rod", true)
       .doubleDamageFrom(ZType.Ground)
       .hp(35)
       .attack(55)
@@ -674,12 +676,12 @@ export class ZPokemonBuilder {
    */
   public ralts() {
     return this.id(280)
-      .name('ralts')
+      .name("ralts")
       .type(ZType.Psychic)
       .type(ZType.Fairy)
-      .ability('synchronize')
-      .ability('trace')
-      .ability('telepathy', true)
+      .ability("synchronize")
+      .ability("trace")
+      .ability("telepathy", true)
       .doubleDamageFrom(ZType.Ghost)
       .doubleDamageFrom(ZType.Poison)
       .doubleDamageFrom(ZType.Steel)
@@ -705,12 +707,12 @@ export class ZPokemonBuilder {
    */
   public kirlia() {
     return this.id(281)
-      .name('kirlia')
+      .name("kirlia")
       .type(ZType.Psychic)
       .type(ZType.Fairy)
-      .ability('synchronize')
-      .ability('trace')
-      .ability('telepathy', true)
+      .ability("synchronize")
+      .ability("trace")
+      .ability("telepathy", true)
       .doubleDamageFrom(ZType.Ghost)
       .doubleDamageFrom(ZType.Poison)
       .doubleDamageFrom(ZType.Steel)
@@ -736,12 +738,12 @@ export class ZPokemonBuilder {
    */
   public gardevoir() {
     return this.id(282)
-      .name('gardevoir')
+      .name("gardevoir")
       .type(ZType.Psychic)
       .type(ZType.Fairy)
-      .ability('synchronize')
-      .ability('trace')
-      .ability('telepathy', true)
+      .ability("synchronize")
+      .ability("trace")
+      .ability("telepathy", true)
       .doubleDamageFrom(ZType.Ghost)
       .doubleDamageFrom(ZType.Poison)
       .doubleDamageFrom(ZType.Steel)
@@ -767,12 +769,12 @@ export class ZPokemonBuilder {
    */
   public gallade() {
     return this.id(475)
-      .name('gallade')
+      .name("gallade")
       .type(ZType.Psychic)
       .type(ZType.Fighting)
-      .ability('steadfast')
-      .ability('sharpness')
-      .ability('justified', true)
+      .ability("steadfast")
+      .ability("sharpness")
+      .ability("justified", true)
       .doubleDamageFrom(ZType.Fairy)
       .doubleDamageFrom(ZType.Flying)
       .doubleDamageFrom(ZType.Ghost)
