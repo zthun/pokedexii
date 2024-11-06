@@ -2,7 +2,7 @@ import { Inject, Injectable } from '@nestjs/common';
 import { IZDatabaseDocument } from '@zthun/dalmart-db';
 import { firstDefined } from '@zthun/helpful-fn';
 import { IZPokemon, IZPokemonAbility, IZPokemonWeakness, ZPokemonBuilder, ZType } from '@zthun/pokedex';
-import { keyBy, mapValues } from 'lodash';
+import { keyBy, mapValues } from 'lodash-es';
 import { IZConverter } from '../convert/converter';
 import { ZDatabaseToken, ZPokedexCollection } from '../database/pokedex-database';
 import { IPokeApiType } from '../type/type';

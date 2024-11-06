@@ -1,5 +1,5 @@
 import { firstDefined } from '@zthun/helpful-fn';
-import { last, split, trim, trimEnd } from 'lodash';
+import { last, split, trim, trimEnd } from 'lodash-es';
 import { ZPokedexCollection } from '../database/pokedex-database';
 
 export const PokeApiUrl = 'https://pokeapi.co/api/v2';
