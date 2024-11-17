@@ -1,7 +1,6 @@
 import { ZCircusBy, ZCircusComponentModel } from "@zthun/cirque";
 import {
   ZAlertComponentModel,
-  ZCardComponentModel,
   ZSuspenseComponentModel,
 } from "@zthun/fashion-boutique";
 
@@ -16,11 +15,16 @@ export class ZResourceCardComponentModel extends ZCircusComponentModel {
     );
   }
 
-  public loading(): Promise<boolean> {
-    return new ZCardComponentModel(this.driver).loading();
+  public async loading(): Promise<boolean> {
+    const suspense = await ZCircusBy.optional(
+      this.driver,
+      ZSuspenseComponentModel,
+    );
+
+    return suspense != null;
   }
 
   public async load(): Promise<void> {
-    await ZSuspenseComponentModel.load(this.driver);
+    return this.driver.wait(() => this.loading().then((l) => !l));
   }
 }

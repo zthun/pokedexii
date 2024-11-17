@@ -2,20 +2,21 @@ import {
   IZCard,
   IZComponentName,
   IZComponentStyle,
+  useFashionTheme,
   ZAlert,
   ZCard,
   ZIconFontAwesome,
+  ZSuspenseProgress,
 } from "@zthun/fashion-boutique";
 import { ZSizeFixed } from "@zthun/fashion-tailor";
 import { cssJoinDefined } from "@zthun/helpful-fn";
 import {
-  ZAsyncDataState,
   isStateErrored,
   isStateLoading,
+  ZAsyncDataState,
 } from "@zthun/helpful-react";
 import { castArray, find } from "lodash-es";
-import React, { ReactNode } from "react";
-import { usePokemonTheme } from "../theme/pokemon-theme.mjs";
+import { ReactNode } from "react";
 
 export interface IZResourceCard<T> extends IZComponentName, IZComponentStyle {
   CardProps?: Omit<IZCard, "children" | "loading" | "name" | "className">;
@@ -26,13 +27,13 @@ export interface IZResourceCard<T> extends IZComponentName, IZComponentStyle {
 
 export function ZResourceCard<T>(props: IZResourceCard<T>) {
   const { CardProps, children, className, name, resource } = props;
-  const { error } = usePokemonTheme();
+  const { error } = useFashionTheme();
   const resource$ = castArray(resource);
   const _loading = resource$.some((r) => isStateLoading(r));
 
   const renderContent = () => {
     if (_loading) {
-      return null;
+      return <ZSuspenseProgress height={ZSizeFixed.Medium} />;
     }
 
     const resource$$ = resource$ as (Error | T)[];
@@ -66,7 +67,6 @@ export function ZResourceCard<T>(props: IZResourceCard<T>) {
     <ZCard
       {...CardProps}
       className={cssJoinDefined("ZResourceCard-root", className)}
-      loading={_loading}
       name={name}
     >
       {renderContent()}
