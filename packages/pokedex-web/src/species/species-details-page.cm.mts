@@ -39,6 +39,8 @@ export class ZSpeciesDetailsPageComponentModel extends ZCircusComponentModel {
   }
 
   public async load(): Promise<void> {
-    await ZSuspenseComponentModel.load(this.driver);
+    return this.driver.wait(() =>
+      ZCircusBy.optional(this.driver, ZSuspenseComponentModel).then((o) => !o),
+    );
   }
 }

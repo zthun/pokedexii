@@ -1,6 +1,6 @@
 import { ZCircusBy } from "@zthun/cirque";
 import { ZCircusSetupRenderer } from "@zthun/cirque-du-react";
-import { ZFashionThemeContext, ZTestRouter } from "@zthun/fashion-boutique";
+import { ZTestRouter } from "@zthun/fashion-boutique";
 import {
   ZDataRequestBuilder,
   ZDataSearchFields,
@@ -15,12 +15,10 @@ import {
   ZSpeciesBuilder,
 } from "@zthun/pokedex";
 import { MemoryHistory, createMemoryHistory } from "history";
-import React from "react";
 import { Mocked, beforeEach, describe, expect, it } from "vitest";
 import { mock } from "vitest-mock-extended";
 import { ZPokemonServiceContext } from "../pokemon/pokemon-service.mjs";
 import { IZResourceService } from "../resource/resource-service.mjs";
-import { createPokemonTheme } from "../theme/pokemon-theme.mjs";
 import { ZSpeciesListPage } from "./species-list-page";
 import { ZPokemonListPageComponentModel } from "./species-list-page.cm.mjs";
 import { ZSpeciesServiceContext } from "./species-service.mjs";
@@ -37,15 +35,13 @@ describe("ZSpeciesListPage", () => {
 
   async function createTestTarget() {
     const element = (
-      <ZFashionThemeContext.Provider value={createPokemonTheme()}>
-        <ZTestRouter navigator={history} location={history.location}>
-          <ZPokemonServiceContext.Provider value={pokemonService}>
-            <ZSpeciesServiceContext.Provider value={speciesService}>
-              <ZSpeciesListPage />
-            </ZSpeciesServiceContext.Provider>
-          </ZPokemonServiceContext.Provider>
-        </ZTestRouter>
-      </ZFashionThemeContext.Provider>
+      <ZTestRouter navigator={history} location={history.location}>
+        <ZPokemonServiceContext.Provider value={pokemonService}>
+          <ZSpeciesServiceContext.Provider value={speciesService}>
+            <ZSpeciesListPage />
+          </ZSpeciesServiceContext.Provider>
+        </ZPokemonServiceContext.Provider>
+      </ZTestRouter>
     );
     const driver = await new ZCircusSetupRenderer(element).setup();
     const target = await ZCircusBy.first(

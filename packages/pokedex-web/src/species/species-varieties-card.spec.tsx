@@ -1,6 +1,5 @@
 import { ZCircusBy } from "@zthun/cirque";
 import { ZCircusSetupRenderer } from "@zthun/cirque-du-react";
-import { ZFashionThemeContext } from "@zthun/fashion-boutique";
 import {
   ZDataRequestBuilder,
   ZDataSourceStatic,
@@ -12,12 +11,10 @@ import {
   ZPokemonBuilder,
   ZSpeciesBuilder,
 } from "@zthun/pokedex";
-import React from "react";
 import { Mock, Mocked, beforeEach, describe, expect, it, vi } from "vitest";
 import { mock } from "vitest-mock-extended";
 import { ZPokemonServiceContext } from "../pokemon/pokemon-service.mjs";
 import { IZResourceService } from "../resource/resource-service.mjs";
-import { createPokemonTheme } from "../theme/pokemon-theme.mjs";
 import { ZSpeciesServiceContext } from "./species-service.mjs";
 import { ZSpeciesVarietiesCard } from "./species-varieties-card";
 import { ZSpeciesVarietiesCardComponentModel } from "./species-varieties-card.cm.mjs";
@@ -35,17 +32,15 @@ describe("ZSpeciesVarietiesCard", () => {
 
   const createTestTarget = async () => {
     const element = (
-      <ZFashionThemeContext.Provider value={createPokemonTheme()}>
-        <ZSpeciesServiceContext.Provider value={speciesService}>
-          <ZPokemonServiceContext.Provider value={pokemonService}>
-            <ZSpeciesVarietiesCard
-              speciesName={charizard$.name}
-              value={value}
-              onValueChange={onValueChange}
-            />
-          </ZPokemonServiceContext.Provider>
-        </ZSpeciesServiceContext.Provider>
-      </ZFashionThemeContext.Provider>
+      <ZSpeciesServiceContext.Provider value={speciesService}>
+        <ZPokemonServiceContext.Provider value={pokemonService}>
+          <ZSpeciesVarietiesCard
+            speciesName={charizard$.name}
+            value={value}
+            onValueChange={onValueChange}
+          />
+        </ZPokemonServiceContext.Provider>
+      </ZSpeciesServiceContext.Provider>
     );
 
     const driver = await new ZCircusSetupRenderer(element).setup();

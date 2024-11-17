@@ -1,14 +1,9 @@
-import {
-  ZCaption,
-  ZH3,
-  ZImageSource,
-  createStyleHook,
-} from "@zthun/fashion-boutique";
+import { ZCaption, ZH3, ZImageSource } from "@zthun/fashion-boutique";
 import { ZSizeFixed } from "@zthun/fashion-tailor";
 import { cssJoinDefined } from "@zthun/helpful-fn";
 import { IZSpecies } from "@zthun/pokedex";
 import { padStart, startCase } from "lodash-es";
-import React, { MouseEventHandler } from "react";
+import { MouseEventHandler } from "react";
 import { ZTypeBadges } from "../type/type-badges";
 
 /**
@@ -26,6 +21,7 @@ export interface IZSpeciesCard {
   onClick?: MouseEventHandler<HTMLDivElement>;
 }
 
+/*
 const useSpeciesCardStyles = createStyleHook(({ theme, tailor }) => ({
   root: {
     borderRadius: "0.5rem",
@@ -53,18 +49,18 @@ const useSpeciesCardStyles = createStyleHook(({ theme, tailor }) => ({
     marginTop: tailor.gap(),
   },
 }));
+*/
 
 /**
  * A component that displays quick species information.
  */
 export function ZSpeciesCard(props: IZSpeciesCard) {
   const { species, onClick } = props;
-  const { classes } = useSpeciesCardStyles();
 
   const renderContent = () => {
     return (
       <>
-        <div className={cssJoinDefined("ZSpeciesCard-media", classes.media)}>
+        <div className={cssJoinDefined("ZSpeciesCard-media")}>
           <ZImageSource
             src={species.artwork}
             width={ZSizeFixed.Large}
@@ -74,7 +70,7 @@ export function ZSpeciesCard(props: IZSpeciesCard) {
         <ZCaption className={cssJoinDefined("ZSpeciesCard-number")} compact>
           #{padStart(String(species.id), 4, "0")}
         </ZCaption>
-        <ZH3 className={cssJoinDefined("ZSpeciesCard-title", classes.title)}>
+        <ZH3 className={cssJoinDefined("ZSpeciesCard-title")}>
           {startCase(species.name)}
         </ZH3>
         <ZTypeBadges types={species.types} />
@@ -84,7 +80,7 @@ export function ZSpeciesCard(props: IZSpeciesCard) {
 
   return (
     <div
-      className={cssJoinDefined("ZSpeciesCard-root", classes.root)}
+      className={cssJoinDefined("ZSpeciesCard-root")}
       onClick={onClick}
       data-name={species.name}
     >

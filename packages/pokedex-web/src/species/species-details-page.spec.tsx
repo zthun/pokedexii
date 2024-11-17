@@ -1,11 +1,6 @@
 import { ZCircusBy } from "@zthun/cirque";
 import { ZCircusSetupRenderer } from "@zthun/cirque-du-react";
-import {
-  ZFashionThemeContext,
-  ZRoute,
-  ZRouteMap,
-  ZTestRouter,
-} from "@zthun/fashion-boutique";
+import { ZRoute, ZRouteMap, ZTestRouter } from "@zthun/fashion-boutique";
 import {
   IZEvolution,
   IZPokemon,
@@ -15,13 +10,11 @@ import {
   ZSpeciesBuilder,
 } from "@zthun/pokedex";
 import { History, createMemoryHistory } from "history";
-import React from "react";
 import { Mocked, beforeEach, describe, expect, it } from "vitest";
 import { mock } from "vitest-mock-extended";
 import { ZEvolutionServiceContext } from "../evolution/evolution-service.mjs";
 import { ZPokemonServiceContext } from "../pokemon/pokemon-service.mjs";
 import { IZResourceService } from "../resource/resource-service.mjs";
-import { createPokemonTheme } from "../theme/pokemon-theme.mjs";
 import { ZSpeciesDetailsPage } from "./species-details-page";
 import { ZSpeciesDetailsPageComponentModel } from "./species-details-page.cm.mjs";
 import { ZSpeciesServiceContext } from "./species-service.mjs";
@@ -36,26 +29,21 @@ describe("ZSpeciesDetailsPage", () => {
 
   const createTestTarget = async () => {
     const element = (
-      <ZFashionThemeContext.Provider value={createPokemonTheme()}>
-        <ZSpeciesServiceContext.Provider value={speciesService}>
-          <ZPokemonServiceContext.Provider value={pokemonService}>
-            <ZEvolutionServiceContext.Provider value={evolutionService}>
-              <ZTestRouter navigator={history} location={history.location}>
-                <ZRouteMap>
-                  <ZRoute
-                    path="/pokemon/:name"
-                    element={<ZSpeciesDetailsPage />}
-                  />
-                  <ZRoute
-                    path="/not-pokemon"
-                    element={<ZSpeciesDetailsPage />}
-                  />
-                </ZRouteMap>
-              </ZTestRouter>
-            </ZEvolutionServiceContext.Provider>
-          </ZPokemonServiceContext.Provider>
-        </ZSpeciesServiceContext.Provider>
-      </ZFashionThemeContext.Provider>
+      <ZSpeciesServiceContext.Provider value={speciesService}>
+        <ZPokemonServiceContext.Provider value={pokemonService}>
+          <ZEvolutionServiceContext.Provider value={evolutionService}>
+            <ZTestRouter navigator={history} location={history.location}>
+              <ZRouteMap>
+                <ZRoute
+                  path="/pokemon/:name"
+                  element={<ZSpeciesDetailsPage />}
+                />
+                <ZRoute path="/not-pokemon" element={<ZSpeciesDetailsPage />} />
+              </ZRouteMap>
+            </ZTestRouter>
+          </ZEvolutionServiceContext.Provider>
+        </ZPokemonServiceContext.Provider>
+      </ZSpeciesServiceContext.Provider>
     );
     const driver = await new ZCircusSetupRenderer(element).setup();
     const target = await ZCircusBy.first(
