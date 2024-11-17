@@ -1,23 +1,82 @@
-import { IZThemeUtility, useFashionTheme } from "@zthun/fashion-boutique";
+import { IZFashion } from "@zthun/fashion-theme";
+import { ZType } from "@zthun/pokedex";
+import { createContext, useContext } from "react";
+import { createEvolutionFashion } from "./pokemon-theme-evolution.mjs";
 import {
-  IZFashionTheme,
-  ZFashionThemeBuilder,
-  createDarkTheme,
-} from "@zthun/fashion-theme";
+  createAttackStatFashion,
+  createDefenseStatFashion,
+  createHpStatFashion,
+  createSpecialAttackStatFashion,
+  createSpecialDefenseStatFashion,
+  createSpeedStatFashion,
+  IZPokemonThemeStats,
+} from "./pokemon-theme-stats.mjs";
 import {
-  IZPokemonThemeCustom,
-  createPokemonThemeCustom,
-} from "./pokemon-theme-custom.mjs";
+  createBugTypeFashion,
+  createDarkTypeFashion,
+  createDragonTypeFashion,
+  createElectricTypeFashion,
+  createFairyTypeFashion,
+  createFightingTypeFashion,
+  createFireTypeFashion,
+  createFlyingTypeFashion,
+  createGhostTypeFashion,
+  createGrassTypeFashion,
+  createGroundTypeFashion,
+  createIceTypeFashion,
+  createNormalTypeFashion,
+  createPoisonTypeFashion,
+  createPsychicTypeFashion,
+  createRockTypeFashion,
+  createShadowTypeFashion,
+  createSteelTypeFashion,
+  createUnknownTypeFashion,
+  createWaterTypeFashion,
+  IZPokemonThemeTypes,
+} from "./pokemon-theme-types.mjs";
 
-export interface IZPokemonTheme extends IZFashionTheme<IZPokemonThemeCustom> {}
-export interface IZPokemonThemeUtility
-  extends IZThemeUtility<IZPokemonThemeCustom> {}
-
-export const usePokemonTheme = () => useFashionTheme<IZPokemonThemeCustom>();
-
-export function createPokemonTheme(): IZFashionTheme<IZPokemonThemeCustom> {
-  return new ZFashionThemeBuilder()
-    .copy(createDarkTheme())
-    .custom(createPokemonThemeCustom())
-    .build();
+export interface IZPokemonTheme {
+  stats: IZPokemonThemeStats;
+  types: IZPokemonThemeTypes;
+  evolution: IZFashion;
 }
+
+export function createPokemonTheme(): IZPokemonTheme {
+  return {
+    stats: {
+      hp: createHpStatFashion(),
+      attack: createAttackStatFashion(),
+      defense: createDefenseStatFashion(),
+      specialAttack: createSpecialAttackStatFashion(),
+      specialDefense: createSpecialDefenseStatFashion(),
+      speed: createSpeedStatFashion(),
+    },
+    types: {
+      [ZType.Bug]: createBugTypeFashion(),
+      [ZType.Dark]: createDarkTypeFashion(),
+      [ZType.Dragon]: createDragonTypeFashion(),
+      [ZType.Electric]: createElectricTypeFashion(),
+      [ZType.Fairy]: createFairyTypeFashion(),
+      [ZType.Fighting]: createFightingTypeFashion(),
+      [ZType.Fire]: createFireTypeFashion(),
+      [ZType.Flying]: createFlyingTypeFashion(),
+      [ZType.Ghost]: createGhostTypeFashion(),
+      [ZType.Grass]: createGrassTypeFashion(),
+      [ZType.Ground]: createGroundTypeFashion(),
+      [ZType.Ice]: createIceTypeFashion(),
+      [ZType.Normal]: createNormalTypeFashion(),
+      [ZType.Poison]: createPoisonTypeFashion(),
+      [ZType.Psychic]: createPsychicTypeFashion(),
+      [ZType.Rock]: createRockTypeFashion(),
+      [ZType.Shadow]: createShadowTypeFashion(),
+      [ZType.Steel]: createSteelTypeFashion(),
+      [ZType.Unknown]: createUnknownTypeFashion(),
+      [ZType.Water]: createWaterTypeFashion(),
+    },
+    evolution: createEvolutionFashion(),
+  };
+}
+
+export const ZPokemonThemeContext = createContext(createPokemonTheme());
+
+export const usePokemonTheme = () => useContext(ZPokemonThemeContext);
