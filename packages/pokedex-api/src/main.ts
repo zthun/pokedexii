@@ -13,7 +13,7 @@ import { ZPokedexModule } from "./app/pokedex-module.mjs";
     .setVersion("1.0")
     .build();
 
-  const document = SwaggerModule.createDocument(app, config);
+  const document = () => SwaggerModule.createDocument(app, config);
   SwaggerModule.setup("api/docs", app, document);
 
   app.use(helmet());
