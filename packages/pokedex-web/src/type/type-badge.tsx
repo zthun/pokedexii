@@ -1,51 +1,35 @@
 import {
   IZComponentAdornment,
   IZComponentStyle,
+  useCss,
+  useFashionTailor,
   ZCaption,
+  ZFlex,
   ZImageSource,
-  ZLineItem,
   ZStack,
-  createStyleHook,
 } from "@zthun/fashion-boutique";
 import { ZSizeFixed } from "@zthun/fashion-tailor";
-import { ZOrientation, cssJoinDefined, firstDefined } from "@zthun/helpful-fn";
+import { ZColorPicker } from "@zthun/fashion-theme";
+import { css, cssJoinDefined, ZOrientation } from "@zthun/helpful-fn";
 import { ZType, ZTypeBuilder } from "@zthun/pokedex";
 import { startCase } from "lodash-es";
-import React, { useMemo } from "react";
-import { IZPokemonThemeUtility } from "../theme/pokemon-theme.mjs";
+import { useMemo } from "react";
+import { usePokemonTheme } from "../theme/pokemon-theme.mjs";
 
 export interface IZTypeBadge extends IZComponentStyle, IZComponentAdornment {
   compact?: boolean;
   type: ZType;
 }
 
-const useTypeBadgeStyles = createStyleHook(
-  ({ theme, tailor }: IZPokemonThemeUtility, props: IZTypeBadge) => {
-    const { type } = props;
-    const fashion = theme.custom.types[type];
-    const border = firstDefined(fashion.main, fashion.border);
-
-    return {
-      root: {
-        background: fashion.main,
-        border: `${tailor.thickness(ZSizeFixed.Medium)} solid ${border}`,
-        borderRadius: tailor.thickness(ZSizeFixed.ExtraLarge),
-        color: fashion.contrast,
-        padding: tailor.gap(ZSizeFixed.ExtraSmall),
-        textAlign: "center",
-        textTransform: "uppercase",
-      },
-    };
-  },
-);
-
 export function ZTypeBadge(props: IZTypeBadge) {
+  const { types } = usePokemonTheme();
+  const tailor = useFashionTailor();
   const { type, className, compact, suffix } = props;
-  const { classes } = useTypeBadgeStyles(props);
   const artwork = useMemo(
     () => new ZTypeBuilder().name(type).build().artwork,
     [type],
   );
+  const _type = useMemo(() => new ZColorPicker(types[type]), [type, types]);
 
   const renderBody = () => {
     const icon = (
@@ -64,9 +48,9 @@ export function ZTypeBadge(props: IZTypeBadge) {
 
     return (
       <ZStack
+        align={{ items: "center" }}
         gap={ZSizeFixed.Small}
         orientation={ZOrientation.Horizontal}
-        alignItems="center"
       >
         {icon}
         {body}
@@ -74,12 +58,28 @@ export function ZTypeBadge(props: IZTypeBadge) {
     );
   };
 
+  const _className = useCss(css`
+    & {
+      background: ${_type.idle.main};
+      border-color: ${_type.idle.border};
+      border-radius: ${tailor.rounding(ZSizeFixed.Small)};
+      border-style: solid;
+      border-width: ${tailor.thickness(ZSizeFixed.Medium)};
+      color: ${_type.idle.contrast};
+      padding: ${tailor.gap(ZSizeFixed.ExtraSmall)};
+      text-transform: uppercase;
+    }
+  `);
+
   return (
     <div
-      className={cssJoinDefined("ZTypeBadge-root", className, classes.root)}
+      className={cssJoinDefined("ZTypeBadge-root", _className, className)}
       data-name={type}
     >
-      <ZLineItem body={renderBody()} suffix={suffix} />
+      <ZStack orientation={ZOrientation.Horizontal}>
+        <ZFlex grow={1}>{renderBody()}</ZFlex>
+        <ZFlex grow={0}>{suffix}</ZFlex>
+      </ZStack>
     </div>
   );
 }

@@ -6,7 +6,7 @@ import {
 import { ZSizeFixed } from "@zthun/fashion-tailor";
 import { cssJoinDefined } from "@zthun/helpful-fn";
 import { IZPokemonWeakness, ZType } from "@zthun/pokedex";
-import React, { ReactNode, useMemo } from "react";
+import { ReactNode, useMemo } from "react";
 import { ZTypeBadge } from "./type-badge";
 
 interface IZTypeWithBadge {
@@ -58,9 +58,8 @@ export function ZTypeBadges(props: IZTypeBadges) {
   return (
     <ZGrid
       className={cssJoinDefined("ZTypeBadges-root", className)}
-      columns={columns}
-      columnsXs={columnsXs}
-      justifyContent="start"
+      columns={{ xl: columns, xs: columnsXs }}
+      justify={{ content: "start" }}
       gap={ZSizeFixed.Small}
     >
       {_types.map((t) => (

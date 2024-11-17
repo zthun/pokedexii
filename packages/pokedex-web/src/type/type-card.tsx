@@ -8,7 +8,6 @@ import {
 import { ZSizeFixed, ZSizeVaried } from "@zthun/fashion-tailor";
 import { IZType, ZType } from "@zthun/pokedex";
 import { startCase } from "lodash-es";
-import React from "react";
 import { ZResourceCard } from "../resource/resource-card";
 import { usePokemonTheme } from "../theme/pokemon-theme.mjs";
 import { ZTypeBadges } from "./type-badges";
@@ -19,7 +18,7 @@ export interface IZTypeCard {
 
 export function ZTypeCard(props: IZTypeCard) {
   const { type } = props;
-  const { custom } = usePokemonTheme();
+  const { types } = usePokemonTheme();
 
   const renderBadges = (header: string, types: ZType[]) => {
     if (!types.length) {
@@ -36,9 +35,9 @@ export function ZTypeCard(props: IZTypeCard) {
 
   const renderType = ([type]: [IZType]) => (
     <ZStack gap={ZSizeFixed.Medium}>
-      <ZStack justifyContent="center" alignItems="center">
+      <ZStack justify={{ content: "center" }} align={{ items: "center" }}>
         <ZBubble
-          fashion={custom.types[type.name]}
+          fashion={types[type.name]}
           width={ZSizeFixed.Medium}
           padding={ZSizeFixed.Medium}
           border={ZSizeFixed.ExtraLarge}
