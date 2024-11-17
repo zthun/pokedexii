@@ -1,38 +1,37 @@
 import {
   IZComponentName,
+  useCss,
+  useFashionDevice,
   ZBox,
   ZCaption,
   ZCarousel,
   ZIconFontAwesome,
   ZLabel,
   ZStack,
-  createStyleHook,
 } from "@zthun/fashion-boutique";
 import { ZSizeFixed } from "@zthun/fashion-tailor";
-import { cssJoinDefined } from "@zthun/helpful-fn";
+import { css, cssJoinDefined } from "@zthun/helpful-fn";
 import { IZEvolutionNode, IZEvolutionTrigger } from "@zthun/pokedex";
 import { startCase } from "lodash-es";
-import React, { ReactNode, useState } from "react";
+import { ReactNode, useState } from "react";
 import { ZEvolutionNodeBubble } from "./evolution-node-bubble";
 
 export interface IZEvolutionNodeList extends IZComponentName {
   nodes: IZEvolutionNode[];
 }
 
-const useEvolutionNodeListStyles = createStyleHook(({ device }) => {
-  return {
-    next: {
-      [device.break(ZSizeFixed.Medium)]: {
-        rotate: "90deg",
-      },
-    },
-  };
-});
-
 export function ZEvolutionNodeList(props: IZEvolutionNodeList) {
   const { nodes } = props;
   const [index, setIndex] = useState(0);
-  const { classes } = useEvolutionNodeListStyles();
+  const device = useFashionDevice();
+
+  const _className = useCss(css`
+    [${device.break(ZSizeFixed.Medium)}]: {
+      .ZEvolutionNodeList-next {
+        rotate: "90deg";
+      }
+    }
+  `);
 
   const renderNodeCarousel = () => (
     <ZCarousel
@@ -96,18 +95,18 @@ export function ZEvolutionNodeList(props: IZEvolutionNodeList) {
 
     return (
       <ZStack
-        className="ZEvolutionNodeList-triggers"
-        alignItems="center"
-        justifyContent="center"
+        className={cssJoinDefined("ZEvolutionNodeList-triggers", _className)}
+        align={{ items: "center" }}
+        justify={{ content: "center" }}
       >
         <ZBox margin={{ bottom: ZSizeFixed.ExtraSmall }}>
           <ZIconFontAwesome
-            className={cssJoinDefined("ZEvolutionNodeList-next", classes.next)}
+            className={cssJoinDefined("ZEvolutionNodeList-next")}
             name="right-long"
             width={ZSizeFixed.Small}
           />
         </ZBox>
-        <ZStack alignItems="start" gap={ZSizeFixed.ExtraSmall}>
+        <ZStack align={{ items: "start" }} gap={ZSizeFixed.ExtraSmall}>
           {triggers.map(renderTrigger)}
         </ZStack>
       </ZStack>
