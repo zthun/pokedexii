@@ -1,15 +1,10 @@
 import { ZCircusBy } from "@zthun/cirque";
 import { ZCircusSetupRenderer } from "@zthun/cirque-du-react";
-import {
-  ZChartComponentModel,
-  ZFashionThemeContext,
-} from "@zthun/fashion-boutique";
+import { ZChartComponentModel } from "@zthun/fashion-boutique";
 import { IZPokemon, ZPokemonBuilder } from "@zthun/pokedex";
-import React from "react";
 import { Mocked, beforeEach, describe, expect, it } from "vitest";
 import { mock } from "vitest-mock-extended";
 import { IZResourceService } from "../resource/resource-service.mjs";
-import { createPokemonTheme } from "../theme/pokemon-theme.mjs";
 import { ZPokemonServiceContext } from "./pokemon-service.mjs";
 import { ZPokemonStatsCard } from "./pokemon-stats-card";
 import { ZPokemonStatsCardComponentModel } from "./pokemon-stats-card.cm.mjs";
@@ -20,11 +15,9 @@ describe("ZPokemonStatsCard", () => {
 
   const createTestTarget = async () => {
     const element = (
-      <ZFashionThemeContext.Provider value={createPokemonTheme()}>
-        <ZPokemonServiceContext.Provider value={pokemonService}>
-          <ZPokemonStatsCard pokemonName={charizard.name} />
-        </ZPokemonServiceContext.Provider>
-      </ZFashionThemeContext.Provider>
+      <ZPokemonServiceContext.Provider value={pokemonService}>
+        <ZPokemonStatsCard pokemonName={charizard.name} />
+      </ZPokemonServiceContext.Provider>
     );
 
     const driver = await new ZCircusSetupRenderer(element).setup();

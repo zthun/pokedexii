@@ -59,8 +59,7 @@ export class ZPokemonAttributesCardComponentModel extends ZCircusComponentModel 
 
   public async has4xDamage(type: ZType): Promise<boolean> {
     const weakness = await this.weakness(type);
-    const item = await weakness?.item();
-    const suffix = await item?.suffix();
+    const suffix = await weakness?.suffix();
     const found = await suffix?.peek(".ZTypeBadges-4x-damage");
     return !!found;
   }

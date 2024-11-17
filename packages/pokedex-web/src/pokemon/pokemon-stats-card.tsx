@@ -7,7 +7,6 @@ import {
 import { ZSizeFixed } from "@zthun/fashion-tailor";
 import { cssJoinDefined } from "@zthun/helpful-fn";
 import { IZPokemon, ZPokemonMaxBaseStat } from "@zthun/pokedex";
-import React from "react";
 import { ZResourceCard } from "../resource/resource-card";
 import { usePokemonTheme } from "../theme/pokemon-theme.mjs";
 import { IZPokemonResourceCard } from "./pokemon-resource-card.mjs";
@@ -16,43 +15,43 @@ import { usePokemon } from "./pokemon-service.mjs";
 export function ZPokemonStatsCard(props: IZPokemonResourceCard) {
   const { pokemonName } = props;
   const [pokemon] = usePokemon(pokemonName);
-  const { custom } = usePokemonTheme();
+  const { stats: theme } = usePokemonTheme();
 
   const renderContent = ([pokemon]: IZPokemon[]) => {
     const { stats } = pokemon;
 
     const hp = new ZDataPointBuilder(stats.hp.base, ZPokemonMaxBaseStat)
       .name("Hit Points")
-      .fashion(custom.stats.hp)
+      .fashion(theme.hp)
       .build();
     const attack = new ZDataPointBuilder(stats.attack.base, ZPokemonMaxBaseStat)
       .name("Attack")
-      .fashion(custom.stats.attack)
+      .fashion(theme.attack)
       .build();
     const defense = new ZDataPointBuilder(
       stats.defense.base,
       ZPokemonMaxBaseStat,
     )
       .name("Defense")
-      .fashion(custom.stats.defense)
+      .fashion(theme.defense)
       .build();
     const specialAttack = new ZDataPointBuilder(
       stats.specialAttack.base,
       ZPokemonMaxBaseStat,
     )
       .name("Special Attack")
-      .fashion(custom.stats.specialAttack)
+      .fashion(theme.specialAttack)
       .build();
     const specialDefense = new ZDataPointBuilder(
       stats.specialDefense.base,
       ZPokemonMaxBaseStat,
     )
       .name("Special Defense")
-      .fashion(custom.stats.specialDefense)
+      .fashion(theme.specialDefense)
       .build();
     const speed = new ZDataPointBuilder(stats.speed.base, ZPokemonMaxBaseStat)
       .name("Speed")
-      .fashion(custom.stats.speed)
+      .fashion(theme.speed)
       .build();
 
     return (
@@ -87,9 +86,11 @@ export function ZPokemonStatsCard(props: IZPokemonResourceCard) {
     <ZResourceCard
       className={cssJoinDefined("ZPokemonStatsCard-root")}
       CardProps={{
-        heading: "Stats",
-        subHeading: `Max base value is ${ZPokemonMaxBaseStat}`,
-        avatar: <ZIconFontAwesome name="star" width={ZSizeFixed.Small} />,
+        TitleProps: {
+          heading: "Stats",
+          subHeading: `Max base value is ${ZPokemonMaxBaseStat}`,
+          avatar: <ZIconFontAwesome name="star" width={ZSizeFixed.Small} />,
+        },
       }}
       resource={pokemon}
       name={pokemonName}
