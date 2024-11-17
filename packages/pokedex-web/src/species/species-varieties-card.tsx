@@ -1,5 +1,6 @@
 import {
   IZComponentValue,
+  useFashionTheme,
   ZBox,
   ZButton,
   ZIconFontAwesome,
@@ -9,10 +10,9 @@ import { ZSizeFixed, ZSizeVaried } from "@zthun/fashion-tailor";
 import { asStateData, useAmbassadorState } from "@zthun/helpful-react";
 import { IZPokemon, IZSpecies } from "@zthun/pokedex";
 import { padStart, startCase } from "lodash-es";
-import React, { useMemo } from "react";
+import { useMemo } from "react";
 import { usePokemon } from "../pokemon/pokemon-service.mjs";
 import { ZResourceCard } from "../resource/resource-card";
-import { usePokemonTheme } from "../theme/pokemon-theme.mjs";
 import { IZSpeciesResourceCard } from "./species-resource-card.mjs";
 import { useSpecies } from "./species-service.mjs";
 
@@ -41,7 +41,7 @@ export function ZSpeciesVarietiesCard(props: IZSpeciesVarietiesCard) {
   );
   const subHeading = useMemo(() => `${num} ${variety}`, [variety, num]);
 
-  const { component, primary, secondary } = usePokemonTheme();
+  const { component, primary, secondary } = useFashionTheme();
 
   const renderContent = ([, pokemon]: [IZSpecies, IZPokemon]) => {
     const { artwork } = pokemon;
@@ -99,10 +99,12 @@ export function ZSpeciesVarietiesCard(props: IZSpeciesVarietiesCard) {
     >
       <ZResourceCard
         CardProps={{
-          heading,
-          subHeading,
+          TitleProps: {
+            avatar: <ZImageSource src={sprite} width={ZSizeFixed.Medium} />,
+            heading,
+            subHeading,
+          },
           footer: renderFooter(),
-          avatar: <ZImageSource src={sprite} width={ZSizeFixed.Medium} />,
         }}
         resource={[species, pokemon, main]}
         name={speciesName}

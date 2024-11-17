@@ -10,7 +10,7 @@ import {
 } from "@zthun/fashion-boutique";
 import { ZSizeFixed } from "@zthun/fashion-tailor";
 import { isStateErrored, isStateLoading } from "@zthun/helpful-react";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { ZEvolutionChainCard } from "../evolution/evolution-chain-card";
 import { ZPokemonAttributesCard } from "../pokemon/pokemon-attributes-card";
 import { ZPokemonStatsCard } from "../pokemon/pokemon-stats-card";
@@ -51,10 +51,8 @@ export function ZSpeciesDetailsPage() {
 
     return (
       <ZGrid
-        justifyContent="center"
-        columns="auto auto 1fr"
-        columnsMd="1fr 1fr"
-        columnsSm="1fr"
+        justify={{ content: "center" }}
+        columns={{ xl: "auto auto 1fr", md: "1fr 1fr", sm: "1fr" }}
         gap={ZSizeFixed.Small}
       >
         <ZSpeciesVarietiesCard
@@ -65,10 +63,8 @@ export function ZSpeciesDetailsPage() {
         <ZPokemonAttributesCard pokemonName={pokemon} />
         <ZPokemonStatsCard pokemonName={pokemon} />
         <ZGridSpan
-          columnStart={1}
-          columnEnd={4}
-          columnStartMd="unset"
-          columnEndMd="unset"
+          columnStart={{ xl: 1, md: "unset" }}
+          columnEnd={{ xl: 4, md: "unset" }}
         >
           <ZEvolutionChainCard evolutionName={String(species.evolution)} />
         </ZGridSpan>

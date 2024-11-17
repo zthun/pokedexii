@@ -3,7 +3,7 @@ import { ZSizeFixed } from "@zthun/fashion-tailor";
 import { cssJoinDefined } from "@zthun/helpful-fn";
 import { ZDataRequestBuilder } from "@zthun/helpful-query";
 import { IZSpecies } from "@zthun/pokedex";
-import React, { useState } from "react";
+import { useState } from "react";
 import { ZSpeciesCard } from "./species-card";
 import { useSpeciesService } from "./species-service.mjs";
 
@@ -30,10 +30,12 @@ export function ZSpeciesListPage() {
       onValueChange={setTemplate}
       GridProps={{
         gap: ZSizeFixed.Small,
-        columns: "1fr 1fr 1fr 1fr",
-        columnsLg: "1fr 1fr 1fr",
-        columnsMd: "1fr 1fr",
-        columnsSm: "1fr",
+        columns: {
+          xl: "1fr 1fr 1fr 1fr",
+          lg: "1fr 1fr 1fr",
+          md: "1fr 1fr",
+          sm: "1fr",
+        },
       }}
     />
   );
