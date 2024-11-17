@@ -1,17 +1,18 @@
-import { defineConfig } from 'vite';
-import tsConfigPaths from 'vite-tsconfig-paths';
+import { defineConfig } from "vite";
+import { checker } from "vite-plugin-checker";
+import tsConfigPaths from "vite-tsconfig-paths";
 
-export function defineWeb(dir: string) {
+export function defineWeb() {
   return defineConfig({
-    plugins: [tsConfigPaths()],
+    plugins: [tsConfigPaths(), checker({ typescript: true })],
     server: {
       strictPort: true,
-      host: '0.0.0.0'
+      host: "0.0.0.0",
     },
     resolve: {
       alias: {
-        lodash: 'lodash-es'
-      }
-    }
+        lodash: "lodash-es",
+      },
+    },
   });
 }
