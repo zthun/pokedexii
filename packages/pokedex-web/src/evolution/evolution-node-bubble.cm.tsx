@@ -21,6 +21,8 @@ export class ZEvolutionNodeBubbleComponentModel extends ZCircusComponentModel {
   }
 
   public async load(): Promise<void> {
-    await ZSuspenseComponentModel.load(this.driver);
+    return this.driver.wait(() =>
+      ZCircusBy.optional(this.driver, ZSuspenseComponentModel).then((c) => !c),
+    );
   }
 }

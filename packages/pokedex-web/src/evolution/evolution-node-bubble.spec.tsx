@@ -1,6 +1,6 @@
 import { ZCircusBy } from "@zthun/cirque";
 import { ZCircusSetupRenderer } from "@zthun/cirque-du-react";
-import { ZFashionThemeContext, ZTestRouter } from "@zthun/fashion-boutique";
+import { ZTestRouter } from "@zthun/fashion-boutique";
 import {
   IZEvolutionNode,
   IZSpecies,
@@ -9,12 +9,10 @@ import {
 } from "@zthun/pokedex";
 import { MemoryHistory, createMemoryHistory } from "history";
 import { startCase } from "lodash-es";
-import React from "react";
 import { Mocked, beforeEach, describe, expect, it } from "vitest";
 import { mock } from "vitest-mock-extended";
 import { IZResourceService } from "../resource/resource-service.mjs";
 import { ZSpeciesServiceContext } from "../species/species-service.mjs";
-import { createPokemonTheme } from "../theme/pokemon-theme.mjs";
 import { ZEvolutionNodeBubble } from "./evolution-node-bubble";
 import { ZEvolutionNodeBubbleComponentModel } from "./evolution-node-bubble.cm";
 
@@ -27,13 +25,11 @@ describe("ZEvolutionNodeBubble", () => {
 
   const createTestTarget = async () => {
     const element = (
-      <ZFashionThemeContext.Provider value={createPokemonTheme()}>
-        <ZSpeciesServiceContext.Provider value={speciesService}>
-          <ZTestRouter navigator={history} location={history.location}>
-            <ZEvolutionNodeBubble node={node} />
-          </ZTestRouter>
-        </ZSpeciesServiceContext.Provider>
-      </ZFashionThemeContext.Provider>
+      <ZSpeciesServiceContext.Provider value={speciesService}>
+        <ZTestRouter navigator={history} location={history.location}>
+          <ZEvolutionNodeBubble node={node} />
+        </ZTestRouter>
+      </ZSpeciesServiceContext.Provider>
     );
     const driver = await new ZCircusSetupRenderer(element).setup();
     const target = await ZCircusBy.first(
@@ -61,8 +57,10 @@ describe("ZEvolutionNodeBubble", () => {
       speciesService.get.mockRejectedValue(new Error("Game Over"));
       const target = await createTestTarget();
       const expected = startCase(new ZSpeciesBuilder().build().name);
+
       // Act.
       const actual = await target.name();
+
       // Assert.
       expect(actual).toEqual(expected);
     });
@@ -72,8 +70,10 @@ describe("ZEvolutionNodeBubble", () => {
     it("should render the species name", async () => {
       // Arrange.
       const target = await createTestTarget();
+
       // Act.
       const actual = await target.name();
+
       // Assert.
       expect(actual).toEqual(startCase(gardevoir$.name));
     });
@@ -83,9 +83,11 @@ describe("ZEvolutionNodeBubble", () => {
       const expected = `/pokemon/${gardevoir$.name}`;
       const target = await createTestTarget();
       const bubble = await target.bubble();
+
       // Act.
       await bubble.click();
       const actual = history.location.pathname;
+
       // Assert
       expect(actual).toEqual(expected);
     });

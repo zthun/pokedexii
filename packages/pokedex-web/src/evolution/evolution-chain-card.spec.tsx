@@ -1,6 +1,6 @@
 import { ZCircusBy } from "@zthun/cirque";
 import { ZCircusSetupRenderer } from "@zthun/cirque-du-react";
-import { ZFashionThemeContext, ZTestRouter } from "@zthun/fashion-boutique";
+import { ZTestRouter } from "@zthun/fashion-boutique";
 import {
   ZDataRequestBuilder,
   ZDataSourceStatic,
@@ -14,12 +14,10 @@ import {
 } from "@zthun/pokedex";
 import { MemoryHistory, createMemoryHistory } from "history";
 import { last } from "lodash-es";
-import React from "react";
 import { Mocked, beforeEach, describe, expect, it } from "vitest";
 import { mock } from "vitest-mock-extended";
 import { IZResourceService } from "../resource/resource-service.mjs";
 import { ZSpeciesServiceContext } from "../species/species-service.mjs";
-import { createPokemonTheme } from "../theme/pokemon-theme.mjs";
 import { ZEvolutionChainCard } from "./evolution-chain-card";
 import { ZEvolutionChainCardComponentModel } from "./evolution-chain-card.cm.mjs";
 import { ZEvolutionServiceContext } from "./evolution-service.mjs";
@@ -37,18 +35,16 @@ describe("ZEvolutionChainCard", () => {
 
   const createTestTarget = async () => {
     const element = (
-      <ZFashionThemeContext.Provider value={createPokemonTheme()}>
-        <ZSpeciesServiceContext.Provider value={speciesService}>
-          <ZEvolutionServiceContext.Provider value={evolutionService}>
-            <ZTestRouter navigator={history} location={history.location}>
-              <ZEvolutionChainCard
-                evolutionName={evolution.name}
-              ></ZEvolutionChainCard>
-              ;
-            </ZTestRouter>
-          </ZEvolutionServiceContext.Provider>
-        </ZSpeciesServiceContext.Provider>
-      </ZFashionThemeContext.Provider>
+      <ZSpeciesServiceContext.Provider value={speciesService}>
+        <ZEvolutionServiceContext.Provider value={evolutionService}>
+          <ZTestRouter navigator={history} location={history.location}>
+            <ZEvolutionChainCard
+              evolutionName={evolution.name}
+            ></ZEvolutionChainCard>
+            ;
+          </ZTestRouter>
+        </ZEvolutionServiceContext.Provider>
+      </ZSpeciesServiceContext.Provider>
     );
     const driver = await new ZCircusSetupRenderer(element).setup();
     const target = await ZCircusBy.first(

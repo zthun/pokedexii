@@ -3,11 +3,12 @@ import {
   ZIconFontAwesome,
   ZImageSource,
   ZSuspenseRotate,
-  createStyleHook,
+  useCss,
+  useFashionTailor,
   useNavigate,
 } from "@zthun/fashion-boutique";
 import { ZSizeFixed, ZSizeVaried } from "@zthun/fashion-tailor";
-import { cssJoinDefined } from "@zthun/helpful-fn";
+import { css, cssJoinDefined } from "@zthun/helpful-fn";
 import {
   asStateData,
   isStateErrored,
@@ -16,7 +17,6 @@ import {
 } from "@zthun/helpful-react";
 import { IZEvolutionNode, ZSpeciesBuilder } from "@zthun/pokedex";
 import { startCase } from "lodash-es";
-import React from "react";
 import { useSpecies } from "../species/species-service.mjs";
 import { usePokemonTheme } from "../theme/pokemon-theme.mjs";
 
@@ -24,21 +24,12 @@ export interface IZEvolutionNodeBubble {
   node: IZEvolutionNode;
 }
 
-const useEvolutionBubbleStyles = createStyleHook(({ tailor }) => {
-  return {
-    name: {
-      textAlign: "center",
-      marginTop: tailor.gap(ZSizeFixed.ExtraSmall),
-    },
-  };
-});
-
 export function ZEvolutionNodeBubble(props: IZEvolutionNodeBubble) {
+  const tailor = useFashionTailor();
   const { node } = props;
   const navigate = useNavigate();
   const [species] = useSpecies(node.species);
-  const { classes } = useEvolutionBubbleStyles();
-  const { custom } = usePokemonTheme();
+  const { evolution } = usePokemonTheme();
 
   const handleClick = isStateLoaded(species)
     ? navigate.bind(null, `/pokemon/${species.name}`)
@@ -68,9 +59,16 @@ export function ZEvolutionNodeBubble(props: IZEvolutionNodeBubble) {
     return startCase(species.name);
   };
 
+  const _className = useCss(css`
+    .ZEvolutionNodeBubble-name {
+      margin-top: ${tailor.gap(ZSizeFixed.ExtraSmall)};
+      text-align: center;
+    }
+  `);
+
   return (
     <div
-      className="ZEvolutionNodeBubble-root"
+      className={cssJoinDefined("ZEvolutionNodeBubble-root", _className)}
       data-species={asStateData(species)?.name}
     >
       <ZBubble
@@ -78,14 +76,12 @@ export function ZEvolutionNodeBubble(props: IZEvolutionNodeBubble) {
         width={ZSizeFixed.Large}
         padding={ZSizeFixed.ExtraSmall}
         border={ZSizeFixed.ExtraLarge}
-        fashion={custom.evolution}
+        fashion={evolution}
         onClick={handleClick}
       >
         {renderAvatar()}
       </ZBubble>
-      <div
-        className={cssJoinDefined("ZEvolutionNodeBubble-name", classes.name)}
-      >
+      <div className={cssJoinDefined("ZEvolutionNodeBubble-name")}>
         {renderName()}
       </div>
     </div>
