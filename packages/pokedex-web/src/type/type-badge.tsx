@@ -77,8 +77,12 @@ export function ZTypeBadge(props: IZTypeBadge) {
       data-name={type}
     >
       <ZStack orientation={ZOrientation.Horizontal}>
-        <ZFlex grow={1}>{renderBody()}</ZFlex>
-        <ZFlex grow={0}>{suffix}</ZFlex>
+        <ZFlex className="ZTypeBadge-body" grow={1}>
+          {renderBody()}
+        </ZFlex>
+        <ZFlex className="ZTypeBadge-suffix" grow={0}>
+          {suffix}
+        </ZFlex>
       </ZStack>
     </div>
   );
