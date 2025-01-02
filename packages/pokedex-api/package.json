@@ -13,10 +13,10 @@
   "main": "./dist/main.js",
   "scripts": {
     "build": "tsc -p tsconfig.prod.json",
-    "debug": "tsx watch --inspect=0.0.0.0:9229 ./src/main.ts",
-    "start": "node ./dist/main.js"
+    "debug": "tsx watch --inspect=0.0.0.0:9229 ./src/main.mts",
+    "start": "node ./bin/main.mjs"
   },
-  "bin": "./bin/main.js",
+  "bin": "./bin/main.mjs",
   "publishConfig": {
     "access": "public"
   },
