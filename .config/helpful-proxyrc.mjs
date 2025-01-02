@@ -8,7 +8,7 @@ export default {
       },
     },
     {
-      name: "database.pokedexii.local.zthunworks.com",
+      name: "database.local.zthunworks.com",
       paths: {
         "/": "pokedex-mongo-express:8081",
       },

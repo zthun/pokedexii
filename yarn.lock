@@ -2803,20 +2803,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/prop-types@npm:*":
-  version: 15.7.13
-  resolution: "@types/prop-types@npm:15.7.13"
-  checksum: 10/8935cad87c683c665d09a055919d617fe951cb3b2d5c00544e3a913f861a2bd8d2145b51c9aa6d2457d19f3107ab40784c40205e757232f6a80cc8b1c815513c
-  languageName: node
-  linkType: hard
-
-"@types/react@npm:^18.3.18":
-  version: 18.3.18
-  resolution: "@types/react@npm:18.3.18"
+"@types/react@npm:^19.0.2":
+  version: 19.0.2
+  resolution: "@types/react@npm:19.0.2"
   dependencies:
-    "@types/prop-types": "npm:*"
     csstype: "npm:^3.0.2"
-  checksum: 10/7fdd8b853e0d291d4138133f93f8d5c333da918e5804afcea61a923aab4bdfc9bb15eb21a5640959b452972b8715ddf10ffb12b3bd071898b9e37738636463f2
+  checksum: 10/b355cfa22814e934b381c4f6de67c66652255377c3ddc6a757ea195ccbd0e7095aadfe1a28713d8ab1221222b8f2ec237903f4ec0e54eaf656ac832782d25dd2
   languageName: node
   linkType: hard
 
@@ -3549,7 +3541,7 @@ __metadata:
     "@types/jsdom": "npm:^21.1.7"
     "@types/lodash-es": "npm:^4.17.12"
     "@types/node": "npm:^22.10.4"
-    "@types/react": "npm:^18.3.18"
+    "@types/react": "npm:^19.0.2"
     "@types/supertest": "npm:^6.0.2"
     "@vitest/coverage-istanbul": "npm:^2.1.8"
     "@zthun/lint-janitor": "npm:^18.0.5"

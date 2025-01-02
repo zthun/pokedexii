@@ -30,11 +30,11 @@ services:
       - pokedex-mongo
   # Databases
   pokedex-mongo:
-    image: mongo:5.0
+    image: mongo:noble
     volumes:
       - pokedex-mongo-data:/data/db
   pokedex-mongo-express:
-    image: mongo-express:0.54
+    image: mongo-express:latest
     ports:
       - 8081:8081
     depends_on:
