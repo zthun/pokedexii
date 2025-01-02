@@ -5,8 +5,10 @@ import {
   ZButton,
   ZIconFontAwesome,
   ZImageSource,
+  ZStack,
 } from "@zthun/fashion-boutique";
 import { ZSizeFixed, ZSizeVaried } from "@zthun/fashion-tailor";
+import { ZOrientation } from "@zthun/helpful-fn";
 import { asStateData, useAmbassadorState } from "@zthun/helpful-react";
 import { IZPokemon, IZSpecies } from "@zthun/pokedex";
 import { padStart, startCase } from "lodash-es";
@@ -59,7 +61,7 @@ export function ZSpeciesVarietiesCard(props: IZSpeciesVarietiesCard) {
     const min = 0;
 
     return (
-      <>
+      <ZStack orientation={ZOrientation.Horizontal} gap={ZSizeFixed.Small}>
         <ZButton
           label={
             <ZIconFontAwesome name="arrow-left" width={ZSizeFixed.ExtraSmall} />
@@ -87,7 +89,7 @@ export function ZSpeciesVarietiesCard(props: IZSpeciesVarietiesCard) {
           fashion={primary}
           name="next"
         />
-      </>
+      </ZStack>
     );
   };
 

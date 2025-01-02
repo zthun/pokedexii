@@ -27,7 +27,7 @@ export function ZEvolutionChainCard(props: IZEvolutionResourceCard) {
       gap: ${tailor.gap()};
     }
 
-    ${device.break(ZSizeFixed.Medium)}: {
+    ${device.break(ZSizeFixed.Medium)} {
       .ZEvolutionChainCard-chain {
         flex-direction: column;
       }

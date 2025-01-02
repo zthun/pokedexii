@@ -4,6 +4,7 @@ import {
   ZCaption,
   ZIconFontAwesome,
   ZLabeled,
+  ZStack,
 } from "@zthun/fashion-boutique";
 import { ZSizeFixed } from "@zthun/fashion-tailor";
 import { cssJoinDefined } from "@zthun/helpful-fn";
@@ -82,9 +83,9 @@ export function ZPokemonAttributesCard(props: IZPokemonResourceCard) {
 
     return renderAttribute(
       "Abilities",
-      <div className={cssJoinDefined("ZPokemonAttributesCard-abilities")}>
+      <ZStack className={cssJoinDefined("ZPokemonAttributesCard-abilities")}>
         {abilities.map(renderAbility)}
-      </div>,
+      </ZStack>,
     );
   };
 
