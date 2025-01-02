@@ -1,8 +1,5 @@
-import {
-  ZCircusActBuilder,
-  ZCircusBy,
-  ZCircusComponentModel,
-} from "@zthun/cirque";
+import { ZCircusBy, ZCircusComponentModel } from "@zthun/cirque";
+import { ZButtonComponentModel } from "@zthun/fashion-boutique";
 import { ZTypeBadgeComponentModel } from "../type/type-badge.cm.mjs";
 
 /**
@@ -30,11 +27,14 @@ export class ZSpeciesCardComponentModel extends ZCircusComponentModel {
   public types(): Promise<ZTypeBadgeComponentModel[]> {
     return ZCircusBy.all(this.driver, ZTypeBadgeComponentModel);
   }
+
   /**
-   * Clicks the card.
+   * Gets the view button.
+   *
+   * @returns
+   *        The view button.
    */
-  public async click() {
-    const action = new ZCircusActBuilder().click().build();
-    await this.driver.perform(action);
+  public view(): Promise<ZButtonComponentModel> {
+    return ZCircusBy.first(this.driver, ZButtonComponentModel, "view");
   }
 }

@@ -153,12 +153,14 @@ describe("ZSpeciesListPage", () => {
     expect(actual).toBeTruthy();
   });
 
-  it("should navigate to the details page of a species when the card is clicked", async () => {
+  it("should navigate to the details page of a species when the navigation is clicked", async () => {
     // Arrange.
     const target = await createTestTarget();
     const card = await target.card(charmander.name);
+    const view = await card?.view();
     // Act.
-    await card?.click();
+
+    await view?.click();
     const actual = history.location.pathname;
     // Assert.
     expect(actual).toEqual(`/pokemon/${charmander.name}`);
