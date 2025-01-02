@@ -9,6 +9,7 @@ import {
   ZListItem,
 } from "@zthun/fashion-boutique";
 import { ZSizeFixed } from "@zthun/fashion-tailor";
+import { ZHorizontalAnchor } from "@zthun/helpful-fn";
 import { startCase } from "lodash-es";
 import { useState } from "react";
 
@@ -20,12 +21,18 @@ export function ZPokedexNavigation() {
   const closeSettings = setOpen.bind(null, false);
 
   const renderNavigation = (name: string, avatar: string) => {
+    const handleNavigate = () => {
+      navigate(name);
+      setOpen(false);
+    };
+
     return (
       <ZListItem
         key={name}
         name={name}
         interactive
-        onClick={navigate.bind(null, `/${name}`)}
+        cursor="pointer"
+        onClick={handleNavigate}
       >
         <ZContentTitle
           avatar={<ZIconFontAwesome name={avatar} width={ZSizeFixed.Medium} />}
@@ -41,7 +48,11 @@ export function ZPokedexNavigation() {
         onClick={openSettings}
         label={<ZIconFontAwesome name="bars" />}
       />
-      <ZDrawer open={open} onClose={closeSettings}>
+      <ZDrawer
+        open={open}
+        onClose={closeSettings}
+        anchor={ZHorizontalAnchor.Right}
+      >
         <ZList>
           {renderNavigation("types", "bolt")}
           {renderNavigation("pokemon", "spaghetti-monster-flying")}
