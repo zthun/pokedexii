@@ -52,7 +52,7 @@ export function ZSpeciesCard(props: IZSpeciesCard) {
   return (
     <ZCard
       className={cssJoinDefined("ZSpeciesCard-root")}
-      data-name={species.name}
+      name={species.name}
       TitleProps={{
         suffix: (
           <ZButton
