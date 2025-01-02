@@ -25,17 +25,17 @@
     "access": "public"
   },
   "dependencies": {
-    "@zthun/dalmart-db": "^1.4.4",
-    "@zthun/helpful-fn": "^6.5.2",
-    "@zthun/helpful-query": "^6.5.2",
-    "@zthun/webigail-http": "^3.0.0",
-    "@zthun/webigail-url": "^3.0.0",
+    "@zthun/dalmart-db": "^1.4.5",
+    "@zthun/helpful-fn": "^6.7.0",
+    "@zthun/helpful-query": "^6.7.0",
+    "@zthun/webigail-http": "^3.1.1",
+    "@zthun/webigail-url": "^3.0.2",
     "lodash-es": "^4.17.21"
   },
   "devDependencies": {
-    "typescript": "^5.6.3",
+    "typescript": "^5.7.2",
     "vite": "^5.4.11",
-    "vitest": "^2.1.5",
+    "vitest": "^2.1.8",
     "vitest-mock-extended": "^2.0.2"
   },
   "files": [
