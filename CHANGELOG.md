@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.19.1](https://github.com/zthun/pokedexii/compare/v0.19.0...v0.19.1) (2025-01-02)
+
+
+### Bug Fixes
+
+* move to module structure ([56a96e9](https://github.com/zthun/pokedexii/commit/56a96e985ff558f2b5f7b70cfd1d9bdf1b0c1028))
+
+
+
 ## [0.19.0](https://github.com/zthun/pokedexii/compare/v0.18.0...v0.19.0) (2025-01-02)
 
 
