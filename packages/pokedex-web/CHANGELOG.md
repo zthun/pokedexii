@@ -1,5 +1,23 @@
 # Change Log
 
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [0.19.0](https://github.com/zthun/pokedexii/compare/v0.18.0...v0.19.0) (2025-01-02)
+
+
+### ⚠ BREAKING CHANGES
+
+* update fashion
+
+### Build System
+
+* update fashion ([a9ed578](https://github.com/zthun/pokedexii/commit/a9ed57898ba13d16cbe091547383ccef6a8d0a40))
+
+
+
+# Change Log
+
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 

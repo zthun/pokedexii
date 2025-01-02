@@ -1,5 +1,18 @@
 # Change Log
 
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [0.19.0](https://github.com/zthun/pokedexii/compare/v0.18.0...v0.19.0) (2025-01-02)
+
+**Note:** Version bump only for package @zthun/pokedex-api
+
+
+
+
+
+# Change Log
+
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
