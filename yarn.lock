@@ -3481,7 +3481,7 @@ __metadata:
     vitest: "npm:^2.1.8"
     vitest-mock-extended: "npm:^2.0.2"
   bin:
-    pokedex-api: ./bin/main.js
+    pokedex-api: ./bin/main.mjs
   languageName: unknown
   linkType: soft
 
