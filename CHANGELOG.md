@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.19.0](https://github.com/zthun/pokedexii/compare/v0.18.0...v0.19.0) (2025-01-02)
+
+
+### ⚠ BREAKING CHANGES
+
+* update fashion
+* pokedex now defaults to an esm library
+
+### Features
+
+* pokedex now defaults to an esm library ([577e1de](https://github.com/zthun/pokedexii/commit/577e1de8b9258c4790c1d6334390659567e84283))
+
+
+### Build System
+
+* update fashion ([a9ed578](https://github.com/zthun/pokedexii/commit/a9ed57898ba13d16cbe091547383ccef6a8d0a40))
+
+
+
 ## [0.18.0](https://github.com/zthun/pokedexii/compare/v0.17.1...v0.18.0) (2023-11-24)
 
 
