@@ -28,7 +28,7 @@
     "@zthun/dalmart-db": "^1.4.5",
     "@zthun/helpful-fn": "^6.7.0",
     "@zthun/helpful-query": "^6.7.0",
-    "@zthun/webigail-http": "^3.1.1",
+    "@zthun/webigail-http": "^3.1.2",
     "@zthun/webigail-url": "^3.0.2",
     "lodash-es": "^4.17.21"
   },

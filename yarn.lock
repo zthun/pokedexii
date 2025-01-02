@@ -3468,8 +3468,8 @@ __metadata:
     "@zthun/helpful-fn": "npm:^6.7.0"
     "@zthun/helpful-query": "npm:^6.7.0"
     "@zthun/pokedex": "npm:^0.18.0"
-    "@zthun/webigail-http": "npm:^3.1.1"
-    "@zthun/webigail-nest": "npm:^3.1.1"
+    "@zthun/webigail-http": "npm:^3.1.2"
+    "@zthun/webigail-nest": "npm:^3.1.2"
     "@zthun/webigail-url": "npm:^3.0.2"
     helmet: "npm:^8.0.0"
     lodash-es: "npm:^4.17.21"
@@ -3500,12 +3500,12 @@ __metadata:
     "@zthun/helpful-query": "npm:^6.7.0"
     "@zthun/helpful-react": "npm:^6.7.0"
     "@zthun/pokedex": "npm:^0.18.0"
-    "@zthun/webigail-http": "npm:^3.1.1"
+    "@zthun/webigail-http": "npm:^3.1.2"
     "@zthun/webigail-url": "npm:^3.0.2"
     history: "npm:^5.3.0"
     lodash-es: "npm:^4.17.21"
-    react: "npm:^18.3.1"
-    react-dom: "npm:^18.3.1"
+    react: "npm:^19.0.0"
+    react-dom: "npm:^19.0.0"
     tsconfig-paths: "npm:^4.2.0"
     typescript: "npm:^5.7.2"
     vite: "npm:^5.4.11"
@@ -3522,7 +3522,7 @@ __metadata:
     "@zthun/dalmart-db": "npm:^1.4.5"
     "@zthun/helpful-fn": "npm:^6.7.0"
     "@zthun/helpful-query": "npm:^6.7.0"
-    "@zthun/webigail-http": "npm:^3.1.1"
+    "@zthun/webigail-http": "npm:^3.1.2"
     "@zthun/webigail-url": "npm:^3.0.2"
     lodash-es: "npm:^4.17.21"
     typescript: "npm:^5.7.2"
@@ -3549,8 +3549,8 @@ __metadata:
     husky: "npm:^9.1.7"
     jsdom: "npm:^25.0.1"
     lerna: "npm:^8.1.9"
-    react: "npm:^18.3.1"
-    react-dom: "npm:^18.3.1"
+    react: "npm:^19.0.0"
+    react-dom: "npm:^19.0.0"
     rimraf: "npm:^6.0.1"
     typescript: "npm:^5.7.2"
     vite: "npm:^5.4.11"
@@ -3609,7 +3609,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@zthun/webigail-http@npm:^3.0.2, @zthun/webigail-http@npm:^3.1.1":
+"@zthun/webigail-http@npm:^3.0.2":
   version: 3.1.1
   resolution: "@zthun/webigail-http@npm:3.1.1"
   dependencies:
@@ -3619,17 +3619,27 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@zthun/webigail-nest@npm:^3.1.1":
-  version: 3.1.1
-  resolution: "@zthun/webigail-nest@npm:3.1.1"
+"@zthun/webigail-http@npm:^3.1.2":
+  version: 3.1.2
+  resolution: "@zthun/webigail-http@npm:3.1.2"
   dependencies:
-    "@zthun/webigail-http": "npm:^3.1.1"
+    cross-fetch: "npm:^4.1.0"
+    lodash-es: "npm:^4.17.21"
+  checksum: 10/501ef1541976fbadb4429dd2ce15f45c1eaca5f3f69703f55ab6761737b7bb373a19941481c57e3b04134483b0f888511c1e6b9da5d2dcc6de347b1cbb4c896b
+  languageName: node
+  linkType: hard
+
+"@zthun/webigail-nest@npm:^3.1.2":
+  version: 3.1.2
+  resolution: "@zthun/webigail-nest@npm:3.1.2"
+  dependencies:
+    "@zthun/webigail-http": "npm:^3.1.2"
   peerDependencies:
     "@nestjs/common": ^10.3.0
     "@nestjs/core": ^10.3.0
     reflect-metadata: ^0.2.1
     rxjs: ^7.8.1
-  checksum: 10/59e59aaacdb89e305d0dca5acdc86ea5f1cd59cd6e3fcbf50b799ea44c32676ae060e0149e34a6e63f296c925cf76147920b2d5e92c413f98288e45f38d3641c
+  checksum: 10/ba28fb356e953db9527f47cae1e2f361d128b329148f90e11f0ba55307ebbd57027b3665b3a2c33ac1acd0c6d185b9ee949b6dcd1f8a84094778a17ae95976c8
   languageName: node
   linkType: hard
 
@@ -9294,7 +9304,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"loose-envify@npm:^1.1.0, loose-envify@npm:^1.4.0":
+"loose-envify@npm:^1.4.0":
   version: 1.4.0
   resolution: "loose-envify@npm:1.4.0"
   dependencies:
@@ -11447,15 +11457,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-dom@npm:^18.3.1":
-  version: 18.3.1
-  resolution: "react-dom@npm:18.3.1"
+"react-dom@npm:^19.0.0":
+  version: 19.0.0
+  resolution: "react-dom@npm:19.0.0"
   dependencies:
-    loose-envify: "npm:^1.1.0"
-    scheduler: "npm:^0.23.2"
+    scheduler: "npm:^0.25.0"
   peerDependencies:
-    react: ^18.3.1
-  checksum: 10/3f4b73a3aa083091173b29812b10394dd06f4ac06aff410b74702cfb3aa29d7b0ced208aab92d5272919b612e5cda21aeb1d54191848cf6e46e9e354f3541f81
+    react: ^19.0.0
+  checksum: 10/aa64a2f1991042f516260e8b0eca0ae777b6c8f1aa2b5ae096e80bbb6ac9b005aef2bca697969841d34f7e1819556263476bdfea36c35092e8d9aefde3de2d9a
   languageName: node
   linkType: hard
 
@@ -11510,12 +11519,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react@npm:^18.3.1":
-  version: 18.3.1
-  resolution: "react@npm:18.3.1"
-  dependencies:
-    loose-envify: "npm:^1.1.0"
-  checksum: 10/261137d3f3993eaa2368a83110466fc0e558bc2c7f7ae7ca52d94f03aac945f45146bd85e5f481044db1758a1dbb57879e2fcdd33924e2dde1bdc550ce73f7bf
+"react@npm:^19.0.0":
+  version: 19.0.0
+  resolution: "react@npm:19.0.0"
+  checksum: 10/2490969c503f644703c88990d20e4011fa6119ddeca451e9de48f6d7ab058d670d2852a5fcd3aa3cd90a923ab2815d532637bd4a814add402ae5c0d4f129ee71
   languageName: node
   linkType: hard
 
@@ -11987,12 +11994,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"scheduler@npm:^0.23.2":
-  version: 0.23.2
-  resolution: "scheduler@npm:0.23.2"
-  dependencies:
-    loose-envify: "npm:^1.1.0"
-  checksum: 10/e8d68b89d18d5b028223edf090092846868a765a591944760942b77ea1f69b17235f7e956696efbb62c8130ab90af7e0949bfb8eba7896335507317236966bc9
+"scheduler@npm:^0.25.0":
+  version: 0.25.0
+  resolution: "scheduler@npm:0.25.0"
+  checksum: 10/e661e38503ab29a153429a99203fefa764f28b35c079719eb5efdd2c1c1086522f6653d8ffce388209682c23891a6d1d32fa6badf53c35fb5b9cd0c55ace42de
   languageName: node
   linkType: hard
 
