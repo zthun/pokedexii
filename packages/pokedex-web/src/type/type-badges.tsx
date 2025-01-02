@@ -59,6 +59,7 @@ export function ZTypeBadges(props: IZTypeBadges) {
     <ZGrid
       className={cssJoinDefined("ZTypeBadges-root", className)}
       columns={{ xl: columns, xs: columnsXs }}
+      align={{ items: "center" }}
       justify={{ content: "start" }}
       gap={ZSizeFixed.Small}
     >

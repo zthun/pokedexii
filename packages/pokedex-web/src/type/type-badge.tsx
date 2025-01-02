@@ -43,7 +43,9 @@ export function ZTypeBadge(props: IZTypeBadge) {
     );
 
     const body = compact ? null : (
-      <ZCaption className="ZTypeBadge-name">{startCase(type)}</ZCaption>
+      <ZCaption className="ZTypeBadge-name" compact>
+        {startCase(type)}
+      </ZCaption>
     );
 
     return (

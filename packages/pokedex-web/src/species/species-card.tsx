@@ -1,6 +1,6 @@
-import { ZCaption, ZH3, ZImageSource } from "@zthun/fashion-boutique";
+import { ZBox, ZCard, ZImageSource, ZStack } from "@zthun/fashion-boutique";
 import { ZSizeFixed } from "@zthun/fashion-tailor";
-import { cssJoinDefined } from "@zthun/helpful-fn";
+import { cssJoinDefined, ZOrientation } from "@zthun/helpful-fn";
 import { IZSpecies } from "@zthun/pokedex";
 import { padStart, startCase } from "lodash-es";
 import { MouseEventHandler } from "react";
@@ -59,32 +59,33 @@ export function ZSpeciesCard(props: IZSpeciesCard) {
 
   const renderContent = () => {
     return (
-      <>
-        <div className={cssJoinDefined("ZSpeciesCard-media")}>
-          <ZImageSource
-            src={species.artwork}
-            width={ZSizeFixed.Large}
-            name={species.name}
-          />
-        </div>
-        <ZCaption className={cssJoinDefined("ZSpeciesCard-number")} compact>
-          #{padStart(String(species.id), 4, "0")}
-        </ZCaption>
-        <ZH3 className={cssJoinDefined("ZSpeciesCard-title")}>
-          {startCase(species.name)}
-        </ZH3>
-        <ZTypeBadges types={species.types} />
-      </>
+      <ZStack
+        orientation={ZOrientation.Horizontal}
+        justify={{ content: "center" }}
+      >
+        <ZImageSource
+          className={cssJoinDefined("ZSpeciesCard-media")}
+          src={species.artwork}
+          width={ZSizeFixed.Large}
+          name={species.name}
+        />
+      </ZStack>
     );
   };
 
   return (
-    <div
-      className={cssJoinDefined("ZSpeciesCard-root")}
-      onClick={onClick}
-      data-name={species.name}
-    >
-      {renderContent()}
-    </div>
+    <ZBox onClick={onClick} cursor="pointer">
+      <ZCard
+        className={cssJoinDefined("ZSpeciesCard-root")}
+        data-name={species.name}
+        TitleProps={{
+          heading: startCase(species.name),
+          subHeading: `#${padStart(String(species.id), 4, "0")}`,
+        }}
+        footer={<ZTypeBadges types={species.types} />}
+      >
+        {renderContent()}
+      </ZCard>
+    </ZBox>
   );
 }
