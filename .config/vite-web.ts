@@ -8,11 +8,8 @@ export function defineWeb() {
     server: {
       strictPort: true,
       host: "0.0.0.0",
+      allowedHosts: ["pokedexii.local.zthunworks.com"],
     },
-    resolve: {
-      alias: {
-        lodash: "lodash-es",
-      },
-    },
+    resolve: { alias: { lodash: "lodash-es" } },
   });
 }
