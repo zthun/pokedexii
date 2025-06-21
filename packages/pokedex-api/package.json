@@ -10,9 +10,8 @@
     "url": "https://github.com/zthun/pokedexii",
     "directory": "packages/pokedex"
   },
-  "main": "./dist/main.js",
   "scripts": {
-    "build": "tsc -p tsconfig.prod.json",
+    "build": "vite build",
     "debug": "tsx watch --inspect=0.0.0.0:9229 ./src/main.mts",
     "start": "node ./bin/main.mjs"
   },
