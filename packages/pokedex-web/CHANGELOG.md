@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.0](https://github.com/zthun/pokedexii/compare/v1.0.2...v2.0.0) (2025-06-21)
+
+
+### ⚠ BREAKING CHANGES
+
+* module resolution is now NodeNext
+
+### Code Refactoring
+
+* module resolution is now NodeNext ([6c554ea](https://github.com/zthun/pokedexii/commit/6c554ea7cd62a733cc765876644e9c2db2035fd2))
+
+
+
 ## [1.0.2](https://github.com/zthun/pokedexii/compare/v1.0.1...v1.0.2) (2025-05-27)
 
 **Note:** Version bump only for package @zthun/pokedex-web

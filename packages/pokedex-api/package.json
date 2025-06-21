@@ -1,6 +1,6 @@
 {
   "name": "@zthun/pokedex-api",
-  "version": "1.0.2",
+  "version": "2.0.0",
   "description": "An API backend for pokedexii that allows complex queries and faster load times.",
   "author": "Anthony Bonta",
   "license": "MIT",
@@ -31,7 +31,7 @@
     "@zthun/helpful-query": "^9.3.0",
     "@zthun/lumberjacky-log": "^3.0.1",
     "@zthun/lumberjacky-nest": "^3.0.1",
-    "@zthun/pokedex": "^1.0.2",
+    "@zthun/pokedex": "^2.0.0",
     "@zthun/webigail-http": "^4.0.3",
     "@zthun/webigail-nest": "^4.0.3",
     "@zthun/webigail-url": "^4.0.3",
