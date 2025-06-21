@@ -13,8 +13,8 @@ import { mock } from "vitest-mock-extended";
 import { ZPokemonServiceContext } from "../pokemon/pokemon-service.mjs";
 import type { IZResourceService } from "../resource/resource-service.mjs";
 import { ZSpeciesServiceContext } from "./species-service.mjs";
-import { ZSpeciesVarietiesCard } from "./species-varieties-card";
 import { ZSpeciesVarietiesCardComponentModel } from "./species-varieties-card.cm.mjs";
+import { ZSpeciesVarietiesCard } from "./species-varieties-card.js";
 
 describe("ZSpeciesVarietiesCard", () => {
   let speciesService: Mocked<IZResourceService<IZSpecies>>;

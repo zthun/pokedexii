@@ -16,8 +16,8 @@ import { beforeEach, describe, expect, it } from "vitest";
 import { mock } from "vitest-mock-extended";
 import type { IZResourceService } from "../resource/resource-service.mjs";
 import { ZSpeciesServiceContext } from "../species/species-service.mjs";
-import { ZEvolutionChainCard } from "./evolution-chain-card";
 import { ZEvolutionChainCardComponentModel } from "./evolution-chain-card.cm.mjs";
+import { ZEvolutionChainCard } from "./evolution-chain-card.js";
 import { ZEvolutionServiceContext } from "./evolution-service.mjs";
 
 describe("ZEvolutionChainCard", () => {

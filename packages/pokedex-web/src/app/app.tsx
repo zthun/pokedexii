@@ -7,12 +7,12 @@ import {
   ZRouteMap,
 } from "@zthun/fashion-boutique";
 import { createDarkTheme } from "@zthun/fashion-theme";
-import { ZSpeciesDetailsPage } from "../species/species-details-page";
-import { ZSpeciesListPage } from "../species/species-list-page";
-import { ZTypeListPage } from "../type/type-list-page";
-import { ZPokedexAvatar } from "./app-avatar";
-import { ZPokedexNavigation } from "./app-navigation";
-import { ZPokedexTitle } from "./app-title";
+import { ZSpeciesDetailsPage } from "../species/species-details-page.js";
+import { ZSpeciesListPage } from "../species/species-list-page.js";
+import { ZTypeListPage } from "../type/type-list-page.js";
+import { ZPokedexAvatar } from "./app-avatar.js";
+import { ZPokedexNavigation } from "./app-navigation.js";
+import { ZPokedexTitle } from "./app-title.js";
 
 const FashionTheme = createDarkTheme();
 

@@ -8,9 +8,9 @@ import { ZSizeFixed } from "@zthun/fashion-tailor";
 import { css, cssJoinDefined } from "@zthun/helpful-fn";
 import type { IZEvolution } from "@zthun/pokedex";
 import type { ReactNode } from "react";
-import { ZResourceCard } from "../resource/resource-card";
-import { ZEvolutionNodeList } from "./evolution-node-list";
-import type { IZEvolutionResourceCard } from "./evolution-resource-card";
+import { ZResourceCard } from "../resource/resource-card.js";
+import { ZEvolutionNodeList } from "./evolution-node-list.js";
+import type { IZEvolutionResourceCard } from "./evolution-resource-card.js";
 import { useEvolution } from "./evolution-service.mjs";
 
 export function ZEvolutionChainCard(props: IZEvolutionResourceCard) {

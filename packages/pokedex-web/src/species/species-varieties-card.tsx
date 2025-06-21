@@ -14,7 +14,7 @@ import type { IZPokemon, IZSpecies } from "@zthun/pokedex";
 import { padStart, startCase } from "lodash-es";
 import { useMemo } from "react";
 import { usePokemon } from "../pokemon/pokemon-service.mjs";
-import { ZResourceCard } from "../resource/resource-card";
+import { ZResourceCard } from "../resource/resource-card.js";
 import type { IZSpeciesResourceCard } from "./species-resource-card.mjs";
 import { useSpecies } from "./species-service.mjs";
 

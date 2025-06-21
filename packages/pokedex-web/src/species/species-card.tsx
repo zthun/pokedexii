@@ -10,7 +10,7 @@ import { cssJoinDefined, ZOrientation } from "@zthun/helpful-fn";
 import type { IZSpecies } from "@zthun/pokedex";
 import { padStart, startCase } from "lodash-es";
 import type { MouseEventHandler } from "react";
-import { ZTypeBadges } from "../type/type-badges";
+import { ZTypeBadges } from "../type/type-badges.js";
 
 /**
  * Props for a species card.

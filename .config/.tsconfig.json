@@ -1,12 +1,13 @@
 {
   "$schema": "https://json.schemastore.org/tsconfig",
   "compilerOptions": {
-    "moduleResolution": "node",
+    "moduleResolution": "NodeNext",
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "resolveJsonModule": true,
+    "isolatedModules": true,
     "declaration": true,
     "strictNullChecks": true,
     "strictBindCallApply": true,
@@ -14,6 +15,6 @@
     "sourceMap": true,
     "jsx": "react-jsx",
     "target": "ESNext",
-    "module": "ESNext"
+    "module": "NodeNext"
   }
 }

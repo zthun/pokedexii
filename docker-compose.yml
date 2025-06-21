@@ -17,7 +17,7 @@ services:
     volumes:
       - .:/usr/dev
     working_dir: /usr/dev
-    command: npm --workspace @zthun/pokedex-web run start
+    command: yarn workspace @zthun/pokedex-web run start
   pokedex-services-api:
     image: node:lts
     ports:
@@ -25,7 +25,7 @@ services:
     volumes:
       - .:/usr/dev
     working_dir: /usr/dev
-    command: npm --workspace @zthun/pokedex-api run debug
+    command: yarn workspace @zthun/pokedex-api run debug
     depends_on:
       - pokedex-mongo
   # Databases

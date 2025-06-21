@@ -11,8 +11,8 @@ import type { Mocked } from "vitest";
 import { beforeEach, describe, expect, it } from "vitest";
 import { mock } from "vitest-mock-extended";
 import type { IZResourceService } from "../resource/resource-service.mjs";
-import { ZTypeListPage } from "./type-list-page";
 import { ZTypeListPageComponentModel } from "./type-list-page.cm.mjs";
+import { ZTypeListPage } from "./type-list-page.js";
 import { ZTypeServiceContext } from "./type-service.mjs";
 
 describe("ZTypeListPage", () => {
@@ -62,6 +62,7 @@ describe("ZTypeListPage", () => {
   it("should render all types", async () => {
     // Arrange.
     const target = await createTestTarget();
+
     // Act.
     const cards = await target.cards();
     const _fire = await target.card(fire.name);
@@ -73,6 +74,7 @@ describe("ZTypeListPage", () => {
     const __fire = await _fire?.type();
     const __flying = await _flying?.type();
     const __ground = await _ground?.type();
+
     // Assert.
     expect(cards.length).toEqual(types.length);
     expect(__fire).toEqual(ZType.Fire);

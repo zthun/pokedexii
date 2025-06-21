@@ -8,16 +8,16 @@ import {
 import { ZSizeFixed, ZSizeVaried } from "@zthun/fashion-tailor";
 import type { IZType, ZType } from "@zthun/pokedex";
 import { startCase } from "lodash-es";
-import { ZResourceCard } from "../resource/resource-card";
+import { ZResourceCard } from "../resource/resource-card.js";
 import { usePokemonTheme } from "../theme/pokemon-theme.mjs";
-import { ZTypeBadges } from "./type-badges";
+import { ZTypeBadges } from "./type-badges.js";
 
 export interface IZTypeCard {
-  type: IZType;
+  value: IZType;
 }
 
 export function ZTypeCard(props: IZTypeCard) {
-  const { type } = props;
+  const { value } = props;
   const { types } = usePokemonTheme();
 
   const renderBadges = (header: string, types: ZType[]) => {
@@ -56,7 +56,11 @@ export function ZTypeCard(props: IZTypeCard) {
   );
 
   return (
-    <ZResourceCard className="ZTypeCard-root" resource={type} name={type.name}>
+    <ZResourceCard
+      className="ZTypeCard-root"
+      resource={value}
+      name={value.name}
+    >
       {renderType}
     </ZResourceCard>
   );

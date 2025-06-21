@@ -11,11 +11,11 @@ import {
 import { ZSizeFixed } from "@zthun/fashion-tailor";
 import { isStateErrored, isStateLoading } from "@zthun/helpful-react";
 import { useEffect, useState } from "react";
-import { ZEvolutionChainCard } from "../evolution/evolution-chain-card";
-import { ZPokemonAttributesCard } from "../pokemon/pokemon-attributes-card";
-import { ZPokemonStatsCard } from "../pokemon/pokemon-stats-card";
+import { ZEvolutionChainCard } from "../evolution/evolution-chain-card.js";
+import { ZPokemonAttributesCard } from "../pokemon/pokemon-attributes-card.js";
+import { ZPokemonStatsCard } from "../pokemon/pokemon-stats-card.js";
 import { useSpecies } from "./species-service.mjs";
-import { ZSpeciesVarietiesCard } from "./species-varieties-card";
+import { ZSpeciesVarietiesCard } from "./species-varieties-card.js";
 
 /**
  * Represents the page for pokemon details.

@@ -4,7 +4,7 @@ import { cssJoinDefined } from "@zthun/helpful-fn";
 import { ZDataRequestBuilder } from "@zthun/helpful-query";
 import type { IZSpecies } from "@zthun/pokedex";
 import { useState } from "react";
-import { ZSpeciesCard } from "./species-card";
+import { ZSpeciesCard } from "./species-card.js";
 import { useSpeciesService } from "./species-service.mjs";
 
 export function ZSpeciesListPage() {

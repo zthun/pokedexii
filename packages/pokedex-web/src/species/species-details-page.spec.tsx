@@ -15,8 +15,8 @@ import { mock } from "vitest-mock-extended";
 import { ZEvolutionServiceContext } from "../evolution/evolution-service.mjs";
 import { ZPokemonServiceContext } from "../pokemon/pokemon-service.mjs";
 import type { IZResourceService } from "../resource/resource-service.mjs";
-import { ZSpeciesDetailsPage } from "./species-details-page";
 import { ZSpeciesDetailsPageComponentModel } from "./species-details-page.cm.mjs";
+import { ZSpeciesDetailsPage } from "./species-details-page.js";
 import { ZSpeciesServiceContext } from "./species-service.mjs";
 
 describe("ZSpeciesDetailsPage", () => {

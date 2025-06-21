@@ -11,8 +11,8 @@ import { cssJoinDefined } from "@zthun/helpful-fn";
 import type { IZPokemon, IZPokemonAbility } from "@zthun/pokedex";
 import { startCase } from "lodash-es";
 import type { ReactNode } from "react";
-import { ZResourceCard } from "../resource/resource-card";
-import { ZTypeBadges } from "../type/type-badges";
+import { ZResourceCard } from "../resource/resource-card.js";
+import { ZTypeBadges } from "../type/type-badges.js";
 import type { IZPokemonResourceCard } from "./pokemon-resource-card.mjs";
 import { usePokemon } from "./pokemon-service.mjs";
 

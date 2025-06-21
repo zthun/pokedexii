@@ -3,7 +3,7 @@ import { ZSizeFixed } from "@zthun/fashion-tailor";
 import { ZDataRequestBuilder, ZSortBuilder } from "@zthun/helpful-query";
 import type { IZType } from "@zthun/pokedex";
 import { useState } from "react";
-import { ZTypeCard } from "./type-card";
+import { ZTypeCard } from "./type-card.js";
 import { useTypeService } from "./type-service.mjs";
 
 const DefaultRequest = new ZDataRequestBuilder()
@@ -14,7 +14,9 @@ export function ZTypeListPage() {
   const service = useTypeService();
   const [template, setTemplate] = useState(DefaultRequest);
 
-  const renderType = (t: IZType) => <ZTypeCard key={t.name} type={t} />;
+  const renderType = (t: IZType) => {
+    return <ZTypeCard key={t.name} value={t} />;
+  };
 
   return (
     <ZGridView

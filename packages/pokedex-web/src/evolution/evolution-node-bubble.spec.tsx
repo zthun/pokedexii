@@ -11,8 +11,8 @@ import { beforeEach, describe, expect, it } from "vitest";
 import { mock } from "vitest-mock-extended";
 import type { IZResourceService } from "../resource/resource-service.mjs";
 import { ZSpeciesServiceContext } from "../species/species-service.mjs";
-import { ZEvolutionNodeBubble } from "./evolution-node-bubble";
-import { ZEvolutionNodeBubbleComponentModel } from "./evolution-node-bubble.cm";
+import { ZEvolutionNodeBubbleComponentModel } from "./evolution-node-bubble.cm.mjs";
+import { ZEvolutionNodeBubble } from "./evolution-node-bubble.js";
 
 describe("ZEvolutionNodeBubble", () => {
   let node: IZEvolutionNode;

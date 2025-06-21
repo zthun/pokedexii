@@ -8,7 +8,7 @@ import { ZSizeFixed } from "@zthun/fashion-tailor";
 import { cssJoinDefined } from "@zthun/helpful-fn";
 import type { IZPokemon } from "@zthun/pokedex";
 import { ZPokemonMaxBaseStat } from "@zthun/pokedex";
-import { ZResourceCard } from "../resource/resource-card";
+import { ZResourceCard } from "../resource/resource-card.js";
 import { usePokemonTheme } from "../theme/pokemon-theme.mjs";
 import type { IZPokemonResourceCard } from "./pokemon-resource-card.mjs";
 import { usePokemon } from "./pokemon-service.mjs";

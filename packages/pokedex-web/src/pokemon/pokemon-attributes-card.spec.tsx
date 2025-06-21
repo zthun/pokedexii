@@ -6,8 +6,8 @@ import type { Mocked } from "vitest";
 import { beforeEach, describe, expect, it } from "vitest";
 import { mock } from "vitest-mock-extended";
 import type { IZResourceService } from "../resource/resource-service.mjs";
-import { ZPokemonAttributesCard } from "./pokemon-attributes-card";
 import { ZPokemonAttributesCardComponentModel } from "./pokemon-attributes-card.cm.mjs";
+import { ZPokemonAttributesCard } from "./pokemon-attributes-card.js";
 import { ZPokemonServiceContext } from "./pokemon-service.mjs";
 
 describe("ZPokemonAttributesCard", () => {
