@@ -30,7 +30,7 @@ import { ZResourceModule } from "./resource-module.mjs";
 import { ZResourceSeedService } from "./resource-seed-service.mjs";
 import { ZPokeApiResource } from "./resource.mjs";
 
-describe("ZResourceApi", () => {
+describe.sequential("ZResourceApi", () => {
   let server: IZDatabaseServer<IZDatabaseDocument>;
   let dal: IZDatabaseDocument;
 
@@ -47,7 +47,7 @@ describe("ZResourceApi", () => {
     await server.stop();
   });
 
-  describe("Seeding", () => {
+  describe.sequential("Seeding", () => {
     let http: ZHttpServiceMock;
 
     const createTestTarget = async () => {
@@ -79,7 +79,7 @@ describe("ZResourceApi", () => {
       });
     });
 
-    describe("Seed", () => {
+    describe.sequential("Seed", () => {
       it("should populate all data from the poke api", async () => {
         // Arrange.
         const target = await createTestTarget();
@@ -118,7 +118,7 @@ describe("ZResourceApi", () => {
       });
     });
 
-    describe("Populate", () => {
+    describe.sequential("Populate", () => {
       let squirtle: IPokeApiSpecies;
       let charmander: IPokeApiSpecies;
       let charizard: IPokeApiSpecies;
@@ -185,18 +185,17 @@ describe("ZResourceApi", () => {
       it("should retry a set number of times to retrieve the page", async () => {
         // Arrange.
         const target = await createTestTarget();
-        let actual = 0;
-        const expected = 3;
+        const expected = 2;
         http.set(
           ZResourceSeedService.pageEndpoint(ZPokedexCollection.PokemonSpecies),
           ZHttpMethod.Get,
           () => {
-            ++actual;
             return new ZHttpResultBuilder("An error occurred")
               .status(ZHttpCodeServer.ServiceUnavailable)
               .build();
           },
         );
+        vi.spyOn(http, "request");
         // Act.
         await target.populate(
           ZPokedexCollection.PokemonSpecies,
@@ -205,7 +204,7 @@ describe("ZResourceApi", () => {
           expected,
         );
         // Assert.
-        expect(actual).toEqual(expected);
+        expect(http.request).toHaveBeenCalledTimes(expected);
       });
 
       it("should retry each failed resource", async () => {
