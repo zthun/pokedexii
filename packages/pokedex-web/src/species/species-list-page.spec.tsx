@@ -145,7 +145,7 @@ describe("ZSpeciesListPage", () => {
     const grid = await target.grid();
     const finder = await grid.search();
     // Act.
-    await finder.keyboard(pikachu.name);
+    await finder?.keyboard(pikachu.name);
     const cards = await target.cards();
     const actual = await target.card(pikachu.name);
     // Assert.
