@@ -1,11 +1,11 @@
+import type { IZFashion } from "@zthun/fashion-theme";
 import {
-  IZFashion,
   ZFashionBuilder,
   ZFashionStateBuilder,
   black,
   white,
 } from "@zthun/fashion-theme";
-import { ZType } from "@zthun/pokedex";
+import type { ZType } from "@zthun/pokedex";
 
 export interface IZPokemonThemeTypes extends Record<ZType, IZFashion> {}
 

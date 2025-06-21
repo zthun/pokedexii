@@ -1,5 +1,5 @@
+import type { IZFashion } from "@zthun/fashion-theme";
 import {
-  IZFashion,
   ZFashionBuilder,
   ZFashionStateBuilder,
   hex,

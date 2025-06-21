@@ -1,6 +1,6 @@
 import { ZCircusBy, ZCircusComponentModel } from "@zthun/cirque";
 import { ZGridViewComponentModel } from "@zthun/fashion-boutique";
-import { ZType } from "@zthun/pokedex";
+import type { ZType } from "@zthun/pokedex";
 import { ZTypeCardComponentModel } from "./type-card.cm";
 
 export class ZTypeListPageComponentModel extends ZCircusComponentModel {

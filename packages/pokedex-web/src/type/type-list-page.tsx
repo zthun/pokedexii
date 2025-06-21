@@ -1,7 +1,7 @@
 import { ZGridView } from "@zthun/fashion-boutique";
 import { ZSizeFixed } from "@zthun/fashion-tailor";
 import { ZDataRequestBuilder, ZSortBuilder } from "@zthun/helpful-query";
-import { IZType } from "@zthun/pokedex";
+import type { IZType } from "@zthun/pokedex";
 import { useState } from "react";
 import { ZTypeCard } from "./type-card";
 import { useTypeService } from "./type-service.mjs";

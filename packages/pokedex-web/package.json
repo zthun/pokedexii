@@ -28,6 +28,7 @@
     "@zthun/helpful-fn": "^9.3.0",
     "@zthun/helpful-query": "^9.3.0",
     "@zthun/helpful-react": "^9.3.0",
+    "@zthun/janitor-build-config": "^19.2.2",
     "@zthun/pokedex": "^1.0.2",
     "history": "^5.3.0",
     "lodash-es": "^4.17.21",

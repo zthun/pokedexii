@@ -1,11 +1,11 @@
-import { INestApplication } from "@nestjs/common";
+import type { INestApplication } from "@nestjs/common";
 import { Test } from "@nestjs/testing";
-import { IZDatabaseDocument, ZDatabaseOptionsBuilder } from "@zthun/dalmart-db";
-import {
-  IZDatabaseServer,
-  ZDatabaseServerDocument,
-} from "@zthun/dalmart-memory";
-import { IZSpecies, ZPokemonBuilder, ZSpeciesBuilder } from "@zthun/pokedex";
+import type { IZDatabaseDocument } from "@zthun/dalmart-db";
+import { ZDatabaseOptionsBuilder } from "@zthun/dalmart-db";
+import type { IZDatabaseServer } from "@zthun/dalmart-memory";
+import { ZDatabaseServerDocument } from "@zthun/dalmart-memory";
+import type { IZSpecies } from "@zthun/pokedex";
+import { ZPokemonBuilder, ZSpeciesBuilder } from "@zthun/pokedex";
 import { ZHttpCodeClient, ZHttpCodeSuccess } from "@zthun/webigail-http";
 import request from "supertest";
 import {

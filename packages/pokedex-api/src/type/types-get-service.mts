@@ -1,19 +1,19 @@
 import { Inject, Injectable, NotFoundException } from "@nestjs/common";
-import { IZDatabaseDocument } from "@zthun/dalmart-db";
+import type { IZDatabaseDocument } from "@zthun/dalmart-db";
 import {
   ZDataRequestBuilder,
   ZFilterBinaryBuilder,
   ZFilterLogicBuilder,
 } from "@zthun/helpful-query";
-import { IZType } from "@zthun/pokedex";
-import { IZConverter } from "../convert/converter.mjs";
+import type { IZType } from "@zthun/pokedex";
+import type { IZConverter } from "../convert/converter.mjs";
 import {
   ZDatabaseToken,
   ZPokedexCollection,
 } from "../database/pokedex-database.mjs";
-import { IZResourceGetService } from "../resource/resource-service.mjs";
+import type { IZResourceGetService } from "../resource/resource-service.mjs";
 import { ZConvertToken } from "../resource/resource-tokens.mjs";
-import { IPokeApiType } from "./type.mjs";
+import type { IPokeApiType } from "./type.mjs";
 
 @Injectable()
 export class ZTypesGetService implements IZResourceGetService<IZType> {

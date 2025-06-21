@@ -1,17 +1,15 @@
 import { ZCircusBy } from "@zthun/cirque";
 import { ZCircusSetupRenderer } from "@zthun/cirque-du-react";
 import { ZTestRouter } from "@zthun/fashion-boutique";
-import {
-  IZEvolutionNode,
-  IZSpecies,
-  ZEvolutionNodeBuilder,
-  ZSpeciesBuilder,
-} from "@zthun/pokedex";
-import { MemoryHistory, createMemoryHistory } from "history";
+import type { IZEvolutionNode, IZSpecies } from "@zthun/pokedex";
+import { ZEvolutionNodeBuilder, ZSpeciesBuilder } from "@zthun/pokedex";
+import type { MemoryHistory } from "history";
+import { createMemoryHistory } from "history";
 import { startCase } from "lodash-es";
-import { Mocked, beforeEach, describe, expect, it } from "vitest";
+import type { Mocked } from "vitest";
+import { beforeEach, describe, expect, it } from "vitest";
 import { mock } from "vitest-mock-extended";
-import { IZResourceService } from "../resource/resource-service.mjs";
+import type { IZResourceService } from "../resource/resource-service.mjs";
 import { ZSpeciesServiceContext } from "../species/species-service.mjs";
 import { ZEvolutionNodeBubble } from "./evolution-node-bubble";
 import { ZEvolutionNodeBubbleComponentModel } from "./evolution-node-bubble.cm";

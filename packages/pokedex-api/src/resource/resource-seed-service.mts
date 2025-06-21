@@ -1,18 +1,16 @@
 import { Inject, Injectable, Logger } from "@nestjs/common";
-import { IZDatabaseDocument } from "@zthun/dalmart-db";
+import type { IZDatabaseDocument } from "@zthun/dalmart-db";
 import { sleep } from "@zthun/helpful-fn";
-import { IZHttpService, ZHttpRequestBuilder } from "@zthun/webigail-http";
+import type { IZHttpService } from "@zthun/webigail-http";
+import { ZHttpRequestBuilder } from "@zthun/webigail-http";
 import { ZHttpServiceToken } from "@zthun/webigail-nest";
 import { ZUrlBuilder } from "@zthun/webigail-url";
 import {
   ZDatabaseToken,
   ZPokedexCollection,
 } from "../database/pokedex-database.mjs";
-import {
-  IPokeApiResource,
-  IPokeApiResourcePage,
-  PokeApiUrl,
-} from "./resource.mjs";
+import type { IPokeApiResource, IPokeApiResourcePage } from "./resource.mjs";
+import { PokeApiUrl } from "./resource.mjs";
 
 export const ZResourceSeedServiceToken = Symbol();
 

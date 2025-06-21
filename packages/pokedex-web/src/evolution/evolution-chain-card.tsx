@@ -6,11 +6,11 @@ import {
 } from "@zthun/fashion-boutique";
 import { ZSizeFixed } from "@zthun/fashion-tailor";
 import { css, cssJoinDefined } from "@zthun/helpful-fn";
-import { IZEvolution } from "@zthun/pokedex";
-import { ReactNode } from "react";
+import type { IZEvolution } from "@zthun/pokedex";
+import type { ReactNode } from "react";
 import { ZResourceCard } from "../resource/resource-card";
 import { ZEvolutionNodeList } from "./evolution-node-list";
-import { IZEvolutionResourceCard } from "./evolution-resource-card";
+import type { IZEvolutionResourceCard } from "./evolution-resource-card";
 import { useEvolution } from "./evolution-service.mjs";
 
 export function ZEvolutionChainCard(props: IZEvolutionResourceCard) {

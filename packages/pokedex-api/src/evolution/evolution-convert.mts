@@ -1,16 +1,18 @@
-import {
+import type {
   IZEvolution,
-  ZEvolutionBuilder,
-  ZEvolutionNodeBuilder,
   ZEvolutionTrigger,
-  ZEvolutionTriggerBuilder,
-  ZGender,
   ZStatRelationship,
   ZType,
 } from "@zthun/pokedex";
-import { IZConverter } from "../convert/converter.mjs";
-import { ZPokeApiResource } from "../resource/resource.mjs";
 import {
+  ZEvolutionBuilder,
+  ZEvolutionNodeBuilder,
+  ZEvolutionTriggerBuilder,
+  ZGender,
+} from "@zthun/pokedex";
+import type { IZConverter } from "../convert/converter.mjs";
+import { ZPokeApiResource } from "../resource/resource.mjs";
+import type {
   IPokeApiEvolutionChain,
   IPokeApiEvolutionChainDetails,
   IPokeApiEvolutionChainLink,

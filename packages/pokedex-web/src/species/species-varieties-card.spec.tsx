@@ -5,16 +5,13 @@ import {
   ZDataSourceStatic,
   ZFilterBinaryBuilder,
 } from "@zthun/helpful-query";
-import {
-  IZPokemon,
-  IZSpecies,
-  ZPokemonBuilder,
-  ZSpeciesBuilder,
-} from "@zthun/pokedex";
-import { Mock, Mocked, beforeEach, describe, expect, it, vi } from "vitest";
+import type { IZPokemon, IZSpecies } from "@zthun/pokedex";
+import { ZPokemonBuilder, ZSpeciesBuilder } from "@zthun/pokedex";
+import type { Mock, Mocked } from "vitest";
+import { beforeEach, describe, expect, it, vi } from "vitest";
 import { mock } from "vitest-mock-extended";
 import { ZPokemonServiceContext } from "../pokemon/pokemon-service.mjs";
-import { IZResourceService } from "../resource/resource-service.mjs";
+import type { IZResourceService } from "../resource/resource-service.mjs";
 import { ZSpeciesServiceContext } from "./species-service.mjs";
 import { ZSpeciesVarietiesCard } from "./species-varieties-card";
 import { ZSpeciesVarietiesCardComponentModel } from "./species-varieties-card.cm.mjs";

@@ -5,10 +5,12 @@ import {
   ZDataSourceStatic,
   ZFilterBinaryBuilder,
 } from "@zthun/helpful-query";
-import { IZType, ZType, ZTypeBuilder } from "@zthun/pokedex";
-import { Mocked, beforeEach, describe, expect, it } from "vitest";
+import type { IZType } from "@zthun/pokedex";
+import { ZType, ZTypeBuilder } from "@zthun/pokedex";
+import type { Mocked } from "vitest";
+import { beforeEach, describe, expect, it } from "vitest";
 import { mock } from "vitest-mock-extended";
-import { IZResourceService } from "../resource/resource-service.mjs";
+import type { IZResourceService } from "../resource/resource-service.mjs";
 import { ZTypeListPage } from "./type-list-page";
 import { ZTypeListPageComponentModel } from "./type-list-page.cm.mjs";
 import { ZTypeServiceContext } from "./type-service.mjs";

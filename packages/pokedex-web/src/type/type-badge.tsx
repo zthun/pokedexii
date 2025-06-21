@@ -1,6 +1,8 @@
-import {
+import type {
   IZComponentAdornment,
   IZComponentStyle,
+} from "@zthun/fashion-boutique";
+import {
   useCss,
   useFashionTailor,
   ZCaption,
@@ -11,7 +13,8 @@ import {
 import { ZSizeFixed } from "@zthun/fashion-tailor";
 import { ZColorPicker } from "@zthun/fashion-theme";
 import { css, cssJoinDefined, ZOrientation } from "@zthun/helpful-fn";
-import { ZType, ZTypeBuilder } from "@zthun/pokedex";
+import type { ZType } from "@zthun/pokedex";
+import { ZTypeBuilder } from "@zthun/pokedex";
 import { startCase } from "lodash-es";
 import { useMemo } from "react";
 import { usePokemonTheme } from "../theme/pokemon-theme.mjs";

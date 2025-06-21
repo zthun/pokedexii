@@ -1,7 +1,9 @@
-import {
+import type {
   IZCard,
   IZComponentName,
   IZComponentStyle,
+} from "@zthun/fashion-boutique";
+import {
   useFashionTheme,
   ZAlert,
   ZCard,
@@ -10,13 +12,10 @@ import {
 } from "@zthun/fashion-boutique";
 import { ZSizeFixed } from "@zthun/fashion-tailor";
 import { cssJoinDefined } from "@zthun/helpful-fn";
-import {
-  isStateErrored,
-  isStateLoading,
-  ZAsyncDataState,
-} from "@zthun/helpful-react";
+import type { ZAsyncDataState } from "@zthun/helpful-react";
+import { isStateErrored, isStateLoading } from "@zthun/helpful-react";
 import { castArray, find } from "lodash-es";
-import { ReactNode } from "react";
+import type { ReactNode } from "react";
 
 export interface IZResourceCard<T> extends IZComponentName, IZComponentStyle {
   CardProps?: Omit<IZCard, "children" | "loading" | "name" | "className">;

@@ -1,21 +1,20 @@
 import { Inject, Injectable } from "@nestjs/common";
-import { IZDatabaseDocument } from "@zthun/dalmart-db";
+import type { IZDatabaseDocument } from "@zthun/dalmart-db";
 import { firstDefined } from "@zthun/helpful-fn";
-import {
+import type {
   IZPokemon,
   IZPokemonAbility,
   IZPokemonWeakness,
-  ZPokemonBuilder,
-  ZType,
 } from "@zthun/pokedex";
+import { ZPokemonBuilder, ZType } from "@zthun/pokedex";
 import { keyBy, mapValues } from "lodash-es";
-import { IZConverter } from "../convert/converter.mjs";
+import type { IZConverter } from "../convert/converter.mjs";
 import {
   ZDatabaseToken,
   ZPokedexCollection,
 } from "../database/pokedex-database.mjs";
-import { IPokeApiType } from "../type/type.mjs";
-import { IPokeApiPokemon } from "./pokemon.mjs";
+import type { IPokeApiType } from "../type/type.mjs";
+import type { IPokeApiPokemon } from "./pokemon.mjs";
 
 @Injectable()
 export class ZPokemonConvert

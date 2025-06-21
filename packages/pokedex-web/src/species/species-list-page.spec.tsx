@@ -8,17 +8,15 @@ import {
   ZDataSourceStaticOptionsBuilder,
   ZFilterBinaryBuilder,
 } from "@zthun/helpful-query";
-import {
-  IZPokemon,
-  IZSpecies,
-  ZPokemonBuilder,
-  ZSpeciesBuilder,
-} from "@zthun/pokedex";
-import { MemoryHistory, createMemoryHistory } from "history";
-import { Mocked, beforeEach, describe, expect, it } from "vitest";
+import type { IZPokemon, IZSpecies } from "@zthun/pokedex";
+import { ZPokemonBuilder, ZSpeciesBuilder } from "@zthun/pokedex";
+import type { MemoryHistory } from "history";
+import { createMemoryHistory } from "history";
+import type { Mocked } from "vitest";
+import { beforeEach, describe, expect, it } from "vitest";
 import { mock } from "vitest-mock-extended";
 import { ZPokemonServiceContext } from "../pokemon/pokemon-service.mjs";
-import { IZResourceService } from "../resource/resource-service.mjs";
+import type { IZResourceService } from "../resource/resource-service.mjs";
 import { ZSpeciesListPage } from "./species-list-page";
 import { ZPokemonListPageComponentModel } from "./species-list-page.cm.mjs";
 import { ZSpeciesServiceContext } from "./species-service.mjs";

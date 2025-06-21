@@ -7,9 +7,9 @@ import {
 } from "@zthun/fashion-boutique";
 import { ZSizeFixed } from "@zthun/fashion-tailor";
 import { cssJoinDefined, ZOrientation } from "@zthun/helpful-fn";
-import { IZSpecies } from "@zthun/pokedex";
+import type { IZSpecies } from "@zthun/pokedex";
 import { padStart, startCase } from "lodash-es";
-import { MouseEventHandler } from "react";
+import type { MouseEventHandler } from "react";
 import { ZTypeBadges } from "../type/type-badges";
 
 /**

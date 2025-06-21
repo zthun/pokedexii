@@ -1,8 +1,8 @@
 import { ZCircusBy } from "@zthun/cirque";
 import { ZCircusSetupRenderer } from "@zthun/cirque-du-react";
-import { ZAsyncDataState, ZAsyncLoading } from "@zthun/helpful-react";
+import type { ZAsyncDataState } from "@zthun/helpful-react";
+import { ZAsyncLoading } from "@zthun/helpful-react";
 import { identity } from "lodash-es";
-import React from "react";
 import { beforeEach, describe, expect, it } from "vitest";
 import { ZResourceCard } from "./resource-card";
 import { ZResourceCardComponentModel } from "./resource-card.cm.mjs";

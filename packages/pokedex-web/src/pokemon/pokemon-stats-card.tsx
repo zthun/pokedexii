@@ -6,10 +6,11 @@ import {
 } from "@zthun/fashion-boutique";
 import { ZSizeFixed } from "@zthun/fashion-tailor";
 import { cssJoinDefined } from "@zthun/helpful-fn";
-import { IZPokemon, ZPokemonMaxBaseStat } from "@zthun/pokedex";
+import type { IZPokemon } from "@zthun/pokedex";
+import { ZPokemonMaxBaseStat } from "@zthun/pokedex";
 import { ZResourceCard } from "../resource/resource-card";
 import { usePokemonTheme } from "../theme/pokemon-theme.mjs";
-import { IZPokemonResourceCard } from "./pokemon-resource-card.mjs";
+import type { IZPokemonResourceCard } from "./pokemon-resource-card.mjs";
 import { usePokemon } from "./pokemon-service.mjs";
 
 export function ZPokemonStatsCard(props: IZPokemonResourceCard) {

@@ -1,10 +1,8 @@
-import { IZType } from "@zthun/pokedex";
+import type { IZType } from "@zthun/pokedex";
 import { ZHttpService } from "@zthun/webigail-http";
 import { createContext, useContext } from "react";
-import {
-  IZResourceService,
-  ZResourceService,
-} from "../resource/resource-service.mjs";
+import type { IZResourceService } from "../resource/resource-service.mjs";
+import { ZResourceService } from "../resource/resource-service.mjs";
 
 function createTypeService(): IZResourceService<IZType> {
   return new ZResourceService(new ZHttpService(), "types");

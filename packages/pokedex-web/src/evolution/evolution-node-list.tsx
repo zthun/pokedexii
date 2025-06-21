@@ -1,5 +1,5 @@
+import type { IZComponentName } from "@zthun/fashion-boutique";
 import {
-  IZComponentName,
   useCss,
   useFashionDevice,
   ZBox,
@@ -11,9 +11,10 @@ import {
 } from "@zthun/fashion-boutique";
 import { ZSizeFixed } from "@zthun/fashion-tailor";
 import { css, cssJoinDefined } from "@zthun/helpful-fn";
-import { IZEvolutionNode, IZEvolutionTrigger } from "@zthun/pokedex";
+import type { IZEvolutionNode, IZEvolutionTrigger } from "@zthun/pokedex";
 import { startCase } from "lodash-es";
-import { ReactNode, useState } from "react";
+import type { ReactNode } from "react";
+import { useState } from "react";
 import { ZEvolutionNodeBubble } from "./evolution-node-bubble";
 
 export interface IZEvolutionNodeList extends IZComponentName {

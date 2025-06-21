@@ -1,10 +1,11 @@
 import { Injectable } from "@nestjs/common";
 import { firstDefined } from "@zthun/helpful-fn";
-import { IZSpecies, ZSpeciesBuilder, ZType } from "@zthun/pokedex";
+import type { IZSpecies, ZType } from "@zthun/pokedex";
+import { ZSpeciesBuilder } from "@zthun/pokedex";
 import { first } from "lodash-es";
-import { IZConverter } from "../convert/converter.mjs";
+import type { IZConverter } from "../convert/converter.mjs";
 import { ZPokeApiResource } from "../resource/resource.mjs";
-import { IPokeApiSpecies } from "./species.mjs";
+import type { IPokeApiSpecies } from "./species.mjs";
 
 @Injectable()
 export class ZSpeciesConverter

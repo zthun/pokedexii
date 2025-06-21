@@ -1,7 +1,8 @@
-import { IZFashion } from "@zthun/fashion-theme";
+import type { IZFashion } from "@zthun/fashion-theme";
 import { ZType } from "@zthun/pokedex";
 import { createContext, useContext } from "react";
 import { createEvolutionFashion } from "./pokemon-theme-evolution.mjs";
+import type { IZPokemonThemeStats } from "./pokemon-theme-stats.mjs";
 import {
   createAttackStatFashion,
   createDefenseStatFashion,
@@ -9,8 +10,8 @@ import {
   createSpecialAttackStatFashion,
   createSpecialDefenseStatFashion,
   createSpeedStatFashion,
-  IZPokemonThemeStats,
 } from "./pokemon-theme-stats.mjs";
+import type { IZPokemonThemeTypes } from "./pokemon-theme-types.mjs";
 import {
   createBugTypeFashion,
   createDarkTypeFashion,
@@ -32,7 +33,6 @@ import {
   createSteelTypeFashion,
   createUnknownTypeFashion,
   createWaterTypeFashion,
-  IZPokemonThemeTypes,
 } from "./pokemon-theme-types.mjs";
 
 export interface IZPokemonTheme {

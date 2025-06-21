@@ -1,10 +1,12 @@
 import { ZCircusBy } from "@zthun/cirque";
 import { ZCircusSetupRenderer } from "@zthun/cirque-du-react";
-import { ZChartComponentModel } from "@zthun/fashion-boutique";
-import { IZPokemon, ZPokemonBuilder } from "@zthun/pokedex";
-import { Mocked, beforeEach, describe, expect, it } from "vitest";
+import type { ZChartComponentModel } from "@zthun/fashion-boutique";
+import type { IZPokemon } from "@zthun/pokedex";
+import { ZPokemonBuilder } from "@zthun/pokedex";
+import type { Mocked } from "vitest";
+import { beforeEach, describe, expect, it } from "vitest";
 import { mock } from "vitest-mock-extended";
-import { IZResourceService } from "../resource/resource-service.mjs";
+import type { IZResourceService } from "../resource/resource-service.mjs";
 import { ZPokemonServiceContext } from "./pokemon-service.mjs";
 import { ZPokemonStatsCard } from "./pokemon-stats-card";
 import { ZPokemonStatsCardComponentModel } from "./pokemon-stats-card.cm.mjs";

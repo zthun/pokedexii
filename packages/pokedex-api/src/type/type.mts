@@ -1,6 +1,8 @@
-import { IZType, ZTypeBuilder } from "@zthun/pokedex";
+import type { IZType } from "@zthun/pokedex";
+import { ZTypeBuilder } from "@zthun/pokedex";
 import { ZPokedexCollection } from "../database/pokedex-database.mjs";
-import { IPokeApiResource, ZPokeApiResource } from "../resource/resource.mjs";
+import type { IPokeApiResource } from "../resource/resource.mjs";
+import { ZPokeApiResource } from "../resource/resource.mjs";
 
 interface IPokeApiTypeName {
   language: IPokeApiResource;

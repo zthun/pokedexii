@@ -1,12 +1,9 @@
 import { Controller, Get, Inject, Param, Query } from "@nestjs/common";
 import { ApiParam, ApiTags } from "@nestjs/swagger";
-import {
-  IZDataRequestQuery,
-  IZPage,
-  ZDataRequestBuilder,
-} from "@zthun/helpful-query";
-import { IZEvolution } from "@zthun/pokedex";
-import {
+import type { IZDataRequestQuery, IZPage } from "@zthun/helpful-query";
+import { ZDataRequestBuilder } from "@zthun/helpful-query";
+import type { IZEvolution } from "@zthun/pokedex";
+import type {
   IZResourceGetService,
   IZResourceListService,
 } from "../resource/resource-service.mjs";

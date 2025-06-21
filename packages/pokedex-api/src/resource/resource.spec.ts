@@ -1,9 +1,8 @@
 import { Test } from "@nestjs/testing";
-import { IZDatabaseDocument, ZDatabaseOptionsBuilder } from "@zthun/dalmart-db";
-import {
-  IZDatabaseServer,
-  ZDatabaseServerDocument,
-} from "@zthun/dalmart-memory";
+import type { IZDatabaseDocument } from "@zthun/dalmart-db";
+import { ZDatabaseOptionsBuilder } from "@zthun/dalmart-db";
+import type { IZDatabaseServer } from "@zthun/dalmart-memory";
+import { ZDatabaseServerDocument } from "@zthun/dalmart-memory";
 import { ZSpeciesBuilder } from "@zthun/pokedex";
 import {
   ZHttpCodeServer,
@@ -25,10 +24,8 @@ import {
   ZDatabaseToken,
   ZPokedexCollection,
 } from "../database/pokedex-database.mjs";
-import {
-  IPokeApiSpecies,
-  ZPokeApiSpeciesBuilder,
-} from "../species/species.mjs";
+import type { IPokeApiSpecies } from "../species/species.mjs";
+import { ZPokeApiSpeciesBuilder } from "../species/species.mjs";
 import { ZResourceModule } from "./resource-module.mjs";
 import { ZResourceSeedService } from "./resource-seed-service.mjs";
 import { ZPokeApiResource } from "./resource.mjs";

@@ -1,12 +1,10 @@
-import {
-  IZComponentStyle,
-  ZGrid,
-  ZIconFontAwesome,
-} from "@zthun/fashion-boutique";
+import type { IZComponentStyle } from "@zthun/fashion-boutique";
+import { ZGrid, ZIconFontAwesome } from "@zthun/fashion-boutique";
 import { ZSizeFixed } from "@zthun/fashion-tailor";
 import { cssJoinDefined } from "@zthun/helpful-fn";
-import { IZPokemonWeakness, ZType } from "@zthun/pokedex";
-import { ReactNode, useMemo } from "react";
+import type { IZPokemonWeakness, ZType } from "@zthun/pokedex";
+import type { ReactNode } from "react";
+import { useMemo } from "react";
 import { ZTypeBadge } from "./type-badge";
 
 interface IZTypeWithBadge {

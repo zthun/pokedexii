@@ -1,6 +1,6 @@
 import { ZType } from "../type/type.mjs";
+import type { IZEvolutionTrigger } from "./evolution-trigger.mjs";
 import {
-  IZEvolutionTrigger,
   ZEvolutionTrigger,
   ZEvolutionTriggerBuilder,
   ZStatRelationship,

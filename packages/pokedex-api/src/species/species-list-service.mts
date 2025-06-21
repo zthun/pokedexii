@@ -1,24 +1,17 @@
 import { Inject, Injectable } from "@nestjs/common";
-import {
-  IZDatabaseDocument,
-  ZDatabaseDocumentCollectionBuilder,
-} from "@zthun/dalmart-db";
-import {
-  IZDataRequest,
-  IZFilter,
-  IZPage,
-  ZDataRequestBuilder,
-  ZPageBuilder,
-} from "@zthun/helpful-query";
-import { IZSpecies } from "@zthun/pokedex";
-import { IZConverter } from "../convert/converter.mjs";
+import type { IZDatabaseDocument } from "@zthun/dalmart-db";
+import { ZDatabaseDocumentCollectionBuilder } from "@zthun/dalmart-db";
+import type { IZDataRequest, IZFilter, IZPage } from "@zthun/helpful-query";
+import { ZDataRequestBuilder, ZPageBuilder } from "@zthun/helpful-query";
+import type { IZSpecies } from "@zthun/pokedex";
+import type { IZConverter } from "../convert/converter.mjs";
 import {
   ZDatabaseToken,
   ZPokedexCollection,
 } from "../database/pokedex-database.mjs";
-import { IZResourceListService } from "../resource/resource-service.mjs";
+import type { IZResourceListService } from "../resource/resource-service.mjs";
 import { ZConvertToken, ZSearchToken } from "../resource/resource-tokens.mjs";
-import { IPokeApiSpecies } from "./species.mjs";
+import type { IPokeApiSpecies } from "./species.mjs";
 
 @Injectable()
 export class ZSpeciesListService implements IZResourceListService<IZSpecies> {

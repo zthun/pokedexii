@@ -1,6 +1,7 @@
-import { IZDataRequest, IZDataSource, IZPage } from "@zthun/helpful-query";
-import { IZResource } from "@zthun/pokedex";
-import { IZHttpService, ZHttpRequestBuilder } from "@zthun/webigail-http";
+import type { IZDataRequest, IZDataSource, IZPage } from "@zthun/helpful-query";
+import type { IZResource } from "@zthun/pokedex";
+import type { IZHttpService } from "@zthun/webigail-http";
+import { ZHttpRequestBuilder } from "@zthun/webigail-http";
 import { ZUrlBuilder } from "@zthun/webigail-url";
 
 export interface IZResourceService<T extends IZResource>

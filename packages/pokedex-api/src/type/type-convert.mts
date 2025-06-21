@@ -1,6 +1,7 @@
-import { IZType, ZType, ZTypeBuilder } from "@zthun/pokedex";
-import { IZConverter } from "../convert/converter.mjs";
-import { IPokeApiType } from "./type.mjs";
+import type { IZType, ZType } from "@zthun/pokedex";
+import { ZTypeBuilder } from "@zthun/pokedex";
+import type { IZConverter } from "../convert/converter.mjs";
+import type { IPokeApiType } from "./type.mjs";
 
 export class ZTypeConvert implements IZConverter<IPokeApiType, IZType> {
   public convert(resource: IPokeApiType): Promise<IZType> {

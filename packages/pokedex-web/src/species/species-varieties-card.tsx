@@ -1,5 +1,5 @@
+import type { IZComponentValue } from "@zthun/fashion-boutique";
 import {
-  IZComponentValue,
   useFashionTheme,
   ZBox,
   ZButton,
@@ -10,12 +10,12 @@ import {
 import { ZSizeFixed, ZSizeVaried } from "@zthun/fashion-tailor";
 import { ZOrientation } from "@zthun/helpful-fn";
 import { asStateData, useAmbassadorState } from "@zthun/helpful-react";
-import { IZPokemon, IZSpecies } from "@zthun/pokedex";
+import type { IZPokemon, IZSpecies } from "@zthun/pokedex";
 import { padStart, startCase } from "lodash-es";
 import { useMemo } from "react";
 import { usePokemon } from "../pokemon/pokemon-service.mjs";
 import { ZResourceCard } from "../resource/resource-card";
-import { IZSpeciesResourceCard } from "./species-resource-card.mjs";
+import type { IZSpeciesResourceCard } from "./species-resource-card.mjs";
 import { useSpecies } from "./species-service.mjs";
 
 export interface IZSpeciesVarietiesCard

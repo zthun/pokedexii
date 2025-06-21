@@ -2,7 +2,7 @@ import { ZGridView, useNavigate } from "@zthun/fashion-boutique";
 import { ZSizeFixed } from "@zthun/fashion-tailor";
 import { cssJoinDefined } from "@zthun/helpful-fn";
 import { ZDataRequestBuilder } from "@zthun/helpful-query";
-import { IZSpecies } from "@zthun/pokedex";
+import type { IZSpecies } from "@zthun/pokedex";
 import { useState } from "react";
 import { ZSpeciesCard } from "./species-card";
 import { useSpeciesService } from "./species-service.mjs";

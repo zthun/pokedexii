@@ -1,20 +1,20 @@
 import { ZCircusBy } from "@zthun/cirque";
 import { ZCircusSetupRenderer } from "@zthun/cirque-du-react";
 import { ZRoute, ZRouteMap, ZTestRouter } from "@zthun/fashion-boutique";
+import type { IZEvolution, IZPokemon, IZSpecies } from "@zthun/pokedex";
 import {
-  IZEvolution,
-  IZPokemon,
-  IZSpecies,
   ZEvolutionBuilder,
   ZPokemonBuilder,
   ZSpeciesBuilder,
 } from "@zthun/pokedex";
-import { History, createMemoryHistory } from "history";
-import { Mocked, beforeEach, describe, expect, it } from "vitest";
+import type { History } from "history";
+import { createMemoryHistory } from "history";
+import type { Mocked } from "vitest";
+import { beforeEach, describe, expect, it } from "vitest";
 import { mock } from "vitest-mock-extended";
 import { ZEvolutionServiceContext } from "../evolution/evolution-service.mjs";
 import { ZPokemonServiceContext } from "../pokemon/pokemon-service.mjs";
-import { IZResourceService } from "../resource/resource-service.mjs";
+import type { IZResourceService } from "../resource/resource-service.mjs";
 import { ZSpeciesDetailsPage } from "./species-details-page";
 import { ZSpeciesDetailsPageComponentModel } from "./species-details-page.cm.mjs";
 import { ZSpeciesServiceContext } from "./species-service.mjs";

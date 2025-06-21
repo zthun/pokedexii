@@ -8,12 +8,12 @@ import {
 } from "@zthun/fashion-boutique";
 import { ZSizeFixed } from "@zthun/fashion-tailor";
 import { cssJoinDefined } from "@zthun/helpful-fn";
-import { IZPokemon, IZPokemonAbility } from "@zthun/pokedex";
+import type { IZPokemon, IZPokemonAbility } from "@zthun/pokedex";
 import { startCase } from "lodash-es";
-import { ReactNode } from "react";
+import type { ReactNode } from "react";
 import { ZResourceCard } from "../resource/resource-card";
 import { ZTypeBadges } from "../type/type-badges";
-import { IZPokemonResourceCard } from "./pokemon-resource-card.mjs";
+import type { IZPokemonResourceCard } from "./pokemon-resource-card.mjs";
 import { usePokemon } from "./pokemon-service.mjs";
 
 export function ZPokemonAttributesCard(props: IZPokemonResourceCard) {

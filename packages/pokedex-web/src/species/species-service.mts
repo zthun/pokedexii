@@ -1,11 +1,10 @@
 import { useAsyncState } from "@zthun/helpful-react";
-import { IZSpecies, ZSpeciesBuilder } from "@zthun/pokedex";
+import type { IZSpecies } from "@zthun/pokedex";
+import { ZSpeciesBuilder } from "@zthun/pokedex";
 import { ZHttpService } from "@zthun/webigail-http";
 import { createContext, useContext } from "react";
-import {
-  IZResourceService,
-  ZResourceService,
-} from "../resource/resource-service.mjs";
+import type { IZResourceService } from "../resource/resource-service.mjs";
+import { ZResourceService } from "../resource/resource-service.mjs";
 
 function createSpeciesService(): IZResourceService<IZSpecies> {
   return new ZResourceService<IZSpecies>(new ZHttpService(), "species");

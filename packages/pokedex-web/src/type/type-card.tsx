@@ -6,7 +6,7 @@ import {
   ZStack,
 } from "@zthun/fashion-boutique";
 import { ZSizeFixed, ZSizeVaried } from "@zthun/fashion-tailor";
-import { IZType, ZType } from "@zthun/pokedex";
+import type { IZType, ZType } from "@zthun/pokedex";
 import { startCase } from "lodash-es";
 import { ZResourceCard } from "../resource/resource-card";
 import { usePokemonTheme } from "../theme/pokemon-theme.mjs";

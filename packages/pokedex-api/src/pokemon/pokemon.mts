@@ -1,6 +1,8 @@
-import { IZPokemon, ZPokemonBuilder } from "@zthun/pokedex";
+import type { IZPokemon } from "@zthun/pokedex";
+import { ZPokemonBuilder } from "@zthun/pokedex";
 import { ZPokedexCollection } from "../database/pokedex-database.mjs";
-import { IPokeApiResource, ZPokeApiResource } from "../resource/resource.mjs";
+import type { IPokeApiResource } from "../resource/resource.mjs";
+import { ZPokeApiResource } from "../resource/resource.mjs";
 
 interface IPokeApiPokemonAbility {
   is_hidden: boolean;

@@ -1,4 +1,5 @@
-import { IZCircusDriver, ZCircusComponentModel } from "@zthun/cirque";
+import type { IZCircusDriver } from "@zthun/cirque";
+import { ZCircusComponentModel } from "@zthun/cirque";
 import { ZType } from "@zthun/pokedex";
 
 export class ZTypeBadgeComponentModel extends ZCircusComponentModel {

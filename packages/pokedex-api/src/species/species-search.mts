@@ -1,10 +1,10 @@
 import { Injectable } from "@nestjs/common";
+import type { IZFilter } from "@zthun/helpful-query";
 import {
-  IZFilter,
   ZFilterBinaryBuilder,
   ZFilterLogicBuilder,
 } from "@zthun/helpful-query";
-import { IZConverter } from "../convert/converter.mjs";
+import type { IZConverter } from "../convert/converter.mjs";
 
 @Injectable()
 export class ZSpeciesSearch

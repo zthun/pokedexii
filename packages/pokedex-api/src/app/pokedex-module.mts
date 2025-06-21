@@ -5,10 +5,8 @@ import { ThrottlerGuard, ThrottlerModule } from "@nestjs/throttler";
 import { ZEvolutionsModule } from "../evolution/evolutions-module.mjs";
 import { ZPokemonModule } from "../pokemon/pokemon-module.mjs";
 import { ZResourceModule } from "../resource/resource-module.mjs";
-import {
-  IZResourceSeedService,
-  ZResourceSeedServiceToken,
-} from "../resource/resource-seed-service.mjs";
+import type { IZResourceSeedService } from "../resource/resource-seed-service.mjs";
+import { ZResourceSeedServiceToken } from "../resource/resource-seed-service.mjs";
 import { ZSpeciesModule } from "../species/species-module.mjs";
 import { ZTypesModule } from "../type/types-module.mjs";
 

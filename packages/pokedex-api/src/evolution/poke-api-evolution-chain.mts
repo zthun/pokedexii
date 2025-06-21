@@ -1,12 +1,12 @@
-import {
+import type {
   IZEvolution,
   IZEvolutionNode,
   IZEvolutionTrigger,
-  ZEvolutionBuilder,
-  ZGender,
 } from "@zthun/pokedex";
+import { ZEvolutionBuilder, ZGender } from "@zthun/pokedex";
 import { ZPokedexCollection } from "../database/pokedex-database.mjs";
-import { IPokeApiResource, ZPokeApiResource } from "../resource/resource.mjs";
+import type { IPokeApiResource } from "../resource/resource.mjs";
+import { ZPokeApiResource } from "../resource/resource.mjs";
 
 export interface IPokeApiEvolutionChainDetails {
   gender: number | null;

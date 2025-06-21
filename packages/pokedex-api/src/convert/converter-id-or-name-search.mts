@@ -1,9 +1,9 @@
+import type { IZFilter } from "@zthun/helpful-query";
 import {
-  IZFilter,
   ZFilterBinaryBuilder,
   ZFilterLogicBuilder,
 } from "@zthun/helpful-query";
-import { IZConverter } from "./converter.mjs";
+import type { IZConverter } from "./converter.mjs";
 
 export class ZConverterIdOrNameSearch
   implements IZConverter<string | undefined | null, IZFilter | undefined>

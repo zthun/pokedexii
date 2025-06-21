@@ -15,7 +15,8 @@ import {
   isStateLoaded,
   isStateLoading,
 } from "@zthun/helpful-react";
-import { IZEvolutionNode, ZSpeciesBuilder } from "@zthun/pokedex";
+import type { IZEvolutionNode } from "@zthun/pokedex";
+import { ZSpeciesBuilder } from "@zthun/pokedex";
 import { startCase } from "lodash-es";
 import { useSpecies } from "../species/species-service.mjs";
 import { usePokemonTheme } from "../theme/pokemon-theme.mjs";

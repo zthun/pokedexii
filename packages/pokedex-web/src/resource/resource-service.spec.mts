@@ -1,5 +1,6 @@
 import { ZDataRequestBuilder, ZPageBuilder } from "@zthun/helpful-query";
-import { IZType, ZTypeBuilder } from "@zthun/pokedex";
+import type { IZType } from "@zthun/pokedex";
+import { ZTypeBuilder } from "@zthun/pokedex";
 import {
   ZHttpMethod,
   ZHttpResultBuilder,
