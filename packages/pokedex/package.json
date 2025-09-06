@@ -25,17 +25,17 @@
     "access": "public"
   },
   "dependencies": {
-    "@zthun/dalmart-db": "^1.5.3",
-    "@zthun/helpful-fn": "^9.4.2",
-    "@zthun/helpful-query": "^9.4.2",
-    "@zthun/webigail-http": "^4.0.5",
-    "@zthun/webigail-url": "^4.0.5",
+    "@zthun/dalmart-db": "^1.5.4",
+    "@zthun/helpful-fn": "^9.4.3",
+    "@zthun/helpful-query": "^9.4.3",
+    "@zthun/webigail-http": "^4.0.6",
+    "@zthun/webigail-url": "^4.0.6",
     "lodash-es": "^4.17.21"
   },
   "devDependencies": {
-    "@zthun/janitor-build-config": "^19.3.1",
-    "typescript": "^5.8.3",
-    "vite": "^7.0.5",
+    "@zthun/janitor-build-config": "^19.3.3",
+    "typescript": "^5.9.2",
+    "vite": "^7.1.4",
     "vitest": "^3.2.4",
     "vitest-mock-extended": "^3.1.0"
   },
