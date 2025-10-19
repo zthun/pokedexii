@@ -2088,16 +2088,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nestjs/swagger@npm:^11.2.0":
-  version: 11.2.0
-  resolution: "@nestjs/swagger@npm:11.2.0"
+"@nestjs/swagger@npm:^11.2.1":
+  version: 11.2.1
+  resolution: "@nestjs/swagger@npm:11.2.1"
   dependencies:
     "@microsoft/tsdoc": "npm:0.15.1"
     "@nestjs/mapped-types": "npm:2.1.0"
     js-yaml: "npm:4.1.0"
     lodash: "npm:4.17.21"
-    path-to-regexp: "npm:8.2.0"
-    swagger-ui-dist: "npm:5.21.0"
+    path-to-regexp: "npm:8.3.0"
+    swagger-ui-dist: "npm:5.29.4"
   peerDependencies:
     "@fastify/static": ^8.0.0
     "@nestjs/common": ^11.0.1
@@ -2112,7 +2112,7 @@ __metadata:
       optional: true
     class-validator:
       optional: true
-  checksum: 10/2f8cee1f58ea5d887939d0d6f230f272a2526900057515d95253fb6d6c96dcd2d110396d70e9b74e6342cf83f4575b4dbe58ae97ba6252270b8318dcaa5fc8cd
+  checksum: 10/6719e7673c3007a909b995f28df0452329eb2fa9d1f1a92b8c36af5fb0b1165f34ee053ceb8155adbf6632f470cc7a3508c6e1c6a99d881b874aaf0e8dc1df1c
   languageName: node
   linkType: hard
 
@@ -3527,12 +3527,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:^24.6.2":
-  version: 24.6.2
-  resolution: "@types/node@npm:24.6.2"
+"@types/node@npm:*, @types/node@npm:^24.8.1":
+  version: 24.8.1
+  resolution: "@types/node@npm:24.8.1"
   dependencies:
-    undici-types: "npm:~7.13.0"
-  checksum: 10/8d1e64b37abdafd3da295394235ad5357509ac0b47e6991d36b1eecacd7ad830ada60ca71b7b3598b6c8b519361fb70aab691888c378ff25e69dba5690afcc22
+    undici-types: "npm:~7.14.0"
+  checksum: 10/4f944466766ca8cc0d635386e2b9b42b1948723ca0ec7d24624e80513e5816d6e96197db7c05f8f67b544a228a06a1c0598d66a5526aa4c1f5919db0d3c5bf8c
   languageName: node
   linkType: hard
 
@@ -3559,12 +3559,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:^19.2.0":
-  version: 19.2.0
-  resolution: "@types/react@npm:19.2.0"
+"@types/react@npm:^19.2.2":
+  version: 19.2.2
+  resolution: "@types/react@npm:19.2.2"
   dependencies:
     csstype: "npm:^3.0.2"
-  checksum: 10/c00a8552d54282caeb608d09664a250e6bd00b1f51e32bb73a0569d844ddbf58d25ffadffec85cc5df08e6c00e6c232a06a8efcfa5edd0bea2ce234519707b34
+  checksum: 10/d6adf8fd4bb23a7e04da5700d96b15dc0f59653727a9c6e940c151d7232fa1dbbab98417d5ac830dcfb6cba3f206efbd4cd83647e6f9a688d7363a90e607f6bf
   languageName: node
   linkType: hard
 
@@ -4074,124 +4074,124 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@zthun/dalmart-db@npm:^1.5.6":
-  version: 1.5.6
-  resolution: "@zthun/dalmart-db@npm:1.5.6"
+"@zthun/dalmart-db@npm:^1.6.0":
+  version: 1.6.0
+  resolution: "@zthun/dalmart-db@npm:1.6.0"
   dependencies:
-    "@zthun/helpful-fn": "npm:^9.4.5"
-    "@zthun/helpful-query": "npm:^9.4.5"
-  checksum: 10/185b377c164494978a4c8d39cddd54f46b3c448575ec8b5a66b4fd6ceff0c98acdfe5fcd6df0e516da27d5441b3e744b226d72bbb2a568c2ef871e67b31ef3cb
+    "@zthun/helpful-fn": "npm:^9.6.0"
+    "@zthun/helpful-query": "npm:^9.7.1"
+  checksum: 10/bb828d54ebf55419d57d19322099f9f4b07b1992cf962ff019da655256267c38af216a66092b06f341fa9a4885cc6e2ffbc41eb51381027b5b9c08019a4a58f9
   languageName: node
   linkType: hard
 
-"@zthun/dalmart-memory@npm:^1.5.6":
-  version: 1.5.6
-  resolution: "@zthun/dalmart-memory@npm:1.5.6"
+"@zthun/dalmart-memory@npm:^1.6.0":
+  version: 1.6.0
+  resolution: "@zthun/dalmart-memory@npm:1.6.0"
   dependencies:
-    "@zthun/dalmart-db": "npm:^1.5.6"
-    "@zthun/dalmart-mongo": "npm:^1.5.6"
-    "@zthun/dalmart-storage": "npm:^1.5.6"
-    "@zthun/helpful-fn": "npm:^9.4.5"
-    mongodb-memory-server: "npm:^10.2.2"
-  checksum: 10/7ad2b91072ed61915036fa3f3eca1c4d8eff36b8a358919699c78baace144af052c95a3d533f8f3da52d555d4ee39086cc8ed0aa73f6455f500373a626f226b9
+    "@zthun/dalmart-db": "npm:^1.6.0"
+    "@zthun/dalmart-mongo": "npm:^1.6.0"
+    "@zthun/dalmart-storage": "npm:^1.6.0"
+    "@zthun/helpful-fn": "npm:^9.6.0"
+    mongodb-memory-server: "npm:^10.2.3"
+  checksum: 10/7afa050b276c9f5c93109feb10b1d108825f5aedf9d77b4e099f4a259cf594b788be3c2ca4a403dd9261ee1b0a11f1c1fb21a64c0090737b311c5127cc658b1f
   languageName: node
   linkType: hard
 
-"@zthun/dalmart-mongo@npm:^1.5.6":
-  version: 1.5.6
-  resolution: "@zthun/dalmart-mongo@npm:1.5.6"
+"@zthun/dalmart-mongo@npm:^1.6.0":
+  version: 1.6.0
+  resolution: "@zthun/dalmart-mongo@npm:1.6.0"
   dependencies:
-    "@zthun/dalmart-db": "npm:^1.5.6"
-    "@zthun/helpful-fn": "npm:^9.4.5"
-    "@zthun/helpful-query": "npm:^9.4.5"
+    "@zthun/dalmart-db": "npm:^1.6.0"
+    "@zthun/helpful-fn": "npm:^9.6.0"
+    "@zthun/helpful-query": "npm:^9.7.1"
     mongodb: "npm:^6.20.0"
-  checksum: 10/0429dd274dc744920e3da4d46c0d63d51c6de1e8bc4d0f2ac2e1b98d7edeca2a61d835591d66f53e5398ec5d7f05916ba3c52c177b2ccfac9ba68003f8520fd4
+  checksum: 10/279ea7b15c40efc8ab1c6d5cffd5f9f6dfb3c0d8f40404f314344ed947ab2b870651b3d365dd5ec8fbd766cb3458fa37536684a059c9c987f79ebe3734281468
   languageName: node
   linkType: hard
 
-"@zthun/dalmart-storage@npm:^1.5.6":
-  version: 1.5.6
-  resolution: "@zthun/dalmart-storage@npm:1.5.6"
+"@zthun/dalmart-storage@npm:^1.6.0":
+  version: 1.6.0
+  resolution: "@zthun/dalmart-storage@npm:1.6.0"
   dependencies:
-    "@zthun/dalmart-db": "npm:^1.5.6"
-    "@zthun/helpful-fn": "npm:^9.4.5"
-  checksum: 10/bd4ef12e638109d8b34ef94427b6bb9d974f62a6338176d61664900fa9761ce108a13bf0044fc745268de3a28a674df0ba02299ade92927c088552fcb10ca349
+    "@zthun/dalmart-db": "npm:^1.6.0"
+    "@zthun/helpful-fn": "npm:^9.6.0"
+  checksum: 10/7c6d36450e74dd72d80040beeb6a2fda84ea86c5ce67ab2a71a356399ef324bd3f1b4c7c3a512a8ccc446b9fdf9bb40f449bedc09b4a914d549c0b735d01354c
   languageName: node
   linkType: hard
 
-"@zthun/fashion-boutique@npm:^10.2.7":
-  version: 10.2.7
-  resolution: "@zthun/fashion-boutique@npm:10.2.7"
+"@zthun/fashion-boutique@npm:^11.0.1":
+  version: 11.0.1
+  resolution: "@zthun/fashion-boutique@npm:11.0.1"
   dependencies:
     "@emotion/css": "npm:^11.13.5"
     "@emotion/serialize": "npm:^1.3.3"
     "@emotion/sheet": "npm:^1.4.0"
     "@zthun/cirque": "npm:^7.1.10"
-    "@zthun/fashion-tailor": "npm:^10.2.7"
-    "@zthun/fashion-theme": "npm:^10.2.7"
-    "@zthun/helpful-fn": "npm:^9.4.5"
-    "@zthun/helpful-query": "npm:^9.4.5"
-    "@zthun/helpful-react": "npm:^9.4.5"
-    "@zthun/webigail-http": "npm:^4.0.8"
-    "@zthun/webigail-url": "npm:^4.0.8"
+    "@zthun/fashion-tailor": "npm:^11.0.1"
+    "@zthun/fashion-theme": "npm:^11.0.1"
+    "@zthun/helpful-fn": "npm:^9.6.0"
+    "@zthun/helpful-query": "npm:^9.7.1"
+    "@zthun/helpful-react": "npm:^9.7.1"
+    "@zthun/webigail-http": "npm:^4.0.9"
+    "@zthun/webigail-url": "npm:^4.0.9"
     csstype: "npm:^3.1.3"
     history: "npm:^5.3.0"
     lodash-es: "npm:^4.17.21"
-    react-router-dom: "npm:^7.9.3"
+    react-router-dom: "npm:^7.9.4"
     stylis: "npm:^4.3.6"
   peerDependencies:
     react: ^18 || ^19
     react-dom: ^18 || ^19
-  checksum: 10/847cadded9df20b620394a23a2f03e5785cd4e2874a0a70fc965429fd3f5b9088a1736f55c92fd88086c2ac2bc8e703239cdc1fb56d96ae144231af1d3f7dee1
+  checksum: 10/b36b7153679a1229be351fda7b5c662e7cfad0558d7ef782b8400fe201672598f0bf7a68e8477bc0baeb9eae738d7138b2610a91ce61f44a179b5eb389069ecc
   languageName: node
   linkType: hard
 
-"@zthun/fashion-tailor@npm:^10.2.7":
-  version: 10.2.7
-  resolution: "@zthun/fashion-tailor@npm:10.2.7"
+"@zthun/fashion-tailor@npm:^11.0.1":
+  version: 11.0.1
+  resolution: "@zthun/fashion-tailor@npm:11.0.1"
   dependencies:
-    "@zthun/helpful-fn": "npm:^9.4.5"
+    "@zthun/helpful-fn": "npm:^9.6.0"
     lodash-es: "npm:^4.17.21"
-  checksum: 10/201356d87c1f33aacd251ad91cd212f2ae19c587a11adaef14f92abce43069ad58dda59784b9650e3f32d8bc4213f7964683d6431e039db4a11a749b2090d4c9
+  checksum: 10/5d4b8e89e9924e4d8d28e386d9faa85cc73509198187fdcc36b4280776a33ade6c4ff1da62e753be1aed5cd537361b382b3b95281ff5a248614c86af0125a0cd
   languageName: node
   linkType: hard
 
-"@zthun/fashion-theme@npm:^10.2.7":
-  version: 10.2.7
-  resolution: "@zthun/fashion-theme@npm:10.2.7"
+"@zthun/fashion-theme@npm:^11.0.1":
+  version: 11.0.1
+  resolution: "@zthun/fashion-theme@npm:11.0.1"
   dependencies:
-    "@zthun/helpful-fn": "npm:^9.4.5"
+    "@zthun/helpful-fn": "npm:^9.6.0"
     csstype: "npm:^3.1.3"
     lodash-es: "npm:^4.17.21"
-  checksum: 10/d2f39d760963c83e34e38100878970047138604e5044cd426b13672fd2d6f87e9d106f8b059c6848c27150102f7951309b5be64576b468c289107162aa0216a1
+  checksum: 10/c5314760cd992ae52abe1e1e033ea1745d2b0e78229c3c33799d75c1415e8afe38cf7f10109cf5170842cae6689e8882b059eeab96a5dd9aae497fc820afd518
   languageName: node
   linkType: hard
 
-"@zthun/helpful-fn@npm:^9.4.5":
-  version: 9.4.5
-  resolution: "@zthun/helpful-fn@npm:9.4.5"
+"@zthun/helpful-fn@npm:^9.6.0":
+  version: 9.6.0
+  resolution: "@zthun/helpful-fn@npm:9.6.0"
   dependencies:
     uuid: "npm:^13.0.0"
-  checksum: 10/b89b0dd39a1bc819c3704b3f78430cd96146886c35b81e245f57a5c5c8c08f03c2444d47cb75785f8fca93beddba0d16bad9752c8b90f1fc70c9ae64c435b15e
+  checksum: 10/b05d69ab0859ed421f18358070ead830619625145db46a25408a80aa1f9c9ed3e0ecfc96879c8d8c5b1db62f8fdc908973f38b646f73801e2a1c392f517062fb
   languageName: node
   linkType: hard
 
-"@zthun/helpful-query@npm:^9.4.5":
-  version: 9.4.5
-  resolution: "@zthun/helpful-query@npm:9.4.5"
+"@zthun/helpful-query@npm:^9.7.1":
+  version: 9.7.1
+  resolution: "@zthun/helpful-query@npm:9.7.1"
   dependencies:
-    "@zthun/helpful-fn": "npm:^9.4.5"
+    "@zthun/helpful-fn": "npm:^9.6.0"
     lodash-es: "npm:^4.17.21"
-  checksum: 10/5e45d830aaa1dd6462505720c743063ded523e5301381f19c021ffd706f50c5a070831b7bab3bbf73b78349b66d9cfa6a422ff4e46989e0726bfd2024c5d24b3
+  checksum: 10/255598082abe16aee06cd3fd3ea227d9f4cd432ab32a4303c7b013677fcf9cccc2d47d6587d018125ddcf23352cbf695eab92bdbf80107f197c3a9070a253916
   languageName: node
   linkType: hard
 
-"@zthun/helpful-react@npm:^9.4.5":
-  version: 9.4.5
-  resolution: "@zthun/helpful-react@npm:9.4.5"
+"@zthun/helpful-react@npm:^9.7.1":
+  version: 9.7.1
+  resolution: "@zthun/helpful-react@npm:9.7.1"
   dependencies:
-    "@zthun/helpful-fn": "npm:^9.4.5"
-    "@zthun/helpful-query": "npm:^9.4.5"
+    "@zthun/helpful-fn": "npm:^9.6.0"
+    "@zthun/helpful-query": "npm:^9.7.1"
     lodash-es: "npm:^4.17.21"
     rxjs: "npm:^7.8.2"
   peerDependencies:
@@ -4201,7 +4201,7 @@ __metadata:
   peerDependenciesMeta:
     rxjs:
       optional: true
-  checksum: 10/46e4b02da157263cbc2d3be41866e25a109583a66874226e2a4eea47722af9e2c48274ee94644b481393d9ecb8f4ac9140a6ea28754e024c2eb85e6a5bf1498f
+  checksum: 10/2225e30ae5554af1377cb20ea34db83ceca6cc7ffc9764c5637849e88f12f32afbec4121774f0803ca9d6ee6dc331099498e0e27585e8f0fc3a16154abd755c8
   languageName: node
   linkType: hard
 
@@ -4379,26 +4379,26 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@zthun/lumberjacky-log@npm:^3.0.6":
-  version: 3.0.6
-  resolution: "@zthun/lumberjacky-log@npm:3.0.6"
+"@zthun/lumberjacky-log@npm:^3.0.7":
+  version: 3.0.7
+  resolution: "@zthun/lumberjacky-log@npm:3.0.7"
   dependencies:
     lodash-es: "npm:^4.17.21"
-  checksum: 10/574d23248bb1db35a45441decc829e708ab0499eb86ceadd926660b5cbeef24ef6787d10b0d3a81ef04ae0735532b5e8ab08bcc5dda0350d26a41e1e1c8d7b5b
+  checksum: 10/f911e1a61445c4cc0404224429e8b472c58ac9e3dc6276fac6287e4bf368028e316c5babc9415daa95dba5892aebdda0ad902d0be3c36624bf99b3c7b30230c0
   languageName: node
   linkType: hard
 
-"@zthun/lumberjacky-nest@npm:^3.0.6":
-  version: 3.0.6
-  resolution: "@zthun/lumberjacky-nest@npm:3.0.6"
+"@zthun/lumberjacky-nest@npm:^3.0.7":
+  version: 3.0.7
+  resolution: "@zthun/lumberjacky-nest@npm:3.0.7"
   dependencies:
-    "@zthun/lumberjacky-log": "npm:^3.0.6"
+    "@zthun/lumberjacky-log": "npm:^3.0.7"
     lodash-es: "npm:^4.17.21"
     reflect-metadata: "npm:^0.2.2"
     rxjs: "npm:^7.8.2"
   peerDependencies:
     "@nestjs/common": ^11.1.1
-  checksum: 10/49ebdbc699ca9ac1e5ef8bc610e80a639aeb5cace02d91849342d54ef05063b4c48f28b475e24785508004a3b858af860572fbea16681a8c153ca8415210ea4a
+  checksum: 10/1e6425d3d453fff6d53d6324f0afcc4ca11ece7b0279f9df6e6fdb64759f8d9b963a622796c24b9036acb6155971adf0e117d67a8eca9371766f923fe0a6da4c
   languageName: node
   linkType: hard
 
@@ -4409,21 +4409,21 @@ __metadata:
     "@nestjs/common": "npm:^11.1.6"
     "@nestjs/core": "npm:^11.1.6"
     "@nestjs/platform-express": "npm:^11.1.6"
-    "@nestjs/swagger": "npm:^11.2.0"
+    "@nestjs/swagger": "npm:^11.2.1"
     "@nestjs/testing": "npm:^11.1.6"
     "@nestjs/throttler": "npm:^6.4.0"
-    "@zthun/dalmart-db": "npm:^1.5.6"
-    "@zthun/dalmart-memory": "npm:^1.5.6"
-    "@zthun/dalmart-mongo": "npm:^1.5.6"
-    "@zthun/helpful-fn": "npm:^9.4.5"
-    "@zthun/helpful-query": "npm:^9.4.5"
+    "@zthun/dalmart-db": "npm:^1.6.0"
+    "@zthun/dalmart-memory": "npm:^1.6.0"
+    "@zthun/dalmart-mongo": "npm:^1.6.0"
+    "@zthun/helpful-fn": "npm:^9.6.0"
+    "@zthun/helpful-query": "npm:^9.7.1"
     "@zthun/janitor-build-config": "npm:^19.3.6"
-    "@zthun/lumberjacky-log": "npm:^3.0.6"
-    "@zthun/lumberjacky-nest": "npm:^3.0.6"
+    "@zthun/lumberjacky-log": "npm:^3.0.7"
+    "@zthun/lumberjacky-nest": "npm:^3.0.7"
     "@zthun/pokedex": "npm:^2.0.5"
-    "@zthun/webigail-http": "npm:^4.0.8"
-    "@zthun/webigail-nest": "npm:^4.0.8"
-    "@zthun/webigail-url": "npm:^4.0.8"
+    "@zthun/webigail-http": "npm:^4.0.9"
+    "@zthun/webigail-nest": "npm:^4.0.9"
+    "@zthun/webigail-url": "npm:^4.0.9"
     helmet: "npm:^8.1.0"
     lodash-es: "npm:^4.17.21"
     reflect-metadata: "npm:^0.2.2"
@@ -4431,7 +4431,7 @@ __metadata:
     supertest: "npm:^7.1.4"
     tsx: "npm:^4.20.6"
     typescript: "npm:^5.9.3"
-    vite: "npm:^7.1.9"
+    vite: "npm:^7.1.10"
     vitest: "npm:^3.2.4"
     vitest-mock-extended: "npm:^3.1.0"
   bin:
@@ -4443,27 +4443,27 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@zthun/pokedex-web@workspace:packages/pokedex-web"
   dependencies:
-    "@types/node": "npm:^24.6.2"
+    "@types/node": "npm:^24.8.1"
     "@zthun/cirque": "npm:^7.1.10"
     "@zthun/cirque-du-react": "npm:^7.1.10"
     "@zthun/cirque-du-selenium": "npm:^7.1.10"
-    "@zthun/fashion-boutique": "npm:^10.2.7"
-    "@zthun/fashion-tailor": "npm:^10.2.7"
-    "@zthun/fashion-theme": "npm:^10.2.7"
-    "@zthun/helpful-fn": "npm:^9.4.5"
-    "@zthun/helpful-query": "npm:^9.4.5"
-    "@zthun/helpful-react": "npm:^9.4.5"
+    "@zthun/fashion-boutique": "npm:^11.0.1"
+    "@zthun/fashion-tailor": "npm:^11.0.1"
+    "@zthun/fashion-theme": "npm:^11.0.1"
+    "@zthun/helpful-fn": "npm:^9.6.0"
+    "@zthun/helpful-query": "npm:^9.7.1"
+    "@zthun/helpful-react": "npm:^9.7.1"
     "@zthun/janitor-build-config": "npm:^19.3.6"
     "@zthun/pokedex": "npm:^2.0.5"
-    "@zthun/webigail-http": "npm:^4.0.8"
-    "@zthun/webigail-url": "npm:^4.0.8"
+    "@zthun/webigail-http": "npm:^4.0.9"
+    "@zthun/webigail-url": "npm:^4.0.9"
     history: "npm:^5.3.0"
     lodash-es: "npm:^4.17.21"
     react: "npm:^19.2.0"
     react-dom: "npm:^19.2.0"
     tsconfig-paths: "npm:^4.2.0"
     typescript: "npm:^5.9.3"
-    vite: "npm:^7.1.9"
+    vite: "npm:^7.1.10"
     vite-tsconfig-paths: "npm:^5.1.4"
     vitest: "npm:^3.2.4"
     vitest-mock-extended: "npm:^3.1.0"
@@ -4474,15 +4474,15 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@zthun/pokedex@workspace:packages/pokedex"
   dependencies:
-    "@zthun/dalmart-db": "npm:^1.5.6"
-    "@zthun/helpful-fn": "npm:^9.4.5"
-    "@zthun/helpful-query": "npm:^9.4.5"
+    "@zthun/dalmart-db": "npm:^1.6.0"
+    "@zthun/helpful-fn": "npm:^9.6.0"
+    "@zthun/helpful-query": "npm:^9.7.1"
     "@zthun/janitor-build-config": "npm:^19.3.6"
-    "@zthun/webigail-http": "npm:^4.0.8"
-    "@zthun/webigail-url": "npm:^4.0.8"
+    "@zthun/webigail-http": "npm:^4.0.9"
+    "@zthun/webigail-url": "npm:^4.0.9"
     lodash-es: "npm:^4.17.21"
     typescript: "npm:^5.9.3"
-    vite: "npm:^7.1.9"
+    vite: "npm:^7.1.10"
     vitest: "npm:^3.2.4"
     vitest-mock-extended: "npm:^3.1.0"
   languageName: unknown
@@ -4495,59 +4495,59 @@ __metadata:
     "@commitlint/cli": "npm:^20.1.0"
     "@commitlint/config-conventional": "npm:^20.0.0"
     "@types/lodash-es": "npm:^4.17.12"
-    "@types/node": "npm:^24.6.2"
-    "@types/react": "npm:^19.2.0"
+    "@types/node": "npm:^24.8.1"
+    "@types/react": "npm:^19.2.2"
     "@types/supertest": "npm:^6.0.3"
     "@vitest/coverage-v8": "npm:^3.2.4"
     "@zthun/janitor-build-config": "npm:^19.3.6"
     "@zthun/janitor-lint": "npm:^19.3.6"
     "@zthun/janitor-lint-config": "npm:^19.3.6"
     "@zthun/janitor-options": "npm:^19.3.6"
-    happy-dom: "npm:^19.0.2"
+    happy-dom: "npm:^20.0.5"
     husky: "npm:^9.1.7"
     lerna: "npm:^9.0.0"
     react: "npm:^19.2.0"
     react-dom: "npm:^19.2.0"
     rimraf: "npm:^6.0.1"
     typescript: "npm:^5.9.3"
-    vite: "npm:^7.1.9"
+    vite: "npm:^7.1.10"
     vitest: "npm:^3.2.4"
   languageName: unknown
   linkType: soft
 
-"@zthun/webigail-http@npm:^4.0.8":
-  version: 4.0.8
-  resolution: "@zthun/webigail-http@npm:4.0.8"
+"@zthun/webigail-http@npm:^4.0.9":
+  version: 4.0.9
+  resolution: "@zthun/webigail-http@npm:4.0.9"
   dependencies:
-    "@zthun/webigail-url": "npm:^4.0.8"
+    "@zthun/webigail-url": "npm:^4.0.9"
     cross-fetch: "npm:^4.1.0"
     lodash-es: "npm:^4.17.21"
-  checksum: 10/57c91bf855887a0dfd23489397d6283193052c81ebcc6b2a3f74d2221268c0fd58d9cd5becf73eb4f03d7400b438c9d77660e30720439f9a4d858421124cb49c
+  checksum: 10/4cdc022376e4c6e392d348e47f4859f73054418461f613456fa04b77dd6bb508a687a16c56efc24fce488e601e14df03b3885726771e2562c8328724b2d7cb4a
   languageName: node
   linkType: hard
 
-"@zthun/webigail-nest@npm:^4.0.8":
-  version: 4.0.8
-  resolution: "@zthun/webigail-nest@npm:4.0.8"
+"@zthun/webigail-nest@npm:^4.0.9":
+  version: 4.0.9
+  resolution: "@zthun/webigail-nest@npm:4.0.9"
   dependencies:
-    "@zthun/webigail-http": "npm:^4.0.8"
+    "@zthun/webigail-http": "npm:^4.0.9"
   peerDependencies:
     "@nestjs/common": ^11.1.1
     "@nestjs/core": ^11.1.1
     reflect-metadata: ^0.2.1
     rxjs: ^7.8.1
-  checksum: 10/52ba3601efa6b7eb1b3c15b41bd702fa258455c94452f14fa6a8344d6afd62e7b5528da3da8593fa4977ab249426bdcdc540160af846914c53873cdaf8996c3d
+  checksum: 10/5adc33aaf5a8261d6ba8908fef32eca5f92268949c530dc42fe8c823ef824edaec881463d6ae30dbedfe25c02bd117da9bd0c16a8685b31ab331987d05cb8dfa
   languageName: node
   linkType: hard
 
-"@zthun/webigail-url@npm:^4.0.8":
-  version: 4.0.8
-  resolution: "@zthun/webigail-url@npm:4.0.8"
+"@zthun/webigail-url@npm:^4.0.9":
+  version: 4.0.9
+  resolution: "@zthun/webigail-url@npm:4.0.9"
   dependencies:
     "@zthun/janitor-build-config": "npm:^19.3.6"
     lodash-es: "npm:^4.17.21"
     url-parse: "npm:^1.5.10"
-  checksum: 10/90276da2ecd3e893b50058d36ee0a7877d5c11a1b3e7de87437fbe57c6230ba026db94532860f6da53091171813446690a3bb51e88d85c73b34a44a19715e123
+  checksum: 10/bd89cf82040d6efea74fcf3136d6f9e18c03ed747869c3f63f315f96a7aa3bafe09bac57534c13ec84f5ece0ca0db7e30a6570d8c3a2e3768ecdc805e1b8128c
   languageName: node
   linkType: hard
 
@@ -8074,14 +8074,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"happy-dom@npm:^19.0.2":
-  version: 19.0.2
-  resolution: "happy-dom@npm:19.0.2"
+"happy-dom@npm:^20.0.5":
+  version: 20.0.5
+  resolution: "happy-dom@npm:20.0.5"
   dependencies:
     "@types/node": "npm:^20.0.0"
     "@types/whatwg-mimetype": "npm:^3.0.2"
     whatwg-mimetype: "npm:^3.0.0"
-  checksum: 10/cca23fa7c12ed73307be93a312b389d2c9e5497a647d884ab2c8684833824e369137ee8a3496a9abdaf08a1ed02b1af925c6f661cf29ef6a90c675c0bc11ce5f
+  checksum: 10/51e0f8c38b283280cd93462f9f062df206f70a8ddbdfd3b3aa420168c29d0eb52bda5fb5fff0233b69fd867e15db7cb43beb0e726f350c73f8ac59ac0012e5c0
   languageName: node
   linkType: hard
 
@@ -10669,9 +10669,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"mongodb-memory-server-core@npm:10.2.2":
-  version: 10.2.2
-  resolution: "mongodb-memory-server-core@npm:10.2.2"
+"mongodb-memory-server-core@npm:10.2.3":
+  version: 10.2.3
+  resolution: "mongodb-memory-server-core@npm:10.2.3"
   dependencies:
     async-mutex: "npm:^0.5.0"
     camelcase: "npm:^6.3.0"
@@ -10685,17 +10685,17 @@ __metadata:
     tar-stream: "npm:^3.1.7"
     tslib: "npm:^2.8.1"
     yauzl: "npm:^3.2.0"
-  checksum: 10/0afc397dc15260df5252ed7abc1ebf05c210069fd06f66ac5d67fb5bc596bf75fbc72ae936aa16508869e01a78a7638d2edad91a54c259fea178e603e74613a9
+  checksum: 10/eaf497167ed17fdbc464df5c26d8a9fa42e7acd3ca40c0646b6e0f27d92e31a37248191caadbefdc88c2b91ff7906465f11fd4c120e9e2c56805130723c00c24
   languageName: node
   linkType: hard
 
-"mongodb-memory-server@npm:^10.2.2":
-  version: 10.2.2
-  resolution: "mongodb-memory-server@npm:10.2.2"
+"mongodb-memory-server@npm:^10.2.3":
+  version: 10.2.3
+  resolution: "mongodb-memory-server@npm:10.2.3"
   dependencies:
-    mongodb-memory-server-core: "npm:10.2.2"
+    mongodb-memory-server-core: "npm:10.2.3"
     tslib: "npm:^2.8.1"
-  checksum: 10/3b8dba0090e4ba2bfc9ab452d8cf3e70d69287315d836079da072f05046754aa47c757cb32a238bd2e1036c6e5347ed6f33cb747f20e06d59859cfe95c959d4a
+  checksum: 10/72167e4ca7b9c188aeededa2f4920f7a92d9a18ff6dcc4f5549cefe6ec2eebccf045a72fc0ce3b0e529d055f2f6dc38cf59dca792c3d3a3c62c2ea1d81faf936
   languageName: node
   linkType: hard
 
@@ -11754,10 +11754,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"path-to-regexp@npm:8.2.0, path-to-regexp@npm:^8.0.0":
+"path-to-regexp@npm:8.2.0":
   version: 8.2.0
   resolution: "path-to-regexp@npm:8.2.0"
   checksum: 10/23378276a172b8ba5f5fb824475d1818ca5ccee7bbdb4674701616470f23a14e536c1db11da9c9e6d82b82c556a817bbf4eee6e41b9ed20090ef9427cbb38e13
+  languageName: node
+  linkType: hard
+
+"path-to-regexp@npm:8.3.0, path-to-regexp@npm:^8.0.0":
+  version: 8.3.0
+  resolution: "path-to-regexp@npm:8.3.0"
+  checksum: 10/568f148fc64f5fd1ecebf44d531383b28df924214eabf5f2570dce9587a228e36c37882805ff02d71c6209b080ea3ee6a4d2b712b5df09741b67f1f3cf91e55a
   languageName: node
   linkType: hard
 
@@ -12213,21 +12220,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-router-dom@npm:^7.9.3":
-  version: 7.9.3
-  resolution: "react-router-dom@npm:7.9.3"
+"react-router-dom@npm:^7.9.4":
+  version: 7.9.4
+  resolution: "react-router-dom@npm:7.9.4"
   dependencies:
-    react-router: "npm:7.9.3"
+    react-router: "npm:7.9.4"
   peerDependencies:
     react: ">=18"
     react-dom: ">=18"
-  checksum: 10/c30acb4b37377a2f02e8dce70c07a72af0b128b10befe6443ee710893df5d22c900fd1cad7cdf35b1a4f949554b39dcd76fcf93941c918e10c08109e0d870fda
+  checksum: 10/b47af028bc092697f496daa1c0c7e61554cafd9d96e62127801d0f91c972e652c9580885da454311f18a4172c09a559c427de808cbd300c87a2dd4af9e5fdbfc
   languageName: node
   linkType: hard
 
-"react-router@npm:7.9.3":
-  version: 7.9.3
-  resolution: "react-router@npm:7.9.3"
+"react-router@npm:7.9.4":
+  version: 7.9.4
+  resolution: "react-router@npm:7.9.4"
   dependencies:
     cookie: "npm:^1.0.1"
     set-cookie-parser: "npm:^2.6.0"
@@ -12237,7 +12244,7 @@ __metadata:
   peerDependenciesMeta:
     react-dom:
       optional: true
-  checksum: 10/62066f09214c5b026b0d400af946aa0b16ef5be7f5120a4400e1b1fc487249220c2d735d9f6a2afa505a136bc8ef4cd7657b1ff8126871068cbf7ec773febce3
+  checksum: 10/0091b79845fdfe6500ec35cbcb3fd1149288ae39e32c3c5f85eda2c9b281294e7e9807ca1b482785c92cc3809422eddade6554f5b1b5d419eee20b166b55cd4d
   languageName: node
   linkType: hard
 
@@ -13740,12 +13747,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"swagger-ui-dist@npm:5.21.0":
-  version: 5.21.0
-  resolution: "swagger-ui-dist@npm:5.21.0"
+"swagger-ui-dist@npm:5.29.4":
+  version: 5.29.4
+  resolution: "swagger-ui-dist@npm:5.29.4"
   dependencies:
     "@scarf/scarf": "npm:=1.4.0"
-  checksum: 10/5e34f4337b06d64ee6bbd64940cc63ace7c457deb98a1de2a387833c6d919543bfed1da662827191fd6c6c6762cc2f52b7ca3f316932a9bc3b12d51b718c5424
+  checksum: 10/7e40ad499b5d461172a43b7c269333445878bac16a25eeedf01d2161cf0d23d35d33823173f6931f60713df1c50c810dbd6d4fb98a7b42a33da6ada685fc0da3
   languageName: node
   linkType: hard
 
@@ -14370,10 +14377,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"undici-types@npm:~7.13.0":
-  version: 7.13.0
-  resolution: "undici-types@npm:7.13.0"
-  checksum: 10/1088ad68dd57981aa6eced5b3f5d74129ac619fbe558b30cb584d6096d32b084ae30d7cdc480d622226e6ffc8d31e01ac30215816439a0d784e0fe64db873b0f
+"undici-types@npm:~7.14.0":
+  version: 7.14.0
+  resolution: "undici-types@npm:7.14.0"
+  checksum: 10/0f8709b21437697af35801e33bddbe9992e0cf1771959c41850b1946f63822b825e03ce99f44bf19e4f5c3ccc5166e0be59f541565c36ce86163dc2c5870bc62
   languageName: node
   linkType: hard
 
@@ -14665,9 +14672,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite@npm:^5.0.0 || ^6.0.0 || ^7.0.0-0, vite@npm:^7.1.9":
-  version: 7.1.9
-  resolution: "vite@npm:7.1.9"
+"vite@npm:^5.0.0 || ^6.0.0 || ^7.0.0-0, vite@npm:^7.1.10, vite@npm:^7.1.9":
+  version: 7.1.10
+  resolution: "vite@npm:7.1.10"
   dependencies:
     esbuild: "npm:^0.25.0"
     fdir: "npm:^6.5.0"
@@ -14716,7 +14723,7 @@ __metadata:
       optional: true
   bin:
     vite: bin/vite.js
-  checksum: 10/361b8dfea414233927761fdb63ec38c2cc4630007efc33a7a02ef9a5c033552c41b2e95f7fcc9acf427da5a3cf194d62dc5f0853bc31e940a13528d0fb180132
+  checksum: 10/34482c3698a6e10986036caa91c0114fc59f5a4bdda571d19b863a44a8b231dda09b0e3c63eb459e3b27ce453e695bce476f504b160451706563ce97e841ac5a
   languageName: node
   linkType: hard
 
