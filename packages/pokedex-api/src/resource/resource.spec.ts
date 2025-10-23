@@ -11,8 +11,10 @@ import {
   ZHttpServiceMock,
 } from "@zthun/webigail-http";
 import { ZHttpServiceToken } from "@zthun/webigail-nest";
+import type { Mock } from "vitest";
 import {
   afterAll,
+  afterEach,
   beforeAll,
   beforeEach,
   describe,
@@ -80,11 +82,20 @@ describe.sequential("ZResourceApi", () => {
     });
 
     describe.sequential("Seed", () => {
+      let dal_create: Mock;
+
+      beforeEach(() => {
+        dal_create = vi.spyOn(dal, "create");
+      });
+
+      afterEach(() => {
+        dal_create.mockReset();
+      });
+
       it("should populate all data from the poke api", async () => {
         // Arrange.
         const target = await createTestTarget();
         const expected = Object.values(ZPokedexCollection);
-        vi.spyOn(dal, "create");
         // Act.
         await target.seed();
         // Assert.
@@ -104,7 +115,6 @@ describe.sequential("ZResourceApi", () => {
             .build(),
         );
         const target = await createTestTarget();
-        vi.spyOn(dal, "create");
         // Act.
         await target.seed(1);
         // Assert.
@@ -125,6 +135,8 @@ describe.sequential("ZResourceApi", () => {
       let bulbasaur: IPokeApiSpecies;
       let pikachu: IPokeApiSpecies;
       let species: IPokeApiSpecies[];
+
+      let http_request: Mock;
 
       beforeEach(() => {
         squirtle = new ZPokeApiSpeciesBuilder()
@@ -166,6 +178,12 @@ describe.sequential("ZResourceApi", () => {
             new ZHttpResultBuilder(species[i]).build(),
           );
         });
+
+        http_request = vi.spyOn(http, "request");
+      });
+
+      afterEach(() => {
+        http_request.mockReset();
       });
 
       it("should populate the equivalent collection database with the list returned from the pokeapi", async () => {
@@ -195,7 +213,7 @@ describe.sequential("ZResourceApi", () => {
               .build();
           },
         );
-        vi.spyOn(http, "request");
+
         // Act.
         await target.populate(
           ZPokedexCollection.PokemonSpecies,
@@ -203,6 +221,7 @@ describe.sequential("ZResourceApi", () => {
           0,
           expected,
         );
+
         // Assert.
         expect(http.request).toHaveBeenCalledTimes(expected);
       });
