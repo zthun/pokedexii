@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.8](https://github.com/zthun/pokedexii/compare/v2.0.7...v2.0.8) (2025-11-07)
+
+**Note:** Version bump only for package @zthun/pokedex
+
+
+
+
+
 ## [2.0.7](https://github.com/zthun/pokedexii/compare/v2.0.6...v2.0.7) (2025-10-23)
 
 **Note:** Version bump only for package @zthun/pokedex
