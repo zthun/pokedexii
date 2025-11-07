@@ -1,4 +1,4 @@
-import { ZGridView } from "@zthun/fashion-boutique";
+import { ZGridView, ZSearch } from "@zthun/fashion-boutique";
 import { ZSizeFixed } from "@zthun/fashion-tailor";
 import { ZDataRequestBuilder, ZSortBuilder } from "@zthun/helpful-query";
 import type { IZType } from "@zthun/pokedex";
@@ -30,10 +30,12 @@ export function ZTypeListPage() {
           sm: "1fr",
         },
       }}
+      heading={
+        <ZSearch value={template} onValueChange={setTemplate} name="search" />
+      }
       dataSource={service}
       renderItem={renderType}
       value={template}
-      onValueChange={setTemplate}
     />
   );
 }

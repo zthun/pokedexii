@@ -1,5 +1,8 @@
 import { ZCircusBy, ZCircusComponentModel } from "@zthun/cirque";
-import { ZGridViewComponentModel } from "@zthun/fashion-boutique";
+import {
+  ZGridViewComponentModel,
+  ZTextComponentModel,
+} from "@zthun/fashion-boutique";
 import { ZSpeciesCardComponentModel } from "./species-card.cm.mjs";
 
 /**
@@ -7,6 +10,16 @@ import { ZSpeciesCardComponentModel } from "./species-card.cm.mjs";
  */
 export class ZPokemonListPageComponentModel extends ZCircusComponentModel {
   public static readonly Selector = ".ZSpeciesListPage-root";
+
+  /**
+   * Returns the search text box.
+   *
+   * @returns
+   *        The search text box.
+   */
+  public search(): Promise<ZTextComponentModel> {
+    return ZCircusBy.first(this.driver, ZTextComponentModel, "search");
+  }
 
   /**
    * Returns the root grid that contains the search and pagination.

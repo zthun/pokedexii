@@ -1,10 +1,4 @@
-import {
-  ZBubble,
-  ZH2,
-  ZH3,
-  ZImageSource,
-  ZStack,
-} from "@zthun/fashion-boutique";
+import { ZBubble, ZH2, ZH3, ZImage, ZStack } from "@zthun/fashion-boutique";
 import { ZSizeFixed, ZSizeVaried } from "@zthun/fashion-tailor";
 import type { IZType, ZType } from "@zthun/pokedex";
 import { startCase } from "lodash-es";
@@ -42,7 +36,12 @@ export function ZTypeCard(props: IZTypeCard) {
           padding={ZSizeFixed.Medium}
           border={ZSizeFixed.ExtraLarge}
         >
-          <ZImageSource src={type.artwork} width={ZSizeVaried.Full} />
+          <ZImage
+            src={type.artwork}
+            width={ZSizeVaried.Full}
+            height={ZSizeVaried.Full}
+            fit="scale-down"
+          />
         </ZBubble>{" "}
         <ZH2>{startCase(type.name)}</ZH2>
       </ZStack>

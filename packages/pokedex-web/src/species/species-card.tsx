@@ -2,10 +2,10 @@ import {
   ZButton,
   ZCard,
   ZIconFontAwesome,
-  ZImageSource,
+  ZImage,
   ZStack,
 } from "@zthun/fashion-boutique";
-import { ZSizeFixed } from "@zthun/fashion-tailor";
+import { ZSizeFixed, ZSizeVaried } from "@zthun/fashion-tailor";
 import { cssJoinDefined, ZOrientation } from "@zthun/helpful-fn";
 import type { IZSpecies } from "@zthun/pokedex";
 import { padStart, startCase } from "lodash-es";
@@ -39,10 +39,12 @@ export function ZSpeciesCard(props: IZSpeciesCard) {
         orientation={ZOrientation.Horizontal}
         justify={{ content: "center" }}
       >
-        <ZImageSource
+        <ZImage
           className={cssJoinDefined("ZSpeciesCard-media")}
           src={species.artwork}
-          width={ZSizeFixed.Large}
+          width={ZSizeFixed.ExtraLarge}
+          height={ZSizeVaried.Full}
+          fit="scale-down"
           name={species.name}
         />
       </ZStack>

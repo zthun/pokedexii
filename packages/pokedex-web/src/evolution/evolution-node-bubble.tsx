@@ -1,7 +1,7 @@
 import {
   ZBubble,
   ZIconFontAwesome,
-  ZImageSource,
+  ZImage,
   ZSuspenseRotate,
   useCss,
   useFashionTailor,
@@ -45,7 +45,14 @@ export function ZEvolutionNodeBubble(props: IZEvolutionNodeBubble) {
       return <ZIconFontAwesome name="question" width={ZSizeFixed.Medium} />;
     }
 
-    return <ZImageSource width={ZSizeVaried.Full} src={species.artwork} />;
+    return (
+      <ZImage
+        width={ZSizeVaried.Full}
+        height={ZSizeVaried.Full}
+        fit="scale-down"
+        src={species.artwork}
+      />
+    );
   };
 
   const renderName = () => {

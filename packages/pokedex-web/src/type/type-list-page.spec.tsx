@@ -31,9 +31,13 @@ describe("ZTypeListPage", () => {
     );
 
     const driver = await new ZCircusSetupRenderer(element).setup();
-    const _target = await ZCircusBy.first(driver, ZTypeListPageComponentModel);
-    (await _target.grid()).load();
-    return _target;
+    const target = await ZCircusBy.first(driver, ZTypeListPageComponentModel);
+
+    const grid = await target.grid();
+    const suspense = await grid.suspense();
+    await suspense.load();
+
+    return target;
   };
 
   beforeEach(() => {

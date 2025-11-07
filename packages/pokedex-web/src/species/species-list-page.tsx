@@ -1,4 +1,9 @@
-import { ZGridView, useNavigate } from "@zthun/fashion-boutique";
+import {
+  ZGridView,
+  ZPagination,
+  ZSearch,
+  useNavigate,
+} from "@zthun/fashion-boutique";
 import { ZSizeFixed } from "@zthun/fashion-tailor";
 import { cssJoinDefined } from "@zthun/helpful-fn";
 import { ZDataRequestBuilder } from "@zthun/helpful-query";
@@ -11,7 +16,7 @@ export function ZSpeciesListPage() {
   const service = useSpeciesService();
   const navigate = useNavigate();
   const [template, setTemplate] = useState(
-    new ZDataRequestBuilder().size(60).build(),
+    new ZDataRequestBuilder().size(96).build(),
   );
 
   function renderSpecies(species: IZSpecies) {
@@ -27,7 +32,16 @@ export function ZSpeciesListPage() {
       dataSource={service}
       renderItem={renderSpecies}
       value={template}
-      onValueChange={setTemplate}
+      heading={
+        <ZSearch value={template} onValueChange={setTemplate} name="search" />
+      }
+      footer={
+        <ZPagination
+          dataSource={service}
+          value={template}
+          onValueChange={setTemplate}
+        />
+      }
       GridProps={{
         gap: ZSizeFixed.Small,
         columns: {

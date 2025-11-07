@@ -7,7 +7,7 @@ import {
   useFashionTailor,
   ZCaption,
   ZFlex,
-  ZImageSource,
+  ZImage,
   ZStack,
 } from "@zthun/fashion-boutique";
 import { ZSizeFixed } from "@zthun/fashion-tailor";
@@ -36,7 +36,7 @@ export function ZTypeBadge(props: IZTypeBadge) {
 
   const renderBody = () => {
     const icon = (
-      <ZImageSource
+      <ZImage
         className="ZTypeBadge-icon"
         src={artwork}
         name={type}

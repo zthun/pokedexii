@@ -46,7 +46,10 @@ describe("ZSpeciesListPage", () => {
       driver,
       ZPokemonListPageComponentModel,
     );
-    await (await target.grid()).load();
+
+    const grid = await target.grid();
+    const suspense = await grid.suspense();
+    await suspense.load();
     return target;
   }
 
@@ -140,10 +143,10 @@ describe("ZSpeciesListPage", () => {
   it("should render the list of searched species", async () => {
     // Arrange.
     const target = await createTestTarget();
-    const grid = await target.grid();
-    const finder = await grid.search();
+    const search = await target.search();
+
     // Act.
-    await finder?.keyboard(pikachu.name);
+    await search?.keyboard(pikachu.name);
     const cards = await target.cards();
     const actual = await target.card(pikachu.name);
     // Assert.

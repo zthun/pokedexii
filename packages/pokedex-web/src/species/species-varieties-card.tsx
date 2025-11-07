@@ -4,7 +4,7 @@ import {
   ZBox,
   ZButton,
   ZIconFontAwesome,
-  ZImageSource,
+  ZImage,
   ZStack,
 } from "@zthun/fashion-boutique";
 import { ZSizeFixed, ZSizeVaried } from "@zthun/fashion-tailor";
@@ -50,7 +50,13 @@ export function ZSpeciesVarietiesCard(props: IZSpeciesVarietiesCard) {
 
     return (
       <ZBox fashion={component}>
-        <ZImageSource src={artwork} width={ZSizeVaried.Full} name="artwork" />
+        <ZImage
+          src={artwork}
+          width={ZSizeVaried.Full}
+          height={ZSizeVaried.Full}
+          fit="scale-down"
+          name="artwork"
+        />
       </ZBox>
     );
   };
@@ -102,7 +108,7 @@ export function ZSpeciesVarietiesCard(props: IZSpeciesVarietiesCard) {
       <ZResourceCard
         CardProps={{
           TitleProps: {
-            avatar: <ZImageSource src={sprite} width={ZSizeFixed.Medium} />,
+            avatar: <ZImage src={sprite} width={ZSizeFixed.Medium} />,
             heading,
             subHeading,
           },
