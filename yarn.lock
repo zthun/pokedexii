@@ -4405,7 +4405,7 @@ __metadata:
     "@zthun/janitor-build-config": "npm:^19.4.2"
     "@zthun/lumberjacky-log": "npm:^4.0.1"
     "@zthun/lumberjacky-nest": "npm:^4.0.1"
-    "@zthun/pokedex": "npm:^2.0.7"
+    "@zthun/pokedex": "npm:^2.0.8"
     "@zthun/webigail-http": "npm:^5.0.1"
     "@zthun/webigail-nest": "npm:^5.0.1"
     "@zthun/webigail-url": "npm:^5.0.1"
@@ -4439,7 +4439,7 @@ __metadata:
     "@zthun/helpful-query": "npm:^9.11.0"
     "@zthun/helpful-react": "npm:^9.11.0"
     "@zthun/janitor-build-config": "npm:^19.4.2"
-    "@zthun/pokedex": "npm:^2.0.7"
+    "@zthun/pokedex": "npm:^2.0.8"
     "@zthun/webigail-http": "npm:^5.0.1"
     "@zthun/webigail-url": "npm:^5.0.1"
     history: "npm:^5.3.0"
@@ -4455,7 +4455,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@zthun/pokedex@npm:^2.0.7, @zthun/pokedex@workspace:packages/pokedex":
+"@zthun/pokedex@npm:^2.0.8, @zthun/pokedex@workspace:packages/pokedex":
   version: 0.0.0-use.local
   resolution: "@zthun/pokedex@workspace:packages/pokedex"
   dependencies:
