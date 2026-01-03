@@ -8,9 +8,10 @@ import { ZPokeApiResource } from "../resource/resource.mjs";
 import type { IPokeApiSpecies } from "./species.mjs";
 
 @Injectable()
-export class ZSpeciesConverter
-  implements IZConverter<IPokeApiSpecies, IZSpecies>
-{
+export class ZSpeciesConverter implements IZConverter<
+  IPokeApiSpecies,
+  IZSpecies
+> {
   public async convert(species: IPokeApiSpecies): Promise<IZSpecies> {
     const evolution = ZPokeApiResource.findId(species.evolution_chain);
 

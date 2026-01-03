@@ -17,9 +17,10 @@ import type { IPokeApiType } from "../type/type.mjs";
 import type { IPokeApiPokemon } from "./pokemon.mjs";
 
 @Injectable()
-export class ZPokemonConvert
-  implements IZConverter<IPokeApiPokemon[], IZPokemon[]>
-{
+export class ZPokemonConvert implements IZConverter<
+  IPokeApiPokemon[],
+  IZPokemon[]
+> {
   public constructor(
     @Inject(ZDatabaseToken) private readonly _dal: IZDatabaseDocument,
   ) {}

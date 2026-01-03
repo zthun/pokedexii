@@ -5,9 +5,10 @@ import {
 } from "@zthun/helpful-query";
 import type { IZConverter } from "./converter.mjs";
 
-export class ZConverterIdOrNameSearch
-  implements IZConverter<string | undefined | null, IZFilter | undefined>
-{
+export class ZConverterIdOrNameSearch implements IZConverter<
+  string | undefined | null,
+  IZFilter | undefined
+> {
   public constructor(
     private readonly _subjectId = "id",
     private readonly _subjectName = "name",

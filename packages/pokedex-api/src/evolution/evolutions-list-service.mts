@@ -13,9 +13,7 @@ import { ZConvertToken, ZSearchToken } from "../resource/resource-tokens.mjs";
 import type { IPokeApiEvolutionChain } from "./poke-api-evolution-chain.mjs";
 
 @Injectable()
-export class ZEvolutionsListService
-  implements IZResourceListService<IZEvolution>
-{
+export class ZEvolutionsListService implements IZResourceListService<IZEvolution> {
   public constructor(
     @Inject(ZDatabaseToken) private _dal: IZDatabaseDocument,
     @Inject(ZConvertToken)

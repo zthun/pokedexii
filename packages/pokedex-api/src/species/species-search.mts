@@ -7,9 +7,10 @@ import {
 import type { IZConverter } from "../convert/converter.mjs";
 
 @Injectable()
-export class ZSpeciesSearch
-  implements IZConverter<string | undefined, IZFilter | undefined>
-{
+export class ZSpeciesSearch implements IZConverter<
+  string | undefined,
+  IZFilter | undefined
+> {
   public convert(search: string | undefined): Promise<IZFilter | undefined> {
     if (!search) {
       return Promise.resolve(undefined);

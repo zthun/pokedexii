@@ -4,14 +4,15 @@ import type { IZHttpService } from "@zthun/webigail-http";
 import { ZHttpRequestBuilder } from "@zthun/webigail-http";
 import { ZUrlBuilder } from "@zthun/webigail-url";
 
-export interface IZResourceService<T extends IZResource>
-  extends IZDataSource<T> {
+export interface IZResourceService<
+  T extends IZResource,
+> extends IZDataSource<T> {
   get(identification: number | string): Promise<T>;
 }
 
-export class ZResourceService<T extends IZResource>
-  implements IZResourceService<T>
-{
+export class ZResourceService<
+  T extends IZResource,
+> implements IZResourceService<T> {
   public constructor(
     private readonly _http: IZHttpService,
     private _name: string,

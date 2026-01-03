@@ -19,8 +19,7 @@ import type { IZSpeciesResourceCard } from "./species-resource-card.mjs";
 import { useSpecies } from "./species-service.mjs";
 
 export interface IZSpeciesVarietiesCard
-  extends IZSpeciesResourceCard,
-    IZComponentValue<number> {}
+  extends IZSpeciesResourceCard, IZComponentValue<number> {}
 
 export function ZSpeciesVarietiesCard(props: IZSpeciesVarietiesCard) {
   const { speciesName, value, onValueChange } = props;

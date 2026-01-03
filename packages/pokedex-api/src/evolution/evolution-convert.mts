@@ -18,9 +18,10 @@ import type {
   IPokeApiEvolutionChainLink,
 } from "./poke-api-evolution-chain.mjs";
 
-export class ZEvolutionConvert
-  implements IZConverter<IPokeApiEvolutionChain, IZEvolution>
-{
+export class ZEvolutionConvert implements IZConverter<
+  IPokeApiEvolutionChain,
+  IZEvolution
+> {
   public async convert(resource: IPokeApiEvolutionChain): Promise<IZEvolution> {
     const { id, chain } = resource;
 
