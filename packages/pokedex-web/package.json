@@ -29,6 +29,7 @@
     "@zthun/helpful-query": "^9.11.2",
     "@zthun/helpful-react": "^9.11.2",
     "@zthun/janitor-build-config": "^19.5.4",
+    "@zthun/janitor-ts-config": "^19.5.3",
     "@zthun/pokedex": "^2.0.8",
     "@zthun/webigail-http": "^5.0.3",
     "@zthun/webigail-url": "^5.0.3",

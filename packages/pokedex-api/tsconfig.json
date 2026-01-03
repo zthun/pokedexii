@@ -1,9 +1,11 @@
 {
-  "extends": "../../.config/.tsconfig.json",
+  "extends": [
+    "@zthun/janitor-ts-config/base",
+    "@zthun/janitor-ts-config/node",
+    "@zthun/janitor-ts-config/nest-js"
+  ],
   "compilerOptions": {
     "baseUrl": ".",
-    "declaration": false,
-    "outDir": "dist",
     "paths": {
       "@zthun/pokedex": ["../pokedex/src/index.mts"]
     }

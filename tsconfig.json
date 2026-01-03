@@ -1,8 +1,11 @@
 {
-  "extends": "./.config/.tsconfig.json",
+  "extends": [
+    "@zthun/janitor-ts-config/base",
+    "@zthun/janitor-ts-config/browser",
+    "@zthun/janitor-ts-config/react"
+  ],
   "compilerOptions": {
     "baseUrl": "packages",
-    "target": "esnext",
     "paths": {
       "@zthun/pokedex": ["pokedex/src/index.mts"],
       "@zthun/pokedex-api": ["pokedex-api/src/index.mts"],
