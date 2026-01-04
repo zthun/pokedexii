@@ -1,16 +1,22 @@
 export default {
-  domains: [
+  servers: [
     {
-      host: "pokedexii.local.zthunworks.com",
-      paths: {
-        "/": "pokedex-services-web:5173",
-        "/api": "pokedex-services-api:3000/api",
-      },
+      type: "http",
+      handle: "redirect",
     },
     {
-      host: "database.local.zthunworks.com",
-      paths: {
-        "/": "pokedex-mongo-express:8081",
+      type: "https",
+      security: {
+        domain: "local.zthunworks.com",
+      },
+      domains: {
+        "pokedexii.local.zthunworks.com": {
+          "/": "http://pokedex-services-web:5173",
+          "/api": "http://pokedex-services-api:3000",
+        },
+        "database.local.zthunworks.com": {
+          "/": "http://pokedex-mongo-express:8081",
+        },
       },
     },
   ],
