@@ -4057,54 +4057,54 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@zthun/dalmart-db@npm:^1.6.4":
-  version: 1.6.4
-  resolution: "@zthun/dalmart-db@npm:1.6.4"
+"@zthun/dalmart-db@npm:^1.6.5":
+  version: 1.6.5
+  resolution: "@zthun/dalmart-db@npm:1.6.5"
   dependencies:
     "@zthun/helpful-fn": "npm:^9.11.2"
-    "@zthun/helpful-query": "npm:^9.11.2"
-  checksum: 10/5fa01f2894a9819daad2c52eb57e8d9d2509f78b81335c883c4dc094389014a58700e43ab9c1a05f2183d96afece66d0d16c66ffe03147fad13d3f2d84c8e0c2
+    "@zthun/helpful-query": "npm:^9.11.3"
+  checksum: 10/822a14b5d1ca10428945fb03672f69b2632e080eda4622e7fd8ae778ec0e15cc224f2446b74eaf44ded8744272f6001137231f14fdfedcac859f5521492f819a
   languageName: node
   linkType: hard
 
-"@zthun/dalmart-memory@npm:^1.6.4":
-  version: 1.6.4
-  resolution: "@zthun/dalmart-memory@npm:1.6.4"
+"@zthun/dalmart-memory@npm:^1.6.5":
+  version: 1.6.5
+  resolution: "@zthun/dalmart-memory@npm:1.6.5"
   dependencies:
-    "@zthun/dalmart-db": "npm:^1.6.4"
-    "@zthun/dalmart-mongo": "npm:^1.6.4"
-    "@zthun/dalmart-storage": "npm:^1.6.4"
+    "@zthun/dalmart-db": "npm:^1.6.5"
+    "@zthun/dalmart-mongo": "npm:^1.6.5"
+    "@zthun/dalmart-storage": "npm:^1.6.5"
     "@zthun/helpful-fn": "npm:^9.11.2"
     mongodb-memory-server: "npm:^10.4.3"
-  checksum: 10/d5290c5c41d30e10c287f1e6893f664c378fe12425b5e0db58f859df60d0120c52655cf532951b6df1e77ee75edfb9917db3a5ec3dfc0da6189293133489f524
+  checksum: 10/bb8896d3d7259e358ae799b595cdc9873f01576e9b61fde28d5ee05c286ae1dc353e64374546b802438a5a880520665c91adc139753f4a4b73adc85887b07bd6
   languageName: node
   linkType: hard
 
-"@zthun/dalmart-mongo@npm:^1.6.4":
-  version: 1.6.4
-  resolution: "@zthun/dalmart-mongo@npm:1.6.4"
+"@zthun/dalmart-mongo@npm:^1.6.5":
+  version: 1.6.5
+  resolution: "@zthun/dalmart-mongo@npm:1.6.5"
   dependencies:
-    "@zthun/dalmart-db": "npm:^1.6.4"
+    "@zthun/dalmart-db": "npm:^1.6.5"
     "@zthun/helpful-fn": "npm:^9.11.2"
-    "@zthun/helpful-query": "npm:^9.11.2"
+    "@zthun/helpful-query": "npm:^9.11.3"
     mongodb: "npm:^7.0.0"
-  checksum: 10/4acbe0906e4c1d4e74236b7e4237cba5d53437d24c856f5e622c1f3d8dc9c1b752af339e258f4c6e0a35618a9731f9ef2b2998be58ce559128721f1d6c433f6d
+  checksum: 10/67c3913958fbebacf75a20e9dcb97a69eb1f54fc38b9fb78ec73240fa3a3817e89c57c23f30b103ed918d8f6a630970e792eab602da0a1746491c6a1c0138bc9
   languageName: node
   linkType: hard
 
-"@zthun/dalmart-storage@npm:^1.6.4":
-  version: 1.6.4
-  resolution: "@zthun/dalmart-storage@npm:1.6.4"
+"@zthun/dalmart-storage@npm:^1.6.5":
+  version: 1.6.5
+  resolution: "@zthun/dalmart-storage@npm:1.6.5"
   dependencies:
-    "@zthun/dalmart-db": "npm:^1.6.4"
+    "@zthun/dalmart-db": "npm:^1.6.5"
     "@zthun/helpful-fn": "npm:^9.11.2"
-  checksum: 10/c7a52d2f5b4ed892dd6d0770b3067c4ffeec502631733e47c3bf60d9d2786f23bedbbfa19153dfc759b7a0933d4eb2014d6c2c000bc87ce74359d2286a8c9091
+  checksum: 10/e1d9cbd2b3091b9feb3d08cd3c07424e33deaff8ced9da50f84f3997a323777da6a3b974aafc8d5edbe6c81678578fc97745903762e47b0215aed96362155b63
   languageName: node
   linkType: hard
 
-"@zthun/fashion-boutique@npm:^13.0.2":
-  version: 13.0.2
-  resolution: "@zthun/fashion-boutique@npm:13.0.2"
+"@zthun/fashion-boutique@npm:^13.0.3":
+  version: 13.0.3
+  resolution: "@zthun/fashion-boutique@npm:13.0.3"
   dependencies:
     "@emotion/css": "npm:^11.13.5"
     "@emotion/serialize": "npm:^1.3.3"
@@ -4113,8 +4113,8 @@ __metadata:
     "@zthun/fashion-tailor": "npm:^13.0.2"
     "@zthun/fashion-theme": "npm:^13.0.2"
     "@zthun/helpful-fn": "npm:^9.11.2"
-    "@zthun/helpful-query": "npm:^9.11.2"
-    "@zthun/helpful-react": "npm:^9.11.2"
+    "@zthun/helpful-query": "npm:^9.11.3"
+    "@zthun/helpful-react": "npm:^9.11.3"
     "@zthun/webigail-http": "npm:^5.0.3"
     "@zthun/webigail-url": "npm:^5.0.3"
     csstype: "npm:^3.2.3"
@@ -4125,7 +4125,7 @@ __metadata:
   peerDependencies:
     react: ^18 || ^19
     react-dom: ^18 || ^19
-  checksum: 10/f6ab59b58b1bf1357112893ba7c37c1c54e5c97b27cb62011c1ee8445732d0f52396128edf8e2dc871d9461309cae6bbcae3c8459026a0a3a8ddd78a4f6b9288
+  checksum: 10/2ee14b98ab99949fb764e4efe1504b3c9bbf4746aa10797159b6cac728e562ef69a0da775d072a7da0ba97b9e72ceab2ec70da8e3449c0b3123d244de409920d
   languageName: node
   linkType: hard
 
@@ -4159,22 +4159,22 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@zthun/helpful-query@npm:^9.11.2":
-  version: 9.11.2
-  resolution: "@zthun/helpful-query@npm:9.11.2"
+"@zthun/helpful-query@npm:^9.11.3":
+  version: 9.11.3
+  resolution: "@zthun/helpful-query@npm:9.11.3"
   dependencies:
     "@zthun/helpful-fn": "npm:^9.11.2"
     lodash-es: "npm:^4.17.22"
-  checksum: 10/fe87ddc0cb676e671837e7b7ab9aef5f380d331efcf6d0acfedf52e8d76cc57a27ad4bc15d6c22b14e149a9396ff79dfd7fe241a2264c4a76251a672dc893b42
+  checksum: 10/568cbe5c2236b6416ed7c7d05c45f0b1aa70f5289371aa67be4b3cf394cfb734f5c7fef432ba420cff4346d1ffeb91801409caab22ecfd99dea2d341896b737c
   languageName: node
   linkType: hard
 
-"@zthun/helpful-react@npm:^9.11.2":
-  version: 9.11.2
-  resolution: "@zthun/helpful-react@npm:9.11.2"
+"@zthun/helpful-react@npm:^9.11.3":
+  version: 9.11.3
+  resolution: "@zthun/helpful-react@npm:9.11.3"
   dependencies:
     "@zthun/helpful-fn": "npm:^9.11.2"
-    "@zthun/helpful-query": "npm:^9.11.2"
+    "@zthun/helpful-query": "npm:^9.11.3"
     lodash-es: "npm:^4.17.22"
     rxjs: "npm:^7.8.2"
   peerDependencies:
@@ -4184,7 +4184,7 @@ __metadata:
   peerDependenciesMeta:
     rxjs:
       optional: true
-  checksum: 10/7d46f6bf88040fc049cc026fc0ec852f977bb203697f36bb60353ac32943839a35e13bba1d20702e320b39d81a51b48d2dd874992f23e49f46b33f1021eb042b
+  checksum: 10/fac439f4d150b36642209647f14bbc7f99fbf3a1f857800ef72a3dc4f640a9de38f46cf744c84c386df6ebf28c66f9ecbaddb00479778e09a616096d8bb312c7
   languageName: node
   linkType: hard
 
@@ -4249,16 +4249,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@zthun/janitor-lint-config@npm:^19.5.4":
-  version: 19.5.4
-  resolution: "@zthun/janitor-lint-config@npm:19.5.4"
+"@zthun/janitor-lint-config@npm:^19.5.5":
+  version: 19.5.5
+  resolution: "@zthun/janitor-lint-config@npm:19.5.5"
   dependencies:
     "@zthun/janitor-eslint-config": "npm:^19.5.4"
     "@zthun/janitor-htmlhint-config": "npm:^19.5.4"
     "@zthun/janitor-markdownlint-config": "npm:^19.5.4"
     "@zthun/janitor-prettier-config": "npm:^19.5.4"
     "@zthun/janitor-stylelint-config": "npm:^19.5.4"
-    "@zthun/janitor-stylelint-config-less": "npm:^19.5.4"
+    "@zthun/janitor-stylelint-config-less": "npm:^19.5.5"
     "@zthun/janitor-stylelint-config-sass": "npm:^19.5.4"
     eslint: "npm:^9.39.2"
     htmlhint: "npm:^1.8.0"
@@ -4272,7 +4272,7 @@ __metadata:
   peerDependenciesMeta:
     typescript:
       optional: true
-  checksum: 10/652ebe71aadc6fb454195b1f2995ff881f0f23f4201a858a420d7200a621431562c34a5d974da403c6b3ef7f053b643b37fb94e598899f7c367303940bbd91e8
+  checksum: 10/53d76447c00296d70e41f3b3e6e0cdf850e946b6eba251b84349730cd74e28430e9e0d2a25323f7dda6f2a2e73d9d5b8acdbfd642342d1a22c6e4fcdde2835f6
   languageName: node
   linkType: hard
 
@@ -4324,16 +4324,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@zthun/janitor-stylelint-config-less@npm:^19.5.4":
-  version: 19.5.4
-  resolution: "@zthun/janitor-stylelint-config-less@npm:19.5.4"
+"@zthun/janitor-stylelint-config-less@npm:^19.5.5":
+  version: 19.5.5
+  resolution: "@zthun/janitor-stylelint-config-less@npm:19.5.5"
   dependencies:
     "@zthun/janitor-stylelint-config": "npm:^19.5.4"
-    stylelint-config-standard-less: "npm:^4.0.0"
+    stylelint-config-standard-less: "npm:^4.0.1"
   peerDependencies:
     postcss: ^8.0.0
     stylelint: ^16.0.0
-  checksum: 10/f2144058c79b4cc3f149e9fc1d0b1e8280cc3dc3708b7fc30c0bc4e0cb2e769762a7ef65318cf89b146cb296e6b46bb3238fb16ed48b1591a69f86d1cfca773a
+  checksum: 10/6354569d2882da2e2bdaf4da4b98b743604ada79d83fa96844e0976389079a58d9b64229c137ff56a0d304cf68d856ce56c8f52c61e9263f2bcc7fcbe5fa6726
   languageName: node
   linkType: hard
 
@@ -4404,11 +4404,11 @@ __metadata:
     "@nestjs/swagger": "npm:^11.2.3"
     "@nestjs/testing": "npm:^11.1.11"
     "@nestjs/throttler": "npm:^6.5.0"
-    "@zthun/dalmart-db": "npm:^1.6.4"
-    "@zthun/dalmart-memory": "npm:^1.6.4"
-    "@zthun/dalmart-mongo": "npm:^1.6.4"
+    "@zthun/dalmart-db": "npm:^1.6.5"
+    "@zthun/dalmart-memory": "npm:^1.6.5"
+    "@zthun/dalmart-mongo": "npm:^1.6.5"
     "@zthun/helpful-fn": "npm:^9.11.2"
-    "@zthun/helpful-query": "npm:^9.11.2"
+    "@zthun/helpful-query": "npm:^9.11.3"
     "@zthun/janitor-build-config": "npm:^19.5.4"
     "@zthun/janitor-ts-config": "npm:^19.5.3"
     "@zthun/lumberjacky-log": "npm:^4.0.3"
@@ -4440,12 +4440,12 @@ __metadata:
     "@zthun/cirque": "npm:^7.2.4"
     "@zthun/cirque-du-react": "npm:^7.2.4"
     "@zthun/cirque-du-selenium": "npm:^7.2.4"
-    "@zthun/fashion-boutique": "npm:^13.0.2"
+    "@zthun/fashion-boutique": "npm:^13.0.3"
     "@zthun/fashion-tailor": "npm:^13.0.2"
     "@zthun/fashion-theme": "npm:^13.0.2"
     "@zthun/helpful-fn": "npm:^9.11.2"
-    "@zthun/helpful-query": "npm:^9.11.2"
-    "@zthun/helpful-react": "npm:^9.11.2"
+    "@zthun/helpful-query": "npm:^9.11.3"
+    "@zthun/helpful-react": "npm:^9.11.3"
     "@zthun/janitor-build-config": "npm:^19.5.4"
     "@zthun/janitor-ts-config": "npm:^19.5.3"
     "@zthun/pokedex": "npm:^2.0.9"
@@ -4466,9 +4466,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@zthun/pokedex@workspace:packages/pokedex"
   dependencies:
-    "@zthun/dalmart-db": "npm:^1.6.4"
+    "@zthun/dalmart-db": "npm:^1.6.5"
     "@zthun/helpful-fn": "npm:^9.11.2"
-    "@zthun/helpful-query": "npm:^9.11.2"
+    "@zthun/helpful-query": "npm:^9.11.3"
     "@zthun/janitor-build-config": "npm:^19.5.4"
     "@zthun/janitor-ts-config": "npm:^19.5.3"
     "@zthun/webigail-http": "npm:^5.0.3"
@@ -4494,7 +4494,7 @@ __metadata:
     "@vitest/coverage-v8": "npm:^4.0.16"
     "@zthun/janitor-build-config": "npm:^19.5.4"
     "@zthun/janitor-lint": "npm:^19.5.4"
-    "@zthun/janitor-lint-config": "npm:^19.5.4"
+    "@zthun/janitor-lint-config": "npm:^19.5.5"
     "@zthun/janitor-options": "npm:^19.5.4"
     "@zthun/janitor-ts-config": "npm:^19.5.3"
     happy-dom: "npm:^20.0.11"
@@ -13515,7 +13515,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"stylelint-config-standard-less@npm:^4.0.0":
+"stylelint-config-standard-less@npm:^4.0.1":
   version: 4.0.1
   resolution: "stylelint-config-standard-less@npm:4.0.1"
   dependencies:

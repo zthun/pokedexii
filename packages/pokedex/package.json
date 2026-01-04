@@ -25,9 +25,9 @@
     "access": "public"
   },
   "dependencies": {
-    "@zthun/dalmart-db": "^1.6.4",
+    "@zthun/dalmart-db": "^1.6.5",
     "@zthun/helpful-fn": "^9.11.2",
-    "@zthun/helpful-query": "^9.11.2",
+    "@zthun/helpful-query": "^9.11.3",
     "@zthun/webigail-http": "^5.0.3",
     "@zthun/webigail-url": "^5.0.3",
     "lodash-es": "^4.17.22"
