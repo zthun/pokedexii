@@ -1,6 +1,6 @@
 {
   "name": "@zthun/pokedex-web",
-  "version": "2.0.9",
+  "version": "2.0.10",
   "description": "A pokedex in the cloud",
   "author": "Anthony Bonta",
   "license": "MIT",
@@ -30,7 +30,7 @@
     "@zthun/helpful-react": "^9.11.3",
     "@zthun/janitor-build-config": "^19.5.4",
     "@zthun/janitor-ts-config": "^19.5.3",
-    "@zthun/pokedex": "^2.0.9",
+    "@zthun/pokedex": "^2.0.10",
     "@zthun/webigail-http": "^5.0.3",
     "@zthun/webigail-url": "^5.0.3",
     "history": "^5.3.0",
