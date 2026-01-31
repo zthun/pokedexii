@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## <small>2.0.11 (2026-01-31)</small>
+
+* build: update outdated packages ([d6c9a07](https://github.com/zthun/pokedexii/commit/d6c9a07))
+* build: update yarn ([477cbf1](https://github.com/zthun/pokedexii/commit/477cbf1))
+* chore: update yarn lockfile [skip ci] ([2d9ddb3](https://github.com/zthun/pokedexii/commit/2d9ddb3))
+
+
+
+
+
 ## [2.0.10](https://github.com/zthun/pokedexii/compare/v2.0.9...v2.0.10) (2026-01-04)
 
 **Note:** Version bump only for package @zthun/pokedexii

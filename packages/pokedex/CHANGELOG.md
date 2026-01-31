@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## <small>2.0.11 (2026-01-31)</small>
+
+* build: update outdated packages ([d6c9a07](https://github.com/zthun/pokedexii/commit/d6c9a07))
+
+
+
+
+
 ## [2.0.10](https://github.com/zthun/pokedexii/compare/v2.0.9...v2.0.10) (2026-01-04)
 
 **Note:** Version bump only for package @zthun/pokedex
