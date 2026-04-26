@@ -4,7 +4,7 @@ import helmet from "helmet";
 
 import { ZPokedexModule } from "./app/pokedex-module.mjs";
 
-(async function () {
+void (async function () {
   const app = await NestFactory.create(ZPokedexModule);
   app.setGlobalPrefix("api");
 

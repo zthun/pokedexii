@@ -11,5 +11,5 @@
       "@zthun/pokedex-web": ["./packages/pokedex-web/src/index.mts"]
     }
   },
-  "include": ["**/*.ts", "**/*.tsx", "**/*.mts"],
+  "include": ["**/*.ts", "**/*.tsx", "**/*.mts"]
 }

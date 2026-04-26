@@ -134,8 +134,7 @@ describe("ZSpeciesListPage", () => {
     const target = await createTestTarget();
     const card = await target.card(charmander.name);
     // Act
-    const types = await card!.types();
-    const badges = await Promise.all(types);
+    const badges = await card!.types();
     const actual = await Promise.all(badges.map((b) => b.type()));
     // Assert
     expect(actual).toEqual(expected);

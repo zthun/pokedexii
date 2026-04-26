@@ -42,4 +42,4 @@ services:
     environment:
       - ME_CONFIG_MONGODB_SERVER=pokedex-mongo
 volumes:
-  pokedex-mongo-data:
+  pokedex-mongo-data: {}

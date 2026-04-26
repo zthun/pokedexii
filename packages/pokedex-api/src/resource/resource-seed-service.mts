@@ -128,7 +128,7 @@ export class ZResourceSeedService implements IZResourceSeedService {
           batch.map((r) => this._readResourceData(r, milliseconds, retries)),
         );
         resources = resources.concat(results);
-        sleep(milliseconds);
+        await sleep(milliseconds);
       }
 
       const items = await this._dal.create(collection, resources);

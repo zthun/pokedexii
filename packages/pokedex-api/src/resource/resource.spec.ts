@@ -66,12 +66,12 @@ describe.sequential("ZResourceApi", () => {
       return target.resolve(ZResourceSeedService);
     };
 
-    beforeEach(() => {
+    beforeEach(async () => {
       http = new ZHttpServiceMock();
 
       const collections = Object.values(ZPokedexCollection);
 
-      collections.forEach(async (c) => {
+      for (const c of collections) {
         http.set(
           ZResourceSeedService.pageEndpoint(c),
           ZHttpMethod.Get,
@@ -79,7 +79,7 @@ describe.sequential("ZResourceApi", () => {
         );
 
         await dal.delete(c);
-      });
+      }
     });
 
     describe.sequential("Seed", () => {

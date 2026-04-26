@@ -13,7 +13,7 @@ export class ZSpeciesConverter implements IZConverter<
   IPokeApiSpecies,
   IZSpecies
 > {
-  public async convert(species: IPokeApiSpecies): Promise<IZSpecies> {
+  public convert(species: IPokeApiSpecies): Promise<IZSpecies> {
     const evolution = ZPokeApiResource.findId(species.evolution_chain);
 
     let builder = new ZSpeciesBuilder()
@@ -42,6 +42,7 @@ export class ZSpeciesConverter implements IZConverter<
       official?.front_shiny_female,
     );
     const types = pokemon?.types.map((t) => t.type.name as ZType);
-    return builder.artwork(artwork).types(types).build();
+    const pm = builder.artwork(artwork).types(types).build();
+    return Promise.resolve(pm);
   }
 }
