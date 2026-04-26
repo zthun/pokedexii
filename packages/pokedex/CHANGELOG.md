@@ -3,143 +3,85 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.0](https://github.com/zthun/pokedexii/compare/v2.0.11...v2.1.0) (2026-04-26)
+
+**Note:** Version bump only for package @zthun/pokedex
+
 ## <small>2.0.11 (2026-01-31)</small>
 
-* build: update outdated packages ([d6c9a07](https://github.com/zthun/pokedexii/commit/d6c9a07))
-
-
-
-
+- build: update outdated packages ([d6c9a07](https://github.com/zthun/pokedexii/commit/d6c9a07))
 
 ## [2.0.10](https://github.com/zthun/pokedexii/compare/v2.0.9...v2.0.10) (2026-01-04)
 
 **Note:** Version bump only for package @zthun/pokedex
 
-
-
-
-
 ## [2.0.9](https://github.com/zthun/pokedexii/compare/v2.0.8...v2.0.9) (2026-01-03)
 
 **Note:** Version bump only for package @zthun/pokedex
-
-
-
-
 
 ## [2.0.8](https://github.com/zthun/pokedexii/compare/v2.0.7...v2.0.8) (2025-11-07)
 
 **Note:** Version bump only for package @zthun/pokedex
 
-
-
-
-
 ## [2.0.7](https://github.com/zthun/pokedexii/compare/v2.0.6...v2.0.7) (2025-10-23)
 
 **Note:** Version bump only for package @zthun/pokedex
-
-
-
-
 
 ## [2.0.6](https://github.com/zthun/pokedexii/compare/v2.0.5...v2.0.6) (2025-10-19)
 
 **Note:** Version bump only for package @zthun/pokedex
 
-
-
-
-
 ## [2.0.5](https://github.com/zthun/pokedexii/compare/v2.0.4...v2.0.5) (2025-10-04)
 
 **Note:** Version bump only for package @zthun/pokedex
-
-
-
-
 
 ## [2.0.4](https://github.com/zthun/pokedexii/compare/v2.0.3...v2.0.4) (2025-09-09)
 
 **Note:** Version bump only for package @zthun/pokedex
 
-
-
-
-
 ## [2.0.3](https://github.com/zthun/pokedexii/compare/v2.0.2...v2.0.3) (2025-09-06)
 
 **Note:** Version bump only for package @zthun/pokedex
-
-
-
-
 
 ## [2.0.2](https://github.com/zthun/pokedexii/compare/v2.0.1...v2.0.2) (2025-07-18)
 
 **Note:** Version bump only for package @zthun/pokedex
 
-
-
-
-
 ## [2.0.1](https://github.com/zthun/pokedexii/compare/v2.0.0...v2.0.1) (2025-06-22)
 
 **Note:** Version bump only for package @zthun/pokedex
 
-
-
-
-
 ## [2.0.0](https://github.com/zthun/pokedexii/compare/v1.0.2...v2.0.0) (2025-06-21)
-
 
 ### ⚠ BREAKING CHANGES
 
-* module resolution is now NodeNext
+- module resolution is now NodeNext
 
 ### Code Refactoring
 
-* module resolution is now NodeNext ([6c554ea](https://github.com/zthun/pokedexii/commit/6c554ea7cd62a733cc765876644e9c2db2035fd2))
-
-
+- module resolution is now NodeNext ([6c554ea](https://github.com/zthun/pokedexii/commit/6c554ea7cd62a733cc765876644e9c2db2035fd2))
 
 ## [1.0.2](https://github.com/zthun/pokedexii/compare/v1.0.1...v1.0.2) (2025-05-27)
 
 **Note:** Version bump only for package @zthun/pokedex
 
-
-
-
-
 ## [1.0.1](https://github.com/zthun/pokedexii/compare/v0.19.1...v1.0.1) (2025-01-03)
 
 **Note:** Version bump only for package @zthun/pokedex
-
-
-
-
 
 ## [0.19.1](https://github.com/zthun/pokedexii/compare/v0.19.0...v0.19.1) (2025-01-02)
 
 **Note:** Version bump only for package @zthun/pokedex
 
-
-
-
-
 ## [0.19.0](https://github.com/zthun/pokedexii/compare/v0.18.0...v0.19.0) (2025-01-02)
-
 
 ### ⚠ BREAKING CHANGES
 
-* pokedex now defaults to an esm library
+- pokedex now defaults to an esm library
 
 ### Features
 
-* pokedex now defaults to an esm library ([577e1de](https://github.com/zthun/pokedexii/commit/577e1de8b9258c4790c1d6334390659567e84283))
-
-
+- pokedex now defaults to an esm library ([577e1de](https://github.com/zthun/pokedexii/commit/577e1de8b9258c4790c1d6334390659567e84283))
 
 # Change Log
 
