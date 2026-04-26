@@ -7,6 +7,7 @@ import {
   ZRouteMap,
 } from "@zthun/fashion-boutique";
 import { createDarkTheme } from "@zthun/fashion-theme";
+
 import { ZSpeciesDetailsPage } from "../species/species-details-page.js";
 import { ZSpeciesListPage } from "../species/species-list-page.js";
 import { ZTypeListPage } from "../type/type-list-page.js";

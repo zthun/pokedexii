@@ -1,5 +1,6 @@
 import type { IZType, ZType } from "@zthun/pokedex";
 import { ZTypeBuilder } from "@zthun/pokedex";
+
 import type { IZConverter } from "../convert/converter.mjs";
 import type { IPokeApiType } from "./type.mjs";
 

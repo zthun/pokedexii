@@ -1,15 +1,11 @@
-import type {
-  IZEvolution,
-  ZEvolutionTrigger,
-  ZStatRelationship,
-  ZType,
-} from "@zthun/pokedex";
+import type { IZEvolution, ZEvolutionTrigger, ZType } from "@zthun/pokedex";
 import {
   ZEvolutionBuilder,
   ZEvolutionNodeBuilder,
   ZEvolutionTriggerBuilder,
   ZGender,
 } from "@zthun/pokedex";
+
 import type { IZConverter } from "../convert/converter.mjs";
 import { ZPokeApiResource } from "../resource/resource.mjs";
 import type {
@@ -87,7 +83,7 @@ export class ZEvolutionConvert implements IZConverter<
 
       trigger =
         details.relative_physical_stats != null
-          ? trigger.stats(details.relative_physical_stats as ZStatRelationship)
+          ? trigger.stats(details.relative_physical_stats)
           : trigger;
 
       return trigger.build();

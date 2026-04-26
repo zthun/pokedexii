@@ -2,6 +2,7 @@
 import { Inject, Module } from "@nestjs/common";
 import { APP_GUARD } from "@nestjs/core";
 import { ThrottlerGuard, ThrottlerModule } from "@nestjs/throttler";
+
 import { ZEvolutionsModule } from "../evolution/evolutions-module.mjs";
 import { ZPokemonModule } from "../pokemon/pokemon-module.mjs";
 import { ZResourceModule } from "../resource/resource-module.mjs";

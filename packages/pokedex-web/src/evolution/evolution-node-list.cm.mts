@@ -1,5 +1,6 @@
 import { ZCircusBy, ZCircusComponentModel } from "@zthun/cirque";
 import { ZCarouselComponentModel } from "@zthun/fashion-boutique";
+
 import { ZEvolutionNodeBubbleComponentModel } from "./evolution-node-bubble.cm.mjs";
 
 export class ZEvolutionNodeListComponentModel extends ZCircusComponentModel {

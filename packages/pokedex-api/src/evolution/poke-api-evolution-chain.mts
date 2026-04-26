@@ -4,6 +4,7 @@ import type {
   IZEvolutionTrigger,
 } from "@zthun/pokedex";
 import { ZEvolutionBuilder, ZGender } from "@zthun/pokedex";
+
 import { ZPokedexCollection } from "../database/pokedex-database.mjs";
 import type { IPokeApiResource } from "../resource/resource.mjs";
 import { ZPokeApiResource } from "../resource/resource.mjs";

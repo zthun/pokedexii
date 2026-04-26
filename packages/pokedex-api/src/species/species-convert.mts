@@ -3,6 +3,7 @@ import { firstDefined } from "@zthun/helpful-fn";
 import type { IZSpecies, ZType } from "@zthun/pokedex";
 import { ZSpeciesBuilder } from "@zthun/pokedex";
 import { first } from "lodash-es";
+
 import type { IZConverter } from "../convert/converter.mjs";
 import { ZPokeApiResource } from "../resource/resource.mjs";
 import type { IPokeApiSpecies } from "./species.mjs";
@@ -27,7 +28,7 @@ export class ZSpeciesConverter implements IZConverter<
     });
 
     // The main is required and expected.
-    const [main] = species.varieties.filter((p) => p.is_default)!;
+    const [main] = species.varieties.filter((p) => p.is_default);
     const pokemon = first(
       species.pokemon?.filter((p) => p.name === main.pokemon.name),
     )!;

@@ -1,9 +1,9 @@
 import {
-  ZFashionBuilder,
-  ZFashionStateBuilder,
   fromRgb,
   rgb,
   white,
+  ZFashionBuilder,
+  ZFashionStateBuilder,
 } from "@zthun/fashion-theme";
 
 export function createEvolutionFashion() {

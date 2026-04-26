@@ -1,4 +1,5 @@
 import { ZUrlBuilder } from "@zthun/webigail-url";
+
 import type { IZResource } from "../resource/resource.mjs";
 import { ZType } from "../type/type.mjs";
 

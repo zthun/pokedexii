@@ -3,6 +3,7 @@ import {
   ZNotFoundComponentModel,
   ZSuspenseComponentModel,
 } from "@zthun/fashion-boutique";
+
 import { ZEvolutionChainCardComponentModel } from "../evolution/evolution-chain-card.cm.mjs";
 import { ZPokemonAttributesCardComponentModel } from "../pokemon/pokemon-attributes-card.cm.mjs";
 import { ZPokemonStatsCardComponentModel } from "../pokemon/pokemon-stats-card.cm.mjs";

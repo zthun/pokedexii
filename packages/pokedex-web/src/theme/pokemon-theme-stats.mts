@@ -1,9 +1,9 @@
 import type { IZFashion } from "@zthun/fashion-theme";
 import {
-  ZFashionBuilder,
-  ZFashionStateBuilder,
   hex,
   white,
+  ZFashionBuilder,
+  ZFashionStateBuilder,
 } from "@zthun/fashion-theme";
 
 export interface IZPokemonThemeStats {

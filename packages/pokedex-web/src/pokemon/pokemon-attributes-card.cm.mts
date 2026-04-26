@@ -2,6 +2,7 @@ import type { IZCircusDriver } from "@zthun/cirque";
 import { ZCircusBy, ZCircusComponentModel } from "@zthun/cirque";
 import type { ZType } from "@zthun/pokedex";
 import { kebabCase } from "lodash-es";
+
 import { ZResourceCardComponentModel } from "../resource/resource-card.cm.mjs";
 import { ZTypeBadgeComponentModel } from "../type/type-badge.cm.mjs";
 

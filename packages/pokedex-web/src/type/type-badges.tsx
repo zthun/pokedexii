@@ -5,6 +5,7 @@ import { cssJoinDefined } from "@zthun/helpful-fn";
 import type { IZPokemonWeakness, ZType } from "@zthun/pokedex";
 import type { ReactNode } from "react";
 import { useMemo } from "react";
+
 import { ZTypeBadge } from "./type-badge.js";
 
 interface IZTypeWithBadge {

@@ -22,15 +22,16 @@ import {
   it,
   vi,
 } from "vitest";
+
 import {
   ZDatabaseToken,
   ZPokedexCollection,
 } from "../database/pokedex-database.mjs";
 import type { IPokeApiSpecies } from "../species/species.mjs";
 import { ZPokeApiSpeciesBuilder } from "../species/species.mjs";
+import { ZPokeApiResource } from "./resource.mjs";
 import { ZResourceModule } from "./resource-module.mjs";
 import { ZResourceSeedService } from "./resource-seed-service.mjs";
-import { ZPokeApiResource } from "./resource.mjs";
 
 describe.sequential("ZResourceApi", () => {
   let server: IZDatabaseServer<IZDatabaseDocument>;

@@ -7,6 +7,7 @@ import {
   ZFilterLogicBuilder,
 } from "@zthun/helpful-query";
 import type { IZSpecies } from "@zthun/pokedex";
+
 import type { IZConverter } from "../convert/converter.mjs";
 import {
   ZDatabaseToken,

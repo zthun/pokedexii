@@ -17,6 +17,7 @@ import type { ZType } from "@zthun/pokedex";
 import { ZTypeBuilder } from "@zthun/pokedex";
 import { startCase } from "lodash-es";
 import { useMemo } from "react";
+
 import { usePokemonTheme } from "../theme/pokemon-theme.mjs";
 
 export interface IZTypeBadge extends IZComponentStyle, IZComponentAdornment {

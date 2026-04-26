@@ -1,16 +1,17 @@
 import {
+  useLocation,
+  useParams,
   ZBreadcrumbsOutlet,
   ZFullScreen,
   ZGrid,
   ZGridSpan,
   ZNotFound,
   ZSuspenseRotate,
-  useLocation,
-  useParams,
 } from "@zthun/fashion-boutique";
 import { ZSizeFixed } from "@zthun/fashion-tailor";
 import { isStateErrored, isStateLoading } from "@zthun/helpful-react";
 import { useEffect, useState } from "react";
+
 import { ZEvolutionChainCard } from "../evolution/evolution-chain-card.js";
 import { ZPokemonAttributesCard } from "../pokemon/pokemon-attributes-card.js";
 import { ZPokemonStatsCard } from "../pokemon/pokemon-stats-card.js";
