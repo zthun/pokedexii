@@ -1,5 +1,6 @@
 import { ZCircusBy, ZCircusComponentModel } from "@zthun/cirque";
 import { ZButtonComponentModel } from "@zthun/fashion-boutique";
+
 import { ZTypeBadgeComponentModel } from "../type/type-badge.cm.mjs";
 
 /**

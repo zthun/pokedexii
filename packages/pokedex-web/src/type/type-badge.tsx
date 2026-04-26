@@ -17,6 +17,7 @@ import type { ZType } from "@zthun/pokedex";
 import { ZTypeBuilder } from "@zthun/pokedex";
 import { startCase } from "lodash-es";
 import { useMemo } from "react";
+
 import { usePokemonTheme } from "../theme/pokemon-theme.mjs";
 
 export interface IZTypeBadge extends IZComponentStyle, IZComponentAdornment {
@@ -65,7 +66,7 @@ export function ZTypeBadge(props: IZTypeBadge) {
 
   const _className = useCss(css`
     & {
-      background: ${_type.idle.main};
+      background: ${_type.idle.foreground};
       border-color: ${_type.idle.border};
       border-radius: ${tailor.rounding(ZSizeFixed.Small)};
       border-style: solid;

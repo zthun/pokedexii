@@ -3,6 +3,7 @@ import {
   ZGridViewComponentModel,
   ZTextComponentModel,
 } from "@zthun/fashion-boutique";
+
 import { ZSpeciesCardComponentModel } from "./species-card.cm.mjs";
 
 /**

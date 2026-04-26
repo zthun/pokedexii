@@ -17,13 +17,14 @@ import {
   expect,
   it,
 } from "vitest";
+
 import {
   ZDatabaseToken,
   ZPokedexCollection,
 } from "../database/pokedex-database.mjs";
 import { ZPokeApiPokemonBuilder } from "../pokemon/pokemon.mjs";
-import { ZSpeciesModule } from "./species-module.mjs";
 import { ZPokeApiSpeciesBuilder } from "./species.mjs";
+import { ZSpeciesModule } from "./species-module.mjs";
 
 describe("ZSpeciesApi", () => {
   const endpoint = "species";

@@ -15,6 +15,7 @@ import type { IZEvolutionNode, IZEvolutionTrigger } from "@zthun/pokedex";
 import { startCase } from "lodash-es";
 import type { ReactNode } from "react";
 import { useState } from "react";
+
 import { ZEvolutionNodeBubble } from "./evolution-node-bubble.js";
 
 export interface IZEvolutionNodeList extends IZComponentName {

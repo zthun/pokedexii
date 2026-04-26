@@ -3,6 +3,7 @@ import { firstDefined } from "@zthun/helpful-fn";
 import type { IZSpecies, ZType } from "@zthun/pokedex";
 import { ZSpeciesBuilder } from "@zthun/pokedex";
 import { first } from "lodash-es";
+
 import type { IZConverter } from "../convert/converter.mjs";
 import { ZPokeApiResource } from "../resource/resource.mjs";
 import type { IPokeApiSpecies } from "./species.mjs";
@@ -12,7 +13,7 @@ export class ZSpeciesConverter implements IZConverter<
   IPokeApiSpecies,
   IZSpecies
 > {
-  public async convert(species: IPokeApiSpecies): Promise<IZSpecies> {
+  public convert(species: IPokeApiSpecies): Promise<IZSpecies> {
     const evolution = ZPokeApiResource.findId(species.evolution_chain);
 
     let builder = new ZSpeciesBuilder()
@@ -27,7 +28,7 @@ export class ZSpeciesConverter implements IZConverter<
     });
 
     // The main is required and expected.
-    const [main] = species.varieties.filter((p) => p.is_default)!;
+    const [main] = species.varieties.filter((p) => p.is_default);
     const pokemon = first(
       species.pokemon?.filter((p) => p.name === main.pokemon.name),
     )!;
@@ -41,6 +42,7 @@ export class ZSpeciesConverter implements IZConverter<
       official?.front_shiny_female,
     );
     const types = pokemon?.types.map((t) => t.type.name as ZType);
-    return builder.artwork(artwork).types(types).build();
+    const pm = builder.artwork(artwork).types(types).build();
+    return Promise.resolve(pm);
   }
 }

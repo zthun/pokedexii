@@ -1,14 +1,15 @@
 import {
+  useNavigate,
   ZGridView,
   ZPagination,
   ZSearch,
-  useNavigate,
 } from "@zthun/fashion-boutique";
 import { ZSizeFixed } from "@zthun/fashion-tailor";
 import { cssJoinDefined } from "@zthun/helpful-fn";
 import { ZDataRequestBuilder } from "@zthun/helpful-query";
 import type { IZSpecies } from "@zthun/pokedex";
 import { useState } from "react";
+
 import { ZSpeciesCard } from "./species-card.js";
 import { useSpeciesService } from "./species-service.mjs";
 

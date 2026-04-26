@@ -5,13 +5,11 @@
     "@zthun/janitor-ts-config/react"
   ],
   "compilerOptions": {
-    "baseUrl": "packages",
     "paths": {
-      "@zthun/pokedex": ["pokedex/src/index.mts"],
-      "@zthun/pokedex-api": ["pokedex-api/src/index.mts"],
-      "@zthun/pokedex-web": ["pokedex-web/src/index.mts"]
+      "@zthun/pokedex": ["./packages/pokedex/src/index.mts"],
+      "@zthun/pokedex-api": ["./packages/pokedex-api/src/index.mts"],
+      "@zthun/pokedex-web": ["./packages/pokedex-web/src/index.mts"]
     }
   },
-  "include": ["**/*.ts", "**/*.tsx", "**/*.mts"],
-  "exclude": ["**/node_modules/**"]
+  "include": ["**/*.ts", "**/*.tsx", "**/*.mts"]
 }

@@ -15,6 +15,7 @@ import { createMemoryHistory } from "history";
 import type { Mocked } from "vitest";
 import { beforeEach, describe, expect, it } from "vitest";
 import { mock } from "vitest-mock-extended";
+
 import { ZPokemonServiceContext } from "../pokemon/pokemon-service.mjs";
 import type { IZResourceService } from "../resource/resource-service.mjs";
 import { ZPokemonListPageComponentModel } from "./species-list-page.cm.mjs";
@@ -133,8 +134,7 @@ describe("ZSpeciesListPage", () => {
     const target = await createTestTarget();
     const card = await target.card(charmander.name);
     // Act
-    const types = await card!.types();
-    const badges = await Promise.all(types);
+    const badges = await card!.types();
     const actual = await Promise.all(badges.map((b) => b.type()));
     // Assert
     expect(actual).toEqual(expected);

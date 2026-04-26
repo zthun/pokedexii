@@ -1,11 +1,11 @@
 import {
+  useCss,
+  useFashionTailor,
+  useNavigate,
   ZBubble,
   ZIconFontAwesome,
   ZImage,
   ZSuspenseRotate,
-  useCss,
-  useFashionTailor,
-  useNavigate,
 } from "@zthun/fashion-boutique";
 import { ZSizeFixed, ZSizeVaried } from "@zthun/fashion-tailor";
 import { css, cssJoinDefined } from "@zthun/helpful-fn";
@@ -18,6 +18,7 @@ import {
 import type { IZEvolutionNode } from "@zthun/pokedex";
 import { ZSpeciesBuilder } from "@zthun/pokedex";
 import { startCase } from "lodash-es";
+
 import { useSpecies } from "../species/species-service.mjs";
 import { usePokemonTheme } from "../theme/pokemon-theme.mjs";
 

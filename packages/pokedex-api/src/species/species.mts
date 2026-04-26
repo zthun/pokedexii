@@ -1,5 +1,6 @@
 import type { IZSpecies } from "@zthun/pokedex";
 import { ZSpeciesBuilder } from "@zthun/pokedex";
+
 import { ZPokedexCollection } from "../database/pokedex-database.mjs";
 import type { IPokeApiPokemon } from "../pokemon/pokemon.mjs";
 import type { IPokeApiResource } from "../resource/resource.mjs";

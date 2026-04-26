@@ -1,5 +1,6 @@
 import { ZCircusComponentModel } from "@zthun/cirque";
 import { ZType } from "@zthun/pokedex";
+
 import { ZResourceCardComponentModel } from "../resource/resource-card.cm.mjs";
 
 export class ZTypeCardComponentModel extends ZCircusComponentModel {

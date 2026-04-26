@@ -22,15 +22,16 @@ import {
   it,
   vi,
 } from "vitest";
+
 import {
   ZDatabaseToken,
   ZPokedexCollection,
 } from "../database/pokedex-database.mjs";
 import type { IPokeApiSpecies } from "../species/species.mjs";
 import { ZPokeApiSpeciesBuilder } from "../species/species.mjs";
+import { ZPokeApiResource } from "./resource.mjs";
 import { ZResourceModule } from "./resource-module.mjs";
 import { ZResourceSeedService } from "./resource-seed-service.mjs";
-import { ZPokeApiResource } from "./resource.mjs";
 
 describe.sequential("ZResourceApi", () => {
   let server: IZDatabaseServer<IZDatabaseDocument>;
@@ -65,12 +66,12 @@ describe.sequential("ZResourceApi", () => {
       return target.resolve(ZResourceSeedService);
     };
 
-    beforeEach(() => {
+    beforeEach(async () => {
       http = new ZHttpServiceMock();
 
       const collections = Object.values(ZPokedexCollection);
 
-      collections.forEach(async (c) => {
+      for (const c of collections) {
         http.set(
           ZResourceSeedService.pageEndpoint(c),
           ZHttpMethod.Get,
@@ -78,7 +79,7 @@ describe.sequential("ZResourceApi", () => {
         );
 
         await dal.delete(c);
-      });
+      }
     });
 
     describe.sequential("Seed", () => {

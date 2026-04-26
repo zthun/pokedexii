@@ -6,15 +6,14 @@ import {
   ZRoute,
   ZRouteMap,
 } from "@zthun/fashion-boutique";
-import { createDarkTheme } from "@zthun/fashion-theme";
+import theme from "@zthun/fashion-theme-dark";
+
 import { ZSpeciesDetailsPage } from "../species/species-details-page.js";
 import { ZSpeciesListPage } from "../species/species-list-page.js";
 import { ZTypeListPage } from "../type/type-list-page.js";
 import { ZPokedexAvatar } from "./app-avatar.js";
 import { ZPokedexNavigation } from "./app-navigation.js";
 import { ZPokedexTitle } from "./app-title.js";
-
-const FashionTheme = createDarkTheme();
 
 /**
  * Represents the root entry point into the application.
@@ -24,7 +23,7 @@ const FashionTheme = createDarkTheme();
  */
 export function ZPokedexApp() {
   return (
-    <ZFashionThemeContext.Provider value={FashionTheme}>
+    <ZFashionThemeContext.Provider value={theme}>
       <ZBannerMain
         TitleProps={{
           avatar: <ZPokedexAvatar />,

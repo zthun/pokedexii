@@ -1,9 +1,9 @@
 import type { IZFashion } from "@zthun/fashion-theme";
 import {
-  ZFashionBuilder,
-  ZFashionStateBuilder,
   hex,
   white,
+  ZFashionBuilder,
+  ZFashionStateBuilder,
 } from "@zthun/fashion-theme";
 
 export interface IZPokemonThemeStats {
@@ -20,7 +20,7 @@ export function createHpStatFashion() {
     .name("HP")
     .idle(
       new ZFashionStateBuilder()
-        .main(hex(0x2faf39))
+        .foreground(hex(0x2faf39))
         .border(hex(0x36c543))
         //.border(hex(0x239832))
         .contrast(white())
@@ -34,7 +34,7 @@ export function createAttackStatFashion() {
     .name("Attack")
     .idle(
       new ZFashionStateBuilder()
-        .main(hex(0xdf7c39))
+        .foreground(hex(0xdf7c39))
         .border(hex(0xfe8f47))
         //.border(hex(0xbc5c1f))
         .contrast(white())
@@ -48,7 +48,7 @@ export function createDefenseStatFashion() {
     .name("Defense")
     .idle(
       new ZFashionStateBuilder()
-        .main(hex(0x39a8e0))
+        .foreground(hex(0x39a8e0))
         .border(hex(0x45bffe))
         //.border(hex(0x268fc3))
         .contrast(white())
@@ -62,7 +62,7 @@ export function createSpecialAttackStatFashion() {
     .name("Special Attack")
     .idle(
       new ZFashionStateBuilder()
-        .main(hex(0xeed72c))
+        .foreground(hex(0xeed72c))
         .border(hex(0xfee946))
         // .border(hex(0xbf8d16))
         .contrast(white())
@@ -76,7 +76,7 @@ export function createSpecialDefenseStatFashion() {
     .name("Special Defense")
     .idle(
       new ZFashionStateBuilder()
-        .main(hex(0x3ae1e1))
+        .foreground(hex(0x3ae1e1))
         .border(hex(0x73fefe))
         //.border(hex(0x17c2c7))
         .contrast(white())
@@ -90,7 +90,7 @@ export function createSpeedStatFashion() {
     .name("Speed")
     .idle(
       new ZFashionStateBuilder()
-        .main(hex(0x9645fe))
+        .foreground(hex(0x9645fe))
         .border(hex(0xe0c7ff))
         //.border(hex(0x792efe))
         .contrast(white())

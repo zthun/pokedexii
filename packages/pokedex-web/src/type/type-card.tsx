@@ -2,6 +2,7 @@ import { ZBubble, ZH2, ZH3, ZImage, ZStack } from "@zthun/fashion-boutique";
 import { ZSizeFixed, ZSizeVaried } from "@zthun/fashion-tailor";
 import type { IZType, ZType } from "@zthun/pokedex";
 import { startCase } from "lodash-es";
+
 import { ZResourceCard } from "../resource/resource-card.js";
 import { usePokemonTheme } from "../theme/pokemon-theme.mjs";
 import { ZTypeBadges } from "./type-badges.js";

@@ -10,6 +10,7 @@ import { ZType, ZTypeBuilder } from "@zthun/pokedex";
 import type { Mocked } from "vitest";
 import { beforeEach, describe, expect, it } from "vitest";
 import { mock } from "vitest-mock-extended";
+
 import type { IZResourceService } from "../resource/resource-service.mjs";
 import { ZTypeListPageComponentModel } from "./type-list-page.cm.mjs";
 import { ZTypeListPage } from "./type-list-page.js";

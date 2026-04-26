@@ -37,9 +37,7 @@ export function ZResourceCard<T>(props: IZResourceCard<T>) {
 
     const resource$$ = resource$ as (Error | T)[];
 
-    const _error = find(resource$$, (r) => isStateErrored(r)) as
-      | Error
-      | undefined;
+    const _error = find(resource$$, (r) => isStateErrored(r));
 
     if (_error) {
       return (

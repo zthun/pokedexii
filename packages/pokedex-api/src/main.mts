@@ -1,9 +1,10 @@
 import { NestFactory } from "@nestjs/core";
 import { DocumentBuilder, SwaggerModule } from "@nestjs/swagger";
 import helmet from "helmet";
+
 import { ZPokedexModule } from "./app/pokedex-module.mjs";
 
-(async function () {
+void (async function () {
   const app = await NestFactory.create(ZPokedexModule);
   app.setGlobalPrefix("api");
 
