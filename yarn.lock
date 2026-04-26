@@ -3640,13 +3640,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/supertest@npm:^6.0.3":
-  version: 6.0.3
-  resolution: "@types/supertest@npm:6.0.3"
+"@types/supertest@npm:^7.2.0":
+  version: 7.2.0
+  resolution: "@types/supertest@npm:7.2.0"
   dependencies:
     "@types/methods": "npm:^1.1.4"
     "@types/superagent": "npm:^8.1.0"
-  checksum: 10/6ec05eb591c97bc856b0e78c12f5bec10545f3a749688f34232d189797a506d971bc95931718eb57b378d8513f6d2d12462383e6d68455fa72df35c19de6e89e
+  checksum: 10/5a322e29b81033e90ac50ab315d49559b21809ee39b5681ab7386819463e30d68e29c63c946023a1c353e7f13fb3f20d64dcb89d3d8a0fff569450501aff786c
   languageName: node
   linkType: hard
 
@@ -4501,7 +4501,7 @@ __metadata:
     typescript: "npm:^5.9.3"
     vite: "npm:^7.3.2"
     vitest: "npm:^4.1.5"
-    vitest-mock-extended: "npm:^3.1.1"
+    vitest-mock-extended: "npm:^4.0.0"
   bin:
     pokedex-api: ./bin/main.mjs
   languageName: unknown
@@ -4533,7 +4533,7 @@ __metadata:
     typescript: "npm:^5.9.3"
     vite: "npm:^7.3.2"
     vitest: "npm:^4.1.5"
-    vitest-mock-extended: "npm:^3.1.1"
+    vitest-mock-extended: "npm:^4.0.0"
   languageName: unknown
   linkType: soft
 
@@ -4552,7 +4552,7 @@ __metadata:
     typescript: "npm:^5.9.3"
     vite: "npm:^7.3.2"
     vitest: "npm:^4.1.5"
-    vitest-mock-extended: "npm:^3.1.1"
+    vitest-mock-extended: "npm:^4.0.0"
   languageName: unknown
   linkType: soft
 
@@ -4565,7 +4565,7 @@ __metadata:
     "@types/lodash-es": "npm:^4.17.12"
     "@types/node": "npm:^25.6.0"
     "@types/react": "npm:^19.2.14"
-    "@types/supertest": "npm:^6.0.3"
+    "@types/supertest": "npm:^7.2.0"
     "@vitest/coverage-v8": "npm:^4.1.5"
     "@zthun/janitor-build-config": "npm:^19.5.6"
     "@zthun/janitor-lint": "npm:^19.5.6"
@@ -14726,15 +14726,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vitest-mock-extended@npm:^3.1.1":
-  version: 3.1.1
-  resolution: "vitest-mock-extended@npm:3.1.1"
+"vitest-mock-extended@npm:^4.0.0":
+  version: 4.0.0
+  resolution: "vitest-mock-extended@npm:4.0.0"
   dependencies:
     ts-essentials: "npm:>=10.0.0"
   peerDependencies:
     typescript: 3.x || 4.x || 5.x || 6.x
-    vitest: ">=3.0.0"
-  checksum: 10/741655dd4388a367d6dc1a1c6475e779123d1f448b70ddfd87ce6ea7f7fc2fae5394888f92ea9cb51471b1b53a2c0d1ded9116433f852f6b533cd739e23551c0
+    vitest: ">=4.0.0"
+  checksum: 10/c3e1c3f3183f7c46a7cd6401ec98893fbd4edd54cdd289de46c22f51428028b7c00a158152e9feef3da661c94e702c8db8f962fe7b2c246134ea83ae67bad8f3
   languageName: node
   linkType: hard
 
