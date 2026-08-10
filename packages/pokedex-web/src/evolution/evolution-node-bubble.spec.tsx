@@ -24,11 +24,11 @@ describe("ZEvolutionNodeBubble", () => {
 
   const createTestTarget = async () => {
     const element = (
-      <ZSpeciesServiceContext.Provider value={speciesService}>
+      <ZSpeciesServiceContext value={speciesService}>
         <ZTestRouter navigator={history} location={history.location}>
           <ZEvolutionNodeBubble node={node} />
         </ZTestRouter>
-      </ZSpeciesServiceContext.Provider>
+      </ZSpeciesServiceContext>
     );
     const driver = await new ZCircusSetupRenderer(element).setup();
     const target = await ZCircusBy.first(
