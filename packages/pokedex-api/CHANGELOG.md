@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.2](https://github.com/zthun/pokedexii/compare/v2.1.1...v2.1.2) (2026-08-10)
+
+### Bug Fixes
+
+- exclude stellar ([bdb90c3](https://github.com/zthun/pokedexii/commit/bdb90c3d277696b6db168e710c4d73c2dc40ce04))
+
 ## [2.1.1](https://github.com/zthun/pokedexii/compare/v2.1.0...v2.1.1) (2026-05-26)
 
 **Note:** Version bump only for package @zthun/pokedex-api
