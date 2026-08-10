@@ -1,6 +1,6 @@
 import type { IZFashion } from "@zthun/fashion-theme";
 import { ZType } from "@zthun/pokedex";
-import { createContext, useContext } from "react";
+import { createContext, use } from "react";
 
 import { createEvolutionFashion } from "./pokemon-theme-evolution.mjs";
 import type { IZPokemonThemeStats } from "./pokemon-theme-stats.mjs";
@@ -80,4 +80,4 @@ export function createPokemonTheme(): IZPokemonTheme {
 
 export const ZPokemonThemeContext = createContext(createPokemonTheme());
 
-export const usePokemonTheme = () => useContext(ZPokemonThemeContext);
+export const usePokemonTheme = () => use(ZPokemonThemeContext);

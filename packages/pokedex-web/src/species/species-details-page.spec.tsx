@@ -30,9 +30,9 @@ describe("ZSpeciesDetailsPage", () => {
 
   const createTestTarget = async () => {
     const element = (
-      <ZSpeciesServiceContext.Provider value={speciesService}>
-        <ZPokemonServiceContext.Provider value={pokemonService}>
-          <ZEvolutionServiceContext.Provider value={evolutionService}>
+      <ZSpeciesServiceContext value={speciesService}>
+        <ZPokemonServiceContext value={pokemonService}>
+          <ZEvolutionServiceContext value={evolutionService}>
             <ZTestRouter navigator={history} location={history.location}>
               <ZRouteMap>
                 <ZRoute
@@ -42,9 +42,9 @@ describe("ZSpeciesDetailsPage", () => {
                 <ZRoute path="/not-pokemon" element={<ZSpeciesDetailsPage />} />
               </ZRouteMap>
             </ZTestRouter>
-          </ZEvolutionServiceContext.Provider>
-        </ZPokemonServiceContext.Provider>
-      </ZSpeciesServiceContext.Provider>
+          </ZEvolutionServiceContext>
+        </ZPokemonServiceContext>
+      </ZSpeciesServiceContext>
     );
     const driver = await new ZCircusSetupRenderer(element).setup();
     const target = await ZCircusBy.first(

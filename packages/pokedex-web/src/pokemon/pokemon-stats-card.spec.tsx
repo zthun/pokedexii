@@ -18,9 +18,9 @@ describe("ZPokemonStatsCard", () => {
 
   const createTestTarget = async () => {
     const element = (
-      <ZPokemonServiceContext.Provider value={pokemonService}>
+      <ZPokemonServiceContext value={pokemonService}>
         <ZPokemonStatsCard pokemonName={charizard.name} />
-      </ZPokemonServiceContext.Provider>
+      </ZPokemonServiceContext>
     );
 
     const driver = await new ZCircusSetupRenderer(element).setup();

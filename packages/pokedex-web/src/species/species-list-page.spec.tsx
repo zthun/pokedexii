@@ -35,11 +35,11 @@ describe("ZSpeciesListPage", () => {
   async function createTestTarget() {
     const element = (
       <ZTestRouter navigator={history} location={history.location}>
-        <ZPokemonServiceContext.Provider value={pokemonService}>
-          <ZSpeciesServiceContext.Provider value={speciesService}>
+        <ZPokemonServiceContext value={pokemonService}>
+          <ZSpeciesServiceContext value={speciesService}>
             <ZSpeciesListPage />
-          </ZSpeciesServiceContext.Provider>
-        </ZPokemonServiceContext.Provider>
+          </ZSpeciesServiceContext>
+        </ZPokemonServiceContext>
       </ZTestRouter>
     );
     const driver = await new ZCircusSetupRenderer(element).setup();

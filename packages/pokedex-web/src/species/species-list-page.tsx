@@ -16,7 +16,7 @@ import { useSpeciesService } from "./species-service.mjs";
 export function ZSpeciesListPage() {
   const service = useSpeciesService();
   const navigate = useNavigate();
-  const [template, setTemplate] = useState(
+  const [template, setTemplate] = useState(() =>
     new ZDataRequestBuilder().size(96).build(),
   );
 
