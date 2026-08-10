@@ -22,7 +22,7 @@ export function ZTypeCard(props: IZTypeCard) {
 
     return (
       <>
-        <ZH3>{header}</ZH3>
+        <ZH3 compact>{header}</ZH3>
         <ZTypeBadges types={types} compact />
       </>
     );
