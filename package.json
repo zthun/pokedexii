@@ -18,12 +18,11 @@
     "test": "vitest --run --coverage",
     "lint": "eslint",
     "build": "lerna run build",
-    "make": "yarn clean && yarn check && yarn lint && yarn test && yarn build",
-    "prepare": "husky"
+    "make": "yarn clean && yarn check && yarn lint && yarn test && yarn build"
   },
   "devDependencies": {
     "@commitlint/cli": "^21.0.1",
-    "@commitlint/config-conventional": "^21.0.1",
+    "@commitlint/config-angular": "^21.0.1",
     "@types/lodash-es": "^4.17.12",
     "@types/node": "^25.9.1",
     "@types/react": "^19.2.15",
