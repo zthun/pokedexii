@@ -21,6 +21,7 @@ export enum ZType {
   Steel = "steel",
   Unknown = "unknown",
   Water = "water",
+  Stellar = "stellar",
 }
 
 export interface IZType extends IZResource<ZType> {
