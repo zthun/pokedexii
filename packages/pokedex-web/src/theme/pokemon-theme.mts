@@ -73,6 +73,7 @@ export function createPokemonTheme(): IZPokemonTheme {
       [ZType.Steel]: createSteelTypeFashion(),
       [ZType.Unknown]: createUnknownTypeFashion(),
       [ZType.Water]: createWaterTypeFashion(),
+      [ZType.Stellar]: createUnknownTypeFashion(),
     },
     evolution: createEvolutionFashion(),
   };
