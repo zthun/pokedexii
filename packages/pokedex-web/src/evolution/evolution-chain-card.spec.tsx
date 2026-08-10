@@ -34,16 +34,16 @@ describe("ZEvolutionChainCard", () => {
 
   const createTestTarget = async () => {
     const element = (
-      <ZSpeciesServiceContext.Provider value={speciesService}>
-        <ZEvolutionServiceContext.Provider value={evolutionService}>
+      <ZSpeciesServiceContext value={speciesService}>
+        <ZEvolutionServiceContext value={evolutionService}>
           <ZTestRouter navigator={history} location={history.location}>
             <ZEvolutionChainCard
               evolutionName={evolution.name}
             ></ZEvolutionChainCard>
             ;
           </ZTestRouter>
-        </ZEvolutionServiceContext.Provider>
-      </ZSpeciesServiceContext.Provider>
+        </ZEvolutionServiceContext>
+      </ZSpeciesServiceContext>
     );
     const driver = await new ZCircusSetupRenderer(element).setup();
     const target = await ZCircusBy.first(

@@ -1,5 +1,4 @@
 import {
-  useLocation,
   useParams,
   ZBreadcrumbsOutlet,
   ZFullScreen,
@@ -10,7 +9,7 @@ import {
 } from "@zthun/fashion-boutique";
 import { ZSizeFixed } from "@zthun/fashion-tailor";
 import { isStateErrored, isStateLoading } from "@zthun/helpful-react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import { ZEvolutionChainCard } from "../evolution/evolution-chain-card.js";
 import { ZPokemonAttributesCard } from "../pokemon/pokemon-attributes-card.js";
@@ -23,13 +22,14 @@ import { ZSpeciesVarietiesCard } from "./species-varieties-card.js";
  */
 export function ZSpeciesDetailsPage() {
   const { name } = useParams();
-  const location = useLocation();
+  const [prev, setPrev] = useState(name);
   const [species] = useSpecies(name);
   const [variety, setVariety] = useState(0);
 
-  useEffect(() => {
+  if (prev !== name) {
+    setPrev(name);
     setVariety(0);
-  }, [location]);
+  }
 
   const renderPage = () => {
     if (!name) {

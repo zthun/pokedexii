@@ -2,7 +2,7 @@ import { useAsyncState } from "@zthun/helpful-react";
 import type { IZPokemon } from "@zthun/pokedex";
 import { ZPokemonBuilder } from "@zthun/pokedex";
 import { ZHttpService } from "@zthun/webigail-http";
-import { createContext, useContext } from "react";
+import { createContext, use } from "react";
 
 import type { IZResourceService } from "../resource/resource-service.mjs";
 import { ZResourceService } from "../resource/resource-service.mjs";
@@ -13,7 +13,7 @@ function createPokemonService(): IZResourceService<IZPokemon> {
 export const ZPokemonServiceContext = createContext(createPokemonService());
 
 export function usePokemonService() {
-  return useContext(ZPokemonServiceContext);
+  return use(ZPokemonServiceContext);
 }
 
 export function usePokemon(name: string | null | undefined) {

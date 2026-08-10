@@ -26,9 +26,9 @@ describe("ZTypeListPage", () => {
 
   const createTestTarget = async () => {
     const element = (
-      <ZTypeServiceContext.Provider value={typeService}>
+      <ZTypeServiceContext value={typeService}>
         <ZTypeListPage />
-      </ZTypeServiceContext.Provider>
+      </ZTypeServiceContext>
     );
 
     const driver = await new ZCircusSetupRenderer(element).setup();

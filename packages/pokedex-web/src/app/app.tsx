@@ -23,7 +23,7 @@ import { ZPokedexTitle } from "./app-title.js";
  */
 export function ZPokedexApp() {
   return (
-    <ZFashionThemeContext.Provider value={theme}>
+    <ZFashionThemeContext value={theme}>
       <ZBannerMain
         TitleProps={{
           avatar: <ZPokedexAvatar />,
@@ -39,6 +39,6 @@ export function ZPokedexApp() {
           <ZRoute path="*" element={<ZNotFound />} />
         </ZRouteMap>
       </ZBannerMain>
-    </ZFashionThemeContext.Provider>
+    </ZFashionThemeContext>
   );
 }

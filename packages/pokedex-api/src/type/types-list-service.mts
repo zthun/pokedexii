@@ -44,6 +44,7 @@ export class ZTypesListService implements IZResourceListService<IZType> {
       .notIn()
       .value(ZType.Unknown)
       .value(ZType.Shadow)
+      .value(ZType.Stellar)
       .build();
     const filter = new ZFilterLogicBuilder()
       .and()

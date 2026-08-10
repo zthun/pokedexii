@@ -30,15 +30,15 @@ describe("ZSpeciesVarietiesCard", () => {
 
   const createTestTarget = async () => {
     const element = (
-      <ZSpeciesServiceContext.Provider value={speciesService}>
-        <ZPokemonServiceContext.Provider value={pokemonService}>
+      <ZSpeciesServiceContext value={speciesService}>
+        <ZPokemonServiceContext value={pokemonService}>
           <ZSpeciesVarietiesCard
             speciesName={charizard$.name}
             value={value}
             onValueChange={onValueChange}
           />
-        </ZPokemonServiceContext.Provider>
-      </ZSpeciesServiceContext.Provider>
+        </ZPokemonServiceContext>
+      </ZSpeciesServiceContext>
     );
 
     const driver = await new ZCircusSetupRenderer(element).setup();
