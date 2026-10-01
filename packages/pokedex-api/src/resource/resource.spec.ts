@@ -33,7 +33,7 @@ import { ZPokeApiResource } from "./resource.mjs";
 import { ZResourceModule } from "./resource-module.mjs";
 import { ZResourceSeedService } from "./resource-seed-service.mjs";
 
-describe.sequential("ZResourceApi", () => {
+describe("ZResourceApi", () => {
   let server: IZDatabaseServer<IZDatabaseDocument>;
   let dal: IZDatabaseDocument;
 
@@ -50,7 +50,7 @@ describe.sequential("ZResourceApi", () => {
     await server.stop();
   });
 
-  describe.sequential("Seeding", () => {
+  describe("Seeding", () => {
     let http: ZHttpServiceMock;
 
     const createTestTarget = async () => {
@@ -82,7 +82,7 @@ describe.sequential("ZResourceApi", () => {
       }
     });
 
-    describe.sequential("Seed", () => {
+    describe("Seed", () => {
       let dal_create: Mock;
 
       beforeEach(() => {
@@ -129,7 +129,7 @@ describe.sequential("ZResourceApi", () => {
       });
     });
 
-    describe.sequential("Populate", () => {
+    describe("Populate", () => {
       let squirtle: IPokeApiSpecies;
       let charmander: IPokeApiSpecies;
       let charizard: IPokeApiSpecies;
